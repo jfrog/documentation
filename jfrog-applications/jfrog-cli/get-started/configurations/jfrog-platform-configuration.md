@@ -1,0 +1,2 @@
+# JFrog Platform Configuration
+
