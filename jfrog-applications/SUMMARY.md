@@ -64,3 +64,13 @@
     * [Integrations](jfrog-security-for-developers/features/sast/integrations.md)
     * [SAST Workflow](jfrog-security-for-developers/features/sast/sast-workflow.md)
     * [Customizing Your Scan](jfrog-security-for-developers/features/sast/customizing-your-scan.md)
+
+***
+
+* [CI Integrations](ci-integrations/README.md)
+  * [Maven Artifactory Plugin](ci-integrations/maven-artifactory-plugin.md)
+  * [GitLab Templates for JFrog](ci-integrations/gitlab-templates-for-jfrog.md)
+  * [Jenkins JFrog Plugin](ci-integrations/jenkins-jfrog-plugin.md)
+  * [Bamboo JFrog Plugin](ci-integrations/bamboo-jfrog-plugin.md)
+  * [GitHub Actions](ci-integrations/github-actions.md)
+  * [Artifactory Gradle Plugin](ci-integrations/artifactory-gradle-plugin.md)
