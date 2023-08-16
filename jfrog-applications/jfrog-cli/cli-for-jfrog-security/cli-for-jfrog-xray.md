@@ -1,0 +1,467 @@
+# CLI for JFrog Xray
+
+Authentication
+
+When used with Xray, JFrog CLI offers several means of authentication: JFrog CLI does not support accessing Xray without authentication.
+
+#### Authenticating with Username and Password
+
+To authenticate yourself using your Xray login credentials, either configure your credentials once using the\_jf c add\_command or provide the following option to each command.
+
+<table><thead><tr><th width="424.5"></th><th></th></tr></thead><tbody><tr><td>Command option</td><td>Description</td></tr><tr><td>--url</td><td>JFrog Xray API endpoint URL. It usually ends with /xray</td></tr><tr><td>--user</td><td>JFrog username</td></tr><tr><td>--password</td><td>JFrog password</td></tr></tbody></table>
+
+#### Authenticating with an Access Token
+
+To authenticate yourself using an Xray Access Token, either configure your Access Token once using the \_jf c add\_command or provide the following option to each command.
+
+<table><thead><tr><th width="218.5"></th><th></th></tr></thead><tbody><tr><td>Command option</td><td>Description</td></tr><tr><td>--url</td><td>JFrog Xray API endpoint URL. It usually ends with /xray</td></tr><tr><td>--access-token</td><td>JFrog access token</td></tr></tbody></table>
+
+***
+
+## Scanning Project Dependencies
+
+### General
+
+The _**jf audit**_ command allows scanning your source code dependencies to find security vulnerabilities and licenses violations, with the ability to scan against your Xray policies. The command builds a deep dependencies graph for your project, scans it with Xray, and displays the results. It uses the package manager used by the project to build the dependencies graph. Currently, the following package managers are supported.
+
+* Maven (mvn) - Version 3.1.0 or above of Maven is supported.
+* Gradle (gradle)
+* Npm (npm)
+* Yarn (yarn)
+* Pip (pip)
+* Pipenv (pipenv)
+* Poetry (poetry)
+* Go Modules (go)
+* NuGet (nuget)
+* .NET Core CLI (dotnet)
+
+The command will detect the package manager used by the project automatically. It requires version 3.29.0 or above of Xray and also version 2.13.0 or above of JFrog CLI.
+
+### Advanced Scans
+
+This command also supports the following Advanced Scans with the **Advanced Security Package** enabled on the JFrog Platform instance. To enable the Advanced Security Package, contact us using [this](https://jfrog.com/advanced-security-contact-us/) form.
+
+* **Vulnerability Contextual Analysis**: This feature uses the code context to eliminate false positive reports on vulnerable dependencies that are not applicable to the code. Vulnerability Contextual Analysis is currently supported for Python and JavaScript code.
+* **Secrets Detection**: Detect any secrets left exposed inside the code. to stop any accidental leak of internal tokens or credentials.
+* **Infrastructure as Code scans (IaC)**: Scan Infrastructure as Code (Terraform) files for early detection of cloud and infrastructure misconfigurations.
+
+***
+
+**Note**
+
+>
+
+* The **jf audit** command does not extract the internal content of the scanned dependencies. This means that if a package includes other vulnerable components bundled inside the binary, they may not be shown as part of the results. This is contrary to the **jf scan** command, which drills down into the package content.
+
+***
+
+|                       |                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Command name**      | audit                                                                                                                                                                                                                                                                                                                                                             |
+| **Abbreviation**      | aud                                                                                                                                                                                                                                                                                                                                                               |
+| **Command options**   |                                                                                                                                                                                                                                                                                                                                                                   |
+| --server-id           | <p>[Optional]<br><br>Server ID configured using the <em>jf c add</em> command. If not specified, the default configured server is used.</p>                                                                                                                                                                                                                       |
+| --project             | <p>[Optional]<br><br>JFrog project key, to enable Xray to determine security violations accordingly. The command accepts this option only if the --repo-path and --watches options are not provided. If none of the three options are provided, the command will show all known vulnerabilities</p>                                                               |
+| --repo-path           | <p>[Optional]<br><br>Artifactory repository path in the form of &#x3C;repository>/&#x3C;path in the repository>, to enable Xray to determine violations accordingly. The command accepts this option only if the --project and --watches options are not provided. If none of the three options are provided, the command will show all known vulnerabilities</p> |
+| --watches             | <p>[Optional]<br><br>A comma-separated list of Xray watches, to enable Xray to determine violations accordingly. The command accepts this option only if the --repo-path and --repo-path options are not provided. If none of the three options are provided, the command will show all known vulnerabilities</p>                                                 |
+| --licenses            | <p>[Default: false]<br><br>Set if you'd also like the list of licenses to be displayed.</p>                                                                                                                                                                                                                                                                       |
+| --format              | <p>[Default: table]<br><br>Defines the output format of the command. Acceptable values are: table and json.</p>                                                                                                                                                                                                                                                   |
+| --fail                | <p>[Default: true]<br><br>Set to false if you do not wish the command to return exit code 3, even if the 'Fail Build' rule is matched by Xray.</p>                                                                                                                                                                                                                |
+| --use-wrapper         | <p>[Default: false] [Gradle]<br><br>Set to true if you'd like to use the Gradle wrapper.</p>                                                                                                                                                                                                                                                                      |
+| --dep-type            | <p>[Default: all] [npm]<br><br>Defines npm dependencies type. Possible values are: all, devOnly and prodOnly</p>                                                                                                                                                                                                                                                  |
+| --exclude-test-deps   | <p>[Default: false] [Gradle]<br><br>Set to true if you'd like to exclude Gradle test dependencies from Xray scanning.</p>                                                                                                                                                                                                                                         |
+| --requirements-file   | <p>[Optional] [Pip]<br><br>Defines pip requirements file name. For example: 'requirements.txt'</p>                                                                                                                                                                                                                                                                |
+| --working-dirs        | <p>[Optional]<br><br>A comma-separated list of relative working directories, to determine the audit targets locations.</p>                                                                                                                                                                                                                                        |
+| --fixable-only        | <p>[Optional]<br><br>Set to true if you wish to display issues that have a fix version only.</p>                                                                                                                                                                                                                                                                  |
+| --min-severity        | <p>[Optional]<br><br>Set the minimum severity of issues to display. The following values are accepted: Low, Medium, High or Critical</p>                                                                                                                                                                                                                          |
+| --go                  | <p>[Default: false]<br><br>Set to true to request audit for a Go project.</p>                                                                                                                                                                                                                                                                                     |
+| --gradle              | <p>[Default: false]<br><br>Set to true to request audit for a Gradle project.</p>                                                                                                                                                                                                                                                                                 |
+| --mvn                 | <p>[Default: false]<br><br>Set to true to request audit for a Maven project.</p>                                                                                                                                                                                                                                                                                  |
+| --npm                 | <p>[Default: false]<br><br>Set to true to request audit for a npm project.</p>                                                                                                                                                                                                                                                                                    |
+| --nuget               | <p>[Default: false]<br><br>Set to true to request audit for a .Net project.</p>                                                                                                                                                                                                                                                                                   |
+| --pip                 | <p>[Default: false]<br><br>Set to true to request audit for a Pip project.</p>                                                                                                                                                                                                                                                                                    |
+| --pipenv              | <p>[Default: false]<br><br>Set to true to request audit for a Pipenv project.</p>                                                                                                                                                                                                                                                                                 |
+| --yarn                | <p>[Default: false]<br><br>Set to true to request audit for a Yarn project.</p>                                                                                                                                                                                                                                                                                   |
+| **Command arguments** | The command accepts no arguments                                                                                                                                                                                                                                                                                                                                  |
+
+#### **Output Example**
+
+&#x20;&#x20;
+
+#### Examples
+
+**Example 1**
+
+Audit the project at the current directory. Show all known vulnerabilities, regardless of the policies defined in Xray.
+
+```
+jf audit
+```
+
+**Example 2**
+
+Audit the project at the current directory. Show all known vulnerabilities, regardless of the policies defined in Xray. Show only maven and npm vulnerabilities.
+
+```
+jf audit --mvn --npm
+```
+
+**Example 3**
+
+Audit the project at the current directory using a watch named _watch1_ watch defined in Xray.
+
+```
+jf audit --watches "watch1"
+```
+
+**Example 4**
+
+Audit the project at the current directory using _watch1_ and \_watch2\_defined in Xray.
+
+```
+jf audit --watches "watch1,watch2"
+```
+
+**Example 5**
+
+Audit the project at the current directory using the policies defined for project-1.
+
+```
+jf audit --project "project-1"
+```
+
+**Example 6**
+
+Audit the project at the current directory using the policies defined for the _libs-local/release-artifacts/_ path in Artifactory.
+
+```
+jf audit --repo-path "libs-local/release-artifacts/"
+```
+
+### Running cUrl
+
+Execute a cUrl command, using the configured Xray details. The command expects the cUrl client to be included in the PATH.
+
+|                          |                                                                                                                                                                                                                                                                                           |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Command name             | xr curl                                                                                                                                                                                                                                                                                   |
+| Abbreviation             | xr cl                                                                                                                                                                                                                                                                                     |
+| Command options          |                                                                                                                                                                                                                                                                                           |
+| --server-id              | <p>[Optional]<br><br>Server ID configured using the <em>jf c add</em> command. If not specified, the default configured server is used.</p>                                                                                                                                               |
+| Command arguments        |                                                                                                                                                                                                                                                                                           |
+| cUrl arguments and flags | <p>The same list of arguments and flags passed to cUrl, except for the following changes:<br><br>1. The full Xray URL should not be passed. Instead, the REST endpoint URI should be sent.<br>2. The login credentials should not be passed. Instead, the --server-id should be used.</p> |
+
+#### **Examples**
+
+**Example 1**
+
+Execute the cUrl client, to send a GET request to the /api/system/version endpoint to the default configured Xray server.
+
+```
+jf xr curl -XGET /api/v1/system/version
+```
+
+**Example 2**
+
+Execute the cUrl client, to send a GET request to the /api/v1/system/version endpoint to the configured my-xr-server server ID.
+
+```
+jf rt curl -XGET /api/v1/system/version --server-id my-xr-server
+```
+
+## On-Demand Binary Scan
+
+The [on-demand binary scanning](https://jfrog-staging-external.fluidtopics.net/r/help/DevSecOps-Xray/Xray-On-Demand-Binary-Scan) enables you to point to a binary in your local file system and receive a report that contains a list of vulnerabilities, licenses, and policy violations for that binary prior to uploading the binary or build to Artifactory.
+
+### Scanning Files on the Local File System
+
+This **jf scan**\_ command scans files on the local file system with Xray.
+
+***
+
+**Note**
+
+> This command requires:
+
+* Version 3.29.0 or above of Xray
+* Version 2.1.0 or above of JFrog CLI
+
+***
+
+|                       |                                                                                                                                                                                                                                                                                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Command name**      | scan                                                                                                                                                                                                                                                                                                                                                               |
+| **Abbreviation**      | s                                                                                                                                                                                                                                                                                                                                                                  |
+| **Command options**   |                                                                                                                                                                                                                                                                                                                                                                    |
+| --server-id           | <p>[Optional]<br><br>Server ID configured using the <em>jf c add</em> command. If not specified, the default configured server is used.</p>                                                                                                                                                                                                                        |
+| --spec                | <p>[Optional]<br><br>Path to a file specifying the files to scan. If the pattern argument is provided to the command, this option should not be provided.</p>                                                                                                                                                                                                      |
+| --project             | <p>[Optional]<br><br>JFrog project key, to enable Xray to determine security violations accordingly. The command accepts this option only if the --repo-path and --watches options are not provided. If none of the three options are provided, the command will show all known vulnerabilities.</p>                                                               |
+| --repo-path           | <p>[Optional]<br><br>Artifactory repository path in the form of &#x3C;repository>/&#x3C;path in the repository>, to enable Xray to determine violations accordingly. The command accepts this option only if the --project and --watches options are not provided. If none of the three options are provided, the command will show all known vulnerabilities.</p> |
+| --watches             | <p>[Optional]<br><br>A comma-separated list of Xray watches, to enable Xray to determine violations accordingly. The command accepts this option only if the --project and --repo-path options are not provided. If none of the three options are provided, the command will show all known vulnerabilities.</p>                                                   |
+| --licenses            | <p>[Default: false]<br><br>Set if you also require the list of licenses to be displayed.</p>                                                                                                                                                                                                                                                                       |
+| --format=json         | <p>[Optional]<br><br>Produces a JSON file containing the scan results.</p>                                                                                                                                                                                                                                                                                         |
+| **Command arguments** |                                                                                                                                                                                                                                                                                                                                                                    |
+| **Pattern**           | Specifies the local file system path to artifacts to be scanned. You can specify multiple files by using wildcards.                                                                                                                                                                                                                                                |
+
+**Output Example**
+
+**Examples**
+
+**Example 1**
+
+Scans all the files located at the path/ti/files/ file-system directory using the watch1 watch defined in Xray.
+
+```
+jf s "path/to/files/" --watches "watch1"
+```
+
+**Example 2**\
+Scans all the files located at the path/ti/files/ file-system directory using the _watch1_ and _watch2_ Watches defined in Xray.
+
+```
+jf s "path/to/files/" --watches "watch1,watch2"
+```
+
+**Example 3**
+
+Scans all the zip files located at the path/ti/files/ file-system directory using the _watch1_ and _watch2_ Watches defined in Xray.
+
+```
+jf s "path/to/files/*.zip" --watches "watch1,watch2"
+```
+
+**Example 4**
+
+Scans all the tgz files located at the path/ti/files/ file-system directory using the policies defined for project-1.
+
+```
+jf s "path/to/files/*.tgz" --project "project-1"
+```
+
+**Example 5**\
+Scans all the tgz files located in the current directory using the policies defined for the libs-local/release-artifacts/ path in Artifactory.
+
+```
+jf s "*.tgz" --repo-path "libs-local/release-artifacts/"
+```
+
+**Example 6**\
+Scans all the tgz files located at the current directory. Show all known vulnerabilities, regardless of the policies defined in Xray.
+
+```
+jf s "*.tgz"
+```
+
+### Scanning Docker Containers on the Local File System
+
+This j\_**f docker scan**\_ command scans docker containers located on the local file-system using the _**docker client**_ and _**JFrog Xray**_. The containers don't need to be deployed to Artifactory or any other container registry before it can be scanned.
+
+***
+
+**Note**
+
+> This command requires:
+
+* Version 3.40.0 or above of Xray
+* Version 2.11.0 or above of JFrog CLI
+
+***
+
+|                       |                                                                                                                                                                                                                                                                                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Command name**      | docker scan                                                                                                                                                                                                                                                                                                                                                        |
+| **Abbreviation**      |                                                                                                                                                                                                                                                                                                                                                                    |
+| **Command options**   |                                                                                                                                                                                                                                                                                                                                                                    |
+| --server-id           | <p>[Optional]<br><br>Server ID configured using the <em>jf c add</em> command. If not specified, the default configured server is used.</p>                                                                                                                                                                                                                        |
+| --project             | <p>[Optional]<br><br>JFrog project key, to enable Xray to determine security violations accordingly. The command accepts this option only if the --repo-path and --watches options are not provided. If none of the three options are provided, the command will show all known vulnerabilities.</p>                                                               |
+| --repo-path           | <p>[Optional]<br><br>Artifactory repository path in the form of &#x3C;repository>/&#x3C;path in the repository>, to enable Xray to determine violations accordingly. The command accepts this option only if the --project and --watches options are not provided. If none of the three options are provided, the command will show all known vulnerabilities.</p> |
+| --watches             | <p>[Optional]<br><br>A comma separated list of Xray watches, to enable Xray to determine violations accordingly. The command accepts this option only if the --repo-path and --repo-path options are not provided. If none of the three options are provided, the command will show all known vulnerabilities.</p>                                                 |
+| --licenses            | <p>[Default: false]<br><br>Set if you also require the list of licenses to be displayed.</p>                                                                                                                                                                                                                                                                       |
+| --format=json         | <p>[Optional]<br><br>Produces a JSON file containing the scan results.</p>                                                                                                                                                                                                                                                                                         |
+| **Command arguments** |                                                                                                                                                                                                                                                                                                                                                                    |
+| **Pattern**           | Specifies the local file system path to artifacts to be scanned. You can specify multiple files by using wildcards.                                                                                                                                                                                                                                                |
+
+**Output Example**
+
+**Examples**
+
+**Example 1**
+
+Scan the local _reg1/repo1/img1:1.0.0_ container and show all known vulnerabilities, regardless of the policies defined in Xray.
+
+```
+$ docker images
+REPOSITORY           TAG       IMAGE ID       CREATED         SIZE
+reg1/repo1/img1   1.0.0     6446ea57df7b   19 months ago   5.57MB
+$ 
+$ jf docker scan reg1/repo1/img1:1.0.0
+```
+
+**Example 2**
+
+Scan the local _reg1/repo1/img1:1.0.0_ container and show all violations according to the policy associated with _my-project_ JFrog project.
+
+```
+$ docker images
+REPOSITORY           TAG       IMAGE ID       CREATED         SIZE
+reg1/repo1/img1   1.0.0     6446ea57df7b   19 months ago   5.57MB
+$ 
+$ jf docker scan reg1/repo1/img1:1.0.0 --project my-project
+```
+
+**Example 3**
+
+Scan the local _reg1/repo1/img1:1.0.0_ container and show all violations according to the policy associated with _my-watch_ Xray Watch.
+
+```
+$ docker images
+REPOSITORY           TAG       IMAGE ID       CREATED         SIZE
+reg1/repo1/img1   1.0.0     6446ea57df7b   19 months ago   5.57MB
+$ 
+$ jf docker scan reg1/repo1/img1:1.0.0 --watches my-watch
+```
+
+**Example 4**
+
+Scan the local _reg1/repo1/img1:1.0.0_ container and show all violations according to the policy associated with the _releases-local/app1/_ path in Artifactory.
+
+```
+$ docker images
+REPOSITORY           TAG       IMAGE ID       CREATED         SIZE
+reg1/repo1/img1   1.0.0     6446ea57df7b   19 months ago   5.57MB
+$ 
+$ jf docker scan reg1/repo1/img1:1.0.0 --repo-path releases-local/app1/
+```
+
+### Scanning Image Tarballs on the Local File System
+
+The ‘`scan`’ command can be used to scan tarballs of Docker and OCI images on the local file system.
+
+It requires saving the image on the file system as an uncompressed tarball using a compliant tool, and then scanning it with the ‘`jf s`’ command. The image must be saved to the file system uncompressed, in a `<name>.tar` file name.
+
+***
+
+**Note**
+
+> This command requires:
+
+* Version 3.61.5 or above of Xray.
+* Version 2.14.0 or above of JFrog CLI.
+
+***
+
+#### Docker Client
+
+#### Use Docker client ‘`docker save`’ command to save the image to the file system for scanning.
+
+**Example**:
+
+```
+$ docker images
+REPOSITORY TAG IMAGE ID CREATED SIZE
+my-image 1.0.0 aaaaabbcccddd 2 months ago 1.12MB
+
+$ docker save --output my-image-docker.tar my-image:1.0.0
+$ jf s my-image-docker.tar
+```
+
+#### Skopeo
+
+Use Skopeo CLI to save an image to the file system. Output image can be either OCI or Docker format.
+
+**Example**:
+
+```
+$ docker images
+REPOSITORY TAG IMAGE ID CREATED SIZE
+my-image 1.0.0 aaaaabbcccddd 2 months ago 1.12MB
+
+// Scan an image in Docker format
+$ skopeo copy docker-daemon:my-image:1.0.0 docker-archive:my-image-docker.tar
+$ jf s my-image-docker.tar
+
+// Scan an image in OCI format
+$ skopeo copy docker-daemon:my-image:1.0.0 oci-archive:my-image-oci.tar
+$ jf s my-image-oci.tar
+```
+
+#### Podman
+
+Use Podman CLI to save an image to the file system. Output image can be either OCI or Docker format.
+
+**Example**:
+
+```
+$ podman images
+REPOSITORY TAG IMAGE ID CREATED SIZE
+my-image 1.0.0 aaaaabbcccddd 2 months ago 1.12MB
+
+// Scan an image in Docker format
+$ podman save --format=docker-archive -o my-image-docker.tar my-image:1.0.0
+$ jf s my-image-docker.tar
+
+// Scan an image in OCI format
+$ podman save --format=oci -o my-image-oci.tar my-image:1.0.0
+$ jf s my-image-oci.tar
+```
+
+#### Kaniko
+
+Use Kaniko ‘`--tarPath’` flag to save built images to the file system, and later scan them with JFrog CLI. The example below is running Kaniko in Docker.
+
+**Example**:
+
+```
+$ cat Dockerfile
+
+FROM alpine:3.16
+
+$ docker run -it --rm -v $(pwd):/workspace gcr.io/kaniko-project/executor:v1.8.1-debug -f Dockerfile --no-push --tarPath my-image.tar -d my-image:1.0 -c . --cleanup
+
+$ jf s my-image.tar
+```
+
+## Scanning Published Builds
+
+JFrog CLI is integrated with JFrog Xray and JFrog Artifactory, allowing you to have your build artifacts and dependencies scanned for vulnerabilities and license violations. This command allows scanning a build, which had already been published to Artifactory using the [build-publish command](https://jfrog.com/help/r/jfrog-cli/publishing-build-info).
+
+|                   |                                                                                                                                                                                                                                            |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Command name      | build-scan                                                                                                                                                                                                                                 |
+| Abbreviation      | bs                                                                                                                                                                                                                                         |
+| Command options   |                                                                                                                                                                                                                                            |
+| --server-id       | <p>[Optional]<br><br>Server ID configured by the <em>jf c add</em> command. If not specified, the default configured server is used.</p>                                                                                                   |
+| --vuln            | <p>[Optional]<br><br>Set if you'd like to receive all vulnerabilities, regardless of the policy configured in Xray.</p>                                                                                                                    |
+| --fail            | <p>[Default: true]<br><br>When set, the command returns exit code 3 if a 'Fail Build' rule is matched by Xray.<br>Set to false if you do not wish the command to return exit code 3 in such case, and an exit code 0 will be returned.</p> |
+| --format          | <p>[Default: table]<br><br>Defines the output format of the command. The accepted values are: <em><strong>table</strong></em> and <em><strong>json</strong></em>.</p>                                                                      |
+| --project         | <p>[Optional]<br><br>JFrog project key</p>                                                                                                                                                                                                 |
+| --rescan          | <p>[Default: false]<br><br>Set to true when scanning an already successfully scanned build, for example after adding an ignore rule.</p>                                                                                                   |
+| Command arguments | The command accepts two arguments.                                                                                                                                                                                                         |
+| Build name        | Build name to be scanned.                                                                                                                                                                                                                  |
+| Build number      | Build number to be scanned.                                                                                                                                                                                                                |
+
+**Example**
+
+```
+jf bs my-build-name 18
+```
+
+## Downloading updates for Xray's database
+
+The offline-update command downloads updates to Xray's vulnerabilities database. The Xray UI allows building the command structure for you.
+
+|                   |                                                                                                                 |
+| ----------------- | --------------------------------------------------------------------------------------------------------------- |
+| Command name      | xr offline-update                                                                                               |
+| Abbreviation      | xr ou                                                                                                           |
+| Command options   |                                                                                                                 |
+| --license-id      | <p>[Mandatory]<br><br>Xray license ID.</p>                                                                      |
+| --from            | <p>[Optional]<br><br>From update date in YYYY-MM-DD format.</p>                                                 |
+| --to              | <p>[Optional]<br><br>To update date in YYYY-MM-DD format.</p>                                                   |
+| --version         | <p>[Optional]<br><br>Xray API version.</p>                                                                      |
+| --target          | <p>[Default: ./]<br><br>Path for downloaded update files.</p>                                                   |
+| --dbsyncv3        | <p>[Default: false]<br><br>Set to true to use Xray DBSync V3.</p>                                               |
+| --periodic        | <p>[Default: false]<br><br>Set to true to get the Xray DBSync V3 Periodic Package (Use with dbsyncv3 flag).</p> |
+| Command arguments | The command accepts no arguments.                                                                               |
+
+***

@@ -1,6 +1,6 @@
 # Table of contents
 
-* [JFrog for Developers](README.md)
+* [JFrog Applications](README.md)
 
 ## JFrog CLI
 
@@ -11,11 +11,15 @@
     * [JFrog Platform Configuration](jfrog-cli/get-started/configurations/jfrog-platform-configuration.md)
     * [Setting up a CI Pipeline](jfrog-cli/get-started/configurations/setting-up-a-ci-pipeline.md)
     * [Proxy Support](jfrog-cli/get-started/configurations/proxy-support.md)
-* [Artifactory](jfrog-cli/artifactory.md)
-* [JFrog Security](jfrog-cli/jfrog-security/README.md)
-  * [General Commands](jfrog-cli/jfrog-security/general-commands.md)
-  * [Scan your Source Code](jfrog-cli/jfrog-security/scan-your-source-code.md)
-  * [Scan your Binaries](jfrog-cli/jfrog-security/scan-your-binaries.md)
+* [CLI for JFrog Artifactory](jfrog-cli/cli-for-jfrog-artifactory.md)
+* [CLI for JFrog Security](jfrog-cli/cli-for-jfrog-security/README.md)
+  * [Scan your Source Code](jfrog-cli/cli-for-jfrog-security/scan-your-source-code.md)
+  * [Scan your Binaries](jfrog-cli/cli-for-jfrog-security/scan-your-binaries.md)
+  * [CLI for JFrog Xray](jfrog-cli/cli-for-jfrog-security/cli-for-jfrog-xray.md)
+* [CLI for JFrog Curation](jfrog-cli/cli-for-jfrog-curation.md)
+* [CLI for JFrog Distribution](jfrog-cli/cli-for-jfrog-distribution.md)
+* [CLI for JFrog Pipelines](jfrog-cli/cli-for-jfrog-pipelines.md)
+* [CLI for JFrog Release Lifecycle Management](jfrog-cli/cli-for-jfrog-release-lifecycle-management.md)
 
 ## IDE
 
@@ -28,15 +32,20 @@
     * [Analyze your Results](ide/jfrog-security-in-your-ide/visual-studio-code/analyze-your-results.md)
     * [Resolve Issues](ide/jfrog-security-in-your-ide/visual-studio-code/resolve-issues.md)
     * [Ignore Findings](ide/jfrog-security-in-your-ide/visual-studio-code/ignore-findings.md)
-  * [IntelliJ IDEA](ide/jfrog-security-in-your-ide/intellij-idea.md)
-* [Setting Up CI Integration](ide/setting-up-ci-integration.md)
+  * [IntelliJ IDEA](ide/jfrog-security-in-your-ide/intellij-idea/README.md)
+    * [Install Xray IntelliJ IDEA](ide/jfrog-security-in-your-ide/intellij-idea/install-xray-intellij-idea.md)
+    * [Connect IntelliJ IDEA to Xray](ide/jfrog-security-in-your-ide/intellij-idea/connect-intellij-idea-to-xray.md)
+    * [Scan your Project](ide/jfrog-security-in-your-ide/intellij-idea/scan-your-project.md)
+    * [Analyze your Results](ide/jfrog-security-in-your-ide/intellij-idea/analyze-your-results.md)
+    * [Resolve Issues](ide/jfrog-security-in-your-ide/intellij-idea/resolve-issues.md)
+    * [Ignore Findings](ide/jfrog-security-in-your-ide/intellij-idea/ignore-findings.md)
 
 ## Frogbot
 
 * [Get Started](frogbot/get-started/README.md)
   * [Setup Frogbot](frogbot/get-started/setup-frogbot.md)
-  * [Install Frogbot](frogbot/get-started/install-frogbot.md)
-* [Scan Git Repos with Frogbot](frogbot/scan-git-repos-with-frogbot.md)
+* [Scan Pull Requests](frogbot/scan-pull-requests.md)
+* [Scan Repositories](frogbot/scan-repositories.md)
 * [Frogbot Badge](frogbot/frogbot-badge.md)
 
 ## JFrog Security for Developers
