@@ -1,5 +1,26 @@
 # Using the JFrog Extension in VS Code
 
+The extension offers two modes, **Local** and **CI**. The two modes can be toggled by pressing on their respective buttons that will appear next to the components tree.
+
+* The **Local** view displays information about the local code as it is being developed in VS Code. The developer can scan their local workspace continuously. The information is displayed in the **Local** view.
+* The **CI** view allows the tracking of the code as it is built, tested and scanned by the CI server. It displays information about the status of the build and includes a link to the build log on the CI server.
+
+#### Severity Icons
+
+The icon demonstrates the top severity issue of a selected component and its transitive dependencies. The following table describes the severities from highest to lowest:
+
+| Icon                                                                                                      | Severity       | Description                                          |
+| --------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------------------------------- |
+| ![](broken-reference)                                                                                     | Critical       | Issue with critical severity                         |
+| ![](broken-reference)                                                                                     | High           | Issue with high severity                             |
+| ![](broken-reference)                                                                                     | Medium         | Issue with medium severity                           |
+| ![](broken-reference)                                                                                     | Low            | Issue with low severity                              |
+| ![](broken-reference)                                                                                     | Unknown        | Issue with unknown severity                          |
+| ![](broken-reference)![](broken-reference)![](broken-reference)![](broken-reference)![](broken-reference) | Not Applicable | CVE issue that is not applicable to your source code |
+| ![](broken-reference)                                                                                     | Normal         | No issues (Used only in CI view)                     |
+
+### The Local View
+
 The local view of the extension adds JFrog Xray scanning of project dependencies and source code to your VS Code IDE. It allows developers to view panels displaying vulnerability information about their dependencies and source code in their VS Code IDE. With this information, a developer can make an informed decision on whether to use a component or not before it gets entrenched into the organization’s product.
 
 ### The CI View
