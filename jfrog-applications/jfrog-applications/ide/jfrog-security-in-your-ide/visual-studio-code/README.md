@@ -1,47 +1,5 @@
 # Visual Studio Code
 
-
-
-### Table of Contents
-
-* [About this Extension](broken-reference)
-* [Getting Started](broken-reference)
-  * [Install the **JFrog** extension in VS Code](broken-reference)
-  * [Connecting VS Code to Your JFrog Environment](broken-reference)
-  * [Using the extension](broken-reference)
-    * [Severity Icons](broken-reference)
-* [The Local View](broken-reference)
-  * [Scanning Workspace](broken-reference)
-  * [Viewing Vulnerabilities](broken-reference)
-    * [Viewing Vulnerability Details](broken-reference)
-  * [Updating Dependencies](broken-reference)
-  * [Ignore Rules](broken-reference)
-  * [Behind the Scenes](broken-reference)
-    * [Go Projects](broken-reference)
-    * [Maven Projects](broken-reference)
-    * [Npm Projects](broken-reference)
-    * [Yarn v1 Projects](broken-reference)
-    * [Pypi Projects](broken-reference)
-    * [.NET Projects](broken-reference)
-* [The CI View](broken-reference)
-  * [How Does It Work?](broken-reference)
-  * [Setting Up Your CI Pipeline](broken-reference)
-  * [Setting Up the CI View](broken-reference)
-* [Extension Settings](broken-reference)
-  * [Apply Xray Policies to your Projects](broken-reference)
-  * [Exclude Paths from Scan](broken-reference)
-  * [Proxy Configuration](broken-reference)
-  * [Proxy Authorization](broken-reference)
-    * [Basic authorization](broken-reference)
-    * [Access token authorization](broken-reference)
-    * [Example](broken-reference)
-* [Troubleshooting](broken-reference)
-* [License](broken-reference)
-* [Building and Testing the Sources](broken-reference)
-  * [Preconditions](broken-reference)
-* [Code Contributions](broken-reference)
-  * [Guidelines](broken-reference)
-
 ### About this Extension
 
 The cost of remediating a vulnerability is akin to the cost of fixing a bug. The earlier you remediate a vulnerability in the release cycle, the lower the cost. The extension allows developers to find and fix security vulnerabilities in their projects and to see valuable information about the status of their code by continuously scanning it locally with [JFrog Xray](https://jfrog.com/xray/).
