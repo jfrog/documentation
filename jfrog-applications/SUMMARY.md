@@ -20,6 +20,7 @@
     * [CLI for JFrog Distribution](jfrog-cli/cli-for-jfrog-distribution.md)
     * [CLI for JFrog Pipelines](jfrog-cli/cli-for-jfrog-pipelines.md)
     * [CLI for JFrog Release Lifecycle Management](jfrog-cli/cli-for-jfrog-release-lifecycle-management.md)
+    * [Untitled](jfrog-applications/jfrog-cli/untitled.md)
   * [IDE](ide/README.md)
     * [Visual Studio Code](ide/jfrog-security-in-your-ide/visual-studio-code/README.md)
       * [Install Xray in VS Code](ide/jfrog-security-in-your-ide/visual-studio-code/install-xray-in-vs-code.md)
