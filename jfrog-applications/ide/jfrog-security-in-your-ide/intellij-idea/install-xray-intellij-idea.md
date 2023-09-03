@@ -1,2 +1,0 @@
-# Install Xray IntelliJ IDEA
-
