@@ -37,6 +37,7 @@
       * [Install Xray in IntelliJ IDEA](jfrog-applications/ide/intellij-idea/install-xray-in-intellij-idea.md)
       * [Connect IntelliJ IDEA to Xray](jfrog-applications/ide/intellij-idea/connect-intellij-idea-to-xray.md)
       * [Using the JFrog Extension in IntelliJ IDEA](jfrog-applications/ide/intellij-idea/using-the-jfrog-extension-in-intellij-idea.md)
+      * [Apply Xray Policies and Watches](jfrog-applications/ide/intellij-idea/apply-xray-policies-and-watches.md)
       * [Android Studio Support for JCEF](jfrog-applications/ide/intellij-idea/android-studio-support-for-jcef.md)
       * [Troubleshooting](jfrog-applications/ide/intellij-idea/troubleshooting.md)
   * [FROGBOT](frogbot/README.md)
