@@ -8,11 +8,11 @@ With JFrog's Software Composition Analysis, get enhanced CVE detection and enhan
 * [Scan your binaries](../../jfrog-cli/cli-for-jfrog-security/scan-your-binaries.md) with the [on-demand binary scanning](https://jfrog-staging-external.fluidtopics.net/r/help/DevSecOps-Xray/Xray-On-Demand-Binary-Scan) that enables you to point to a binary in your local file system and receive a report that contains a list of vulnerabilities, licenses, and policy violations.
 * JFrog CLI is integrated with JFrog Xray and JFrog Artifactory, allowing you to have your [build](../../jfrog-cli/cli-for-jfrog-security/scan-published-builds.md) artifacts and dependencies scanned for vulnerabilities and license violations.
 
-[**SCA in your IDE**](../../ide/jfrog-security-in-your-ide/):&#x20;
+[**SCA in your IDE**](broken-reference):&#x20;
 
 * Find and fix security vulnerabilities in your projects and see valuable information about the status of your code by continuously scanning it locally.
 * Scan your project dependencies for security issues. For selected security issues, get leverage-enhanced CVE data that is provided by our JFrog Security Research team.&#x20;
-* Supported in [Visual Studio Code](../../ide/jfrog-security-in-your-ide/visual-studio-code/) and [IntelliJ IDEA](../../ide/jfrog-security-in-your-ide/intellij-idea/).&#x20;
+* Supported in [Visual Studio Code](../../jfrog-applications/ide/visual-studio-code/) and [IntelliJ IDEA](../../jfrog-applications/ide/intellij-idea/).&#x20;
 
 [**SCA in your Git repositories (FrogBot)**](../../frogbot/)**:**
 
