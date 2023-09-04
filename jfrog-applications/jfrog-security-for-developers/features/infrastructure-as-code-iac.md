@@ -18,5 +18,5 @@ What do we look for?
 
 [IaC in your IDE](../../ide/)
 
-[IaC in your Git Repositories](../../frogbot/)&#x20;
+[IaC in your Git Repositories (Frogbot)](../../frogbot/)
 

@@ -14,5 +14,5 @@ Shifting left using Contextual Analysis enables you to eliminate false positive 
 
 [Contextual Analysis in your IDE](../../ide/)
 
-[Contextual Analysis in your Git Repositories (FrogBot)](../../frogbot/)
+[Contextual Analysis in your Git Repositories (Frogbot)](../../frogbot/)
 

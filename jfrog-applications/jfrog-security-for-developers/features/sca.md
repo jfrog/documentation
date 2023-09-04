@@ -12,9 +12,9 @@ With JFrog's Software Composition Analysis, get enhanced CVE detection and enhan
 
 * Find and fix security vulnerabilities in your projects and see valuable information about the status of your code by continuously scanning it locally.
 * Scan your project dependencies for security issues. For selected security issues, get leverage-enhanced CVE data that is provided by our JFrog Security Research team.&#x20;
-* Supported in [Visual Studio Code](../../ide/jfrog-security-in-your-ide/visual-studio-code/) and [IntelliJ IDEA](broken-reference).&#x20;
+* Supported in [Visual Studio Code](../../ide/jfrog-security-in-your-ide/visual-studio-code/) and [IntelliJ IDEA](../../jfrog-applications/ide/intellij-idea/).&#x20;
 
-[**SCA in your Git repositories (FrogBot)**](../../frogbot/)**:**
+[**SCA in your Git repositories (Frogbot)**](../../frogbot/)**:**
 
 * Scan pull requests immediately after they are opened but before they are merged.&#x20;
 * Get notified if the pull request is about to introduce new vulnerabilities to your code.&#x20;

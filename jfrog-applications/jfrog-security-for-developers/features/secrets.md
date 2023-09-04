@@ -13,4 +13,4 @@ JFrog Security uses a constantly updated list of more than 150 specific types of
 
 [Secrets Detection in your IDE](../../ide/)
 
-[Secrets Detection in your Git Repositories ](../../frogbot/)
+[Secrets Detection in your Git Repositories ](../../frogbot/)[(Frogbot)](../../frogbot/)
