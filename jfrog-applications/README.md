@@ -14,7 +14,7 @@ layout:
   outline:
     visible: false
   pagination:
-    visible: true
+    visible: false
 ---
 
 # JFrog Applications
@@ -27,6 +27,6 @@ layout:
 
 ##
 
-### &#x20;                                                **Shift Left with JFrog Security**
+### **Shift Left with JFrog Security**
 
 <table data-view="cards" data-full-width="true"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><mark style="color:green;"><strong>SCA</strong></mark></td><td>Software Composition Analysis for source code and binary files</td><td><a href="jfrog-security-for-developers/features/sca.md">sca.md</a></td></tr><tr><td><mark style="color:green;"><strong>Contextual Analysis</strong></mark></td><td>Deep Contextual Analysis combining real-world exploitability and CVEs applicability</td><td><a href="jfrog-security-for-developers/features/contextual-analysis.md">contextual-analysis.md</a></td></tr><tr><td><mark style="color:green;"><strong>Secrets</strong></mark></td><td>Secrets Detection for source code and binary files </td><td><a href="jfrog-security-for-developers/features/secrets.md">secrets.md</a></td></tr><tr><td><mark style="color:green;"><strong>Infrastructure as Code (IaC)</strong></mark></td><td>Identify security exposures in your IaC </td><td><a href="jfrog-security-for-developers/features/infrastructure-as-code-iac.md">infrastructure-as-code-iac.md</a></td></tr></tbody></table>
