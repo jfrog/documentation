@@ -68,7 +68,7 @@ The Frogbot GitHub scan workflow is:
 
 1. The developer opens a pull request.
 2. The Frogbot workflow automatically gets triggered and a [GitHub environment](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#creating-an-environment) named `frogbot` becomes pending the maintainer's approval.\
-   ![](../../.gitbook/assets/github-pending-deployment.png)
+   ![](../.gitbook/assets/github-pending-deployment.png)
 3. The maintainer of the repository reviews the pull request and approves the scan
 4. Frogbot can be triggered again following new commits, by repeating steps 2 and 3.
 
@@ -88,7 +88,7 @@ The Frogbot GitLab flow is as follows:
 2. The maintainer of the repository reviews the merge request and approves the scan by triggering the manual _frogbot-scan_ job.
 3. Frogbot is then triggered by the job, it scans the merge request and adds a comment with the scan results.
 4. Frogbot can be triggered again following new commits, by triggering the _frogbot-scan_ job again.\
-   ![](../../.gitbook/assets/gitlab-run-button.png)
+   ![](../.gitbook/assets/gitlab-run-button.png)
 
 </details>
 
@@ -118,18 +118,18 @@ If new vulnerabilities are found, Frogbot adds them as a comment on the pull req
 
 **VULNERABLE DEPENDENCIES**
 
-| SEVERITY                                             | CONTEXTUAL ANAYSIS | DIRECT DEPENDENCY | IMPACTED DEPENDENCY | FIXED VERSIONS    |
-| ---------------------------------------------------- | ------------------ | ----------------- | ------------------- | ----------------- |
-| ![](../../.gitbook/assets/notApplicableCritical.png) | Not Applicable     | minimist:1.2.5    | minimist:1.2.5      | \[0.2.4] \[1.2.6] |
-| ![](../../.gitbook/assets/High.png)                  | Applicable         | protobufjs:6.11.2 | protobufjs:6.11.2   | \[6.11.3]         |
-| ![](../../.gitbook/assets/notApplicableHigh.png)     | Not Applicable     | lodash:4.17.19    | lodash:4.17.19      | \[4.17.21]        |
+| SEVERITY                                          | CONTEXTUAL ANAYSIS | DIRECT DEPENDENCY | IMPACTED DEPENDENCY | FIXED VERSIONS    |
+| ------------------------------------------------- | ------------------ | ----------------- | ------------------- | ----------------- |
+| ![](../.gitbook/assets/notApplicableCritical.png) | Not Applicable     | minimist:1.2.5    | minimist:1.2.5      | \[0.2.4] \[1.2.6] |
+| ![](../.gitbook/assets/High.png)                  | Applicable         | protobufjs:6.11.2 | protobufjs:6.11.2   | \[6.11.3]         |
+| ![](../.gitbook/assets/notApplicableHigh.png)     | Not Applicable     | lodash:4.17.19    | lodash:4.17.19      | \[4.17.21]        |
 
 **INFRASTRUCTURE AS CODE**
 
-| SEVERITY                                             | FILE    | LINE:COLUMN | FINDING                             |
-| ---------------------------------------------------- | ------- | ----------- | ----------------------------------- |
-| ![](../../.gitbook/assets/notApplicableCritical.png) | test.js | 1:20        | kms\_key\_id='' was detected        |
-| ![](../../.gitbook/assets/High.png)                  | mock.js | 4:30        | Deprecated TLS version was detected |
+| SEVERITY                                          | FILE    | LINE:COLUMN | FINDING                             |
+| ------------------------------------------------- | ------- | ----------- | ----------------------------------- |
+| ![](../.gitbook/assets/notApplicableCritical.png) | test.js | 1:20        | kms\_key\_id='' was detected        |
+| ![](../.gitbook/assets/High.png)                  | mock.js | 4:30        | Deprecated TLS version was detected |
 
 **Secrets Detection**
 

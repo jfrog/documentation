@@ -1,2 +1,0 @@
-# JFrog Security Features
-

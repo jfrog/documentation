@@ -14,9 +14,9 @@ What do we look for?
 * Disabled upgrades (e.g., RDS database instance with disabled minor engine upgrades)
 * Data at rest encryption enablement for Kinesis streams
 
-[IaC in the JFrog CLI for Xray](../../jfrog-applications-1/jfrog-cli/cli-for-jfrog-security/)
+[IaC in the JFrog CLI for Xray](../../jfrog-cli/cli-for-jfrog-security/)
 
-[IaC in your IDE](../../jfrog-applications-1/ide/)
+[IaC in your IDE](../../ide/)
 
-[IaC in your Git Repositories (Frogbot)](../../jfrog-applications-1/frogbot/)
+[IaC in your Git Repositories (Frogbot)](../../frogbot/)
 

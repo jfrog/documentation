@@ -6,11 +6,11 @@
 
 <summary>1. Set up Frogbot on your preferred CI server</summary>
 
-* [GitHub Actions](setting-frogbot-on-github-repositories.md)
-* [Jenkins](set-up-frogbot-using-jenkins.md)
-* [JFrog Pipelines](installing-frogbot-on-jfrog-pipelines.md)
-* [GitLab Pipelines](installing-frogbot-on-gitlab-repositories.md)
-* [Azure Pipelines](installing-frogbot-on-azure-repositories.md)
+* [GitHub Actions](../../jfrog-applications/frogbot/get-started/setting-frogbot-on-github-repositories.md)
+* [Jenkins](../../jfrog-applications/frogbot/get-started/set-up-frogbot-using-jenkins.md)
+* [JFrog Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-jfrog-pipelines.md)
+* [GitLab Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-gitlab-repositories.md)
+* [Azure Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-azure-repositories.md)
 
 </details>
 
@@ -45,6 +45,6 @@ After the setup is complete, you'll receive an email with your JFrog environment
 
 <summary>3. Advanced - Customize advanced settings with frogbot-config.yml</summary>
 
-* [Creating the frogbot-config.yml file](frogbot-configuration.md)
+* [Creating the frogbot-config.yml file](../../jfrog-applications/frogbot/get-started/frogbot-configuration.md)
 
 </details>
