@@ -10,7 +10,8 @@ Frogbot scans your Git repositories periodically and automatically creates pull 
 * Pip
 * Pipenv
 * Poetry
-* Yarn 2
+* Yarn 2\
+  ![](../.gitbook/assets/fix-pr.png)
 
 #### Adding Security Alerts
 
@@ -18,6 +19,13 @@ For GitHub repositories, issues that are found during Frogbot's periodic scans a
 
 **1. CVEs on vulnerable dependencies**
 
+![](../.gitbook/assets/github-code-scanning.png)\
+![](../.gitbook/assets/github-code-scanning-content.png)
+
 **2. Secrets that are exposed in the code**
 
+![](../.gitbook/assets/github-code-scanning-secrets-content.png)
+
 **3. Infrastructure as Code (Iac) issues on Terraform packages**
+
+![](../.gitbook/assets/github-code-scanning-iac-content.png)
