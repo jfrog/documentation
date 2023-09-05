@@ -41,7 +41,7 @@
       * [Apply Xray Policies and Watches](jfrog-applications/ide/intellij-idea/apply-xray-policies-and-watches.md)
       * [Android Studio Support for JCEF](jfrog-applications/ide/intellij-idea/android-studio-support-for-jcef.md)
       * [Troubleshooting](jfrog-applications/ide/intellij-idea/troubleshooting.md)
-  * [FROGBOT](frogbot/README.md)
+  * [Frogbot](frogbot/README.md)
     * [Get Started](frogbot/get-started/README.md)
       * [Setup Frogbot](frogbot/get-started/setup-frogbot.md)
     * [Scan Pull Requests](frogbot/scan-pull-requests.md)
