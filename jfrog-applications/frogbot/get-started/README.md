@@ -3,7 +3,7 @@
 JFrog Frogbot is a Git bot that scans your git repositories for security vulnerabilities through the following key functions:
 
 1. Scans repository selected branches periodically and creates pull requests with fixes for vulnerabilities that are detected.
-2. Scans pull requests making sure no new vulnerabilities are about to enter to your code. 
+2. Scans newly opened pull requests to ensure no new vulnerabilities are introduced to the codebase.
 
 
 #### Why use JFrog Frogbot?
