@@ -29,7 +29,7 @@ layout:
 
 
 
-<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:green;"><strong>CI Integrations</strong></mark></td><td></td><td></td></tr><tr><td><mark style="color:green;"><strong>SDKs</strong></mark></td><td></td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><mark style="color:green;"><strong>CI Integrations</strong></mark></td><td>Integrate your CI tools with the JFrog Platform for binary management, code and binary scanning, distribution and more</td><td></td></tr><tr><td><mark style="color:green;"><strong>SDKs</strong></mark></td><td>Use our Go and Java SDKs to integrate your code with the JFrog Platform</td><td></td></tr></tbody></table>
 
 ## **Shift Left with JFrog Security**
 
