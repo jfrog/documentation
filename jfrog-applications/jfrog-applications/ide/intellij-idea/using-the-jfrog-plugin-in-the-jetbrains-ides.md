@@ -1,4 +1,4 @@
-# Using the JFrog Extension in IntelliJ IDEA
+# Using the JFrog Plugin in the Jetbrains IDEs
 
 After the JFrog Plugin is installed, a new JFrog panel is added at the bottom of the screen. Opening the JFrog panel displays two views:
 
@@ -9,7 +9,7 @@ After the JFrog Plugin is installed, a new JFrog panel is added at the bottom of
 
 #### General
 
-The JFrog IntelliJ IDEA Plugin enables continuous scans of your project with the JFrog Platform. The security-related information will be displayed under the Local view. It allows developers to view vulnerability information about their dependencies and source code in their IDE. With this information, a developer can make an informed decision on whether to use a component or not before it gets entrenched into the organization’s product.
+The JFrog IDEA Plugin enables continuous scans of your project with the JFrog Platform. The security-related information will be displayed under the Local view. It allows developers to view vulnerability information about their dependencies and source code in their IDE. With this information, a developer can make an informed decision on whether to use a component or not before it gets entrenched into the organization’s product.
 
 Scan your project by clicking the Run Scan button. After the scan is done, a list of vulnerable files will appear.
 
@@ -86,7 +86,7 @@ The icon demonstrates the top severity issue of a selected component and its tra
 
 ### The CI View
 
-The JFrog IntelliJ IDEA Plugin allows you to view information about your builds directly from your CI system. This allows developers to keep track of the status of their code, while it is being built, tested, and scanned as part of the CI pipeline, regardless of the CI provider used.
+The JFrog IDEA Plugin allows you to view information about your builds directly from your CI system. This allows developers to keep track of the status of their code, while it is being built, tested, and scanned as part of the CI pipeline, regardless of the CI provider used.
 
 This information can be viewed inside IntelliJ IDEA, from the **JFrog** Panel, under the **CI** tab.
 

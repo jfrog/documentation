@@ -1,6 +1,6 @@
 # Troubleshooting
 
-The JFrog IntelliJ IDES Plugin uses the IntelliJ IDEA log files. By default, the log level used by the plugin is INFO.
+The JFrog IDEA Plugin uses the IDE log files. By default, the log level used by the plugin is INFO.
 
 You have the option of increasing the log level to DEBUG. Here's how to do it:
 
@@ -11,7 +11,7 @@ You have the option of increasing the log level to DEBUG. Here's how to do it:
 #com.jfrog.ide.idea.log.Logger
 ```
 
-To see the Intellij IDEA log file, depending on the IDE version and OS as described [here](https://intellij-support.jetbrains.com/hc/en-us/articles/207241085-Locating-IDE-log-files), go to **Help** | **Show/reveal Log in Explorer/finder/Konqueror/Nautilus**.
+To see the IDE log file, depending on the IDE version and OS as described [here](https://intellij-support.jetbrains.com/hc/en-us/articles/207241085-Locating-IDE-log-files), go to **Help** | **Show/reveal Log in Explorer/finder/Konqueror/Nautilus**.
 
 ## Reporting Issues
 

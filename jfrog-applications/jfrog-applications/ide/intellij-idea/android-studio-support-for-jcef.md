@@ -1,6 +1,6 @@
 # Android Studio Support for JCEF
 
-The JFrog IntelliJ IDEA Plugin uses JCEF (Java Chromium Embedded Framework) to create a webview component in the plugin's tool window.
+The JFrog IDEA Plugin uses JCEF (Java Chromium Embedded Framework) to create a webview component in the plugin's tool window.
 
 Most IntelliJ-based IDEs use a boot runtime that contains JCEF by default.
 
