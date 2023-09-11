@@ -1,6 +1,6 @@
 # Apply Xray Policies and Watches
 
-You can configure the JFrog IDEA Plugin to use the security policies you create in Xray. Policies enable you to create a set of rules, in which each rule defines security criteria, with a corresponding set of automatic actions according to your needs. Policies are enforced when applying them to Watches.
+You can configure the JFrog Plugin to use the security policies you create in Xray. Policies enable you to create a set of rules, in which each rule defines security criteria, with a corresponding set of automatic actions according to your needs. Policies are enforced when applying them to Watches.
 
 If you'd like to use a JFrog Project that is associated with the policy, follow these steps:
 
