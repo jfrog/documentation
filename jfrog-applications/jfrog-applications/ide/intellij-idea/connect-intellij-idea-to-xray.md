@@ -1,4 +1,3 @@
-# Connect IDEA to Xray
 
 ### Connecting to Your JFrog Environment
 
