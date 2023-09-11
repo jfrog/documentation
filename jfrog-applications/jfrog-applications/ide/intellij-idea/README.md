@@ -1,6 +1,6 @@
-# IntelliJ IDEA
+# Jetbrains IDEs
 
-## About this Plugin
+## About the JFrog Plugin
 
 The plugin allows developers to find and fix security vulnerabilities in their projects and to see valuable information about the status of their code by continuously scanning it locally with [JFrog Security](https://jfrog.com/xray/).
 
@@ -68,8 +68,9 @@ Secures your IaC files. Critical to keeping your cloud deployment safe and secur
 * For Security issues with an available fixed version, you can upgrade to the fixed version within the plugin.
 * Track the status of the code while it is being built, tested, and scanned on the CI server.
 
-In addition to IntelliJ IDEA, the plugin also supports the following IDEs:
+The JFrog Plugin supports the following IDEs:
 
+* IntelliJ IDEA
 * WebStorm
 * PyCharm
 * Android Studio
@@ -88,7 +89,7 @@ In addition to IntelliJ IDEA, the plugin also supports the following IDEs:
 
 Getting Started
 
-1. Install the JFrog IntelliJ IDEA Plugin via the Plugins tab in the IDE settings, or in [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/9834-jfrog).
+1. Install the JFrog Plugin via the Plugins tab in the IDE settings, or in [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/9834-jfrog).
 2. [Connect the plugin to your JFrog environment](broken-reference).
 3. [Start](broken-reference) using the plugin.
 
