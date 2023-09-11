@@ -1,6 +1,6 @@
 # Troubleshooting
 
-The JFrog IDEA Plugin uses the IDE log files. By default, the log level used by the plugin is INFO.
+The JFrog Plugin uses the IDE log files. By default, the log level used by the plugin is INFO.
 
 You have the option of increasing the log level to DEBUG. Here's how to do it:
 
