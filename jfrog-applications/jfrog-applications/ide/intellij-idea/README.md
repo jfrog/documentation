@@ -68,7 +68,7 @@ Secures your IaC files. Critical to keeping your cloud deployment safe and secur
 * For Security issues with an available fixed version, you can upgrade to the fixed version within the plugin.
 * Track the status of the code while it is being built, tested, and scanned on the CI server.
 
-The JFrog IDEA Plugin supports the following IDEs:
+The JFrog Plugin supports the following IDEs:
 
 * IntelliJ IDEA
 * WebStorm
