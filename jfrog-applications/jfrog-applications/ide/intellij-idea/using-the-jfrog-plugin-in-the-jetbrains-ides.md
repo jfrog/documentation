@@ -86,7 +86,7 @@ The icon demonstrates the top severity issue of a selected component and its tra
 
 ### The CI View
 
-The JFrog IDEA Plugin allows you to view information about your builds directly from your CI system. This allows developers to keep track of the status of their code, while it is being built, tested, and scanned as part of the CI pipeline, regardless of the CI provider used.
+The JFrog Plugin allows you to view information about your builds directly from your CI system. This allows developers to keep track of the status of their code, while it is being built, tested, and scanned as part of the CI pipeline, regardless of the CI provider used.
 
 This information can be viewed inside IntelliJ IDEA, from the **JFrog** Panel, under the **CI** tab.
 
