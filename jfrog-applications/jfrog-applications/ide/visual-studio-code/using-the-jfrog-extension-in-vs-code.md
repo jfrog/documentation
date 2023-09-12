@@ -49,6 +49,6 @@ Before VS Code can display information from your CI in the CI View, your CI pipe
 
 #### Setting Up the CI View
 
-Set your CI build name in the Build name pattern field at the [Extension Settings](broken-reference). This is the name of the build published to Artifactory by your CI pipeline. You have the option of setting \* to view all the builds published to Artifactory.
+Set your CI build name in the Build name pattern field at the [Extension Settings](extension-settings.md). This is the name of the build published to Artifactory by your CI pipeline. You have the option of setting \* to view all the builds published to Artifactory.
 
 After your builds were fetched from Artifactory, press on the Builds  button to choose what build to display.

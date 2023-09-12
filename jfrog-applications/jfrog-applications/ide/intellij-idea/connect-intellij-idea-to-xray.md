@@ -1,5 +1,4 @@
-
-### Connecting to Your JFrog Environment
+# Connect the JFrog Plugin to the JFrog Platform
 
 <details>
 

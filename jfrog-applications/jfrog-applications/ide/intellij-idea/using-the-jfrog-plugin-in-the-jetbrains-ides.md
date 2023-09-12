@@ -23,7 +23,7 @@ By right-clicking on a dependency line, you can jump to the dependency's declara
 
 You can also create an [Ignore Rule](https://jfrog.com/help/r/jfrog-security-documentation/ignore-rules) in Xray.
 
-_Creating Ignore Rules is only available_ [_when a JFrog Project or Watch is defined_](broken-reference)_._
+> **_NOTE:_**  Creating Ignore Rules is only available_when a JFrog Project or Watch is defined.
 
 <div align="left">
 
@@ -75,14 +75,14 @@ Scan Infrastructure as Code (Terraform) files for early detection of cloud and i
 
 The icon demonstrates the top severity issue of a selected component and its transitive dependencies. The following table describes the severities from highest to lowest:
 
-|                                                                                                                                   Icon                                                                                                                                  |              Severity              |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------: |
-|                                                                                                                ![](../../../.gitbook/assets/Critical.png)                                                                                                               |              Critical              |
-|                                                                                                                  ![](../../../.gitbook/assets/High.png)                                                                                                                 |                High                |
-|                                                                                                                 ![](../../../.gitbook/assets/Medium.png)                                                                                                                |               Medium               |
-|                                                                                                                  ![](../../../.gitbook/assets/Low.png)                                                                                                                  |                 Low                |
-|                                                                                                                ![](../../../.gitbook/assets/Unknown.png)                                                                                                                |               Unknown              |
-| ![](../../../.gitbook/assets/notApplicableCritical.png)![](../../../.gitbook/assets/notApplicableHigh.png)![](../../../.gitbook/assets/notApplicableLow.png)![](../../../.gitbook/assets/notApplicableMedium.png)![](../../../.gitbook/assets/notApplicableUnknown.png) | [Not Applicable](broken-reference) |
+|                                                                                                                                   Icon                                                                                                                                  |             Severity              |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |:---------------------------------:|
+|                                                                                                                ![](../../../.gitbook/assets/Critical.png)                                                                                                               |             Critical              |
+|                                                                                                                  ![](../../../.gitbook/assets/High.png)                                                                                                                 |               High                |
+|                                                                                                                 ![](../../../.gitbook/assets/Medium.png)                                                                                                                |              Medium               |
+|                                                                                                                  ![](../../../.gitbook/assets/Low.png)                                                                                                                  |                Low                |
+|                                                                                                                ![](../../../.gitbook/assets/Unknown.png)                                                                                                                |              Unknown              |
+| ![](../../../.gitbook/assets/notApplicableCritical.png)![](../../../.gitbook/assets/notApplicableHigh.png)![](../../../.gitbook/assets/notApplicableLow.png)![](../../../.gitbook/assets/notApplicableMedium.png)![](../../../.gitbook/assets/notApplicableUnknown.png) |           Not Applicable          |
 
 ### The CI View
 

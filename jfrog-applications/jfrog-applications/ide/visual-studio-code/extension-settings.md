@@ -9,7 +9,7 @@ To open the extension settings, use the following VS Code menu command:
 
 #### Exclude Paths from Scan
 
-By default, paths containing the words `test`, `venv` and `node_modules` are excluded from Xray scan. The exclude pattern can be configured in the [Extension Settings](broken-reference).
+By default, paths containing the words `test`, `venv` and `node_modules` are excluded from Xray scan. The exclude pattern can be configured in the [Extension Settings](extension-settings.md).
 
 #### Proxy Configuration
 
@@ -25,7 +25,7 @@ If your JFrog environment is behind an HTTP/S proxy, follow these steps to confi
 
 If your proxy server requires credentials, follow these steps:
 
-1. Follow 1-3 steps under [Proxy configuration](broken-reference).
+1. Follow 1-3 steps under [Proxy configuration](extension-settings#proxy-configuration).
 
 **Basic authorization**
 
@@ -57,4 +57,4 @@ settings.json:
 
 ### Troubleshooting
 
-Change the log level to 'debug', 'info', 'warn', or 'err' in the [Extension Settings](broken-reference).
+Change the log level to 'debug', 'info', 'warn', or 'err' in the [Extension Settings](extension-settings.md).

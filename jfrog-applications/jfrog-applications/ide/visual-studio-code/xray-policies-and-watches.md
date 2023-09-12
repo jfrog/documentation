@@ -7,9 +7,9 @@ If you'd like to use a JFrog Project that is associated with the policy, follow 
 1. Create a [JFrog Project](https://www.jfrog.com/confluence/display/JFROG/Projects), or obtain the relevant JFrog Project key.
 2. Create a [Policy](https://www.jfrog.com/confluence/display/JFROG/Creating+Xray+Policies+and+Rules) on JFrog Xray.
 3. Create a [Watch](https://www.jfrog.com/confluence/display/JFROG/Configuring+Xray+Watches) on JFrog Xray and assign your Policy and Project as resources to it.
-4. Configure your Project key in the [Extension Settings](broken-reference).
+4. Configure your Project key in the [Extension Settings](extension-settings.md).
 
 If however your policies are referenced through an Xray Watch or Watches, follow these steps instead:
 
 1. Create one or more [Watches](https://www.jfrog.com/confluence/display/JFROG/Configuring+Xray+Watches) on JFrog Xray.
-2. Configure your Watches in the [Extension Settings](broken-reference).
+2. Configure your Watches in the [Extension Settings](extension-settings.md).
