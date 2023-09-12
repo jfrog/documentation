@@ -1,6 +1,6 @@
-# Connect VS Code to Xray
+# Connect VS Code to the JFrog Platform
 
-### Connecting VS Code to Your JFrog Environment
+## Optionally set up a free JFrog Platform in the cloud
 
 <details>
 
@@ -25,6 +25,8 @@ The commands will do the following:
 3. Configure VS Code to connect to your new environment.
 
 </details>
+
+## Connect VS Code to your JFrog Platform
 
 Connect to your JFrog environment by clicking on the green Connect button or the provided button in the JFrog extension tab:&#x20;
 
