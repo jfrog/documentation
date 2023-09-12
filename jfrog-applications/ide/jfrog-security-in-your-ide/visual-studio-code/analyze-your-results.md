@@ -27,27 +27,28 @@ Clicking on a CVE in the list will open the location with the issue in the edito
 For selected security issues, get leverage-enhanced CVE data that is provided by our JFrog Security Research team. Prioritize the CVEs based on:
 
 * JFrog Severity: The severity given by the JFrog Security Research team after the manual analysis of the CVE by the team. CVEs with the highest JFrog security severity are the most likely to be used by real-world attackers. This means that you should put effort into fixing them as soon as possible.
-* Research Summary: The summary that is based on JFrog's security analysis of the security issue provides detailed technical information on the specific conditions for the CVE to be applicable. Remediation: Detailed fix and mitigation options for the CVEs
+* Research Summary: The summary that is based on JFrog's security analysis of the security issue provides detailed technical information on the specific conditions for the CVE to be applicable.
+Remediation: Detailed fix and mitigation options for the CVEs
 
-Check out what our research team is up to and stay updated on newly discovered issues by clicking on this [link](https://research.jfrog.com/).
+Check out what our research team is up to and stay updated on newly discovered issues by clicking on this [link](https://research.jfrog.com).
 
-
+![JFrog_Research](../../../.gitbook/assets/vscode/research.png)
 
 </details>
 
 <details>
 
-<summary>Contextual Analysis</summary>
+<summary>Vulnerability Contextual Analysis</summary>
 
-_Requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced Security._
+**_NOTE:_**  Vulnerability Contextual Analysis requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
 
-Xray automatically validates some high and very high-impact vulnerabilities, such as vulnerabilities that have prerequisites for exploitations, and provides contextual analysis information for these vulnerabilities, to assist you in figuring out which vulnerabilities need to be fixed. Contextual Analysis data includes:
+Xray automatically validates some high and very high impact vulnerabilities, such as vulnerabilities that have prerequisites for exploitations, and provides contextual analysis information for these vulnerabilities, to assist you in figuring out which vulnerabilities need to be fixed. Vulnerability Contextual Analysis data includes:
 
-* Contextual analysis status: Contextual analysis results indicate if a CVE was found applicable in your application or not applicable.
-* Contextual Analysis breakdown: An explanation provided by our research team as to why the CVE was found applicable or not applicable.
+* Vulnerability Contextual Analysis status: Vulnerability Contextual Analysis results indicating if a CVE was found applicable in your application or not applicable.
+* Vulnerability Contextual Analysis breakdown: An explanation provided by our research team as to why the CVE was found applicable or not applicable.
 * Remediation: Contextual mitigation steps and options provided by our research team that assist you with remediating the issues.
 
-
+![Contextual_Analysis](../../../.gitbook/assets/vscode/contextualDetails.png)
 
 </details>
 
@@ -55,11 +56,11 @@ Xray automatically validates some high and very high-impact vulnerabilities, suc
 
 <summary>Secrets Detection</summary>
 
-_Requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced Security._
+ **_NOTE:_**  Secrets Detection requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
 
-Detect any secrets left exposed inside the code to prevent any accidental leak of internal tokens or credentials.
+Detect any secrets left exposed inside the code. to prevent any accidental leak of internal tokens or credentials. To ignore detected secrets, you can add a comment which includes the phrase _jfrog-ignore_ above the line with the secret.
 
-![](broken-reference)
+![Secrets_Detection](../../../.gitbook/assets/vscode/secrets.png)
 
 </details>
 
@@ -67,10 +68,10 @@ Detect any secrets left exposed inside the code to prevent any accidental leak o
 
 <summary>Infrastructure as Code (IaC) Scan</summary>
 
-_Requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced Security._
+**_NOTE:_**  Infrastructure as Code (IaC) requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
 
 Scan Infrastructure as Code (Terraform) files for early detection of cloud and infrastructure misconfigurations.
 
-![](broken-reference)
+![iac_scan](../../../.gitbook/assets/vscode/iac.png)
 
 </details>
