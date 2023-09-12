@@ -23,7 +23,7 @@ By right-clicking on a dependency line, you can jump to the dependency's declara
 
 You can also create an [Ignore Rule](https://jfrog.com/help/r/jfrog-security-documentation/ignore-rules) in Xray.
 
-_Creating Ignore Rules is only available_when a JFrog Project or Watch is defined._
+> **_NOTE:_**  Creating Ignore Rules is only available_when a JFrog Project or Watch is defined.
 
 <div align="left">
 
@@ -82,7 +82,7 @@ The icon demonstrates the top severity issue of a selected component and its tra
 |                                                                                                                 ![](../../../.gitbook/assets/Medium.png)                                                                                                                |              Medium               |
 |                                                                                                                  ![](../../../.gitbook/assets/Low.png)                                                                                                                  |                Low                |
 |                                                                                                                ![](../../../.gitbook/assets/Unknown.png)                                                                                                                |              Unknown              |
-| ![](../../../.gitbook/assets/notApplicableCritical.png)![](../../../.gitbook/assets/notApplicableHigh.png)![](../../../.gitbook/assets/notApplicableLow.png)![](../../../.gitbook/assets/notApplicableMedium.png)![](../../../.gitbook/assets/notApplicableUnknown.png) | Not Applicable |
+| ![](../../../.gitbook/assets/notApplicableCritical.png)![](../../../.gitbook/assets/notApplicableHigh.png)![](../../../.gitbook/assets/notApplicableLow.png)![](../../../.gitbook/assets/notApplicableMedium.png)![](../../../.gitbook/assets/notApplicableUnknown.png) |           Not Applicable          |
 
 ### The CI View
 

@@ -16,6 +16,40 @@ From your Jenkins dashboard navigate to **Manage Jenkins** > **Manage Plugins** 
 
 <summary>2️⃣ Connect the Webhook on your Git provider</summary>
 
+Bitbucket Server
+
+* Webhook URL: `JENKINS_URL/generic-webhook-trigger/invoke`
+* Go to repository settings, select Webhooks, and create a new webhook.\
+  ![](../../../.gitbook/assets/bitbucket-webhook-setup.png)\
+  Set the webhook URL `https://jenkinsUrl/generic-webhook-trigger/invoke`\
+  ![](../../../.gitbook/assets/bitbucketserver-create-webhook.png)
+
+GitHub
+
+* Webhook URL: `JENKINS_URL/generic-webhook-trigger/invoke`
+* Go to repository settings and create a new webhook:\
+  ![](../../../.gitbook/assets/github-new-webhook.png)\
+
+* Add a new webhook:\
+  ![](<../../../.gitbook/assets/github-webhook-setup (1).png>)
+* Set up trigger:\
+  ![](../../../.gitbook/assets/GitLab\_webhook.png)
+
+
+
+Azure Repos
+
+* Webhook URL: `JENKINS_URL/generic-webhook-trigger/invoke`
+* [Set Up Azure Repos Jenkins Webhook](https://learn.microsoft.com/en-us/azure/devops/service-hooks/services/jenkins?view=azure-devops)
+
+
+
+GitLab
+
+* Go to your project settings and select webhooks.
+* Set up a webhook with merge request events.
+* Fill in the URL: `JENKINS URL/generic-webhook-trigger/invoke`
+
 
 
 </details>
