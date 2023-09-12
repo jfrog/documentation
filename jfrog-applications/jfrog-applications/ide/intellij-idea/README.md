@@ -90,7 +90,7 @@ The JFrog Plugin supports the following IDEs:
 Getting Started
 
 1. Install the JFrog Plugin via the Plugins tab in the IDE settings, or in [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/9834-jfrog).
-2. [Connect the plugin to your JFrog environment](broken-reference).
-3. [Start](broken-reference) using the plugin.
+2. [Connect IDEA to your JFrog environment](connect-intellij-idea-to-xray.md).
+3. [Start](using-the-jfrog-plugin-in-the-jetbrains-ides.md) using the plugin.
 
 ###
