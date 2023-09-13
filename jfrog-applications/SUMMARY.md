@@ -39,7 +39,6 @@
     * [Building and Testing the Sources](jfrog-applications/ide/visual-studio-code/building-and-testing-the-sources.md)
   * [JetBrains IDEs](jfrog-applications/ide/jetbrains-ides/README.md)
     * [Install the JFrog IDEA Plugin](jfrog-applications/ide/jetbrains-ides/install-the-jfrog-idea-plugin.md)
-    * [Connect the JetBrains IDEs to Xray](jfrog-applications/ide/jetbrains-ides/connect-the-jetbrains-ides-to-xray.md)
     * [Connect the JFrog Plugin to the JFrog Platform](jfrog-applications/ide/jetbrains-ides/connect-the-jfrog-plugin-to-the-jfrog-platform.md)
     * [Using the JFrog Plugin in the JetBrains IDEs](jfrog-applications/ide/intellij-idea/using-the-jfrog-plugin-in-the-jetbrains-ides.md)
     * [Apply Xray Policies and Watches](jfrog-applications/ide/jetbrains-ides/apply-xray-policies-and-watches.md)
