@@ -8,6 +8,10 @@
 
 The JFrog SAST solution aims to enable software developers to hunt, fix, and learn about security issues in their code while allowing them to deliver fast, quality code, and reduce issues.
 
+**Requirements**
+
+SAST is available for Enterprise X and Enterprise + subscriptions with Advanced Security.
+
 ### What does JFrog SAST Scan for?
 
 JFrog SAST scans mainly for specific sensitive operations (DB queries, OS commands, outgoing connection destinations, etc) that can be controlled by an external attacker without proper sanitation injections such as:
