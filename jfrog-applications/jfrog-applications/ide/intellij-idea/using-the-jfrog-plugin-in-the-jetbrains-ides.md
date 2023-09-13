@@ -1,4 +1,4 @@
-# Using the JFrog Plugin in the Jetbrains IDEs
+# Using the JFrog Plugin in the JetBrains IDEs
 
 After the JFrog Plugin is installed, a new JFrog panel is added at the bottom of the screen. Opening the JFrog panel displays two views:
 
@@ -23,7 +23,7 @@ By right-clicking on a dependency line, you can jump to the dependency's declara
 
 You can also create an [Ignore Rule](https://jfrog.com/help/r/jfrog-security-documentation/ignore-rules) in Xray.
 
-> **_NOTE:_**  Creating Ignore Rules is only available_when a JFrog Project or Watch is defined.
+> _**NOTE:**_ Creating Ignore Rules is only available\_when a JFrog Project or Watch is defined.
 
 <div align="left">
 
@@ -31,7 +31,7 @@ You can also create an [Ignore Rule](https://jfrog.com/help/r/jfrog-security-doc
 
 </div>
 
-Clicking a vulnerability in the list will open the vulnerability details view.  This view contains information about the vulnerability, the vulnerable component, fixed versions, impact paths and much more.
+Clicking a vulnerability in the list will open the vulnerability details view. This view contains information about the vulnerability, the vulnerable component, fixed versions, impact paths and much more.
 
 <figure><img src="../../../.gitbook/assets/vuln-details.png" alt=""><figcaption></figcaption></figure>
 
@@ -75,14 +75,14 @@ Scan Infrastructure as Code (Terraform) files for early detection of cloud and i
 
 The icon demonstrates the top severity issue of a selected component and its transitive dependencies. The following table describes the severities from highest to lowest:
 
-|                                                                                                                                   Icon                                                                                                                                  |             Severity              |
-| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |:---------------------------------:|
-|                                                                                                                ![](../../../.gitbook/assets/Critical.png)                                                                                                               |             Critical              |
-|                                                                                                                  ![](../../../.gitbook/assets/High.png)                                                                                                                 |               High                |
-|                                                                                                                 ![](../../../.gitbook/assets/Medium.png)                                                                                                                |              Medium               |
-|                                                                                                                  ![](../../../.gitbook/assets/Low.png)                                                                                                                  |                Low                |
-|                                                                                                                ![](../../../.gitbook/assets/Unknown.png)                                                                                                                |              Unknown              |
-| ![](../../../.gitbook/assets/notApplicableCritical.png)![](../../../.gitbook/assets/notApplicableHigh.png)![](../../../.gitbook/assets/notApplicableLow.png)![](../../../.gitbook/assets/notApplicableMedium.png)![](../../../.gitbook/assets/notApplicableUnknown.png) |           Not Applicable          |
+|                                                                                                                                   Icon                                                                                                                                  |    Severity    |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------: |
+|                                                                                                                ![](../../../.gitbook/assets/Critical.png)                                                                                                               |    Critical    |
+|                                                                                                                  ![](../../../.gitbook/assets/High.png)                                                                                                                 |      High      |
+|                                                                                                                 ![](../../../.gitbook/assets/Medium.png)                                                                                                                |     Medium     |
+|                                                                                                                  ![](../../../.gitbook/assets/Low.png)                                                                                                                  |       Low      |
+|                                                                                                                ![](../../../.gitbook/assets/Unknown.png)                                                                                                                |     Unknown    |
+| ![](../../../.gitbook/assets/notApplicableCritical.png)![](../../../.gitbook/assets/notApplicableHigh.png)![](../../../.gitbook/assets/notApplicableLow.png)![](../../../.gitbook/assets/notApplicableMedium.png)![](../../../.gitbook/assets/notApplicableUnknown.png) | Not Applicable |
 
 ### The CI View
 
@@ -111,6 +111,6 @@ Set up your CI pipeline to expose information, so that it is visible in IDEA as 
 Next, follow these steps:
 
 1. Under **Settings (Preferences)** | **Other Settings**, click **JFrog Global Configuration**. configure the JFrog Platform URL and the user you created.
-2. Under **Settings (Preferences)** | **Other Settings**, click **JFrog CI Integration**. Set your CI build name in the **Build name pattern** field. This is the name of the build published to Artifactory by your CI pipeline. You have the option of setting \* to view all the builds published to Artifactory. \
+2. Under **Settings (Preferences)** | **Other Settings**, click **JFrog CI Integration**. Set your CI build name in the **Build name pattern** field. This is the name of the build published to Artifactory by your CI pipeline. You have the option of setting \* to view all the builds published to Artifactory.\
    ![](../../../.gitbook/assets/ci-settings.png)
 3. Click **Apply** and open the **CI** tab under the **JFrog** panel at the bottom of the screen and click the **Refresh** button.
