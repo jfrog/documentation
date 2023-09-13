@@ -43,5 +43,3 @@ Incorporate JFrog's scan capabilities into your CI-CD pipeline with JFrog IDE Pl
 JFrog SAST is running locally on your developer's workstation --> no source code/data is leaving your premise for the analysis.
 
 ***
-
-**Thank you for participating in this Beta. Let us know your feedback regarding this experience**
