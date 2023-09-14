@@ -40,8 +40,6 @@ JFrog SAST is focused on finding 0-day vulnerabilities in your code projects. Wi
 
 Incorporate JFrog's scan capabilities into your CI-CD pipeline with JFrog IDE Plugins, JFrog CLI, and Frogbot to continuously monitor your source-code projects and find issues as-early-as-possible in the SDLC.
 
-**Note**: In this version of the Beta, only [Visual Studio Code JFrog IDE Plugin](../../ide/jfrog-security-in-your-ide/visual-studio-code/) is supported.&#x20;
-
 #### Keep Your Source-Code Local and Secured
 
 JFrog SAST is running locally on your developer's workstation --> no source code/data is leaving your premise for the analysis.
