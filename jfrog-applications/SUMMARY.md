@@ -29,7 +29,6 @@
     * [Install the JFrog VS Code Extension](ide/jfrog-security-in-your-ide/visual-studio-code/install-the-jfrog-vscode-extension.md)
     * [Connect VS Code to the JFrog Platform](ide/jfrog-security-in-your-ide/visual-studio-code/connect-vs-code-to-the-jfrog-platform.md)
     * [Using the JFrog Extension in VS Code](jfrog-applications/ide/visual-studio-code/using-the-jfrog-extension-in-vs-code.md)
-    * [Scan your Workspace](jfrog-applications/ide/visual-studio-code/scan-your-workspace.md)
     * [Analyze your Results](ide/jfrog-security-in-your-ide/visual-studio-code/analyze-your-results.md)
     * [Resolve Issues](ide/jfrog-security-in-your-ide/visual-studio-code/resolve-issues.md)
     * [Ignore Findings](ide/jfrog-security-in-your-ide/visual-studio-code/ignore-findings.md)
