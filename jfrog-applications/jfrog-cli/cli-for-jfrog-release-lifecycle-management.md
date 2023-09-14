@@ -93,7 +93,7 @@ jf rbc --builds=/path/to/builds-spec.json --signing-key=myKeyPair myApp 1.0.0
 Create a release bundle with name "myApp" and version "1.0.0", with signing key pair "myKeyPair". The release bundle will include artifacts of the release bundles that were provided in the release bundles spec.
 
 ```
-jf ds rbc --spec=/path/to/release-bundles-spec.json --signing-key=myKeyPair myApp 1.0.0
+jf rbc --spec=/path/to/release-bundles-spec.json --signing-key=myKeyPair myApp 1.0.0
 ```
 
 **Example 3**
@@ -101,7 +101,7 @@ jf ds rbc --spec=/path/to/release-bundles-spec.json --signing-key=myKeyPair myAp
 Create a release bundle synchronously with name "myApp" and version "1.0.0", in project "project0", with signing key pair "myKeyPair". The release bundle will include artifacts of the release bundles that were provided in the release bundles spec.
 
 ```
-jf ds rbc --spec=/path/to/release-bundles-spec.json --signing-key=myKeyPair --sync=true --project=project0 myApp 1.0.0
+jf rbc --spec=/path/to/release-bundles-spec.json --signing-key=myKeyPair --sync=true --project=project0 myApp 1.0.0
 ```
 
 ### Promoting a release bundle
@@ -140,3 +140,69 @@ Promote a release bundle synchronously to environment "PROD". The release bundle
 ```
 jf rbp --signing-key=myKeyPair --project=project0 --overwrite=true --sync=true myApp 1.0.0 PROD
 ```
+
+### Distributing a release bundle
+
+This command distributes a release bundle to an edge node.
+
+|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | release-bundle-distribute                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Abbreviation           | rbd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Command options        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --create-repo          | <p>[Default: false]<br><br>Set to true to create the repository on the edge if it does not exist.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --dry-run              | <p>[Default: false]<br><br>Set to true to disable communication with JFrog Distribution.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --dist-rules           | <p>[Optional]<br><br>Path to a file, which includes the Distribution Rules in a JSON format. See the "Distribution Rules Structure" bellow.</p>                                                                                                                                                                                                                                                                                                                                                                                            |
+| --site                 | <p>[Default: *]<br><br>Wildcard filter for site name.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --city                 | <p>[Default: *]<br><br>Wildcard filter for site city name.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --country-codes        | <p>[Default: *]<br><br>Semicolon-separated list of wildcard filters for site country codes.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --insecure-tls         | <p>[Default: false]<br><br>Set to true to skip TLS certificates verification.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --mapping-pattern      | <p>[Optional]<br><br>Specify along with 'mapping-target' to distribute artifacts to a different path on the edge node. You can use wildcards to specify multiple artifacts.</p>                                                                                                                                                                                                                                                                                                                                                            |
+| --mapping-target       | <p>[Optional]<br><br>The target path for distributed artifacts on the edge node. If not specified, the artifacts will have the same path and name on the edge node, as on the source Artifactory server. For flexibility in specifying the distribution path, you can include [placeholders](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-UsingPlaceholders) in the form of {1}, {2} which are replaced by corresponding tokens in the pattern path that are enclosed in parenthesis.</p> |
+| Command arguments      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| release bundle name    | Name of the release bundle to distribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| release bundle version | Version of the release bundle to distribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+
+**Distribution Rules Structure**
+   ```json
+   {
+    "distribution_rules": [
+       {
+          "site_name": "DC-1",
+          "city_name": "New-York",
+          "country_codes": ["1"]
+       },
+       {
+          "site_name": "DC-2",
+          "city_name": "Tel-Aviv",
+          "country_codes": ["972"]
+       }
+    ]
+   }
+   ```
+The Distribution Rules format also supports wildcards. For example:
+   ```json
+   {
+    "distribution_rules": [
+       {
+          "site_name": "",
+          "city_name": "",
+          "country_codes": ["*"]
+       }
+    ]
+   }
+   ```
+
+**Examples**
+
+**Example 1**
+Distribute the release bundle named myApp with version 1.0.0. Use the distribution rules defined in the specified file.
+
+	jf rbd --dist-rules=/path/to/dist-rules.json myApp 1.0.0
+
+**Example 2**
+
+Distribute the release bundle named myApp with version 1.0.0 using the default distribution rules.
+Map files under the 'source' directory to be placed under the 'target' directory.
+
+	jf rbd --dist-rules=/path/to/dist-rules.json --mapping-pattern="(*)/source/(*)" --mapping-target="{1}/target/{2}" myApp 1.0.0

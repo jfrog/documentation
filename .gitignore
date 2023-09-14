@@ -1,0 +1,11 @@
+# IDEs
+.idea
+.vscode
+*.iml
+
+# Vim
+*~
+*.swp
+
+# IOS
+*.DS_Store
