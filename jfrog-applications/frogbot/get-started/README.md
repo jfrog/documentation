@@ -15,16 +15,27 @@ JFrog Frogbot is a Git bot that scans your git repositories for security vulnera
 
 > _**NOTE:**_ **SAST**, **Vulnerability Contextual Analysis**, **Secrets Detection** and **Infrastructure as Code scans** require the [JFrog Advanced Security Package](https://jfrog.com/xray/).
 
+#### It supports the following Git providers:
+
+| <img height="20" width="20"  src="https://cdn.simpleicons.org/GitHub" alt="GitHub" /> GitHub | <img height="20" width="20"  src="https://cdn.simpleicons.org/GitLab" alt="GitLab" />  GitLab | <img height="20" width="20"  src="https://cdn.simpleicons.org/AzureDevops" alt="Azure" />  Azure Repos | <img height="20" width="20"  src="https://cdn.simpleicons.org/Bitbucket" alt="Bitbucket" />  Bitbucket Server |
+|----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+
+
+#### It supports the following package managers:
+
+|<img height="20" width="20"  src="https://cdn.simpleicons.org/Go" alt="Go" /> Go|<img height="20" width="20"  src="https://cdn.simpleicons.org/Gradle" alt="Gradle" /> Gradle|<img height="20" width="20"  src="https://cdn.simpleicons.org/ApacheMaven" alt="Maven" /> Maven|<img height="20" width="20"  src="https://cdn.simpleicons.org/npm" alt="npm" /> npm|<img height="20" width="20"  src="https://cdn.simpleicons.org/Yarn" alt="Yarn" /> Yarn|
+|:----|:----|:----|:----|:----|
+|<img height="20" width="20"  src="https://cdn.simpleicons.org/.NET" alt=".NET" /> .NET|<img height="20" width="20"  src="https://cdn.simpleicons.org/NuGet" alt="NuGet" /> NuGet|<img height="20" width="20"  src="https://cdn.simpleicons.org/Python" alt="Pip" /> Pip|<img height="20" width="20"  src="https://cdn.simpleicons.org/Python" alt="Pipenv" /> Pipenv|<img height="20" width="20"  src="https://cdn.simpleicons.org/Poetry" alt="Poetry" /> Poetry|
+
+ # Setup Frogbot
+
 #### What's needed for the setup?
 
 * **JFrog Platform** server. (If you don't have a JFrog Platform, you can set up one for free)
   
 * **CI server** to run the scan tasks.
 
-
- # Setup Frogbot
-
-Select your preferred CI server:
+#### Select your preferred CI server:
 
 <img height="20" width="20"  src="https://cdn.simpleicons.org/GitHubActions" alt="GitHubActions" /> [GitHub Actions](../../jfrog-applications/frogbot/get-started/setting-frogbot-on-github-repositories.md)
 
