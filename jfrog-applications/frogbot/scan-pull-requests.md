@@ -7,18 +7,6 @@ The following features use the package manager used for building the project:
 * Software Composition Analysis (SCA)
 * Vulnerability Contextual Analysis
 
-The supported package managers are:
-
-* Go
-* Gradle
-* Maven
-* .NET
-* npm
-* NuGet
-* Pip
-* Pipenv
-* Poetry
-* Yarn
 
 #### How to use Pull Request scanning?
 
