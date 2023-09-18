@@ -7,18 +7,6 @@ The following features use the package manager used for building the project:
 * Software Composition Analysis (SCA)
 * Vulnerability Contextual Analysis
 
-The supported package managers are:
-
-* Go
-* Gradle
-* Maven
-* .NET
-* npm
-* NuGet
-* Pip
-* Pipenv
-* Poetry
-* Yarn
 
 #### How to use Pull Request scanning?
 
@@ -96,11 +84,9 @@ The Frogbot GitLab flow is as follows:
 
 When installing Frogbot using JFrog Pipelines, Jenkins, and Azure DevOps, Frogbot will not wait for a maintainer's approval before scanning newly opened pull requests. Using Frogbot with these platforms is therefore not recommended for open-source projects.
 
-When installing Frogbot using GitHub Actions and GitLab however, Frogbot will initiate the scan only after it is approved by a maintainer of the project. The goal of this review is to ensure that external code contributors don't introduce malicious code as part of the pull request. Since this review step is enforced by Frogbot when used with GitHub Actions and GitLab, it is safe to be used for open-source projects.
+When installing Frogbot using GitHub Actions and GitLab however, Frogbot will initiate the scan only after a maintainer approves it of the project. The goal of this review is to ensure that external code contributors don't introduce malicious code as part of the pull request. Since this review step is enforced by Frogbot when used with GitHub Actions and GitLab, it is safe to be used for open-source projects.
 
 #### Scan results
-
-**Software Composition Analysis (SCA), Vulnerability Contextual Analysis and Infrastructure as Code scans (IaC)**
 
 Frogbot adds the scan results to the pull request in the following format:
 
@@ -124,12 +110,23 @@ If new vulnerabilities are found, Frogbot adds them as a comment on the pull req
 | ![](../.gitbook/assets/High.png)                  | Applicable         | protobufjs:6.11.2 | protobufjs:6.11.2   | \[6.11.3]         |
 | ![](../.gitbook/assets/notApplicableHigh.png)     | Not Applicable     | lodash:4.17.19    | lodash:4.17.19      | \[4.17.21]        |
 
-**INFRASTRUCTURE AS CODE**
 
-| SEVERITY                                          | FILE    | LINE:COLUMN | FINDING                             |
-| ------------------------------------------------- | ------- | ----------- | ----------------------------------- |
-| ![](../.gitbook/assets/notApplicableCritical.png) | test.js | 1:20        | kms\_key\_id='' was detected        |
-| ![](../.gitbook/assets/High.png)                  | mock.js | 4:30        | Deprecated TLS version was detected |
+## For source code scanning Frogbot will add code review comments and attach them to the vulnerable code lines. For example:
+
+**Static Application Security Testing (SAST)**
+
+![image](https://github.com/jfrog/documentation/assets/29822394/9ed841b1-d0f1-46d6-b448-ece558ef0c77)
+
+
+**CVE Vulnerability Contextual Analysis**
+
+![image](https://github.com/jfrog/documentation/assets/29822394/7474abbd-e439-4f80-be03-9c77ea70d182)
+
+
+**INFRASTRUCTURE AS CODE (IaC)**
+
+![image](https://github.com/jfrog/documentation/assets/29822394/c46439a2-fcfb-43c3-be56-7222e6352fe3)
+
 
 **Secrets Detection**
 

@@ -2,21 +2,21 @@
 
 ### Setting up Frogbot
 
+Set up Frogbot on your preferred CI server:
+
+<img height="20" width="20"  src="https://cdn.simpleicons.org/GitHubActions" alt="GitHubActions" /> [GitHub Actions](../../jfrog-applications/frogbot/get-started/setting-frogbot-on-github-repositories.md)
+
+<img height="20" width="20"  src="https://cdn.simpleicons.org/Jenkins" alt="Jenkins" /> [Jenkins](../../jfrog-applications/frogbot/get-started/set-up-frogbot-using-jenkins.md)
+
+<img height="20" width="20"  src="https://cdn.simpleicons.org/JfrogPipelines" alt="jfrogpipelines" /> [JFrog Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-jfrog-pipelines.md)
+
+<img height="20" width="20"  src="https://cdn.simpleicons.org/Gitlab" alt="Gitlab" /> [GitLab Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-gitlab-repositories.md)
+
+<img height="20" width="20"  src="https://cdn.simpleicons.org/AzurePipelines" alt="AzurePipelines" /> [Azure Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-azure-repositories.md)
+
 <details>
-
-<summary>1. Set up Frogbot on your preferred CI server</summary>
-
-* [GitHub Actions](../../jfrog-applications/frogbot/get-started/setting-frogbot-on-github-repositories.md)
-* [Jenkins](../../jfrog-applications/frogbot/get-started/set-up-frogbot-using-jenkins.md)
-* [JFrog Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-jfrog-pipelines.md)
-* [GitLab Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-gitlab-repositories.md)
-* [Azure Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-azure-repositories.md)
-
-</details>
-
-<details>
-
-<summary>2. Optionally set up a FREE JFrog Environment in the Cloud</summary>
+  
+<summary>Optionally set up a FREE JFrog Environment in the Cloud</summary>
 
 Frogbot requires a JFrog environment to scan your projects. If you don't have an environment, we can set up a free environment in the cloud for you. Just run one of the following commands in your terminal to set up an environment in less than a minute.
 
@@ -43,7 +43,7 @@ After the setup is complete, you'll receive an email with your JFrog environment
 
 <details>
 
-<summary>3. Advanced - Customize advanced settings with frogbot-config.yml</summary>
+<summary>Advanced - Customize advanced settings with frogbot-config.yml</summary>
 
 * [Creating the frogbot-config.yml file](../../jfrog-applications/frogbot/get-started/frogbot-configuration.md)
 
