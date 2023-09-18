@@ -43,7 +43,7 @@ JFrog Frogbot is a Git bot that scans your git repositories for security vulnera
 
 <img height="20" width="20"  src="https://cdn.simpleicons.org/JfrogPipelines" alt="jfrogpipelines" /> [JFrog Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-jfrog-pipelines.md)
 
-<img height="20" width="20"  src="https://cdn.simpleicons.org/Gitlab" alt="Gitlab" /> [GitLab Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-gitlab-repositories.md)
+<img height="20" width="20"  src="https://cdn.simpleicons.org/Gitlab" alt="Gitlab" /> [GitLab CI](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-gitlab-repositories.md)
 
 <img height="20" width="20"  src="https://cdn.simpleicons.org/AzurePipelines" alt="AzurePipelines" /> [Azure Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-azure-repositories.md)
 
