@@ -125,10 +125,7 @@ If new vulnerabilities are found, Frogbot adds them as a comment on the pull req
 
 **INFRASTRUCTURE AS CODE (IaC)**
 
-| SEVERITY                                          | FILE    | LINE:COLUMN | FINDING                             |
-| ------------------------------------------------- | ------- | ----------- | ----------------------------------- |
-| ![](../.gitbook/assets/notApplicableCritical.png) | test.js | 1:20        | kms\_key\_id='' was detected        |
-| ![](../.gitbook/assets/High.png)                  | mock.js | 4:30        | Deprecated TLS version was detected |
+![image](https://github.com/jfrog/documentation/assets/29822394/c46439a2-fcfb-43c3-be56-7222e6352fe3)
 
 
 **Secrets Detection**
