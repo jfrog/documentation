@@ -17,8 +17,9 @@ JFrog Frogbot is a Git bot that scans your git repositories for security vulnera
 
 #### What's needed for the setup?
 
-* Frogbot uses a JFrog environment to scan your Git repositories. If you don't have a JFrog environment, you can set up one for free, and use it with no limits.
-* Frogbot also requires a runtime environment for the scanning. The following environments are supported:
+* JFrog Platform to scan your Git repositories. If you don't have a JFrog Platform, you can set up one for free.
+  
+* CI server to run the scan tasks. The following environments are supported:
  
 <img height="20" width="20"  src="https://cdn.simpleicons.org/GitHubActions" alt="GitHubActions" /> GitHub Actions
 
