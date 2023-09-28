@@ -93,7 +93,7 @@ jf rbc --builds=/path/to/builds-spec.json --signing-key=myKeyPair myApp 1.0.0
 Create a release bundle with name "myApp" and version "1.0.0", with signing key pair "myKeyPair". The release bundle will include artifacts of the release bundles that were provided in the release bundles spec.
 
 ```
-jf rbc --spec=/path/to/release-bundles-spec.json --signing-key=myKeyPair myApp 1.0.0
+jf rbc --release-bundles=/path/to/release-bundles-spec.json --signing-key=myKeyPair myApp 1.0.0
 ```
 
 **Example 3**
@@ -101,7 +101,7 @@ jf rbc --spec=/path/to/release-bundles-spec.json --signing-key=myKeyPair myApp 1
 Create a release bundle synchronously with name "myApp" and version "1.0.0", in project "project0", with signing key pair "myKeyPair". The release bundle will include artifacts of the release bundles that were provided in the release bundles spec.
 
 ```
-jf rbc --spec=/path/to/release-bundles-spec.json --signing-key=myKeyPair --sync=true --project=project0 myApp 1.0.0
+jf rbc --release-bundles=/path/to/release-bundles-spec.json --signing-key=myKeyPair --sync=true --project=project0 myApp 1.0.0
 ```
 
 ### Promoting a release bundle
