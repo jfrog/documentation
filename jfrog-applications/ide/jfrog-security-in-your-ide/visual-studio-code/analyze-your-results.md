@@ -12,13 +12,13 @@ Each file node in the tree is interactive, click and expand it to view its child
 
 In addition, the locations with vulnerabilities will be marked in the editor. By clicking on the light bulb icon next to a vulnerable location in the editor, we can instantly jump to the corresponding entry in the tree view.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Clicking on a CVE in the list will open the location with the issue in the editor and a vulnerability details view. This view contains information about the vulnerability, the vulnerable component, fixed versions, impact paths, and much more.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 <details>
 
@@ -32,7 +32,7 @@ Remediation: Detailed fix and mitigation options for the CVEs
 
 Check out what our research team is up to and stay updated on newly discovered issues by clicking on this [link](https://research.jfrog.com).
 
-![JFrog_Research](../../.gitbook/assets/vscode/research.png)
+![JFrog_Research](../../../.gitbook/assets/vscode/research.png)
 
 </details>
 
@@ -48,7 +48,7 @@ Xray automatically validates some high and very high impact vulnerabilities, suc
 * Vulnerability Contextual Analysis breakdown: An explanation provided by our research team as to why the CVE was found applicable or not applicable.
 * Remediation: Contextual mitigation steps and options provided by our research team that assist you with remediating the issues.
 
-![Contextual_Analysis](../../.gitbook/assets/vscode/contextualDetails.png)
+![Contextual_Analysis](../../../.gitbook/assets/vscode/contextualDetails.png)
 
 </details>
 
@@ -67,7 +67,7 @@ SAST findings are presented in a way that will help you easily locate the vulner
 * **Fix Steps**: To help you fix the security issues, the JFrog security team provides you with detailed fixes and mitigation options for the vulnerabilities. Xray empowers you to make smart choices when creating the mitigation plan and choosing the paths with the highest return on investment.
 Along with the JFrog severity given, you can make informed decisions on what vulnerabilities are a priority to fix. For example, vulnerabilities with low JFrog security severity are considered less risky, as it would be very unlikely to exploit them in the real world, or the impact of the exploitation is low.
 
-![Contextual_Analysis](../../.gitbook/assets/vscode/sast.png)
+![Contextual_Analysis](../../../.gitbook/assets/vscode/sast.png)
 
 </details>
 
@@ -79,7 +79,7 @@ Along with the JFrog severity given, you can make informed decisions on what vul
 
 Detect any secrets left exposed inside the code. to prevent any accidental leak of internal tokens or credentials. To ignore detected secrets, you can add a comment which includes the phrase _jfrog-ignore_ above the line with the secret.
 
-![Secrets_Detection](../../.gitbook/assets/vscode/secrets.png)
+![Secrets_Detection](../../../.gitbook/assets/vscode/secrets.png)
 
 </details>
 
@@ -91,6 +91,6 @@ Detect any secrets left exposed inside the code. to prevent any accidental leak 
 
 Scan Infrastructure as Code (Terraform) files for early detection of cloud and infrastructure misconfigurations.
 
-![iac_scan](../../.gitbook/assets/vscode/iac.png)
+![iac_scan](../../../.gitbook/assets/vscode/iac.png)
 
 </details>

@@ -29,11 +29,11 @@ The commands will do the following:
 
 Once the JFrog Extension is installed in VS Code, click on the JFrog tab:
 
-![jfrogTab](../../.gitbook/assets/vscode/jfrogTab.png)
+![jfrogTab](../../../.gitbook/assets/vscode/jfrogTab.png)
 
 This will open the Sign in page:
 
-![SighInPage](../../.gitbook/assets/vscode/sighInPage.png)
+![SighInPage](../../../.gitbook/assets/vscode/sighInPage.png)
 
 Fill in your connection details and click on the `Sign In` button to start using the extension
 
@@ -51,7 +51,7 @@ To sign in using SSO, follow these steps:
 
 1. On the sign-in page, click the `Continue with SSO` button:
 
-![SighInSsoButton](../../.gitbook/assets/vscode/ssoButton.png)
+![SighInSsoButton](../../../.gitbook/assets/vscode/ssoButton.png)
 
 2. After entering your JFrog platform URL, click on `Sign in With SSO`.
 3. It will take a few seconds for the browser to redirect you to the SSO sign in page.
@@ -61,7 +61,7 @@ To sign in using SSO, follow these steps:
 
 If JFrog CLI is installed on your machine and is configured with your JFrog Platform connection details, then you should see the message popup in the Sigh in page:
 
-![LoginPageJfrogCli](../../.gitbook/assets/vscode/sighInPageJFrogCli.png)
+![LoginPageJfrogCli](../../../.gitbook/assets/vscode/sighInPageJFrogCli.png)
 
 ## Connect Using Environment Variables
 
@@ -75,6 +75,6 @@ You may set the connection details using the following environment variables. VS
 
 Once the above environment variables are configured, you can expect to see a message popup in the Sigh in page:
 
-![LoginPageEnvVar](../../.gitbook/assets/vscode/sighInPageEnvVar.png)
+![LoginPageEnvVar](../../../.gitbook/assets/vscode/sighInPageEnvVar.png)
 
 **Note**: For security reasons, it is recommended to unset the environment variables after launching VS Code.
