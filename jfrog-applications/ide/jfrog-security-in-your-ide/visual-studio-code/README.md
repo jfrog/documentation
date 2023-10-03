@@ -1,6 +1,6 @@
 # Visual Studio Code
 
-### About the JFrog Extension
+### About the JFrog Extension;
 
 The cost of remediating a vulnerability is akin to the cost of fixing a bug. The earlier you remediate a vulnerability in the release cycle, the lower the cost. The extension allows developers to find and fix security vulnerabilities in their projects and to see valuable information about the status of their code by continuously scanning it locally with [JFrog Xray](https://jfrog.com/xray/).&#x20;
 
