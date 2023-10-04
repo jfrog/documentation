@@ -3,7 +3,6 @@
 #### Automatic pull requests creation
 
 Frogbot scans your Git repositories periodically and automatically creates pull requests for upgrading vulnerable dependencies to a version with a fix.
-> **_NOTE:_** Currently not supported in Gradle.
   
   ![](../.gitbook/assets/fix-pr.png)
 
