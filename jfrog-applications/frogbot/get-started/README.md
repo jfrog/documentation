@@ -17,15 +17,15 @@ JFrog Frogbot is a Git bot that scans your git repositories for security vulnera
 
 #### It supports the following Git providers:
 
-| <img height="20" width="20"  src="https://cdn.simpleicons.org/GitHub" alt="GitHub" /> GitHub | <img height="20" width="20"  src="https://cdn.simpleicons.org/GitLab" alt="GitLab" />  GitLab | <img height="20" width="20"  src="https://cdn.simpleicons.org/AzureDevops" alt="Azure" />  Azure Repos | <img height="20" width="20"  src="https://cdn.simpleicons.org/Bitbucket" alt="Bitbucket" />  Bitbucket Server |
+| ![GitHub](../../.gitbook/assets/integrations/GitHub.png) GitHub | ![GitLab](../../.gitbook/assets/integrations/GitLab.png) GitLab | ![Azure](../../.gitbook/assets/integrations/AzureDevops.png) Azure Repos | ![Bitbucket](../../.gitbook/assets/integrations/Bitbucket.png) Bitbucket Server |
 |----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 
 
 #### It supports the following package managers:
 
-|<img height="20" width="20"  src="https://cdn.simpleicons.org/Go" alt="Go" /> Go|<img height="20" width="20"  src="https://cdn.simpleicons.org/Gradle" alt="Gradle" /> Gradle|<img height="20" width="20"  src="https://cdn.simpleicons.org/ApacheMaven" alt="Maven" /> Maven|<img height="20" width="20"  src="https://cdn.simpleicons.org/npm" alt="npm" /> npm|<img height="20" width="20"  src="https://cdn.simpleicons.org/Yarn" alt="Yarn" /> Yarn|
+| ![Go](../../.gitbook/assets/integrations/Go.png) Go | ![Gradle](../../.gitbook/assets/integrations/Gradle.png) Gradle | ![Maven](../../.gitbook/assets/integrations/ApacheMaven.png) Maven | ![npm](../../.gitbook/assets/integrations/npm.png) npm | ![Yarn](../../.gitbook/assets/integrations/Yarn.png) Yarn |
 |:----|:----|:----|:----|:----|
-|<img height="20" width="20"  src="https://cdn.simpleicons.org/.NET" alt=".NET" /> .NET|<img height="20" width="20"  src="https://cdn.simpleicons.org/NuGet" alt="NuGet" /> NuGet|<img height="20" width="20"  src="https://cdn.simpleicons.org/Python" alt="Pip" /> Pip|<img height="20" width="20"  src="https://cdn.simpleicons.org/Python" alt="Pipenv" /> Pipenv|<img height="20" width="20"  src="https://cdn.simpleicons.org/Poetry" alt="Poetry" /> Poetry|
+| ![.NET](../../.gitbook/assets/integrations/NET.png) .NET | ![NuGet](../../.gitbook/assets/integrations/NuGet.png) NuGet | ![Pip](../../.gitbook/assets/integrations/Python.png) Pip | ![Pipenv](../../.gitbook/assets/integrations/Python.png) Pipenv | ![Poetry](../../.gitbook/assets/integrations/Poetry.png) Poetry |
 
  # Setup Frogbot
 
@@ -37,15 +37,15 @@ JFrog Frogbot is a Git bot that scans your git repositories for security vulnera
 
 #### Select your preferred CI server:
 
-<img height="20" width="20"  src="https://cdn.simpleicons.org/GitHubActions" alt="GitHubActions" /> [GitHub Actions](../../jfrog-applications/frogbot/get-started/setting-frogbot-on-github-repositories.md)
+![GitHubActions](../../.gitbook/assets/integrations/GitHubActions.png) [GitHub Actions](../../jfrog-applications/frogbot/get-started/setting-frogbot-on-github-repositories.md)
 
-<img height="20" width="20"  src="https://cdn.simpleicons.org/Jenkins" alt="Jenkins" /> [Jenkins](../../jfrog-applications/frogbot/get-started/set-up-frogbot-using-jenkins.md)
+![Jenkins](../../.gitbook/assets/integrations/Jenkins.png) [Jenkins](../../jfrog-applications/frogbot/get-started/set-up-frogbot-using-jenkins.md)
 
-<img height="20" width="20"  src="https://cdn.simpleicons.org/JfrogPipelines" alt="jfrogpipelines" /> [JFrog Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-jfrog-pipelines.md)
+![JfrogPipelines](../../.gitbook/assets/integrations/JfrogPipelines.png) [JFrog Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-jfrog-pipelines.md)
 
-<img height="20" width="20"  src="https://cdn.simpleicons.org/Gitlab" alt="Gitlab" /> [GitLab CI](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-gitlab-repositories.md)
+![Gitlab](../../.gitbook/assets/integrations/Gitlab.png) [GitLab CI](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-gitlab-repositories.md)
 
-<img height="20" width="20"  src="https://cdn.simpleicons.org/AzurePipelines" alt="AzurePipelines" /> [Azure Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-azure-repositories.md)
+![AzurePipelines](../../.gitbook/assets/integrations/AzurePipelines.png) [Azure Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-azure-repositories.md)
 
 <details>
   
