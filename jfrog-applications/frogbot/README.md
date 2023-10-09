@@ -1,4 +1,4 @@
-# Frogbot
+# JFrog Frogbot
 
 <img src="https://raw.github.com/jfrog/frogbot/master/images/frogbot-intro.png" />
 
