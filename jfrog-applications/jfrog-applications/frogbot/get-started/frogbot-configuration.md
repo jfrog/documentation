@@ -148,6 +148,10 @@ Frogbot expects the frogbot-config.yml file to be in the following path from the
       # Frogbot displays all existing vulnerabilities, including the ones that were not added by the pull request
       # includeAllVulnerabilities: true
 
+      # [Default: false]
+      # Keep old comments that were added by previous Frogbot scans on the pull request.
+      # keepPreviousComments: true
+
       # [Default: true]
       # Frogbot does not fail the task if security issues are found and this parameter is set to false
       # failOnSecurityIssues: false
