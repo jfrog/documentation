@@ -6,7 +6,7 @@
 
 * [JFrog CLI](jfrog-cli/README.md)
   * [Download and Insall](jfrog-cli/get-started/download-and-insall/install.md)
-    * [System Requirements](jfrog-cli/get-started/download-and-insall/usage.md)
+  * [Usage](jfrog-cli/get-started/download-and-insall/usage.md)
   * [Configurations](jfrog-cli/get-started/configurations/README.md)
     * [JFrog Platform Configuration](jfrog-cli/get-started/configurations/jfrog-platform-configuration.md)
     * [Setting up a CI Pipeline](jfrog-cli/get-started/configurations/setting-up-a-ci-pipeline.md)
