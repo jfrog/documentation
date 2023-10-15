@@ -1,8 +1,4 @@
-# System Requirements
-
-JFrog CLI runs on any modern OS that fully supports the [Go programming language](https://golang.org/).
-
-#### Usage
+# Usage
 
 To use the CLI, [install](https://jfrog.com/getcli/) it on your local machine, or [download](https://jfrog.com/getcli/) its executable, place it anywhere in your file system and add its location to your&#x20;
 
