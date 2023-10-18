@@ -28,7 +28,7 @@ The following sections describe the commands available in the JFrog CLI for use 
 
 #### Checking Pipelines Version
 
-Check the version of Pipelines installation.
+##### Commands params
 
 |                   |                                                                                                                                                    |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -38,15 +38,18 @@ Check the version of Pipelines installation.
 | Command options   |                                                                                                                                                    |
 | --server-id       | <p>[Optional]<br><br>Specify Pipelines server for which the version is to be fetched. If not specified, the default configured server is used.</p> |
 
-**Example**
+##### Example
 
+Check the version of Pipelines installation.
 ```
 jf pl version --server-id repo21
 ```
 
 #### Getting Run Status
 
-Get the status of the run for the specified pipeline.
+Get the status of the run for the specified pipeline
+
+##### Commands params
 
 |                   |                                                                                                                                |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -61,16 +64,17 @@ Get the status of the run for the specified pipeline.
 | --server-id       | <p>[Optional]<br><br>Name of the server.</p>                                                                                   |
 | --single-branch   | <p>[Optional]<br><br>To be used when using a single branch.</p>                                                                |
 
-**Examples**
 
-**Single Branch**
+##### Example1
 
+Get the status of the run for the specified pipeline in case of Single Branch.
 ```
 jf pl status --pipeline-name myPipeline --single-branch --server-id repo21 --monitor --single-branch
 ```
 
-**Multi Branch**
+##### Example2
 
+Get the status of the run for the specified pipeline in case of Multi Branch.
 ```
 jf pl status --pipeline-name myPipeline --branch main/jobs --server-id repo21 --monitor
 ```
@@ -78,6 +82,8 @@ jf pl status --pipeline-name myPipeline --branch main/jobs --server-id repo21 --
 #### Triggering a Pipeline
 
 Trigger a pipeline run.
+
+##### Commands params
 
 |                   |                                                                                                                          |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -90,25 +96,25 @@ Trigger a pipeline run.
 | pipeline\_name    | Name of the pipeline to be triggered.                                                                                    |
 | branch\_name      | Name of the multi branch.                                                                                                |
 
-**Examples**
 
-**Single Branch**
+##### Example1
 
+Trigger a pipeline run in case of Single Branch.
 ```
 jf pl trigger myPipeline main/jobs --single-branch --server-id repo21
 ```
 
-**Multi Branch**
+##### Example2
 
+Trigger a pipeline run in case of Multi Branch.
 ```
 jf pl trigger myPipeline main/jobs --server-id repo21
 ```
 
-####
 
 #### Syncing Pipeline Source
 
-Perform a sync to load the latest pipeline source.
+##### Commands params
 
 |                 |                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------- |
@@ -119,15 +125,16 @@ Perform a sync to load the latest pipeline source.
 | --repository    | <p>[Optional]<br><br>Full name of the repository where the pipeline source is stored.</p> |
 | --branch        | <p>[Optional]<br><br>Name of branch that has the pipeline source.</p>                     |
 
-**Example**
+##### Example
 
+Perform a sync to load the latest pipeline source.
 ```
 jf pl sync --repository jfrog/artifactory --branch main/jobs --server-id repo21
 ```
 
 #### Sync Status of Pipeline Source
 
-Get the current status of the pipeline source sync.
+##### Commands params
 
 |                   |                                                                  |
 | ----------------- | ---------------------------------------------------------------- |
@@ -139,8 +146,9 @@ Get the current status of the pipeline source sync.
 | full\_repo\_name  | Full name of the repository where the pipeline source is stored. |
 | branch\_name      | Name of the branch.                                              |
 
-**Example**
+##### Example
 
+Get the current status of the pipeline source sync.
 ```
 jf pl sync-status jfrog/artifactory main/jobs --server-id repo21
 ```
