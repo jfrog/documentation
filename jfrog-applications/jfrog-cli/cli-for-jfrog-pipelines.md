@@ -28,7 +28,7 @@ The following sections describe the commands available in the JFrog CLI for use 
 
 #### Checking Pipelines Version
 
-##### Commands params
+##### Commands Params
 
 |                   |                                                                                                                                                    |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +49,7 @@ jf pl version --server-id repo21
 
 Get the status of the run for the specified pipeline
 
-##### Commands params
+##### Commands Params
 
 |                   |                                                                                                                                |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -65,14 +65,14 @@ Get the status of the run for the specified pipeline
 | --single-branch   | <p>[Optional]<br><br>To be used when using a single branch.</p>                                                                |
 
 
-##### Example1
+##### Example 1
 
 Get the status of the run for the specified pipeline in case of Single Branch.
 ```
 jf pl status --pipeline-name myPipeline --single-branch --server-id repo21 --monitor --single-branch
 ```
 
-##### Example2
+##### Example 2
 
 Get the status of the run for the specified pipeline in case of Multi Branch.
 ```
@@ -83,7 +83,7 @@ jf pl status --pipeline-name myPipeline --branch main/jobs --server-id repo21 --
 
 Trigger a pipeline run.
 
-##### Commands params
+##### Commands Params
 
 |                   |                                                                                                                          |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -97,14 +97,14 @@ Trigger a pipeline run.
 | branch\_name      | Name of the multi branch.                                                                                                |
 
 
-##### Example1
+##### Example 1
 
 Trigger a pipeline run in case of Single Branch.
 ```
 jf pl trigger myPipeline main/jobs --single-branch --server-id repo21
 ```
 
-##### Example2
+##### Example 2
 
 Trigger a pipeline run in case of Multi Branch.
 ```
@@ -114,7 +114,7 @@ jf pl trigger myPipeline main/jobs --server-id repo21
 
 #### Syncing Pipeline Source
 
-##### Commands params
+##### Commands Params
 
 |                 |                                                                                           |
 | --------------- | ----------------------------------------------------------------------------------------- |
@@ -134,7 +134,7 @@ jf pl sync --repository jfrog/artifactory --branch main/jobs --server-id repo21
 
 #### Sync Status of Pipeline Source
 
-##### Commands params
+##### Commands Params
 
 |                   |                                                                  |
 | ----------------- | ---------------------------------------------------------------- |
