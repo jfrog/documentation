@@ -1,6 +1,6 @@
 # Visual Studio Code
 
-![](../../../.gitbook/assets/vscode-header.png)
+<img src="../../.gitbook/assets/vscode-header.png" />
 
 ### About the JFrog Extension;
 
