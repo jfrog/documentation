@@ -2,7 +2,9 @@
 
 ## Scanning Published Builds
 
-JFrog CLI is integrated with JFrog Xray and JFrog Artifactory, allowing you to have your build artifacts and dependencies scanned for vulnerabilities and license violations. This command allows scanning a build, which had already been published to Artifactory using the [build-publish command](https://jfrog.com/help/r/jfrog-cli/publishing-build-info).
+JFrog CLI is integrated with JFrog Xray and JFrog Artifactory, allowing you to have your build artifacts and dependencies scanned for vulnerabilities and license violations. Please notice that the build in the below example had already been published to Artifactory using the [build-publish command](https://jfrog.com/help/r/jfrog-cli/publishing-build-info).
+
+### Commands Params
 
 |                   |                                                                                                                                                                                                                                            |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -19,8 +21,9 @@ JFrog CLI is integrated with JFrog Xray and JFrog Artifactory, allowing you to h
 | Build name        | Build name to be scanned.                                                                                                                                                                                                                  |
 | Build number      | Build number to be scanned.                                                                                                                                                                                                                |
 
-**Example**
+### Example
 
+Scan build number 18, corresponding to the following build name: 'my-build-name'.
 ```
 jf bs my-build-name 18
 ```

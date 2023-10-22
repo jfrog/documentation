@@ -33,6 +33,8 @@ This command also supports the following Advanced Scans with the **Advanced Secu
 
 ***
 
+#### Commands Params
+
 |                       |                                                                                                                                                                                                                                                                                                                                                                   |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Command name**      | audit                                                                                                                                                                                                                                                                                                                                                             |
@@ -66,9 +68,7 @@ This command also supports the following Advanced Scans with the **Advanced Secu
 
 &#x20;&#x20;
 
-#### Examples
-
-**Example 1**
+#### Example 1
 
 Audit the project at the current directory. Show all known vulnerabilities, regardless of the policies defined in Xray.
 
@@ -76,7 +76,7 @@ Audit the project at the current directory. Show all known vulnerabilities, rega
 jf audit
 ```
 
-**Example 2**
+#### Example 2
 
 Audit the project at the current directory. Show all known vulnerabilities, regardless of the policies defined in Xray. Show only maven and npm vulnerabilities.
 
@@ -84,7 +84,7 @@ Audit the project at the current directory. Show all known vulnerabilities, rega
 jf audit --mvn --npm
 ```
 
-**Example 3**
+#### Example 3
 
 Audit the project at the current directory using a watch named _watch1_ watch defined in Xray.
 
@@ -92,7 +92,7 @@ Audit the project at the current directory using a watch named _watch1_ watch de
 jf audit --watches "watch1"
 ```
 
-**Example 4**
+#### Example 4
 
 Audit the project at the current directory using _watch1_ and \_watch2\_defined in Xray.
 
@@ -100,7 +100,7 @@ Audit the project at the current directory using _watch1_ and \_watch2\_defined 
 jf audit --watches "watch1,watch2"
 ```
 
-**Example 5**
+#### Example 5
 
 Audit the project at the current directory using the policies defined for project-1.
 
@@ -108,7 +108,7 @@ Audit the project at the current directory using the policies defined for projec
 jf audit --project "project-1"
 ```
 
-**Example 6**
+#### Example 6
 
 Audit the project at the current directory using the policies defined for the _libs-local/release-artifacts/_ path in Artifactory.
 
@@ -120,6 +120,8 @@ jf audit --repo-path "libs-local/release-artifacts/"
 
 Execute a cUrl command, using the configured Xray details. The command expects the cUrl client to be included in the PATH.
 
+#### Commands Params
+
 |                          |                                                                                                                                                                                                                                                                                           |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command name             | xr curl                                                                                                                                                                                                                                                                                   |
@@ -129,9 +131,8 @@ Execute a cUrl command, using the configured Xray details. The command expects t
 | Command arguments        |                                                                                                                                                                                                                                                                                           |
 | cUrl arguments and flags | <p>The same list of arguments and flags passed to cUrl, except for the following changes:<br><br>1. The full Xray URL should not be passed. Instead, the REST endpoint URI should be sent.<br>2. The login credentials should not be passed. Instead, the --server-id should be used.</p> |
 
-#### **Examples**
 
-**Example 1**
+#### Example 1
 
 Execute the cUrl client, to send a GET request to the /api/system/version endpoint to the default configured Xray server.
 
@@ -139,7 +140,7 @@ Execute the cUrl client, to send a GET request to the /api/system/version endpoi
 jf xr curl -XGET /api/v1/system/version
 ```
 
-**Example 2**
+#### Example 2
 
 Execute the cUrl client, to send a GET request to the /api/v1/system/version endpoint to the configured my-xr-server server ID.
 
