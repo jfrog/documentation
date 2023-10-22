@@ -17,6 +17,8 @@ This **jf scan**\_ command scans files on the local file system with Xray.
 
 ***
 
+#### Commands Params
+
 |                       |                                                                                                                                                                                                                                                                                                                                                                    |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Command name**      | scan                                                                                                                                                                                                                                                                                                                                                               |
@@ -32,11 +34,7 @@ This **jf scan**\_ command scans files on the local file system with Xray.
 | **Command arguments** |                                                                                                                                                                                                                                                                                                                                                                    |
 | **Pattern**           | Specifies the local file system path to artifacts to be scanned. You can specify multiple files by using wildcards.                                                                                                                                                                                                                                                |
 
-**Output Example**
-
-**Examples**
-
-**Example 1**
+#### Example 1
 
 Scans all the files located at the path/ti/files/ file-system directory using the watch1 watch defined in Xray.
 
@@ -44,14 +42,15 @@ Scans all the files located at the path/ti/files/ file-system directory using th
 jf s "path/to/files/" --watches "watch1"
 ```
 
-**Example 2**\
+#### Example 2
+
 Scans all the files located at the path/ti/files/ file-system directory using the _watch1_ and _watch2_ Watches defined in Xray.
 
 ```
 jf s "path/to/files/" --watches "watch1,watch2"
 ```
 
-**Example 3**
+#### Example 3
 
 Scans all the zip files located at the path/ti/files/ file-system directory using the _watch1_ and _watch2_ Watches defined in Xray.
 
@@ -59,7 +58,7 @@ Scans all the zip files located at the path/ti/files/ file-system directory usin
 jf s "path/to/files/*.zip" --watches "watch1,watch2"
 ```
 
-**Example 4**
+#### Example 4
 
 Scans all the tgz files located at the path/ti/files/ file-system directory using the policies defined for project-1.
 
@@ -67,14 +66,16 @@ Scans all the tgz files located at the path/ti/files/ file-system directory usin
 jf s "path/to/files/*.tgz" --project "project-1"
 ```
 
-**Example 5**\
+#### Example 5
+
 Scans all the tgz files located in the current directory using the policies defined for the libs-local/release-artifacts/ path in Artifactory.
 
 ```
 jf s "*.tgz" --repo-path "libs-local/release-artifacts/"
 ```
 
-**Example 6**\
+#### Example 6
+
 Scans all the tgz files located at the current directory. Show all known vulnerabilities, regardless of the policies defined in Xray.
 
 ```
@@ -96,6 +97,8 @@ This j\_**f docker scan**\_ command scans docker containers located on the local
 
 ***
 
+#### Commands Params
+
 |                       |                                                                                                                                                                                                                                                                                                                                                                    |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Command name**      | docker scan                                                                                                                                                                                                                                                                                                                                                        |
@@ -110,11 +113,8 @@ This j\_**f docker scan**\_ command scans docker containers located on the local
 | **Command arguments** |                                                                                                                                                                                                                                                                                                                                                                    |
 | **Pattern**           | Specifies the local file system path to artifacts to be scanned. You can specify multiple files by using wildcards.                                                                                                                                                                                                                                                |
 
-**Output Example**
 
-**Examples**
-
-**Example 1**
+#### Example 1
 
 Scan the local _reg1/repo1/img1:1.0.0_ container and show all known vulnerabilities, regardless of the policies defined in Xray.
 
@@ -126,7 +126,7 @@ $
 $ jf docker scan reg1/repo1/img1:1.0.0
 ```
 
-**Example 2**
+#### Example 2
 
 Scan the local _reg1/repo1/img1:1.0.0_ container and show all violations according to the policy associated with _my-project_ JFrog project.
 
@@ -138,7 +138,7 @@ $
 $ jf docker scan reg1/repo1/img1:1.0.0 --project my-project
 ```
 
-**Example 3**
+#### Example 3
 
 Scan the local _reg1/repo1/img1:1.0.0_ container and show all violations according to the policy associated with _my-watch_ Xray Watch.
 
@@ -150,7 +150,7 @@ $
 $ jf docker scan reg1/repo1/img1:1.0.0 --watches my-watch
 ```
 
-**Example 4**
+#### Example 4
 
 Scan the local _reg1/repo1/img1:1.0.0_ container and show all violations according to the policy associated with the _releases-local/app1/_ path in Artifactory.
 
@@ -181,7 +181,7 @@ It requires saving the image on the file system as an uncompressed tarball using
 
 #### Docker Client
 
-#### Use Docker client ‘`docker save`’ command to save the image to the file system for scanning.
+Use Docker client ‘`docker save`’ command to save the image to the file system for scanning.
 
 **Example**:
 
