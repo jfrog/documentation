@@ -40,7 +40,7 @@ Once the plugin is successfully installed, connect the plugin to your instance o
 3. Set your JFrog Platform URL and login credentials.
 4. Test your connection to Xray using the Test Connection button.
   
-![](../../../.gitbook/assets/connect-idea-to-jfrog.png)
+![](../../.gitbook/assets/connect-idea-to-jfrog.png)
 
 **Using Environment Variables**
 
