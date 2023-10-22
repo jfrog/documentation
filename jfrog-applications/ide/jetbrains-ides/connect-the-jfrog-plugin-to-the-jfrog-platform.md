@@ -30,6 +30,34 @@ powershell "Start-Process -Wait -Verb RunAs powershell '-NoProfile iwr https://r
 
 You can connect the plugin to your JFrog environment using one of the following methods:
 
+**Using the IDE Settings**
+
+Once the plugin is successfully installed, connect the plugin to your instance of the JFrog Platform:
+
+1. If your JFrog Platform instance is behind an HTTP proxy, configure the proxy settings as described [here](https://www.jetbrains.com/help/idea/settings-http-proxy.html).
+    Manual proxy configuration is supported since version 1.3.0 of the JFrog IntelliJ IDEA Plugin. Auto-detect proxy settings is supported since version 1.7.0.
+2. Under **Settings (Preferences)** | **Other Settings**, click **JFrog Global Configuration**.
+3. Set your JFrog Platform URL and login credentials.
+4. Test your connection to Xray using the Test Connection button.
+  
+![](../../../.gitbook/assets/connect-idea-to-jfrog.png)
+
+**Using Environment Variables**
+
+The plugin also supports connecting to your JFrog environment using environment variables:
+
+1. Under **Settings (Preferences)** | **Other Settings**, click **JFrog Global Configuration**.
+2. Mark **Load connection details from environment variables**.
+
+You may provide basic auth credentials or access token as follows:
+
+> **_NOTE:_**  For security reasons, it is recommended to unset the environment variables after launching the IDE.
+
+- `JFROG_IDE_PLATFORM_URL` - JFrog Platform URL
+- `JFROG_IDE_USERNAME` - JFrog Platform username
+- `JFROG_IDE_PASSWORD` - JFrog Platform password
+- `JFROG_IDE_ACCESS_TOKEN` - JFrog Platform access token
+
 </details>
 
 > **NOTES:**

@@ -1,5 +1,7 @@
 # JetBrains IDEs
 
+![](../../../.gitbook/assets/jetbrains-ides-header.png)
+
 ## About the JFrog Plugin
 
 The plugin allows developers to find and fix security vulnerabilities in their projects and to see valuable information about the status of their code by continuously scanning it locally with [JFrog Security](https://jfrog.com/xray/).
