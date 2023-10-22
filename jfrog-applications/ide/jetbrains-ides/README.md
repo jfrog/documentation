@@ -1,6 +1,6 @@
 # JetBrains IDEs
 
-<img src="../../../.gitbook/assets/jetbrains-ides-header.png" />
+<img src="../../.gitbook/assets/jetbrains-ides-header.png" />
 
 ## About the JFrog Plugin
 
