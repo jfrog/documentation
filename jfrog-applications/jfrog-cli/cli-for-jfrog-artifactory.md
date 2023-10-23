@@ -135,9 +135,7 @@ The JFrog CLI offers enormous flexibility in how you **download, upload**, **cop
 
 Any wildcard enclosed in parentheses in the source path can be matched with a corresponding placeholder in the target path to determine the name of the artifact once uploaded.
 
-#### Examples
-
-**Example 1: Upload all files to the target repository**
+#### Example 1: Upload all files to the target repository
 
 For each .tgz file in the source directory, create a corresponding directory with the same name in the target repository and upload it there. For example, a file named **froggy.tgz** should be uploaded to **my-local-rep/froggy**. **froggy** will be created in a folder in Artifactory).
 
@@ -145,7 +143,7 @@ For each .tgz file in the source directory, create a corresponding directory wit
 jf rt u "(*).tgz" my-local-repo/{1}/ --recursive=false
 ```
 
-**Example 2: Upload all files sharing the same prefix to the target repository**
+#### Example 2: Upload all files sharing the same prefix to the target repository
 
 Upload all files whose name begins with "frog" to folder **frogfiles** in the target repository, but append its name with the text "-up". For example, a file called **froggy.tgz** should be renamed **froggy.tgz-up**.
 
@@ -153,7 +151,7 @@ Upload all files whose name begins with "frog" to folder **frogfiles** in the ta
 jf u "(frog*)" my-local-repo/frogfiles/{1}-up --recursive=false
 ```
 
-**Example 3: Upload all files to corresponding directories according to extension type**
+#### Example 3: Upload all files to corresponding directories according to extension type
 
 Upload all files in the current directory to the **my-local-repo** repository and place them in directories that match their file extensions.
 
@@ -161,7 +159,7 @@ Upload all files in the current directory to the **my-local-repo** repository an
 jf rt u "(*).(*)" my-local-repo/{2}/{1}.{2} --recursive=false
 ```
 
-**Example 4: Copy all zip files to target repository and append with an extension.**
+#### Example 4: Copy all zip files to target repository and append with an extension
 
 Copy all zip files under /rabbit in the **source-frog-repo** repository into the same path in the **target-frog-repo** repository and append the copied files' names with ".cp".
 
@@ -177,6 +175,8 @@ The following sections describe the commands available in the JFrog CLI for use 
 
 This command can be used to verify that Artifactory is accessible by sending an applicative ping to Artifactory.
 
+#### Commands Params
+
 |                   |                                                                                                                                                                 |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command name      | rt ping                                                                                                                                                         |
@@ -188,9 +188,7 @@ This command can be used to verify that Artifactory is accessible by sending an 
 | --insecure-tls    | <p>[Default: false]<br><br>Set to true to skip TLS certificates verification.</p>                                                                               |
 | Command arguments | The command accepts no arguments.                                                                                                                               |
 
-#### **Examples**
-
-**Example 1**
+#### Example 1
 
 Ping the configured default Artifactory server.
 
@@ -198,7 +196,7 @@ Ping the configured default Artifactory server.
 jf rt ping
 ```
 
-**Example 2**
+#### Example 2
 
 Ping the configured Artifactory server with ID **rt-server-1**.
 
@@ -206,7 +204,7 @@ Ping the configured Artifactory server with ID **rt-server-1**.
 jf rt ping --server-id=rt-server-1
 ```
 
-**Example 3**
+#### Example 3
 
 Ping the Artifactory server. accessible through the specified URL.
 
@@ -217,6 +215,8 @@ jf rt ping --url=https://my-rt-server.com/artifactory
 ### Uploading Files
 
 This command is used to upload files to Artifactory.
+
+#### Commands Params
 
 |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -254,9 +254,7 @@ This command is used to upload files to Artifactory.
 | Source path        | The first argument specifies the local file system path to artifacts that should be uploaded to Artifactory. You can specify multiple artifacts by using wildcards or a regular expression as designated by the **--regexp** command option. Please read the **--regexp** option description for more information.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Target path        | <p>The second argument specifies the target path in Artifactory in the following format: <code>[repository name]/[repository path]</code><br><br>If the target path ends with a slash, the path is assumed to be a folder. For example, if you specify the target as "repo-name/a/b/", then "b" is assumed to be a folder in Artifactory into which files should be uploaded. If there is no terminal slash, the target path is assumed to be a file to which the uploaded file should be renamed. For example, if you specify the target as "repo-name/a/b", the uploaded file is renamed to "b" in Artifactory.<br><br>For flexibility in specifying the upload path, you can include placeholders in the form of {1}, {2} which are replaced by corresponding tokens in the source path that are enclosed in parenthesis. For more details, please refer to <a href="https://jfrog.com/help/r/jfrog-cli/using-placeholders">Using Placeholders</a>.</p> |
 
-#### Examples
-
-**Example 1**
+#### Example 1
 
 Upload a file called **froggy.tgz** to the root of the **my-local-repo** repository.
 
@@ -264,7 +262,7 @@ Upload a file called **froggy.tgz** to the root of the **my-local-repo** reposit
 jf rt u froggy.tgz my-local-repo
 ```
 
-**Example 2**
+#### Example 2
 
 Collect all the zip files located under the **build** directory (including subdirectories), and upload them to the **my-local-repo** repository, under the **zipFiles** folder, while maintaining the original names of the files.
 
@@ -272,7 +270,7 @@ Collect all the zip files located under the **build** directory (including subdi
 jf rt u "build/*.zip" my-local-repo/zipFiles/
 ```
 
-**Example 3**
+#### Example 3
 
 Collect all the zip files located under the **build** directory (including subdirectories), and upload them to the **my-local-repo** repository, under the **zipFiles** folder, while maintaining the original names of the files. Also delete all files in the **my-local-repo** repository, under the **zipFiles** folder, except for the files which were uploaded by this command.
 
@@ -280,7 +278,7 @@ Collect all the zip files located under the **build** directory (including subdi
 jf rt u "build/*.zip" my-local-repo/zipFiles/ --sync-deletes="my-local-repo/zipFiles/"
 ```
 
-**Example 4**
+#### Example 4
 
 Collect all files located under the **build** directory (including subdirectories), and upload them to the \*\*my-release-local \*\*repository, under the **files** folder, while maintaining the original names of the artifacts. Exclude (do not upload) files, which include **install** as part of their path, and have the **pack** extension. This example uses a wildcard pattern. See **Example 5**, which uses regular expressions instead.
 
@@ -288,7 +286,7 @@ Collect all files located under the **build** directory (including subdirectorie
 jf rt u "build/" my-release-local/files/ --exclusions="\*install\*pack*"
 ```
 
-**Example 5**
+#### Example 5
 
 Collect all files located under the **build** directory (including subdirectories), and upload them to the **my-release-local** repository, under the **files** folder, while maintaining the original names of the artifacts. Exclude (do not upload) files, which include **install** as part of their path, and have the **pack** extension. This example uses a regular expression. See **Example 4**, which uses a wildcard pattern instead.
 
@@ -296,7 +294,7 @@ Collect all files located under the **build** directory (including subdirectorie
 jf rt u "build/" my-release-local/files/ --regexp --exclusions="(.*)install.*pack$"
 ```
 
-**Example 6**
+#### Example 6
 
 Collect all files located under the **build** directory and match the **/\*.zip** ANT pattern, and upload them to the **my-release-local** repository, under the **files** folder, while maintaining the original names of the artifacts.
 
@@ -304,7 +302,7 @@ Collect all files located under the **build** directory and match the **/\*.zip*
 jf rt u "build/**/*.zip" my-release-local/files/ --ant
 ```
 
-**Example 7**
+#### Example 7
 
 Package all files located under the **build** directory (including subdirectories) into a zip archive named **archive.zip** , and upload the archive to the **my-local-repo** repository,
 
@@ -319,6 +317,8 @@ This command is used to download files from Artifactory.
 > Download from Remote Repositories:\
 > \
 > By default, the command only downloads files that are cached on the current Artifactory instance. It does not download files located on remote Artifactory instances, through remote or virtual repositories. To allow the command to download files from remote Artifactory instances, which are proxied by the use of remote repositories, set the **JFROG\_CLI\_TRANSITIVE\_DOWNLOAD\_EXPERIMENTAL** environment variable to **true**. This functionality requires version 7.17 or above of Artifactory. The remote download functionality is supported only on remote repositories which proxy repositories on remote Artifactory instances. Downloading through a remote repository that proxies non-Artifactory repositories is not supported.
+
+#### Commands Params
 
 |                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -364,9 +364,7 @@ This command is used to download files from Artifactory.
 | Source path         | Specifies the source path in Artifactory, from which the artifacts should be downloaded. You can use wildcards to specify multiple artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Target path         | <p>The second argument is optional and specifies the local file system target path.<br><br>If the target path ends with a slash, the path is assumed to be a directory. For example, if you specify the target as "repo-name/a/b/", then "b" is assumed to be a directory into which files should be downloaded. If there is no terminal slash, the target path is assumed to be a file to which the downloaded file should be renamed. For example, if you specify the target as "a/b", the downloaded file is renamed to "b".<br><br>For flexibility in specifying the target path, you can include placeholders in the form of {1}, {2} which are replaced by corresponding tokens in the source path that are enclosed in parenthesis. For more details, please refer to <a href="https://jfrog.com/help/r/jfrog-cli/using-placeholders">Using Placeholders</a>.</p> |
 
-#### Examples
-
-**Example 1**
+#### Example 1
 
 Download an artifact called **cool-froggy.zip** located at the root of the **my-local-repo** repository to the current directory.
 
@@ -374,7 +372,7 @@ Download an artifact called **cool-froggy.zip** located at the root of the **my-
 jf rt dl my-local-repo/cool-froggy.zip
 ```
 
-**Example 2**
+#### Example 2
 
 Download all artifacts located under the **all-my-frogs** directory in the **my-local-repo** repository to the **all-my-frogs** folder under the current directory.
 
@@ -382,7 +380,7 @@ Download all artifacts located under the **all-my-frogs** directory in the **my-
 jf rt dl my-local-repo/all-my-frogs/ all-my-frogs/
 ```
 
-**Example 3**
+#### Example 3
 
 Download all artifacts located in the \*\*my-local-repo \*\*repository with a **jar** extension to the **all-my-frogs** folder under the current directory.
 
@@ -390,7 +388,7 @@ Download all artifacts located in the \*\*my-local-repo \*\*repository with a **
 jf rt dl "my-local-repo/*.jar" all-my-frogs/
 ```
 
-**Example 4**
+#### Example 4
 
 Download the latest file uploaded to the all-my-frogs folder in the **my-local-repo** repository.
 
@@ -401,6 +399,8 @@ jf rt dl  "my-local-repo/all-my-frogs/" --sort-by=created --sort-order=desc --li
 ### Copying Files
 
 This command is used to copy files in Artifactory
+
+#### Commands Params
 
 |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -431,9 +431,7 @@ This command is used to copy files in Artifactory
 | Source path       | Specifies the source path in Artifactory, from which the artifacts should be copied, in the following format: `[repository name]/[repository path].` You can use wildcards to specify multiple artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Target path       | <p>Specifies the target path in Artifactory, to which the artifacts should be copied, in the following format: <code>[repository name]/[repository path]</code><br><br>If the pattern ends with a slash, the target path is assumed to be a folder. For example, if you specify the target as "repo-name/a/b/", then "b" is assumed to be a folder in Artifactory into which files should be copied. If there is no terminal slash, the target path is assumed to be a file to which the copied file should be renamed. For example, if you specify the target as "repo-name/a/b", the copied file is renamed to "b" in Artifactory.<br><br>For flexibility in specifying the target path, you can include placeholders in the form of {1}, {2} which are replaced by corresponding tokens in the source path that are enclosed in parenthesis. For more details, please refer to <a href="https://jfrog.com/help/r/jfrog-cli/using-placeholders">Using Placeholders</a>.</p> |
 
-#### Examples
-
-**Example 1**
+#### Example 1
 
 Copy all artifacts located under **/rabbit** in the **source-frog-repo** repository into the same path in the **target-frog-repo** repository.
 
@@ -441,7 +439,7 @@ Copy all artifacts located under **/rabbit** in the **source-frog-repo** reposit
 jf rt cp source-frog-repo/rabbit/ target-frog-repo/rabbit/
 ```
 
-**Example 2**
+#### Example 2
 
 Copy all zip files located under **/rabbit** in the **source-frog-repo** repository into the same path in the **target-frog-repo** repository.
 
@@ -449,7 +447,7 @@ Copy all zip files located under **/rabbit** in the **source-frog-repo** reposit
 jf rt cp "source-frog-repo/rabbit/*.zip" target-frog-repo/rabbit/
 ```
 
-**Example 3**
+#### Example 3
 
 Copy all artifacts located under **/rabbit** in the **source-frog-repo** repository and with property "Version=1.0" into the same path in the **target-frog-repo** repository.
 
@@ -460,6 +458,8 @@ jf rt cp "source-frog-repo/rabbit/*" target-frog-repo/rabbit/ --props=Version=1.
 ### Moving Files
 
 This command is used to move files in Artifactory
+
+#### Commands Params
 
 |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -490,9 +490,8 @@ This command is used to move files in Artifactory
 | Source path       | Specifies the source path in Artifactory, from which the artifacts should be moved, in the following format: `[repository name]/[repository path].` You can use wildcards to specify multiple artifacts.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Target path       | <p>Specifies the target path in Artifactory, to which the artifacts should be moved, in the following format: <code>[repository name]/[repository path]</code><br><br>If the pattern ends with a slash, the target path is assumed to be a folder. For example, if you specify the target as "repo-name/a/b/", then "b" is assumed to be a folder in Artifactory into which files should be moved. If there is no terminal slash, the target path is assumed to be a file to which the moved file should be renamed. For example, if you specify the target as "repo-name/a/b", the moved file is renamed to "b" in Artifactory.<br><br>For flexibility in specifying the upload path, you can include placeholders in the form of {1}, {2} which are replaced by corresponding tokens in the source path that are enclosed in parenthesis. For more details, please refer to <a href="https://jfrog.com/help/r/jfrog-cli/using-placeholders">Using Placeholders</a>.</p> |
 
-#### Examples
 
-**Example 1**
+#### Example 1
 
 Move all artifacts located under **/rabbit** in the **source-frog-repo** repository into the same path in the **target-frog-repo** repository.
 
@@ -500,7 +499,7 @@ Move all artifacts located under **/rabbit** in the **source-frog-repo** reposit
 jf rt mv source-frog-repo/rabbit/ target-frog-repo/rabbit/
 ```
 
-**Example 2**
+#### Example 2
 
 Move all zip files located under **/rabbit** in the **source-frog-repo** repository into the same path in the **target-frog-repo** repository.
 
@@ -508,7 +507,7 @@ Move all zip files located under **/rabbit** in the **source-frog-repo** reposit
 jf rt mv "source-frog-repo/rabbit/*.zip" target-frog-repo/rabbit/
 ```
 
-**Example 3**
+#### Example 3
 
 Move all artifacts located under **/rabbit** in the **source-frog-repo** repository and with property "Version=1.0" into the same path in the **target-frog-repo** repository .
 
@@ -519,6 +518,8 @@ jf rt mv "source-frog-repo/rabbit/*" target-frog-repo/rabbit/ --props=Version=1.
 ### Deleting Files
 
 This command is used to delete files in Artifactory
+
+#### Commands Params
 
 |                   |                                                                                                                                                                                                                                                                                                                                                                                         |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -548,9 +549,7 @@ This command is used to delete files in Artifactory
 | Command arguments | The command takes one argument                                                                                                                                                                                                                                                                                                                                                          |
 | Delete path       | Specifies the path in Artifactory of the files that should be deleted in the following format: `[repository name]/[repository path].` You can use wildcards to specify multiple artifacts.                                                                                                                                                                                              |
 
-#### Examples
-
-**Example 1**
+#### Example 1
 
 Delete all artifacts located under **/rabbit** in the **frog-repo** repository.
 
@@ -558,7 +557,7 @@ Delete all artifacts located under **/rabbit** in the **frog-repo** repository.
 jf rt del frog-repo/rabbit/
 ```
 
-**Example 2**
+#### Example 2
 
 Delete all zip files located under **/rabbit** in the **frog-repo** repository.
 
@@ -569,6 +568,8 @@ jf rt del "frog-repo/rabbit/*.zip"
 ### Searching Files
 
 This command is used to search and display files in Artifactory.
+
+#### Commands Params
 
 |                   |                                                                                                                                                                                                                                                                                                                                                                                          |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -600,9 +601,7 @@ This command is used to search and display files in Artifactory.
 | Command arguments |                                                                                                                                                                                                                                                                                                                                                                                          |
 | Search path       | Specifies the search path in Artifactory, in the following format: `[repository name]/[repository path].` You can use wildcards to specify multiple artifacts.                                                                                                                                                                                                                           |
 
-#### Examples
-
-**Example 1**
+#### Example 1
 
 Display a list of all artifacts located under **/rabbit** in the **frog-repo** repository.
 
@@ -610,7 +609,7 @@ Display a list of all artifacts located under **/rabbit** in the **frog-repo** r
 jf rt s frog-repo/rabbit/
 ```
 
-**Example 2**
+#### Example 2
 
 Display a list of all zip files located under **/rabbit** in the **frog-repo** repository.
 
@@ -618,7 +617,7 @@ Display a list of all zip files located under **/rabbit** in the **frog-repo** r
 jf rt s "frog-repo/rabbit/*.zip"
 ```
 
-**Example 3**
+#### Example 3
 
 Display a list of the files under example-repo-local with the following fields: path, actual\_md5, modified\_b, updated and depth.
 
@@ -629,6 +628,8 @@ jf rt s example-repo-local --include="actual_md5;modified_by;updated;depth"
 ### Setting Properties on Files
 
 This command is used for setting properties on existing files in Artifactory.
+
+#### Commands Params
 
 |                   |                                                                                                                                                                                                                                                                                                                                                                                          |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -659,9 +660,7 @@ This command is used for setting properties on existing files in Artifactory.
 | Files pattern     | Files that match the pattern will be set with the specified properties.                                                                                                                                                                                                                                                                                                                  |
 | Files properties  | The list of properties, in the form of key1=value1;key2=value2,..., to be set on the matching artifacts.                                                                                                                                                                                                                                                                                 |
 
-#### Example
-
-**Example 1**
+#### Example 1
 
 Set the properties on all the zip files in the generic-local repository. The command will set the property "a" with "1" value and the property "b" with two values: "2" and "3".
 
@@ -669,7 +668,7 @@ Set the properties on all the zip files in the generic-local repository. The com
 jf rt sp "generic-local/*.zip" "a=1;b=2,3"
 ```
 
-**Example 2**
+#### Example 2
 
 The command will set the property "a" with "1" value and the property "b" with two values: "2" and "3" on all files found by the File Spec my-spec.
 
@@ -680,6 +679,8 @@ jf rt sp "a=1;b=2,3" --spec my-spec
 ### Deleting Properties from Files
 
 This command is used for deleting properties from existing files in Artifactory.
+
+#### Commands Params
 
 |                   |                                                                                                                                                                                                                                                                                                                                                                                          |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -719,6 +720,8 @@ jf rt delp "generic-local/*.zip" "status,phase"
 
 This command allows creating [Access Tokens](https://jfrog.com/help/r/jfrog-platform-administration-Documentation/Access-Tokens) for users in Artifactory
 
+#### Commands Params
+
 |                   |                                                                                                                                                                                                                                                                                                                                                                                          |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command name      | rt access-token-create                                                                                                                                                                                                                                                                                                                                                                   |
@@ -732,7 +735,7 @@ This command allows creating [Access Tokens](https://jfrog.com/help/r/jfrog-plat
 | Command arguments |                                                                                                                                                                                                                                                                                                                                                                                          |
 | username          | Optional - The user name for which this token is created. If not specified, the configured user is used.                                                                                                                                                                                                                                                                                 |
 
-#### **Examples**
+#### Example
 
 Create an access token for the user with the **commander-will-riker** username.
 
@@ -743,6 +746,8 @@ jf rt atc commander-will-riker
 ### Cleaning Up Unreferenced Files from a Git LFS Repository
 
 This command is used to clean up files from a Git LFS repository. This deletes all files from a Git LFS repository, which are no longer referenced in a corresponding Git repository.
+
+#### Commands Params
 
 |                   |                                                                                                                                              |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -756,9 +761,7 @@ This command is used to clean up files from a Git LFS repository. This deletes a
 | Command arguments | If no arguments are passed in, the command assumes the .git repository is located at current directory.                                      |
 | path to .git      | Path to the directory which includes the .git directory.                                                                                     |
 
-#### **Examples**
-
-**Example 1**
+#### Example 1
 
 Cleans up Git LFS files from Artifactory, using the configuration in the .git directory located at the current directory.
 
@@ -766,7 +769,7 @@ Cleans up Git LFS files from Artifactory, using the configuration in the .git di
  jf rt glc
 ```
 
-**Example 2**
+#### Example 2
 
 Cleans up Git LFS files from Artifactory, using the configuration in the .git directory located inside the path/to/git/config directory.
 
@@ -780,6 +783,8 @@ Execute a cUrl command, using the configured Artifactory details. The command ex
 
 > **Note** - This command supports only Artifactory REST APIs, which are accessible under https://\<JFrog base URL>/artifactory/api/
 
+#### Commands Params
+
 |                          |                                                                                                                                                                                                                                                                                                  |   |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | - |
 | Command name             | rt curl                                                                                                                                                                                                                                                                                          |   |
@@ -791,9 +796,7 @@ Execute a cUrl command, using the configured Artifactory details. The command ex
 
 Currently only servers configured with username and password / API key are supported.
 
-#### **Examples**
-
-**Example 1**
+#### Example 1
 
 Execute the cUrl client, to send a GET request to the /api/build endpoint to the default Artifactory server
 
@@ -801,7 +804,7 @@ Execute the cUrl client, to send a GET request to the /api/build endpoint to the
 jf rt curl -XGET /api/build
 ```
 
-**Example 2**
+#### Example 2
 
 Execute the cUrl client, to send a GET request to the /api/build endpoint to the configured my-rt-server server ID.
 
@@ -849,11 +852,7 @@ This command is used to collect environment variables and attach them to a build
 
 Environment variables are collected using the `build-collect-env` (`bce`) command.
 
-For example, the following command collects all currently known environment variables, and attaches them to the build-info for build `my-build-name` with build number 18:
-
-```
-jf rt bce my-build-name 18
-```
+##### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -867,7 +866,16 @@ The following table lists the command arguments and flags:
 | Build name        | Build name.                                 |
 | Build number      | Build number.                               |
 
-**Example**
+
+##### Example 1
+
+The following command collects all currently known environment variables, and attaches them to the build-info for build `my-build-name` with build number 18:
+
+```
+jf rt bce my-build-name 18
+```
+
+##### Example 2
 
 Collect environment variables for build name: frogger-build and build number: 17
 
@@ -878,6 +886,8 @@ jf rt bce frogger-build 17
 #### Collecting Information from Git
 
 The `build-add-git` (bag) command collects the Git revision and URL from the local .git directory and adds it to the build-info. It can also collect the list of tracked project issues (for example, issues stored in JIRA or other bug tracking systems) and add them to the build-info. The issues are collected by reading the git commit messages from the local git log. Each commit message is matched against a pre-configured regular expression, which retrieves the issue ID and issue summary. The information required for collecting the issues is retrieved from a yaml configuration file provided to the command.
+
+##### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -892,9 +902,23 @@ The following table lists the command arguments and flags:
 | Command arguments | The command accepts three arguments.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Build name        | Build name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Build number      | Build number.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| .git path         | Optional - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.                                                                                                                                                                                                                                                                                                                                                                                   |
+| .git path         | Optional - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.                                                                                                                                                                                                                                                                                                                                                                            
+##### Configuration file properties
 
-**Example**
+|                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Property name     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Version           | The schema version is intended for internal use. Do not change!                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| serverID          | <p>Artifactory server ID configured by the <a href="https://jfrog.com/help/r/jfrog-cli/jfrog-Platform-CONFIGURATION">'jf config' command</a>. The command uses this server for fetching details about previous published builds. The <strong>--server-id</strong> command option, if provided, overrides the <strong>serverID</strong> value.<br>If both the <strong>serverID</strong> property and the <strong>--server-id</strong> command options are not provided, the default server, configured by the <a href="https://jfrog.com/help/r/jfrog-cli/jfrog-Platform-CONFIGURATION">'jf config' command</a> is used.</p> |
+| trackerName       | The name (type) of the issue tracking system. For example, JIRA. This property can take any value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| regexp            | <p>A regular expression used for matching the git commit messages. The expression should include two capturing groups - for the issue key (ID) and the issue summary. In the example above, the regular expression matches the commit messages as displayed in the following example:<br><br>HAP-1007 - This is a sample issue</p>                                                                                                                                                                                                                                                                                          |
+| keyGroupIndex     | <p>The capturing group index in the regular expression used for retrieving the issue key. In the example above, setting the index to "1" retrieves <strong>HAP-1007</strong> from this commit message:<br><br>HAP-1007 - This is a sample issue</p>                                                                                                                                                                                                                                                                                                                                                                         |
+| summaryGroupIndex | <p>The capturing group index in the regular expression for retrieving the issue summary. In the example above, setting the index to "2" retrieves the sample issue from this commit message:<br><br>HAP-1007 - This is a sample issue</p>                                                                                                                                                                                                                                                                                                                                                                                   |
+| trackerUrl        | The issue tracking URL. This value is used for constructing a direct link to the issues in the Artifactory build UI.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| aggregate         | Set to true, if you wish all builds to include issues from previous builds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| aggregationStatus | If aggregate is set to true, this property indicates how far in time should the issues be aggregated. In the above example, issues will be aggregated from previous builds, until a build with a RELEASE status is found. Build statuses are set when a build is promoted using the **jf rt build-promote** command.                                                                                                                                                                                                                                                                                                        |
+
+##### Example
 
 ```
 jf rt bag frogger-build 17 checkout-dir
@@ -919,26 +943,13 @@ issues:
   aggregationStatus: RELEASED
 ```
 
-**Configuration file properties**
-
-|                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Property name     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Version           | The schema version is intended for internal use. Do not change!                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| serverID          | <p>Artifactory server ID configured by the <a href="https://jfrog.com/help/r/jfrog-cli/jfrog-Platform-CONFIGURATION">'jf config' command</a>. The command uses this server for fetching details about previous published builds. The <strong>--server-id</strong> command option, if provided, overrides the <strong>serverID</strong> value.<br>If both the <strong>serverID</strong> property and the <strong>--server-id</strong> command options are not provided, the default server, configured by the <a href="https://jfrog.com/help/r/jfrog-cli/jfrog-Platform-CONFIGURATION">'jf config' command</a> is used.</p> |
-| trackerName       | The name (type) of the issue tracking system. For example, JIRA. This property can take any value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| regexp            | <p>A regular expression used for matching the git commit messages. The expression should include two capturing groups - for the issue key (ID) and the issue summary. In the example above, the regular expression matches the commit messages as displayed in the following example:<br><br>HAP-1007 - This is a sample issue</p>                                                                                                                                                                                                                                                                                          |
-| keyGroupIndex     | <p>The capturing group index in the regular expression used for retrieving the issue key. In the example above, setting the index to "1" retrieves <strong>HAP-1007</strong> from this commit message:<br><br>HAP-1007 - This is a sample issue</p>                                                                                                                                                                                                                                                                                                                                                                         |
-| summaryGroupIndex | <p>The capturing group index in the regular expression for retrieving the issue summary. In the example above, setting the index to "2" retrieves the sample issue from this commit message:<br><br>HAP-1007 - This is a sample issue</p>                                                                                                                                                                                                                                                                                                                                                                                   |
-| trackerUrl        | The issue tracking URL. This value is used for constructing a direct link to the issues in the Artifactory build UI.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| aggregate         | Set to true, if you wish all builds to include issues from previous builds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| aggregationStatus | If aggregate is set to true, this property indicates how far in time should the issues be aggregated. In the above example, issues will be aggregated from previous builds, until a build with a RELEASE status is found. Build statuses are set when a build is promoted using the **jf rt build-promote** command.                                                                                                                                                                                                                                                                                                        |
-
 #### Adding Files as Build Dependencies
 
 The download command, as well as other commands which download dependencies from Artifactory accept the **--build-name** and **--build-number** command options. Adding these options records the downloaded files as build dependencies. In some cases however, it is necessary to add a file, which has been downloaded by another tool, to a build. Use the **build-add-dependencies** command to this.
 
 By default, the command collects the files from the local file system. If you'd like the files to be collected from Artifactory however, add the **--from-rt** option to the command.
+
+##### Commands Params
 
 |                   |                                                                                                                                                                                                                                                                                                                                                                     |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -959,9 +970,8 @@ By default, the command collects the files from the local file system. If you'd 
 | Build number      | The build number to add the dependencies to                                                                                                                                                                                                                                                                                                                         |
 | Pattern           | Specifies the local file system path to dependencies which should be added to the build info. You can specify multiple dependencies by using wildcards or a regular expression as designated by the --regexp command option. If you have specified that you are using regular expressions, then the first one used in the argument must be enclosed in parenthesis. |
 
-**Example**
 
-**Example 1**
+##### Example 1
 
 Add all files located under the **path/to/build/dependencies/dir** directory as dependencies of a build. The build name is **my-build-name** and the build number is **7**. The build-info is only updated locally. To publish the build-info to Artifactory use the **jf rt build-publish** command.
 
@@ -969,7 +979,7 @@ Add all files located under the **path/to/build/dependencies/dir** directory as 
 jf rt bad my-build-name 7 "path/to/build/dependencies/dir/"
 ```
 
-**Example 2**
+##### Example 2
 
 Add all files located in the **m-local-repo** Artifactory repository, under the **dependencies** folder, as dependencies of a build. The build name is **my-build-name** and the build number is **7**. The build-info is only updated locally. To publish the build-info to Artifactory use the **jf rt build-publish** command.
 
@@ -977,7 +987,7 @@ Add all files located in the **m-local-repo** Artifactory repository, under the 
 jf rt bad my-build-name 7 "my-local-repo/dependencies/" --from-rt
 ```
 
-**Example 3**
+##### Example 3
 
 Add all files located under the **path/to/build/dependencies/dir** directory as dependencies of a build. The build name is **my-build-name**, the build number is **7** and module is m1. The build-info is only updated locally. To publish the build-info to Artifactory use the **jf rt build-publish** command.
 
@@ -987,13 +997,15 @@ jf rt bad my-build-name 7 "path/to/build/dependencies/dir/" --module m1
 
 ### Publishing Build-Info
 
-This command is used to publish build info to Artifactory. To publish the accumulated build-info for a build to Artifactory, use the **build-publish** command. For example, the following command publishes all the build-info collected for build **my-build-name** with build number 18:
+This command is used to publish build info to Artifactory. To publish the accumulated build-info for a build to Artifactory, use the **build-publish** command. 
+For example, the following command publishes all the build-info collected for build **my-build-name** with build number 18:
 
 ```
 jf bp my-build-name 18
 ```
 
-This command is used to publish build info to Artifactory.
+#### Commands Params
+
 
 |                   |                                                                                                                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -1011,7 +1023,9 @@ This command is used to publish build info to Artifactory.
 | Build name        | Build name to be published.                                                                                                                                                          |
 | Build number      | Build number to be published.                                                                                                                                                        |
 
-**Example**
+#### Example
+
+Publishes to Artifactory all the build-info collected for build **my-build-name** with build number 18
 
 ```
 jf rt bp my-build-name 18
@@ -1094,6 +1108,8 @@ jf rt download --build aggregating-build/10
 
 This command is used to [promote build](https://jfrog.com/knowledge-base/how-does-build-promotion-work/) in Artifactory.
 
+#### Commands Params
+
 |                        |                                                                                                                                                 |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command name           | rt build-promote                                                                                                                                |
@@ -1114,7 +1130,7 @@ This command is used to [promote build](https://jfrog.com/knowledge-base/how-doe
 | Build number           | Build number to be promoted.                                                                                                                    |
 | Target repository      | Build promotion target repository.                                                                                                              |
 
-**Example**
+#### Example
 
 ```
 jf rt bpr my-build-name 18 target-repository
@@ -1123,6 +1139,8 @@ jf rt bpr my-build-name 18 target-repository
 ### Cleaning up the Build
 
 Build-info is accumulated by the CLI according to the commands you apply until you publish the build-info to Artifactory. If, for any reason, you wish to "reset" the build-info and cleanup (i.e. delete) any information accumulated so far, you can use the `build-clean` (`bc`) command.
+
+#### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -1135,7 +1153,10 @@ The following table lists the command arguments and flags:
 | Build name        | Build name.                        |
 | Build number      | Build number.                      |
 
-For example, the following command cleans up any build-info collected for build `my-build-name` with build number 18:
+
+#### Example
+
+The following command cleans up any build-info collected for build `my-build-name` with build number 18:
 
 ```
 jf rt bc my-build-name 18
@@ -1144,6 +1165,8 @@ jf rt bc my-build-name 18
 ### Discarding Old Builds from Artifactory
 
 This command is used to discard builds previously published to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command.
+
+#### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -1161,9 +1184,7 @@ The following table lists the command arguments and flags:
 | Command arguments  | The command accepts one argument.                                                                                                            |
 | Build name         | Build name.                                                                                                                                  |
 
-**Example**
-
-**Example 1**
+#### Example 1
 
 Discard the oldest build numbers of build **my-build-name** from Artifactory, leaving only the 10 most recent builds.
 
@@ -1171,7 +1192,7 @@ Discard the oldest build numbers of build **my-build-name** from Artifactory, le
 jf rt bdi my-build-name --max-builds= 10
 ```
 
-**Example 2**
+#### Example 2
 
 Discard the oldest build numbers of build **my-build-name** from Artifactory, leaving only builds published during the last 7 days.
 
@@ -1179,7 +1200,7 @@ Discard the oldest build numbers of build **my-build-name** from Artifactory, le
 jf rt bdi my-build-name --max-days=7
 ```
 
-**Example 3**
+#### Example 3
 
 Discard the oldest build numbers of build **my-build-name** from Artifactory, leaving only builds published during the last 7 days. **b20** and **b21** will not be discarded.
 
@@ -1196,6 +1217,7 @@ JFrog CLI includes integration with Maven, allowing you to resolve dependencies 
 #### Setting maven repositories
 
 Before using the **mvn** command, the project needs to be pre-configured with the Artifactory server and repositories, to be used for building and publishing the project. The **mvn-config** command should be used once to add the configuration to the project. The command should run while inside the root directory of the project. The configuration is stored by the command in the **.jfrog** directory at the root directory of the project.
+
 
 |                          |                                                                                                                                                                                                                                                                                  |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1223,6 +1245,8 @@ The **mvn** command triggers the maven client, while resolving dependencies and 
 
 > **Note**: If the machine running JFrog CLI has no access to the internet, make sure to read the [Downloading the Maven and Gradle Extractor JARs](https://jfrog.com/help/r/jfrog-cli/downloading-the-maven-and-gradle-extractor-jars) section.
 
+##### Commands Params
+
 The following table lists the command arguments and flags:
 
 |                   |                                                                                                                                                                |
@@ -1237,13 +1261,12 @@ The following table lists the command arguments and flags:
 | --insecure-tls    | <p>[Default: false]<br><br>Set to true to skip TLS certificates verification.</p>                                                                              |
 | Command arguments | The command accepts the same arguments and options as the mvn client.                                                                                          |
 
-**Deploying Maven Artifacts**
+##### Deploying Maven Artifacts
 
 The deployment to Artifacts is triggered both by the deployment and install phases. To disable artifacts deployment, add\*\* **-Dartifactory.publish.artifacts=false** to the list of goals and options. For example: "**clean install**\*\*-Dartifactory.publish.artifacts=false"\*\*
 
-**Examples**
 
-**Example 1**
+##### Example
 
 Run clean and install with maven.
 
@@ -1287,6 +1310,9 @@ The **gradle** command triggers the gradle client, while resolving dependencies 
 
 > **Note**: If the machine running JFrog CLI has no access to the internet, make sure to read the[Downloading the Maven and Gradle Extractor JARs](https://jfrog.com/help/r/jfrog-cli/downloading-the-maven-and-gradle-extractor-jars)section.
 
+
+##### Commands Params
+
 The following table lists the command arguments and flags:
 
 |                   |                                                                                                                                                                |
@@ -1300,9 +1326,7 @@ The following table lists the command arguments and flags:
 | --project         | <p>[Optional]<br><br>JFrog project key.</p>                                                                                                                    |
 | Command arguments | The command accepts the same arguments and options as the gradle client.                                                                                       |
 
-**Examples**
-
-**Example 1**
+##### Example
 
 Build the project using the **artifactoryPublish** task, while resolving and deploying artifacts from and to Artifactory.
 
@@ -1345,6 +1369,8 @@ Check out our [docker project examples on GitHub](https://github.com/jfrog/proje
 
 Running **docker-pull** command allows pulling docker images from Artifactory, while collecting the build-info and storing it locally, so that it can be later published to Artifactory, using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command.
 
+##### Commands Params
+
 The following table lists the command arguments and flags:
 
 |                   |                                                                                                                                                                |
@@ -1360,15 +1386,20 @@ The following table lists the command arguments and flags:
 | --skip-login      | <p>[Default: false]<br><br>Set to true if you'd like the command to skip performing docker login.</p>                                                          |
 | Command arguments | The same arguments and options supported by the docker client/                                                                                                 |
 
-**Examples**
+##### Example
 
+add-description-what-the-command-does
+```
 jf docker pull my-docker-registry.io/my-docker-image:latest --build-name=my-build-name --build-number=7
+```
 
 You can then publish the build-info collected by the **docker-pull** command to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command.
 
 #### Pushing Docker Images Using the Docker Client
 
 After building your image using the docker client, the **docker-push** command pushes the image layers to Artifactory, while collecting the build-info and storing it locally, so that it can be later published to Artifactory, using the **build-publish** command.
+
+##### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -1387,15 +1418,20 @@ The following table lists the command arguments and flags:
 | --detailed-summary | <p>[Default: false]<br><br>Set true to include a list of the affected files as part of the command output summary.</p>                                         |
 | Command arguments  | The same arguments and options supported by the docker client/                                                                                                 |
 
-**Examples**
+##### Example
 
+add-description-what-the-command-does
+```
 jf docker push my-docker-registry.io/my-docker-image:latest --build-name=my-build-name --build-number=7
+```
 
 You can then publish the build-info collected by the **docker-push** command to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command.
 
 #### Pulling Docker Images Using Podman
 
 [Podman](https://podman.io/) is a daemonless container engine for developing, managing, and running OCI Containers. Running the **podman-pull** command allows pulling docker images from Artifactory using podman, while collecting the build-info and storing it locally, so that it can be later published to Artifactory, using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command.
+
+##### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -1414,8 +1450,9 @@ The following table lists the command arguments and flags:
 | Image tag         | The docker image tag to pull.                                                                                                                                  |
 | Source repository | Source repository in Artifactory.                                                                                                                              |
 
-**Examples**
+##### Example
 
+add-description-what-the-command-does
 ```
 jf rt podman-pull my-docker-registry.io/my-docker-image:latest docker-local --build-name=my-build-name --build-number=7
 ```
@@ -1425,6 +1462,8 @@ You can then publish the build-info collected by the **podman-pull** command to 
 #### Pushing Docker Images Using Podman
 
 [Podman](https://podman.io/) is a daemon-less container engine for developing, managing, and running OCI Containers. After building your image, the **podman-push** command pushes the image layers to Artifactory, while collecting the build-info and storing it locally, so that it can be later published to Artifactory, using the **build-publish** command.
+
+##### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -1445,8 +1484,9 @@ The following table lists the command arguments and flags:
 | Image tag          | The docker image tag to push.                                                                                                                                  |
 | Target repository  | Target repository in Artifactory.                                                                                                                              |
 
-**Examples**
+##### Example
 
+add-description-what-the-command-does
 ```
 jf rt podman-push my-docker-registry.io/my-docker-image:latest docker-local --build-name=my-build-name --build-number=7
 ```
@@ -1472,6 +1512,8 @@ For detailed instructions, please refer to our [OpenShift build project example 
 
 The **build-docker-create** command allows adding a docker image, which is already published to Artifactory, into the build-info. This build-info can be later published to Artifactory, using the **build-publish** command.
 
+##### Commands Params
+
 |                   |                                                                                                                                                                                                                                   |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name      | rt build-docker-create                                                                                                                                                                                                            |
@@ -1488,8 +1530,9 @@ The **build-docker-create** command allows adding a docker image, which is alrea
 | Command argument  |                                                                                                                                                                                                                                   |
 | Target repository | The name of the repository to which the image was pushed.                                                                                                                                                                         |
 
-**Examples**
+##### Example
 
+add-description-what-the-command-does
 ```
 jf rt bdc docker-local --image-file image-file-details --build-name myBuild --build-number 1
 ```
@@ -1502,6 +1545,8 @@ Promotion is the action of moving or copying a group of artifacts from one repos
 
 1. Create build-info for the docker image, and then promote the build using the **jf rt build-promote** command.
 2. Use the **jf rt docker-promote** command as described below.
+
+##### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -1520,7 +1565,7 @@ The following table lists the command arguments and flags:
 | source repository     | Source repository in Artifactory.                                                                                                            |
 | target repository     | Target repository in Artifactory.                                                                                                            |
 
-**Examples**
+##### Examples
 
 Promote the **hello-world** docker image from the **docker-dev-local** repository to the **docker-staging-local** repository.
 
@@ -1565,6 +1610,8 @@ The **npm-install** and **npm-ci** commands execute npm's **install** and **ci**
 
 Before running the **npm-install** or **npm-ci** command on a project for the first time, the project should be configured using the **npm-config** command.
 
+##### Commands Params
+
 The following table lists the command arguments and flags:
 
 |                   |                                                                                                                                                                |
@@ -1579,9 +1626,7 @@ The following table lists the command arguments and flags:
 | --threads         | <p>[Default: 3]<br><br>Number of working threads for build-info collection.</p>                                                                                |
 | Command arguments | The command accepts the same arguments and options as the npm client.                                                                                          |
 
-**Examples**
-
-**Example 1**
+##### Example 1
 
 The following example installs the dependencies and records them locally as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command. The dependencies are resolved from the Artifactory server and repository configured by **npm-config** command.
 
@@ -1589,7 +1634,7 @@ The following example installs the dependencies and records them locally as part
 jf npm install --build-name=my-build-name --build-number=1
 ```
 
-**Example 2**
+##### Example 2
 
 The following example installs the dependencies. The dependencies are resolved from the Artifactory server and repository configured by **npm-config** command.
 
@@ -1597,7 +1642,7 @@ The following example installs the dependencies. The dependencies are resolved f
 jf npm install
 ```
 
-**Example 3**
+##### Example 3
 
 The following example installs the dependencies using the npm-ci command. The dependencies are resolved from the Artifactory server and repository configured by **npm-config** command.
 
@@ -1612,6 +1657,8 @@ The **npm-publish** command packs and deploys the npm package to the designated 
 Before running the **npm-publish** command on a project for the first time, the project should be configured using the **npm-config** command. This configuration includes the Artifactory server and repository to which the package should deploy.
 
 > **Warning**: If your npm package includes the prepublish or postpublish scripts, please refer to the guidelines above.
+
+##### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -1629,7 +1676,7 @@ The following table lists the command arguments and flags:
 | --format           | <p>[Default: table]<br><br>Should be used with the --scan option. Defines the scan output format. Accepts table or JSON as values.</p>                                                       |
 | Command argument   | The command accepts the same arguments and options that the **npm pack** command expects.                                                                                                    |
 
-**Example**
+##### Example
 
 To pack and publish the npm package and also record it locally as part of build **my-build-name/1**, run the following command. The build-info can later be published to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command. The package is published to the Artifactory server and repository configured by **npm-config** command.
 
@@ -1663,6 +1710,8 @@ The **jf yarn** command executes the yarn client, to fetch the npm dependencies 
 
 > **Note**: Before running the command on a project for the first time, the project should be configured using the **yarn-config** command.
 
+##### Commands Params
+
 The following table lists the command arguments and flags:
 
 |                   |                                                                                                                                                                |
@@ -1676,9 +1725,7 @@ The following table lists the command arguments and flags:
 | --threads         | <p>[Default: 3]<br><br>Number of working threads for build-info collection.</p>                                                                                |
 | Command arguments | The command accepts the same arguments and options as the yarn client.                                                                                         |
 
-**Examples**
-
-**Example 1**
+##### Example 1
 
 The following example installs the dependencies and records them locally as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command. The dependencies are resolved from the Artifactory server and repository configured by \*\*yarn-config command.
 
@@ -1686,7 +1733,7 @@ The following example installs the dependencies and records them locally as part
 jf yarn install --build-name=my-build-name --build-number=1
 ```
 
-Example 2
+##### Example 2
 
 The following example installs the dependencies. The dependencies are resolved from the Artifactory server and repository configured by \*\*yarn-config command.
 
@@ -1721,6 +1768,8 @@ Here's how you set the repositories.
 1. 'cd' into to the root of the Go project.
 2. Run the **jf rt go-config** command.
 
+##### Commands Params
+
 |                     |                                                                                                                                                                                     |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name        | go-config                                                                                                                                                                           |
@@ -1732,9 +1781,7 @@ Here's how you set the repositories.
 | --repo-resolve      | <p>[Optional]<br><br>Repository for dependencies resolution.</p>                                                                                                                    |
 | --repo-deploy       | <p>[Optional]<br><br>Repository for artifacts deployment.</p>                                                                                                                       |
 
-**Examples**
-
-**Example 1**
+##### Example 1
 
 Set repositories for this go project.
 
@@ -1742,7 +1789,7 @@ Set repositories for this go project.
 jf go-config
 ```
 
-**Example 2**
+##### Example 2
 
 Set repositories for all go projects on this machine.
 
@@ -1755,6 +1802,8 @@ jf go-config --global
 The **go** command triggers the go client.
 
 > **Note**: Before running the **go** command on a project for the first time, the project should be configured using the **go-config** command.
+
+##### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -1771,9 +1820,7 @@ The following table lists the command arguments and flags:
 | Command arguments |                                                                                                                                                                |
 | Go command        | The command accepts the same arguments and options as the go client.                                                                                           |
 
-**Examples**
-
-**Example 1**
+##### Example 1
 
 The following example runs Go build command. The dependencies resolved from Artifactory via the go-virtual repository.
 
@@ -1783,7 +1830,7 @@ The following example runs Go build command. The dependencies resolved from Arti
 jf rt go build
 ```
 
-**Example 2**
+##### Example 2
 
 The following example runs Go build command, while recording the build-info locally under build name **my-build** and build number **1**. The build-info can later be published to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info)command.
 
@@ -1798,6 +1845,8 @@ jf rt go build --build-name=my-build --build-number=1
 The **go-publish** command packs and deploys the Go package to the designated Go repository in Artifactory.
 
 > **Note**: Before running the **go-publish** command on a project for the first time, the project should be configured using the **go-config** command.
+
+##### Commands Params
 
 The following table lists the command arguments and flags:
 
@@ -1814,9 +1863,7 @@ The following table lists the command arguments and flags:
 | Command argument   |                                                                                                                                                                |
 | Version            | The version of the Go project that is being published                                                                                                          |
 
-**Examples**
-
-**Example 1**
+##### Example 1
 
 To pack and publish the Go package, run the following command. Before running this command on a project for the first time, the project should be configured using the **go-config** command.
 
@@ -1824,7 +1871,7 @@ To pack and publish the Go package, run the following command. Before running th
 jf gp v1.2.3 
 ```
 
-**Example 2**
+##### Example 2
 
 To pack and publish the Go package and also record the build-info as part of build **my-build-name/1** , run the following command. The build-info can later be published to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command. Before running this command on a project for the first time, the project should be configured using the **go-config** command.
 
@@ -1851,6 +1898,8 @@ Here's how you set the repositories.
 1. 'cd' into the root of the Python project.
 2. Run the**jf pip-config**, **jf pipenv-config** or **jf poetry-configc** commands, depending on whether you're using the pip or pipenv clients.
 
+##### Commands Params
+
 |                     |                                                                                                                                                                                     |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name        | pip-config / pipenv-config / poetry-config                                                                                                                                          |
@@ -1860,9 +1909,7 @@ Here's how you set the repositories.
 | --server-id-resolve | <p>[Optional]<br><br>Artifactory server ID for resolution. The server should configured using the 'jf c add' command.</p>                                                           |
 | --repo-resolve      | <p>[Optional]<br><br>Repository for dependencies resolution.</p>                                                                                                                    |
 
-**Examples**
-
-**Example 1**
+##### Example 1
 
 Set repositories for this Python project when using the pip client.
 
@@ -1870,7 +1917,7 @@ Set repositories for this Python project when using the pip client.
 jf pipc
 ```
 
-**Example 2**
+##### Example 2
 
 Set repositories for all Python projects using the pip client on this machine.
 
@@ -1878,7 +1925,7 @@ Set repositories for all Python projects using the pip client on this machine.
 jf pipc --global
 ```
 
-**Example 3**
+##### Example 3
 
 Set repositories for this Python project when using the pipenv client.
 
@@ -1886,7 +1933,7 @@ Set repositories for this Python project when using the pipenv client.
 jf pipec
 ```
 
-**Example 4**
+##### Example 4
 
 Set repositories for all Python projects using the poetry client on this machine.
 
@@ -1894,7 +1941,7 @@ Set repositories for all Python projects using the poetry client on this machine
 jf poc --global
 ```
 
-**Example 5**
+##### Example 5
 
 Set repositories for this Python project when using the poetry client.
 
@@ -1902,7 +1949,7 @@ Set repositories for this Python project when using the poetry client.
 jf poc
 ```
 
-**Example 6**
+##### Example 6
 
 Set repositories for all Python projects using the pipenv client on this machine.
 
@@ -1923,6 +1970,8 @@ If the Python environment had some packages installed prior to the first executi
 
 Running the install command with both the **no-cache-dir** and **force-reinstall** pip options, should re-download and install these packages, and they will therefore be included in the build-info and added to the cache. It is also recommended to run the command from inside a [virtual environment](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/).
 
+##### Commands Params
+
 |                  |                                                                                                                                                                |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name     | pip / pipenv / poetry                                                                                                                                          |
@@ -1935,9 +1984,7 @@ Running the install command with both the **no-cache-dir** and **force-reinstall
 | Command argument |                                                                                                                                                                |
 | Pip arguments    | Arguments and options for the pip-install command.                                                                                                             |
 
-**Examples**
-
-Example 1
+##### Example 1
 
 The following command triggers pip install, while recording the build dependencies as part of build name **my-build** and build number **1** .
 
@@ -1945,7 +1992,7 @@ The following command triggers pip install, while recording the build dependenci
 jf pip install . --build-name my-build --build-number 1
 ```
 
-Example 2
+##### Example 2
 
 The following command triggers pipenv install, while recording the build dependencies as part of build name **my-build** and build number **1** .
 
@@ -1953,7 +2000,7 @@ The following command triggers pipenv install, while recording the build depende
 jf pipenv install . --build-name my-build --build-number 1
 ```
 
-Example 3
+##### Example 3
 
 The following are command triggers poetry install, while recording the build dependencies as part of build name **my-build** and build number **1** .
 
@@ -1974,6 +2021,7 @@ To publish your NuGet packages to Artifactory, use the [jf rt upload](https://jf
 Before using the**nuget** or **dotnet** commands, the project needs to be pre-configured with the Artifactory server and repository, to be used for building the project.
 
 Before using the nuget or dotnet commands, the **nuget-config** or **dotnet-config** commands should be used respectively. These commands configure the project with the details of the Artifactory server and repository, to be used for the build. The **nuget-config** or **dotnet-config** commands should be executed while inside the root directory of the project. The configuration is stored by the command in the **.jfrog** directory at the root directory of the project. You then have the option of storing the .jfrog directory with the project sources, or creating this configuration after the sources are checked out.
+
 
 The following table lists the commands' options:
 
@@ -1996,6 +2044,8 @@ The **nuget** command runs the **NuGet client** and the **dotnet** command runs 
 
 > Before running the dotnet command on a project for the first time, the project should be configured using the dotnet-config command.
 
+##### Commands Params
+
 The following table lists the commands arguments and options:
 
 |                  |                                                                                                                                                                |
@@ -2009,9 +2059,7 @@ The following table lists the commands arguments and options:
 | --module         | <p>[Optional]<br><br>Optional module name for the build-info.</p>                                                                                              |
 | Command argument | The command accepts the same arguments and options as the NuGet client / .NET Core CLI.                                                                        |
 
-**Examples**
-
-**Example 1**
+##### Example 1
 
 Run nuget restore for the solution at the current directory, while resolving the NuGet dependencies from the pre-configured Artifactory repository. Use the NuGet client for this command
 
@@ -2019,7 +2067,7 @@ Run nuget restore for the solution at the current directory, while resolving the
 jf nuget restore
 ```
 
-**Example 2**
+##### Example 2
 
 Run dotnet restore for the solution at the current directory, while resolving the NuGet dependencies from the pre-configured Artifactory repository. Use the .NET Core CLI for this command
 
@@ -2027,15 +2075,16 @@ Run dotnet restore for the solution at the current directory, while resolving th
 jf dotnet restore
 ```
 
-**Example 3**
+##### Example 3
 
 Run dotnet restore for the solution at the current directory, while resolving the NuGet dependencies from the pre-configured Artifactory repository.
-
-In addition, record the build-info as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command:
 
 ```
 jf dotnet restore --build-name=my-build-name --build-number=1
 ```
+
+In addition, record the build-info as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command.
+
 
 ### Packaging and Publishing Terraform Modules
 
@@ -2048,7 +2097,11 @@ Before using the **jf terraform publish** command for the first time, you first 
 1. 'cd' into the root directory for your Terraform project.
 2. Run the interactive **jf terraform-config** command and set deployment repository name.
 
+#### terraform-config
+
 The **jf terraform-config** command will store the repository name inside the **.jfrog** directory located in the current directory. You can also add the **--global** command option, if you prefer the repository configuration applies to all projects on the machine. In that case, the configuration will be saved in JFrog CLI's home directory.
+
+##### Commands Params
 
 The following table lists the command options:
 
@@ -2062,9 +2115,7 @@ The following table lists the command options:
 | --repo-deploy      | <p>[Optional]<br><br>Repository for artifacts deployment.</p>                                                                                                                  |
 | Command arguments  | The command accepts no arguments                                                                                                                                               |
 
-**Examples**
-
-**Example 1**
+##### Example 1
 
 Configuring the Terraform repository for a project, while inside the root directory of the project
 
@@ -2072,7 +2123,7 @@ Configuring the Terraform repository for a project, while inside the root direct
 jf tfc
 ```
 
-**Example 2**
+##### Example 2
 
 Configuring the Terraform repository for all projects on the machine
 
@@ -2080,7 +2131,11 @@ Configuring the Terraform repository for all projects on the machine
 jf tfc --global
 ```
 
+#### terraform publish
+
 The **terraform publish** command creates a terraform package for the module in the current directory, and publishes it to the configured Terraform repository in Artifactory.
+
+##### Commands Params
 
 The following table lists the commands arguments and options:
 
@@ -2098,9 +2153,7 @@ The following table lists the commands arguments and options:
 | --project        |                                                                                                                                                                                 |
 | Command argument | The command accepts no arguments                                                                                                                                                |
 
-**Examples**
-
-**Example 1**
+##### Example 1
 
 The command creates a package for the Terraform module in the current directory, and publishes it to the Terraform repository (configured by the **jf tfc command**) with the provides namespace, provider and tag.
 
@@ -2108,7 +2161,7 @@ The command creates a package for the Terraform module in the current directory,
 jf tf p --namespace example --provider aws --tag v0.0.1
 ```
 
-**Example 2**
+##### Example 2
 
 The command creates a package for the Terraform module in the current directory, and publishes it to the Terraform repository (configured by the **jf tfc command**) with the provides namespace, provider and tag. The published package will not include the module paths which include either **test** or **ignore** .
 
@@ -2116,7 +2169,7 @@ The command creates a package for the Terraform module in the current directory,
 jf tf p --namespace example --provider aws --tag v0.0.1 --exclusions "\*test\*;\*ignore\*"
 ```
 
-**Example 3**
+##### Example 3
 
 The command creates a package for the Terraform module in the current directory, and publishes it to the Terraform repository (configured by the **jf tfc** command) with the provides namespace, provider and tag. The published module will be recorded as an artifact of a build named **my-build** with build number **1**. The **jf rt bp** command publishes the build to Artifactory.
 
@@ -2143,6 +2196,8 @@ This command allows creating a bulk of users. The details of the users are provi
 
 The CSV can include additional columns, with different headers, which will be ignored by the command.
 
+#### Commands Params
+
 |                   |                                                                                                                                                 |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name      | rt users-create                                                                                                                                 |
@@ -2154,7 +2209,7 @@ The CSV can include additional columns, with different headers, which will be ig
 | --users-groups    | <p>[Optional]<br><br>A list of comma-separated groups for the new users to be associated to.</p>                                                |
 | Command arguments | The command accepts no arguments                                                                                                                |
 
-**Example**
+#### Example
 
 Create new users according to details defined in the path/to/users.csv file.
 
@@ -2177,6 +2232,8 @@ The first line in the CSV is cells' headers. It is mandatory and is used by the 
 
 The CSV can include additional columns, with different headers, which will be ignored by the command.
 
+#### Commands Params
+
 |                   |                                                                                                                                                                                    |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name      | rt users-delete                                                                                                                                                                    |
@@ -2187,7 +2244,8 @@ The CSV can include additional columns, with different headers, which will be ig
 | Command arguments |                                                                                                                                                                                    |
 | users list        | Comma-separated list of usernames to delete. If the --csv command option is used, then this argument becomes optional.                                                             |
 
-**Example 1**
+
+#### Example 1
 
 Delete the users according to the usernames defined in the path/to/users.csv file.
 
@@ -2195,7 +2253,7 @@ Delete the users according to the usernames defined in the path/to/users.csv fil
 jf rt users-delete --csv path/to/users.csv
 ```
 
-**Example 2**
+#### Example 2
 
 Delete the users according to the u1, u2 and u3 usernames.
 
@@ -2207,6 +2265,8 @@ jf rt users-delete "u1,u2,u3"
 
 This command creates a new users group.
 
+#### Commands Params
+
 |                   |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
 | Command-name      | rt group-create                                                                     |
@@ -2216,7 +2276,7 @@ This command creates a new users group.
 | Command arguments |                                                                                     |
 | group name        | The name of the group to create.                                                    |
 
-**Example**
+#### Example
 
 Create a new group name **reviewers** .
 
@@ -2228,6 +2288,8 @@ jf rt group-create reviewers
 
 This command adds a list fo existing users to a group.
 
+#### Commands Params
+
 |                   |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
 | Command-name      | rt group-add-users                                                                  |
@@ -2238,7 +2300,7 @@ This command adds a list fo existing users to a group.
 | group name        | The name of the group to add users to.                                              |
 | users list        | Comma-seperated list of usernames to add to the specified group.                    |
 
-**Example**
+#### Example
 
 Add to group reviewers the users with the following usernames: u1, u2 and u3.
 
@@ -2250,6 +2312,8 @@ jf rt group-add-users "reviewers" "u1,u2,u3"
 
 This command deletes a group.
 
+#### Commands Params
+
 |                   |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
 | Command-name      | rt group-delete                                                                     |
@@ -2259,7 +2323,7 @@ This command deletes a group.
 | Command arguments |                                                                                     |
 | group name        | The name of the group to delete.                                                    |
 
-**Example**
+#### Example
 
 Delete the **reviewers** group.
 
@@ -2277,6 +2341,8 @@ This is an interactive command, which creates a configuration template file. Thi
 
 When using this command to create the template, you can also provide replaceable variable, instead of fixes values. Then, when the template is used to create or update repositories, values can be provided to replace the variables in the template.
 
+##### Commands Params
+
 |                   |                                                                                                               |
 | ----------------- | ------------------------------------------------------------------------------------------------------------- |
 | Command-name      | rt repo-template                                                                                              |
@@ -2285,7 +2351,7 @@ When using this command to create the template, you can also provide replaceable
 | Command arguments |                                                                                                               |
 | template path     | Specifies the local file system path for the template file created by the command. The file should not exist. |
 
-**Example**
+##### Example
 
 Create a configuration template, with a variable for the repository name. Then, create a repository using this template, and provide repository name to replace the variable.
 
@@ -2309,6 +2375,8 @@ $ jf rt repo-create template.json --vars "repo-name=my-repo"
 
 These two commands create a new repository and updates an existing a repository. Both commands accept as an argument a configuration template, which can be created by the **jf rt repo-template** command. The template also supports variables, which can be replaced with values, provided when it is used.
 
+##### Commands Params
+
 |                   |                                                                                                                                                                                            |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Command-name      | rt repo-create / rt repo-update                                                                                                                                                            |
@@ -2319,7 +2387,7 @@ These two commands create a new repository and updates an existing a repository.
 | Command arguments |                                                                                                                                                                                            |
 | template path     | Specifies the local file system path for the template file to be used for the repository creation. The template can be created using the "jf rt rpt" command.                              |
 
-**Example 1**
+##### Example 1
 
 Create a repository, using the **template.json** file previously generated by the **repo-template** command.
 
@@ -2327,7 +2395,7 @@ Create a repository, using the **template.json** file previously generated by th
 jf rt repo-create template.json
 ```
 
-**Example 2**
+##### Example 2
 
 Update a repository, using the **template.json** file previously generated by the **repo-template** command.
 
@@ -2335,7 +2403,7 @@ Update a repository, using the **template.json** file previously generated by th
 jf rt repo-update template.json
 ```
 
-**Example 3**
+##### Example 3
 
 Update a repository, using the **template.json** file previously generated by the **repo-template** command. Replace the repo-name variable inside the template with a name for the updated repository.
 
@@ -2347,6 +2415,8 @@ jf rt repo-update template.json --vars "repo-name=my-repo"
 
 This command permanently deletes a repository, including all of its content.
 
+##### Commands Params
+
 |                   |                                                                                                            |
 | ----------------- | ---------------------------------------------------------------------------------------------------------- |
 | Command name      | rt repo-delete                                                                                             |
@@ -2357,7 +2427,7 @@ This command permanently deletes a repository, including all of its content.
 | Command arguments |                                                                                                            |
 | repository key    | Specifies the repositories that should be removed. You can use wildcards to specify multiple repositories. |
 
-**Example**
+##### Example
 
 Delete a repository from Artifactory.
 
@@ -2375,6 +2445,8 @@ This command creates a configuration template file, which should be used as an a
 
 When using this command to create the template, you can also provide replaceable variable, instead of fixes values. Then, when the template is used to create replication jobs, values can be provided to replace the variables in the template.
 
+#### Commands Params
+
 |                   |                                                                                                               |
 | ----------------- | ------------------------------------------------------------------------------------------------------------- |
 | Command-name      | rt replication-template                                                                                       |
@@ -2383,7 +2455,7 @@ When using this command to create the template, you can also provide replaceable
 | Command arguments |                                                                                                               |
 | template path     | Specifies the local file system path for the template file created by the command. The file should not exist. |
 
-**Example**
+#### Example
 
 Create a configuration template, with two variables for the source and target repositories. Then, create a replication job using this template, and provide source and target repository names to replace the variables.
 
@@ -2406,6 +2478,8 @@ $ jf rt rplc template.json --vars "source=generic-local;target=generic-local"
 
 This command creates a new replication job for a repository. The command accepts as an argument a configuration template, which can be created by the **jf rt replication-template** command. The template also supports variables, which can be replaced with values, provided when it is used.
 
+##### Commands Params
+
 |                   |                                                                                                                                                                                            |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Command-name      | replication-create                                                                                                                                                                         |
@@ -2416,7 +2490,7 @@ This command creates a new replication job for a repository. The command accepts
 | Command arguments |                                                                                                                                                                                            |
 | template path     | Specifies the local file system path for the template file to be used for the replication job creation. The template can be created using the "jf rt rplt" command.                        |
 
-**Example 1**
+##### Example 1
 
 Create a replication job, using the **template.json** file previously generated by the **replication-template** command.
 
@@ -2424,7 +2498,7 @@ Create a replication job, using the **template.json** file previously generated 
 jf rt rplc template.json
 ```
 
-**Example 2**
+##### Example 2
 
 Update a replication job, using the **template.json** file previously generated by the **replication-template** command. Replace the source and target variables inside the template with the names of the replication source and target repositories.
 
@@ -2436,6 +2510,8 @@ jf rt rplc template.json --vars "source=my-source-repo;target=my-target-repo"
 
 This command permanently deletes a replication jobs from a repository.
 
+##### Commands Params
+
 |                   |                                                                                     |
 | ----------------- | ----------------------------------------------------------------------------------- |
 | Command name      | rt replication-delete                                                               |
@@ -2446,7 +2522,7 @@ This command permanently deletes a replication jobs from a repository.
 | Command arguments |                                                                                     |
 | repository key    | The repository from which the replications will be deleted.                         |
 
-**Example**
+##### Example
 
 Delete a repository from Artifactory.
 
