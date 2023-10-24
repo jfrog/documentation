@@ -1082,7 +1082,9 @@ Now, when downloading the artifacts of the "master" build, you'll actually be do
 
 Artifactory version 7.25.4 and above.
 
-**Example**
+#### Example
+
+This script illustrates the process of creating two build-info instances, publishing both to Artifactory, and subsequently generating a third build-info that consolidates the published instances before publishing it to Artifactory.
 
 ```yaml
 # Create and publish build a/1
@@ -1131,6 +1133,8 @@ This command is used to [promote build](https://jfrog.com/knowledge-base/how-doe
 | Target repository      | Build promotion target repository.                                                                                                              |
 
 #### Example
+
+This example involves moving the artifacts associated with the published build-info, identified by the build name 'my-build-name' and build number '18', from their existing Artifactory repository to a new Artifactory repository called 'target-repository'."
 
 ```
 jf rt bpr my-build-name 18 target-repository
@@ -1388,7 +1392,8 @@ The following table lists the command arguments and flags:
 
 ##### Example
 
-add-description-what-the-command-does
+The subsequent command utilizes the docker client to pull the 'my-docker-registry.io/my-docker-image:latest' image from Artifactory. This operation logs the image layers as dependencies of the local build-info identified by the build name 'my-build-name' and build number '7'. This local build-info can subsequently be released to Artifactory using the command 'jf rt bp my-build-name 7'."
+
 ```
 jf docker pull my-docker-registry.io/my-docker-image:latest --build-name=my-build-name --build-number=7
 ```
@@ -1420,7 +1425,8 @@ The following table lists the command arguments and flags:
 
 ##### Example
 
-add-description-what-the-command-does
+The subsequent command utilizes the docker client to push the 'my-docker-registry.io/my-docker-image:latest' image to Artifactory. This operation logs the image layers as artifacts of the local build-info identified by the build name 'my-build-name' and build number '7'. This local build-info can subsequently be released to Artifactory using the command 'jf rt bp my-build-name 7'."
+
 ```
 jf docker push my-docker-registry.io/my-docker-image:latest --build-name=my-build-name --build-number=7
 ```
@@ -1452,9 +1458,10 @@ The following table lists the command arguments and flags:
 
 ##### Example
 
-add-description-what-the-command-does
+In this example, podman is employed to pull the local image 'my-docker-registry.io/my-docker-image:latest' from the docker-local Artifactory repository. During this process, it registers the image layers as depedencies within a build-info identified by the build name 'my-build-name' and build number '7'. This build-info is initially established locally and must be subsequently published to Artifactory using the command 'jf rt build-publish my-build-name 7'.
+
 ```
-jf rt podman-pull my-docker-registry.io/my-docker-image:latest docker-local --build-name=my-build-name --build-number=7
+jf rt podman-pull my-docker-registry.io/my-docker-image:latest docker-local --build-name my-build-name --build-number 7
 ```
 
 You can then publish the build-info collected by the **podman-pull** command to Artifactory using the [build-publish](https://jfrog.com/help/r/jfrog-cli/publishing-build-info) command.
@@ -1486,7 +1493,8 @@ The following table lists the command arguments and flags:
 
 ##### Example
 
-add-description-what-the-command-does
+In this illustration, podman is employed to push the local image 'my-docker-registry.io/my-docker-image:latest' to the docker-local Artifactory repository. During this process, it registers the image layers as artifacts within a build-info identified by the build name 'my-build-name' and build number '7'. This build-info is initially established locally and must be subsequently published to Artifactory using the command 'jf rt build-publish my-build-name 7'.
+
 ```
 jf rt podman-push my-docker-registry.io/my-docker-image:latest docker-local --build-name=my-build-name --build-number=7
 ```
@@ -1532,7 +1540,8 @@ The **build-docker-create** command allows adding a docker image, which is alrea
 
 ##### Example
 
-add-description-what-the-command-does
+In this example, a Docker image that has already been deployed to Artifactory is incorporated into a locally created, unpublished build-info identified by the build name 'myBuild' and build number '1'. This local build-info can subsequently be published to Artifactory using the command 'jf rt bp myBuild 1'.
+
 ```
 jf rt bdc docker-local --image-file image-file-details --build-name myBuild --build-number 1
 ```
