@@ -33,6 +33,7 @@ Before running the command, do the following:
 2. Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Set the repository with the **jf npmc** command inside the project directory.\
    \
 
+#### Commands Params
 
 |                     |                                                                                                                                        |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -43,9 +44,8 @@ Before running the command, do the following:
 | --working-dirs      | <p>[Optional]<br><br>A comma separated list of relative working directories, to determine the audit targets locations.</p>             |
 | --threads           | <p>[Default: 10]<br><br>The number of parallel threads used to determine the curation status for each package in the project tree.</p> |
 
-#### **Output Example**
 
-**Example 1**
+#### Example 1
 
 Audit the project in the current directory. Displays all known packages that were blocked by Curation Policies.
 
@@ -53,7 +53,7 @@ Audit the project in the current directory. Displays all known packages that wer
 jf curation-audit
 ```
 
-**Example 2**
+#### Example 2
 
 Audit the projects according to the specific paths defined in the "working-dirs" option. Displays all known packages that were blocked by Curation Policies for all projects. The data is displayed in separate tables.
 
@@ -61,7 +61,7 @@ Audit the projects according to the specific paths defined in the "working-dirs"
 jf curation-audit --working-dirs="/path/to/project/npm_project1,/path/to/project/npm_project2"
 ```
 
-**Example 3**
+#### Example 3
 
 Audit the project in the current directory using 5 threads to check the packages Curation status in parallel. Displays all known packages blocked by Curation Policies.
 

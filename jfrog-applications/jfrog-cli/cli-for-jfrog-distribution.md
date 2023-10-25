@@ -32,6 +32,8 @@ This commands creates and updates an unsigned Release Bundle on JFrog Distributi
 
 ***
 
+#### Commands Params
+
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name           | release-bundle-create / release-bundle-update                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -57,9 +59,7 @@ This commands creates and updates an unsigned Release Bundle on JFrog Distributi
 | release bundle version | The release bundle version.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | pattern                | Specifies the source path in Artifactory, from which the artifacts should be bundled, in the following format: \<repository name>/\<repository path>. You can use wildcards to specify multiple artifacts. This argument should not be sent along with the _--spec_ option.                                                                                                                                                                                                                                                                           |
 
-**Examples**
-
-**Example 1**
+#### Example 1
 
 Create a release bundle with name myApp and version 1.0.0. The release bundle will include the files defined in the File Spec specified by the --spec option.
 
@@ -67,7 +67,7 @@ Create a release bundle with name myApp and version 1.0.0. The release bundle wi
 jf ds rbc --spec=/path/to/rb-spec.json myApp 1.0.0
 ```
 
-**Example 2**
+#### Example 2
 
 Create a release bundle with name myApp and version 1.0.0. The release bundle will include the files defined in the File Spec specified by the --spec option. GPG sign the release bundle after it is created.
 
@@ -75,7 +75,7 @@ Create a release bundle with name myApp and version 1.0.0. The release bundle wi
 jf ds rbc --spec=/path/to/rb-spec.json --sign myApp 1.0.0
 ```
 
-**Example 3**
+#### Example 3
 
 Update the release bundle with name myApp and version 1.0.0. The release bundle will include the files defined in the File Spec specified by the --spec option.
 
@@ -83,7 +83,7 @@ Update the release bundle with name myApp and version 1.0.0. The release bundle 
 jf ds rbu --spec=/path/to/rb-spec.json myApp 1.0.0
 ```
 
-**Example 4**
+#### Example 4
 
 Update the release bundle with name myApp and version 1.0.0. The release bundle will include all the zip files inside the zip folder, located at the root of the _my-local-repo_ repository.
 
@@ -91,7 +91,7 @@ Update the release bundle with name myApp and version 1.0.0. The release bundle 
 jf ds rbu myApp 1.0.0 "my-local-repo/zips/*.zip"
 ```
 
-**Example 5**
+#### Example 5
 
 Update the release bundle with name myApp and version 1.0.0. The release bundle will include all the zip files inside the zip folder, located at the root of the _my-local-repo_ repository. The files will be distributed on the Edge Node to the _target-zips_ folder, under the root of the _my-target-repo_ repository.
 
@@ -99,7 +99,7 @@ Update the release bundle with name myApp and version 1.0.0. The release bundle 
 jf ds rbu myApp 1.0.0 "my-local-repo/zips/*.zip" --target my-target-repo/target-zips/
 ```
 
-**Example 6**
+#### Example 6
 
 This example uses [placeholders](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-UsingPlaceholders). It creates the release bundle with name myApp and version 1.0.0. The release bundle will include all the zip files inside the zip folder, located at the root of the _my-local-repo_ repository. The files will be distributed on the Edge Node to the _target-zips_ folder, under the root of the _my-target-repo_ repository. In addition, the distributed files will be renamed on the Edge Node, by adding _-target_ to the name of each file.
 
@@ -119,6 +119,8 @@ This command GPG signs an existing Release Bundle on JFrog Distribution.
 
 ***
 
+#### Commands Params
+
 |                        |                                                                                                                                                               |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name           | release-bundle-sign                                                                                                                                           |
@@ -133,9 +135,7 @@ This command GPG signs an existing Release Bundle on JFrog Distribution.
 | release bundle name    | The name of the release bundle.                                                                                                                               |
 | release bundle version | The release bundle version.                                                                                                                                   |
 
-**Examples**
-
-**Example 1**
+#### Example
 
 GPG sign the release bundle with name myApp and version 1.0.0.
 
@@ -154,6 +154,8 @@ This command distributes a release bundle to the Edge Nodes.
 > These commands require version 2.0 or higher of[JFrog Distribution](https://www.jfrog.com/confluence/display/JFROG/JFrog+Distribution).
 
 ***
+
+#### Commands Params
 
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -174,9 +176,8 @@ This command distributes a release bundle to the Edge Nodes.
 | release bundle name    | The name of the release bundle.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | release bundle version | The release bundle version.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
-**Examples**
 
-**Example 1**
+#### Example 1
 
 Distribute the release bundle with name myApp and version 1.0.0. Use the distribution rules defined in the specified file.
 
@@ -195,6 +196,8 @@ This command deletes a Release Bundle from the Edge Nodes and optionally from Di
 > These commands require version 2.0 or higher of[JFrog Distribution](https://www.jfrog.com/confluence/display/JFROG/JFrog+Distribution).
 
 ***
+
+#### Commands Params
 
 |                        |                                                                                                                                                                  |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -216,9 +219,8 @@ This command deletes a Release Bundle from the Edge Nodes and optionally from Di
 | release bundle name    | The name of the release bundle.                                                                                                                                  |
 | release bundle version | The release bundle version.                                                                                                                                      |
 
-**Examples**
 
-**Example 1**
+#### Example 1
 
 Delete the release bundle with name myApp and version 1.0.0 from the Edge Nodes only, according to the definition in the distribution rules file.
 
@@ -226,7 +228,7 @@ Delete the release bundle with name myApp and version 1.0.0 from the Edge Nodes 
 jf ds rbdel --dist-rules=/path/to/dist-rules.json myApp 1.0.0
 ```
 
-**Example 2**
+#### Example 2
 
 Delete the release bundle with name myApp and version 1.0.0 from the Edge Nodes, according to the definition in the distribution rules file. The release bundle will also be deleted from the Distribution service itself.
 
