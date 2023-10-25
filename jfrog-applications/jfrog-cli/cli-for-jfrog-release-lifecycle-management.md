@@ -62,6 +62,9 @@ This commands allows creating a release bundle from one of two sources:
     ```
 
     `project` is optional, default project will be used if empty.
+    
+    
+#### Commands Params
 
 |                        |                                                                                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -78,9 +81,7 @@ This commands allows creating a release bundle from one of two sources:
 | release bundle name    | Name of the newly created Release Bundle.                                                                                                |
 | release bundle version | Version of the newly created Release Bundle.                                                                                             |
 
-**Examples**
-
-**Example 1**
+#### Example 1
 
 Create a release bundle with name "myApp" and version "1.0.0", with signing key pair "myKeyPair". The release bundle will include artifacts of the builds that were provided in the builds spec.
 
@@ -88,7 +89,7 @@ Create a release bundle with name "myApp" and version "1.0.0", with signing key 
 jf rbc --builds=/path/to/builds-spec.json --signing-key=myKeyPair myApp 1.0.0
 ```
 
-**Example 2**
+#### Example 2
 
 Create a release bundle with name "myApp" and version "1.0.0", with signing key pair "myKeyPair". The release bundle will include artifacts of the release bundles that were provided in the release bundles spec.
 
@@ -96,7 +97,7 @@ Create a release bundle with name "myApp" and version "1.0.0", with signing key 
 jf rbc --release-bundles=/path/to/release-bundles-spec.json --signing-key=myKeyPair myApp 1.0.0
 ```
 
-**Example 3**
+#### Example 3
 
 Create a release bundle synchronously with name "myApp" and version "1.0.0", in project "project0", with signing key pair "myKeyPair". The release bundle will include artifacts of the release bundles that were provided in the release bundles spec.
 
@@ -107,6 +108,8 @@ jf rbc --release-bundles=/path/to/release-bundles-spec.json --signing-key=myKeyP
 ### Promoting a release bundle
 
 This commands allows promoting a release bundle to a target environment.
+
+#### Commands Params
 
 |                        |                                                                                                                                                                                                                             |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -123,9 +126,8 @@ This commands allows promoting a release bundle to a target environment.
 | release bundle version | Version of the Release Bundle to promote.                                                                                                                                                                                   |
 | environment            | Name of the target environment for the promotion.                                                                                                                                                                           |
 
-**Examples**
 
-**Example 1**
+#### Example 1
 
 Promote a release bundle named "myApp" version "1.0.0" to environment "PROD". Use signing key pair "myKeyPair".
 
@@ -133,7 +135,7 @@ Promote a release bundle named "myApp" version "1.0.0" to environment "PROD". Us
 jf rbp --signing-key=myKeyPair myApp 1.0.0 PROD
 ```
 
-**Example 2**
+#### Example 2
 
 Promote a release bundle synchronously to environment "PROD". The release bundle is named "myApp", version "1.0.0", of project "project0". Use signing key pair "myKeyPair" and overwrite at conflict.
 
@@ -193,14 +195,13 @@ The Distribution Rules format also supports wildcards. For example:
    }
    ```
 
-**Examples**
 
-**Example 1**
+#### Example 1
 Distribute the release bundle named myApp with version 1.0.0. Use the distribution rules defined in the specified file.
 
 	jf rbd --dist-rules=/path/to/dist-rules.json myApp 1.0.0
 
-**Example 2**
+#### Example 2
 
 Distribute the release bundle named myApp with version 1.0.0 using the default distribution rules.
 Map files under the 'source' directory to be placed under the 'target' directory.
