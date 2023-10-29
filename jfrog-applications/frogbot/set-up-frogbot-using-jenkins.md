@@ -36,7 +36,7 @@ From your Jenkins dashboard navigate to **Manage Jenkins** > **Manage Plugins** 
 
 * Add a new webhook:
 
-  ![](../.gitbook/assets/github-webhook-setup (1).png)
+  ![](../.gitbook/assets/github-webhook-setup.png)
 
 **Azure Repos**
 
