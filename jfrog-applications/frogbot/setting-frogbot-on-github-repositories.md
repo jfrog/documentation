@@ -20,11 +20,11 @@
 
 ### Frogbot GitHub Action Templates
 
-1. Begin by cloning the GitHub repository to your local environment.
+* Begin by cloning the GitHub repository to your local environment.
 
-2. Switch to the target branch where you'd like the pull requests to be scanned.
+* Switch to the target branch where you'd like the pull requests to be scanned.
 
-3. Create a file named **frogbot-scan-pull-request.yml**. Fill it with the template provided below, and then push it into the **.github/workflows** directory at the root of your GitHub repository.
+* Create a file named **frogbot-scan-pull-request.yml**. Fill it with the template provided below, and then push it into the **.github/workflows** directory at the root of your GitHub repository.
 
 <details>
 
@@ -179,9 +179,9 @@ jobs:
 
 </details>
 
-4. Return to the default branch.
+* Return to the default branch.
 
-5. Now, create a file named **frogbot-scan-repository.yml**. Again, populate it with the provided template and push it into the **.github/workflows** directory at the root of your GitHub repository.
+* Now, create a file named **frogbot-scan-repository.yml**. Again, populate it with the provided template and push it into the **.github/workflows** directory at the root of your GitHub repository.
 
 <details>
 
