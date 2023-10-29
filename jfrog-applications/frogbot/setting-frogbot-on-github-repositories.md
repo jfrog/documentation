@@ -8,11 +8,11 @@
 
 > You can also use **JF\_XRAY\_URL** and **JF\_ARTIFACTORY\_URL** instead of **JF\_URL**, and **JF\_USER** + **JF\_PASSWORD** instead of **JF\_ACCESS\_TOKEN**
 
-![](../../../.gitbook/assets/github-repository-secrets.png)
+![](../.gitbook/assets/github-repository-secrets.png)
 
 * Under **Actions** > **General**, check the **Allow GitHub Actions to create and approve pull requests** check box.
 
-![](../../../.gitbook/assets/github-pr-permissions.png)
+![](../.gitbook/assets/github-pr-permissions.png)
 
 * For open-source projects: Create a new [GitHub environment](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#creating-an-environment) called **frogbot** and add people or public teams as reviewers. The chosen reviewers can trigger Frogbot scans on pull requests.
 
