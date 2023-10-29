@@ -8,7 +8,7 @@
 
 * From your Jenkins dashboard navigate to **Manage Jenkins** | **Manage Plugins** and then select the **Available** tab. 
 
-* Use the search bar to find the **Generic Webhook Trigger** plugin and install it. [Read more about the plugin](https://plugins.jenkins.io/generic-webhook-trigger/).).
+* Use the search bar to find the **Generic Webhook Trigger** plugin and install it. [Read more about the plugin](https://plugins.jenkins.io/generic-webhook-trigger/).
 
 </details>
 
