@@ -30,7 +30,7 @@
 
     <summary>frogbot-scan-pull-request.yml</summary>
 
-    ```
+    ```yaml
     name: "Frogbot Scan Pull Request"
     on:
       pull_request_target:
@@ -187,7 +187,7 @@
 
     <summary>frogbot-scan-repository.yml</summary>
 
-    ```
+    ```yaml
     name: "Frogbot Scan Repository"
     on:
       workflow_dispatch:
