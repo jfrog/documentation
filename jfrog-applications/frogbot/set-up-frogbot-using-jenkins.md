@@ -4,9 +4,11 @@
 
 <details>
 
-<summary>1️⃣ Install Jenkins 'Generic Webhook Trigger' plugin</summary>
+<summary>1️⃣ Install the 'Generic Webhook Trigger' plugin in Jenkins</summary>
 
-From your Jenkins dashboard navigate to **Manage Jenkins** > **Manage Plugins** and select the **Available** tab. Use the search bar to find **Generic Webhook Trigger** ([more info](https://plugins.jenkins.io/generic-webhook-trigger/)).
+* From your Jenkins dashboard navigate to **Manage Jenkins** | **Manage Plugins** and then select the **Available** tab. 
+
+* Use the search bar to find the **Generic Webhook Trigger** plugin and install it. [Read more about the plugin](https://plugins.jenkins.io/generic-webhook-trigger/).).
 
 </details>
 
@@ -14,40 +16,38 @@ From your Jenkins dashboard navigate to **Manage Jenkins** > **Manage Plugins** 
 
 <details>
 
-<summary>2️⃣ Connect the Webhook on your Git provider</summary>
+<summary>2️⃣ Set the webhook from Git to Jenkins</summary>
 
 **Bitbucket Server**
 
-* Webhook URL: `JENKINS_URL/generic-webhook-trigger/invoke`
 * Go to repository settings, select Webhooks, and create a new webhook.
 
   ![](../.gitbook/assets/bitbucket-webhook-setup.png)
 
-  Set the webhook URL `https://jenkinsUrl/generic-webhook-trigger/invoke`
+* Set the webhook URL using the following pattern - `https://[your-jenkins-domain]/generic-webhook-trigger/invoke`
 
   ![](../.gitbook/assets/bitbucketserver-create-webhook.png)
 
 **GitHub**
 
-* Webhook URL: `JENKINS_URL/generic-webhook-trigger/invoke`
 * Go to repository settings and create a new webhook:
 
   ![](../.gitbook/assets/github-new-webhook.png)
 
-* Add a new webhook:
+* Set the webhook URL using the following pattern - `https://[your-jenkins-domain]/generic-webhook-trigger/invoke`
 
   ![](../.gitbook/assets/github-webhook-setup.png)
 
 **Azure Repos**
 
-* Webhook URL: `JENKINS_URL/generic-webhook-trigger/invoke`
-* [Set Up Azure Repos Jenkins Webhook](https://learn.microsoft.com/en-us/azure/devops/service-hooks/services/jenkins?view=azure-devops)
+* The webhook URL pattern is `https://[your-jenkins-domain]/generic-webhook-trigger/invoke`
+* Use [this](https://learn.microsoft.com/en-us/azure/devops/service-hooks/services/jenkins?view=azure-devops) article to setup the webhook.
 
 **GitLab**
 
-* Go to your project settings and select webhooks.
-* Set up a webhook with merge request events.
-* Fill in the URL: `JENKINS URL/generic-webhook-trigger/invoke`
+* Go to your **Project Settings** and select **Webhooks**.
+* Set the webhook URL using the following pattern - `https://[your-jenkins-domain]/generic-webhook-trigger/invoke`
+* Enable the **Merge request events** option.
 
   ![](../.gitbook/assets/gitlab-webhook.png)
 
@@ -57,12 +57,9 @@ From your Jenkins dashboard navigate to **Manage Jenkins** > **Manage Plugins** 
 
 <details>
 
-<summary>3️⃣ Optional - setting JobToken</summary>
+<summary>3️⃣ Optional - setting JobToken to specify which Jenkins jobs to trigger</summary>
 
-* When using the plugin in several jobs, you will have the same URL trigger all jobs. If you want to trigger only a certain job you can use the **JobToken** in the URL to specify what job needs to be executed.
-* Webhook URL with **JobToken** : `JENKINS_URL/generic-webhook-trigger/invoke?token=MyJobToken`
-* On some Git providers the JobToken is called Secret Token.
-* Read more [JobToken Docs](https://plugins.jenkins.io/generic-webhook-trigger/#plugin-content-trigger-only-specific-job)
+* In certain scenarios, the 'Generic Webhook Trigger' plugin might already be activated in other Jenkins jobs, and you may wish to prevent those jobs from being triggered by the Git Webhook you've configured for Frogbot. This can be accomplished by generating a dedicated API token for Frogbot within your Git Provider and then incorporating this token into the Webhook URL. The Webhook URL will then adhere to the following format - `https://[your-jenkins-domain]/generic-webhook-trigger/invoke?token=[your token]`. For further information on triggering only specific jobs in Jenkins, please refer to the [official documentation](https://plugins.jenkins.io/generic-webhook-trigger/#plugin-content-trigger-only-specific-job).
 
 </details>
 
@@ -72,11 +69,11 @@ From your Jenkins dashboard navigate to **Manage Jenkins** > **Manage Plugins** 
 
 <summary>4️⃣ Set up credentials</summary>
 
-* Set up the following credentials using Jenkins credentials functionality, as **Secret Text**:
-  * **JF\_URL** - JFrog Platform URL (Example: "https://acme.jfrog.io")
-  * **JF\_ACCESS\_TOKEN** _or_ **JF\_USER** & **JF\_PASSWORD** - JFrog Credentials
-  * **JF\_GIT\_TOKEN** - access token with read\&write access to the Git repository
-* [How to use credentials with Jenkins](https://www.jenkins.io/doc/book/using/using-credentials/)
+* Configure the Git and JFrog connection parameters by utilizing the [Jenkins credentials](https://www.jenkins.io/doc/book/using/using-credentials/) feature, specifying them as **Secret Text**:
+
+- **JF_URL**: This should be your JFrog Platform URL (e.g., "https://acme.jfrog.io").
+- **JF_ACCESS_TOKEN** or **JF_USER** & **JF_PASSWORD**: Provide your JFrog Platform credentials.
+- **JF_GIT_TOKEN**: A Git access token with both read and write permissions.
 
 </details>
 
@@ -86,7 +83,7 @@ From your Jenkins dashboard navigate to **Manage Jenkins** > **Manage Plugins** 
 
 <summary>5️⃣ Prepare Jenkins Agent</summary>
 
-* It is essential to have the appropriate package manager used by the scanned project installed on the Jenkins Agent. For instance, if the project uses an npm project, you need to have the npm client installed.
+* Ensure that the Jenkins Agent has the necessary package manager installed for the scanned project. For example, if the project utilizes npm, it is crucial to have the npm client installed on the agent.
 
 </details>
 
@@ -100,11 +97,11 @@ From your Jenkins dashboard navigate to **Manage Jenkins** > **Manage Plugins** 
 
   ![](../.gitbook/assets/new-jenkins-pipelines-job.png)
 
-* Enable the ‘Generic Webhook Trigger’
+* Enable the ‘Generic Webhook Trigger’ in the job
 
-  ![](../.gitbook/assets/enable-jenkins-webhook-trigger.png)
+  ![](../.gitbook/assets/jenkins-build-trigger.png)
 
-* Use the following template for pipeline.
+* Use the following template to create the pipeline script for the job
 
   ```yml
   pipeline {
