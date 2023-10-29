@@ -26,10 +26,6 @@
 
 3. Create a file named **frogbot-scan-pull-request.yml**. Fill it with the template provided below, and then push it into the **.github/workflows** directory at the root of your GitHub repository.
 
-    <details>
-
-    <summary>frogbot-scan-pull-request.yml</summary>
-
     ```yaml
     name: "Frogbot Scan Pull Request"
     on:
@@ -177,15 +173,9 @@
               # JF_PR_COMMENT_TITLE: ""
     ```
 
-    </details>
-
 4. Return to the default branch.
 
 5. Now, create a file named **frogbot-scan-repository.yml**. Again, populate it with the provided template and push it into the **.github/workflows** directory at the root of your GitHub repository.
-
-    <details>
-
-    <summary>frogbot-scan-repository.yml</summary>
 
     ```yaml
     name: "Frogbot Scan Repository"
@@ -317,5 +307,3 @@
               # Avoid adding extra info to pull request comments. that isn't related to the scan findings.
               # JF_AVOID_EXTRA_MESSAGES: "TRUE"
     ```
-
-    </details>
