@@ -5,8 +5,10 @@
 ## JFrog Applications
 
 * [JFrog CLI](jfrog-cli/README.md)
-  * [Download and Insall](jfrog-cli/get-started/download-and-insall/install.md)
-  * [Usage](jfrog-cli/get-started/download-and-insall/usage.md)
+  * [Download and Install](jfrog-cli/get-started/download-and-install/README.md)
+    * [Download and Install](jfrog-cli/get-started/download-and-install/install.md)
+    * [Shell Auto Completion](jfrog-cli/get-started/download-and-install/shell-auto-completion.md)
+    * [Usage](jfrog-cli/get-started/download-and-install/usage.md)
   * [Configurations](jfrog-cli/get-started/configurations/README.md)
     * [JFrog Platform Configuration](jfrog-cli/get-started/configurations/jfrog-platform-configuration.md)
     * [Setting up a CI Pipeline](jfrog-cli/get-started/configurations/setting-up-a-ci-pipeline.md)
