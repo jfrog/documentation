@@ -1,4 +1,4 @@
-# Download and Insall
+# Download and Install
 
 To download the executable, please visit the [JFrog CLI Download Site](https://www.jfrog.com/getcli/).
 
