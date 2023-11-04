@@ -1,6 +1,6 @@
 # Installing Frogbot on JFrog Pipelines
 
-**Important Notice**: For Scanning Pull Requests, it is advisable to refrain from setting up Frogbot using JFrog Pipelines for open source projects. For further details, please refer to the [👮 Security Note for Pull Requests Scanning](./scan-pull-requests#security-note-for-pull-requests-scanning).
+**Important Notice**: For Scanning Pull Requests, it is advisable to refrain from setting up Frogbot using JFrog Pipelines for open source projects. For further details, please refer to the [👮 Security Note for Pull Requests Scanning](./scan-pull-requests.md#security-note-for-pull-requests-scanning).
 
 * Make sure you have the connection details of your JFrog Platform.
 * Inside JFrog Pipelines, save the JFrog connection details as a [JFrog Platform Access Token Integration](https://www.jfrog.com/confluence/display/JFROG/JFrog+Platform+Access+Token+Integration) named **jfrogPlatform**.
