@@ -46,7 +46,7 @@
 * [JFrog Frogbot](frogbot/README.md)
   * [Setup](frogbot/setup-frogbot.md)
     * [Frogbot Configuration](frogbot/frogbot-configuration.md)
-    * [Setting Frogbot on GitHub Repositories](frogbot/setting-frogbot-on-github-repositories.md)
+    * [Setup Frogbot using GitHub Actions](frogbot/setup-frogbot-using-github-actions.md)
     * [Set up Frogbot Using Jenkins](frogbot/set-up-frogbot-using-jenkins.md)
     * [Installing Frogbot on JFrog Pipelines](frogbot/installing-frogbot-on-jfrog-pipelines.md)
     * [Installing Frogbot on GitLab Repositories](frogbot/installing-frogbot-on-gitlab-repositories.md)

@@ -8,7 +8,7 @@
 
 #### Select your preferred CI server:
 
-<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-actions-icon.png" alt="GitHubActions" /> [GitHub Actions](../../jfrog-applications/frogbot/get-started/setting-frogbot-on-github-repositories.md)
+<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-actions-icon.png" alt="GitHubActions" /> [GitHub Actions](../../jfrog-applications/frogbot/get-started/setup-frogbot-using-github-actions.md)
 
 <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/jenkins-icon.png" alt="Jenkins" /> [Jenkins](../../jfrog-applications/frogbot/get-started/set-up-frogbot-using-jenkins.md)
 
