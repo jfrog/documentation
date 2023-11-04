@@ -1,5 +1,7 @@
 # Set up Frogbot Using Jenkins
 
+**Important Notice**: For Scanning Pull Requests, it is advisable to refrain from setting up Frogbot using Jenkins for open source projects. For further details, please refer to the [👮 Security Note for Pull Requests Scanning](./scan-pull-requests#security-note-for-pull-requests-scanning).
+
 #### 🖥️ Follow these steps to install Frogbot on Jenkins
 
 <details>
@@ -83,7 +85,7 @@
 
 <summary>5️⃣ Prepare Jenkins Agent</summary>
 
-* Ensure that the Jenkins Agent has the necessary package manager installed for the scanned project. For example, if the project utilizes npm, it is crucial to have the npm client installed on the agent.
+* Ensure that the Jenkins agent has the necessary package managers installed. For example, if the project utilizes npm, it is crucial to have the npm client installed on the agent.
 
 </details>
 
