@@ -44,7 +44,7 @@ The following limitations need to be kept in mind before you start the migration
 4. Artifact Cold Storage is not supported in JFrog Cloud.
 5. Artifacts in remote repositories caches are not transferred.
 6. Federated repositories are transferred without their federation members. After the transfer, you'll need to reconfigure the federation as described in the Federated Repositories documentation. Federated Repositories
-7. Docker repositories with names that include dots aren't allowed in JFrog Cloud.
+7. Docker repositories with names that include dots or underscores aren't allowed in JFrog Cloud.
 8. Artifact properties with a value longer than 2.4K characters are not supported in JFrog Cloud. Such properties are generally seen in Conan artifacts. The artifacts will transferred without the properties in this case. A report with these artifacts will become available to you at the end of the transfer.
 9. The files transfer process allows transferring files that were created or modified on the source instance after the process started. However, files that were deleted on the source instance after the process started, are not deleted on the target instance by the process.
 10. The files transfer process allows transferring files that were created or modified on the source instance after the process started. The custom properties of those files are also updated on the target instance. However, if only the custom properties of those files were modified on the source, but not the files' content, the properties are not modified on the target instance by the process.
@@ -54,7 +54,7 @@ The following limitations need to be kept in mind before you start the migration
 1. If your source instance hosts files that are larger than 25 GB, they will be blocked during the transfer. To learn how to check whether large files are hosted by your source instance, and what to do in that case, read \[this section]\(#Transferring files larger than 25 GB).
 2. Ensure that you can log in to the UI of both the source and target instances with users that have admin permissions.
 3. Ensure that the target instance license does not support fewer features than the source instance license.
-4. Run the file transfer pre-checks as described [here](broken-reference).
+4. Run the file transfer pre-checks as described [here](#running-pre-checks-before-initiating-the-file-transfer-process).
 5. Ensure that all the remote repositories on the source Artifactory instance have network access to their destination URL once they are created in the target instance. Even if one remote or federated repository does not have access, the configuration transfer operation will be canceled. You do have the option of excluding specific repositories from being transferred.
 6. Ensure that all the replications configured on the source Artifactory instance have network access to their destination URL once they are created in the target instance.
 7. Ensure that you have a user that can log in to [MyJFrog](https://my.jfrog.com/login/).
@@ -341,7 +341,7 @@ Follow these steps to install JFrog CLI on that machine.
 curl -fL https://install-cli.jfrog.io | sh
 ```
 
-2: If your source instance is accessible only through an HTTP/HTTPS proxy, set the proxy environment variable as described [here](https://jfrog.com/help/r/jfrog-cli/proxy-support).
+2: If your source instance is accessible only through an HTTP/HTTPS proxy, set the proxy environment variable as described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/proxy-support).
 
 3: Configure the connection details of the source Artifactory instance with your admin credentials. Run the following command and follow the instructions.
 
