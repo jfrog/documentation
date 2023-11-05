@@ -8,10 +8,7 @@ The frogbot-config.yml file includes configuration related to your projects, to 
 
 ### Is the frogbot-config.yml file mandatory?
 
-Not all projects require the **frogbot-config.yml** file, but any project can use it. For projects with a single descriptor file (package.json, pom.xml, etc.), which is located in the root directory of the project, the **frogbot-config.yml** file isn't mandatory. In other words, if the following conditions apply to your project, you don't have to create the file.
-
-1. The project has only one descriptor file (pom.xml, package.json, go.mod, etc.)
-2. The descriptor file is in the root directory of the project
+Not all projects require the **frogbot-config.yml** file, but any project can use it.
 
 If your project doesn't use a **frogbot-config.yml** file, all of the configuration Frogbot requires\
 should be provided as variables as part of the Frogbot workflows.
@@ -184,6 +181,11 @@ Frogbot expects the frogbot-config.yml file to be in the following path from the
       # List of relative path's to the projects directories in the git repository
       #   workingDirs:
       #     - "."
+
+      # [Default: ["*node_modules*", "*target*", "*venv*", "*test*"]]
+      # List of exclusion patterns (utilizing wildcards) for excluding paths in the source code of the Git repository during SCA scans.
+      #   pathExclusions:
+      #     - "*node_modules*", "*target*", "*venv*", "*test*"
 
       # [Mandatory for pip only if using requirements file, Default: pip install .]
       # The requirements file name that is used to install dependencies in case of pip package manager
