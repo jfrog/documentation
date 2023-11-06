@@ -1,6 +1,4 @@
-# Installing Frogbot on GitLab Repositories
-
-## Installing Frogbot on GitLab repositories
+# Setup Frogbot Using GitLab CI
 
 To install Frogbot on GitLab repositories using GitLab CI:
 

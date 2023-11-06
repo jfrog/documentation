@@ -8,15 +8,15 @@
 
 #### Select your preferred CI server:
 
-<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-actions-icon.png" alt="GitHubActions" /> [GitHub Actions](../../jfrog-applications/frogbot/get-started/setup-frogbot-using-github-actions.md)
+<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-actions-icon.png" alt="GitHubActions" /> [GitHub Actions](./setup-frogbot-using-github-actions.md)
 
-<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/jenkins-icon.png" alt="Jenkins" /> [Jenkins](../../jfrog-applications/frogbot/get-started/set-up-frogbot-using-jenkins.md)
+<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/jenkins-icon.png" alt="Jenkins" /> [Jenkins](./setup-frogbot-using-jenkins.md)
 
-<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/jfrog-pipelines-icon.png" alt="jfrogpipelines" /> [JFrog Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-jfrog-pipelines.md)
+<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/jfrog-pipelines-icon.png" alt="jfrogpipelines" /> [JFrog Pipelines](./setup-frogbot-using-jfrog-pipelines.md)
 
-<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gitlab-icon.png" alt="Gitlab" /> [GitLab CI](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-gitlab-repositories.md)
+<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gitlab-icon.png" alt="Gitlab" /> [GitLab CI](./setup-frogbot-using-gitlab-ci.md)
 
-<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/azure-pipelines-icon.png" alt="AzurePipelines" /> [Azure Pipelines](../../jfrog-applications/frogbot/get-started/installing-frogbot-on-azure-repositories.md)
+<img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/azure-pipelines-icon.png" alt="AzurePipelines" /> [Azure Pipelines](./setup-frogbot-using-azure-pipelines.md)
 
 
 <details>
