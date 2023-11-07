@@ -1,7 +1,6 @@
-# Installing Frogbot on Azure  Repositories
+# Setup Frogbot Using Azure Pipelines
 
-| Important: Using Frogbot with Azure DevOps isn't recommended for open-source projects. Read more about it in the Security note for pull requests scanning section. |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+**Important Notice**: For Scanning Pull Requests, it is advisable to refrain from setting up Frogbot using Azure Pipelines for open source projects. For further details, please refer to the [👮 Security Note for Pull Requests Scanning](./scan-pull-requests.md#security-note-for-pull-requests-scanning).
 
 To install Frogbot on Azure Repos repositories, follow these steps.
 
