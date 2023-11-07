@@ -50,7 +50,7 @@ After the setup is complete, you'll receive an email with your JFrog environment
 
 <summary>Advanced - Customize advanced settings with frogbot-config.yml</summary>
 
-* [Creating the frogbot-config.yml file](../../jfrog-applications/frogbot/get-started/frogbot-configuration.md)
+* [Creating the frogbot-config.yml file](./frogbot-configuration.md)
 
 </details>
 
