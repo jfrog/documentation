@@ -15,7 +15,7 @@ should be provided as variables as part of the Frogbot workflows.
 
 ### How does the frogbot-config.yml file helps Frogbot scan the repository?
 
-When your Git repository includes multiple subprojects, and each subproject has its own descriptor file (package.json in the case of npm), the **frogbot-config.yml** file should include the relative paths to the subprojects. Frogbot uses this configuration to scan each subproject separately. In the following example, there are two subprojects under `path/to/project-1` and `path/to/project-2`.
+When your Git repository includes multiple subprojects, and each subproject has its own descriptor file (package.json in the case of npm), Frogbot will attempt to detect these projects recursively and scan them. In cases where the detection is not accurate, you can use the **frogbot-config.yml** file to include the relative paths to the subprojects. Frogbot uses this configuration to scan each subproject separately. In the following example, there are two subprojects under `path/to/project-1` and `path/to/project-2`.
 
 ```yaml
 - params:
@@ -185,7 +185,10 @@ Frogbot expects the frogbot-config.yml file to be in the following path from the
       # [Default: ["*node_modules*", "*target*", "*venv*", "*test*"]]
       # List of exclusion patterns (utilizing wildcards) for excluding paths in the source code of the Git repository during SCA scans.
       #   pathExclusions:
-      #     - "*node_modules*", "*target*", "*venv*", "*test*"
+      #     - "*node_modules*"
+      #     - "*target*"
+      #     - "*venv*"
+      #     - "*test*"
 
       # [Mandatory for pip only if using requirements file, Default: pip install .]
       # The requirements file name that is used to install dependencies in case of pip package manager
