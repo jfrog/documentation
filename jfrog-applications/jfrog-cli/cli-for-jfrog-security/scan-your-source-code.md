@@ -36,7 +36,7 @@ This command also supports the following Advanced Scans with the **Advanced Secu
 #### Commands Params
 
 |                       |                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Command name**      | audit                                                                                                                                                                                                                                                                                                                                                             |
 | **Abbreviation**      | aud                                                                                                                                                                                                                                                                                                                                                               |
 | **Command options**   |                                                                                                                                                                                                                                                                                                                                                                   |
@@ -52,6 +52,7 @@ This command also supports the following Advanced Scans with the **Advanced Secu
 | --exclude-test-deps   | <p>[Default: false] [Gradle]<br><br>Set to true if you'd like to exclude Gradle test dependencies from Xray scanning.</p>                                                                                                                                                                                                                                         |
 | --requirements-file   | <p>[Optional] [Pip]<br><br>Defines pip requirements file name. For example: 'requirements.txt'</p>                                                                                                                                                                                                                                                                |
 | --working-dirs        | <p>[Optional]<br><br>A comma-separated list of relative working directories, to determine the audit targets locations.</p>                                                                                                                                                                                                                                        |
+| --exclusions          | <p>[Default: \*node_modules\*;\*target\*;\*venv\*;\*test\*]<br><br>List of exclusions separated by semicolons, utilized to skip sub-projects from undergoing an audit. These exclusions may incorporate the * and ? wildcards.</p>                                                                                                                                |
 | --fixable-only        | <p>[Optional]<br><br>Set to true if you wish to display issues that have a fix version only.</p>                                                                                                                                                                                                                                                                  |
 | --min-severity        | <p>[Optional]<br><br>Set the minimum severity of issues to display. The following values are accepted: Low, Medium, High or Critical</p>                                                                                                                                                                                                                          |
 | --go                  | <p>[Default: false]<br><br>Set to true to request audit for a Go project.</p>                                                                                                                                                                                                                                                                                     |
@@ -114,6 +115,14 @@ Audit the project at the current directory using the policies defined for the _l
 
 ```
 jf audit --repo-path "libs-local/release-artifacts/"
+```
+
+#### Example 7
+
+Audit the project in the current directory, excluding all files inside the _node_modules_ directory and files with the _to_exclude_ suffix.
+
+```
+jf audit --exclusions "*node_modules*;*to_exclude"
 ```
 
 ### Running cUrl

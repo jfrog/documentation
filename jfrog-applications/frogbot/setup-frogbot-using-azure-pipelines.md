@@ -95,6 +95,10 @@ jobs:
             # Relative path to the root of the project in the Git repository
             # JF_WORKING_DIR: maven
 
+            # [Default: "*node_modules*;*target*;*venv*;*test*"]
+            # List of exclusion patterns (utilizing wildcards) for excluding paths in the source code of the Git repository during SCA scans.
+            # JF_PATH_EXCLUSIONS: "*node_modules*;*target*;*venv*;*test*"
+
             # [Optional]
             # Xray Watches. Learn more about them here: https://www.jfrog.com/confluence/display/JFROG/Configuring+Xray+Watches
             # JF_WATCHES: <watch-1>,<watch-2>...<watch-n>
@@ -265,6 +269,10 @@ jobs:
            # [Optional, default: "."]
            # Relative path to the root of the project in the Git repository
            # JF_WORKING_DIR: path/to/project/dir
+
+           # [Default: "*node_modules*;*target*;*venv*;*test*"]
+           # List of exclusion patterns (utilizing wildcards) for excluding paths in the source code of the Git repository during SCA scans.
+           # JF_PATH_EXCLUSIONS: "*node_modules*;*target*;*venv*;*test*"
  
            # [Optional]
            # Xray Watches. Learn more about them here: https://www.jfrog.com/confluence/display/JFROG/Configuring+Xray+Watches
