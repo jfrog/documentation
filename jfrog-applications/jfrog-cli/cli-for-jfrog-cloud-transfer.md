@@ -51,7 +51,7 @@ The following limitations need to be kept in mind before you start the migration
 
 ### Before you begin
 
-1. If your source instance hosts files that are larger than 25 GB, they will be blocked during the transfer. To learn how to check whether large files are hosted by your source instance, and what to do in that case, read \[this section]\(#Transferring files larger than 25 GB).
+1. If your source instance hosts files that are larger than 25 GB, they will be blocked during the transfer. To learn how to check whether large files are hosted by your source instance, and what to do in that case, read [this section](#transferring-files-larger-than-25-gb).
 2. Ensure that you can log in to the UI of both the source and target instances with users that have admin permissions.
 3. Ensure that the target instance license does not support fewer features than the source instance license.
 4. Run the file transfer pre-checks as described [here](#running-pre-checks-before-initiating-the-file-transfer-process).
@@ -79,37 +79,31 @@ By default, the target does not have the APIs required for the configuration tra
 
 Follow the below steps to enable the configuration transfer.
 
-1: Log in to [MyJFrog](https://my.jfrog.com/login/).
-
-2: Click on **Settings**.
-
-3: Under the **Transfer Artifactory Configuration from Self-Hosted to Cloud** section, click on the **acknowledgment** checkbox. You cannot enable configuration transfer until you select the checkbox. \
-![](../../.gitbook/assets/transfer-1.png)
-
-4: If you have an Enterprise+ subscription with more than one Artifactory instance, select the target instance from the drop-down menu.
-
-5: Toggle **Enable Configuration Transfer** to enable the transfer. The process may take a few minutes to complete. \
-![](../../.gitbook/assets/transfer-2.png)
-
-6: The configuration transfer is now enabled and you can continue with the transfer process.
+1. Log in to [MyJFrog](https://my.jfrog.com/login/).
+2. Click on **Settings**.
+3. Under the **Transfer Artifactory Configuration from Self-Hosted to Cloud** section, click on the **acknowledgment** checkbox. You cannot enable configuration transfer until you select the checkbox. \
+![](../.gitbook/assets/transfer-1.png)
+4. If you have an Enterprise+ subscription with more than one Artifactory instance, select the target instance from the drop-down menu.
+5. Toggle **Enable Configuration Transfer** to enable the transfer. The process may take a few minutes to complete. \
+![](../.gitbook/assets/transfer-2.png)
+6. The configuration transfer is now enabled and you can continue with the transfer process.
 
 #### Step 2: Set up the source instance for pushing files to the target instance
 
 To set up the source instance, you must install the data-transfer user plugin in the primary node of the source instance. This section guides you through the installation steps.
 
-1: Install JFrog CLI on the primary node machine of the source instance as described [here](broken-reference).
-
-2: Configure the connection details of the source Artifactory instance with your admin credentials by running the following command from the terminal.
+1. Install JFrog CLI on the primary node machine of the source instance as described [here](#installing-jfrog-cli-on-the-source-instance-machine).
+2. Configure the connection details of the source Artifactory instance with your admin credentials by running the following command from the terminal.
 
 ```sh
 jf c add source-server
 ```
 
-3: Ensure that the **JFROG\_HOME** environment variable is set and holds the value of the JFrog installation directory. It usually points to the **/opt/jfrog** directory. In case the variable isn't set, set its value to point to the correct directory as described in the JFrog Product Directory Structure article.System Directories
+3. Ensure that the **JFROG\_HOME** environment variable is set and holds the value of the JFrog installation directory. It usually points to the **/opt/jfrog** directory. In case the variable isn't set, set its value to point to the correct directory as described in the JFrog Product Directory Structure article.System Directories
 
 If the source instance has internet access, follow this single step:
 
-**Download and install the data-transfer user plugin by running the following command from the terminal.**
+##### Download and install the data-transfer user plugin by running the following command from the terminal
 
 ```sh
 jf rt transfer-plugin-install source-server
@@ -117,11 +111,9 @@ jf rt transfer-plugin-install source-server
 
 If the source instance has no internet access, follow these steps instead.
 
-1: Download the following two files from a machine that has internet access: Download **data-transfer.jar** from [https://releases.jfrog.io/artifactory/jfrog-releases/data-transfer/\[RELEASE\]/lib/data-transfer.jar](https://releases.jfrog.io/artifactory/jfrog-releases/data-transfer/\[RELEASE]/lib/data-transfer.jar). Download **dataTransfer.groovy** from [https://releases.jfrog.io/artifactory/jfrog-releases/data-transfer/\[RELEASE\]/dataTransfer.groovy](https://releases.jfrog.io/artifactory/jfrog-releases/data-transfer/\[RELEASE]/dataTransfer.groovy).
-
-2: Create a new directory on the primary node machine of the source instance and place the two files you downloaded inside this directory.
-
-3: Install the data-transfer user plugin by running the following command from the terminal. Replace the `<plugin files dir>` token with the full path to the directory which includes the plugin files you downloaded.
+1. Download the following two files from a machine that has internet access: Download **data-transfer.jar** from [https://releases.jfrog.io/artifactory/jfrog-releases/data-transfer/\[RELEASE\]/lib/data-transfer.jar](https://releases.jfrog.io/artifactory/jfrog-releases/data-transfer/\[RELEASE]/lib/data-transfer.jar). Download **dataTransfer.groovy** from [https://releases.jfrog.io/artifactory/jfrog-releases/data-transfer/\[RELEASE\]/dataTransfer.groovy](https://releases.jfrog.io/artifactory/jfrog-releases/data-transfer/\[RELEASE]/dataTransfer.groovy).
+2. Create a new directory on the primary node machine of the source instance and place the two files you downloaded inside this directory.
+3. Install the data-transfer user plugin by running the following command from the terminal. Replace the `<plugin files dir>` token with the full path to the directory which includes the plugin files you downloaded.
 
 ```sh
 jf rt transfer-plugin-install source-server --dir "<plugin files dir>"
@@ -137,21 +129,20 @@ jf rt transfer-plugin-install source-server --dir "<plugin files dir>"
 
 ***
 
-1: Install JFrog CLI on the source instance machine as described [here](broken-reference).
-
-2: Configure the connection details of the source Artifactory instance with your admin credentials by running the following command from the terminal.
+1. Install JFrog CLI on the source instance machine as described [here](#installing-jfrog-cli-on-the-source-instance-machine).
+2. Configure the connection details of the source Artifactory instance with your admin credentials by running the following command from the terminal.
 
 ```sh
 jf c add source-server
 ```
 
-3: Configure the connection details of the target Artifactory server with your admin credentials by running the following command from the terminal.
+3. Configure the connection details of the target Artifactory server with your admin credentials by running the following command from the terminal.
 
 ```sh
 jf c add target-server
 ```
 
-4: Run the following command to verify that the target URLs of all the remote repositories are accessible from the target.
+4. Run the following command to verify that the target URLs of all the remote repositories are accessible from the target.
 
 ```sh
 jf rt transfer-config source-server target-server --prechecks
@@ -167,7 +158,7 @@ If the command output shows that a target URL isn't accessible for any of the re
 
 ***
 
-5: Transfer the configuration from the source to the target by running the following command.
+5. Transfer the configuration from the source to the target by running the following command.
 
 ```sh
 jf rt transfer-config source-server target-server
@@ -182,17 +173,17 @@ This command might take up to two minutes to run.
 
 ***
 
-6: View the command output in the terminal to verify that there are no errors. The command output is divided in to the following four phases:
+6. View the command output in the terminal to verify that there are no errors. The command output is divided in to the following four phases:
 
-```sh
+```
 ========== Phase 1/4 - Preparations ==========
 ========== Phase 2/4 - Export configuration from the source Artifactory ==========
 ========== Phase 3/4 - Download and modify configuration ==========
 ========== Phase 4/4 - Import configuration to the target Artifactory ==========
 ```
 
-7: View the log to verify there are no errors.\
-![](../../.gitbook/assets/transfer-3.png)
+7. View the log to verify there are no errors.\
+![](../.gitbook/assets/transfer-3.png)
 
 The target instance should now be accessible with the admin credentials of the source instance. Log into the target instance UI. The target instance must have the same repositories as the source.
 
@@ -200,26 +191,23 @@ The target instance should now be accessible with the admin credentials of the s
 
 Once the configuration transfer is successful, you need to disable the configuration transfer on the target instance. This is important both for security reasons and the target server is set to be low on resources while configuration transfer is enabled.
 
-1: Login to [MyJFrog](https://my.jfrog.com/login/)
-
-2: Under the Actions menu, choose **Enable Configuration Transfer**.
-
-3: Toggle **Enable Configuration Transfer** to **off** to disable configuration transfer.
+1. Login to [MyJFrog](https://my.jfrog.com/login/)
+2. Under the Actions menu, choose **Enable Configuration Transfer**.
+3. Toggle **Enable Configuration Transfer** to **off** to disable configuration transfer.
 
 Disabling the configuration transfer might take some time.
 
 #### Step 5: Push the files from the source to the target instance
 
-1: Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](broken-reference).
-
-2: Run the following command to start pushing the files from all the repositories in the source instance to the target instance.
+1. Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](#installing-jfrog-cli-on-a-machine-with-network-access-to-the-source-and-target-machines).
+2. Run the following command to start pushing the files from all the repositories in the source instance to the target instance.
 
 ```sh
 jf rt transfer-files source-server target-server
 ```
 
 This command may take a few days to push all the files, depending on your system size and your network speed. While the command is running, It displays the transfer progress visually inside the terminal. \
-![](../../.gitbook/assets/transfer-4.png)
+![](../.gitbook/assets/transfer-4.png)
 
 If you're running the command in the background, you use the following command to view the transfer progress.
 
@@ -227,7 +215,7 @@ If you're running the command in the background, you use the following command t
 jf rt transfer-files --status
 ```
 
-![](../../.gitbook/assets/transfer-5.png)
+![](../.gitbook/assets/transfer-5.png)
 
 ***
 
@@ -241,7 +229,7 @@ jf rt transfer-files --status
 jf rt transfer-files -h
 ```
 
-* If the traffic between the source and target instance needs to be routed through an HTTPS proxy, refer to [this](broken-reference) section.
+* If the traffic between the source and target instance needs to be routed through an HTTPS proxy, refer to [this](#routing-the-traffic-from-the-source-to-the-target-through-an-https-proxy) section.
 * You can stop the transfer process by hitting on CTRL+C if the process is running in the foreground, or by running the following command if you're running the process in the background.
 
 ```sh
@@ -250,17 +238,16 @@ jf rt transfer-files --stop
 
 The process will continue from the point it stopped when you re-run the command.
 
-While the file transfer is running, monitor the load on your source instance, and if needed, reduce the transfer speed or increase it for better performance. For more information, see the [Controlling the file transfer speed](broken-reference).
+While the file transfer is running, monitor the load on your source instance, and if needed, reduce the transfer speed or increase it for better performance. For more information, see the [Controlling the file transfer speed](#controlling-the-file-transfer-speed).
 
-1: A path to an errors summary file will be printed at the end of the run, referring to a generated CSV file. Each line on the summary CSV represents an error log of a file that failed to be transferred. On subsequent executions of the `jf rt transfer-files`command, JFrog CLI will attempt to transfer these files again.
-
-2: Once the`jf rt transfer-files`command finishes transferring the files, you can run it again to transfer files that were created or modified during the transfer. You can run the command as many times as needed. Subsequent executions of the command will also attempt to transfer files that failed to be transferred during previous executions of the command.
+1. A path to an errors summary file will be printed at the end of the run, referring to a generated CSV file. Each line on the summary CSV represents an error log of a file that failed to be transferred. On subsequent executions of the `jf rt transfer-files`command, JFrog CLI will attempt to transfer these files again.
+2. Once the`jf rt transfer-files`command finishes transferring the files, you can run it again to transfer files that were created or modified during the transfer. You can run the command as many times as needed. Subsequent executions of the command will also attempt to transfer files that failed to be transferred during previous executions of the command.
 
 ***
 
 **Note**
 
-> Read more about how the transfer files works in [this](broken-reference) section.
+> Read more about how the transfer files works in [this](#files-transfer-phases) section.
 
 ***
 
@@ -280,11 +267,9 @@ The **jf rt transfer-config** command transfers all the config entities (users, 
 
 ***
 
-1: Ensure that you have admin access tokens for both the source and target instances. You'll have to use an admin access token and not an Admin username and password.
-
-2: Install JFrog CLI on any machine that has access to both the source and the target instances using the steps described [here](broken-reference). Make sure to use the admin access tokens and not an admin username and password when configuring the connection details of the source and the target.
-
-3: Run the following command to merge all the projects and repositories from the source to the target instance.
+1. Ensure that you have admin access tokens for both the source and target instances. You'll have to use an admin access token and not an Admin username and password.
+2. Install JFrog CLI on any machine that has access to both the source and the target instances using the steps described [here](#installing-jfrog-cli-on-a-machine-with-network-access-to-the-source-and-target-machines). Make sure to use the admin access tokens and not an admin username and password when configuring the connection details of the source and the target.
+3. Run the following command to merge all the projects and repositories from the source to the target instance.
 
 ```sh
 jf rt transfer-config-merge source-server target-server
@@ -335,21 +320,20 @@ Unlike the transfer-config command, which should be run from the primary note ma
 
 Follow these steps to install JFrog CLI on that machine.
 
-1: Install JFrog CLI by using one of the [JFrog CLI Installers](https://jfrog.com/getcli/). For example:
+1. Install JFrog CLI by using one of the [JFrog CLI Installers](https://jfrog.com/getcli/). For example:
 
 ```sh
 curl -fL https://install-cli.jfrog.io | sh
 ```
 
-2: If your source instance is accessible only through an HTTP/HTTPS proxy, set the proxy environment variable as described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/proxy-support).
-
-3: Configure the connection details of the source Artifactory instance with your admin credentials. Run the following command and follow the instructions.
+2. If your source instance is accessible only through an HTTP/HTTPS proxy, set the proxy environment variable as described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/proxy-support).
+3. Configure the connection details of the source Artifactory instance with your admin credentials. Run the following command and follow the instructions.
 
 ```sh
 jf c add source-server
 ```
 
-4: Configure the connection details of the target Artifactory instance.
+4. Configure the connection details of the target Artifactory instance.
 
 ```sh
 jf c add target-server
@@ -371,21 +355,20 @@ curl -fL https://install-cli.jfrog.io | sh
 
 ***
 
-1: Connect to the host machine through the terminal.
-
-2: Download the JFrog CLI executable into the correct directory by running this command.
+1. Connect to the host machine through the terminal.
+2. Download the JFrog CLI executable into the correct directory by running this command.
 
 ```sh
 curl -fL https://getcli.jfrog.io/v2-jf | sh
 ```
 
-3: Copy the JFrog CLI executable you've just downloaded to the container, by running the following docker command. Make sure to replace`<the container name>it` with the name of the container.
+3. Copy the JFrog CLI executable you've just downloaded to the container, by running the following docker command. Make sure to replace`<the container name>it` with the name of the container.
 
 ```sh
 docker cp jf <the container name>:/usr/bin/jf
 ```
 
-4: Connect to the container and run the following command to ensure JFrog CLI is installed
+4. Connect to the container and run the following command to ensure JFrog CLI is installed
 
 ```sh
 jf -v
@@ -419,15 +402,13 @@ To run the file transfer after you copy the filestore, add the `--filestore` com
 
 Before initiating the file transfer process, we highly recommend running pre-checks, to identify issues that can affect the transfer. You trigger the pre-checks by running a JFrog CLI command on your terminal. The pre-checks will verify the following:
 
-1: There's network connectivity between the source and target instances.
-
-2: The source instance does not include artifacts with properties with values longer than 2.4K characters. This is important, because values longer than 2.4K characters are not supported in JFrog Cloud, and those properties are skipped during the transfer process.
+1. There's network connectivity between the source and target instances.
+2. The source instance does not include artifacts with properties with values longer than 2.4K characters. This is important, because values longer than 2.4K characters are not supported in JFrog Cloud, and those properties are skipped during the transfer process.
 
 To run the pre-checks, follow these steps:
 
-1: Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](broken-reference).
-
-2: Run the following command:
+1. Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](#installing-jfrog-cli-on-a-machine-with-network-access-to-the-source-and-target-machines).
+2. Run the following command:
 
 ```sh
 jf rt transfer-files source-server target-server --prechecks
@@ -437,7 +418,7 @@ jf rt transfer-files source-server target-server --prechecks
 
 **Note**
 
-> If the traffic between the source and target instance needs to be routed through an HTTPS proxy, add the --proxy-key command option as described in [this](broken-reference) section.
+> If the traffic between the source and target instance needs to be routed through an HTTPS proxy, add the --proxy-key command option as described in [this](#routing-the-traffic-from-the-source-to-the-target-through-an-https-proxy) section.
 
 ***
 
@@ -445,15 +426,14 @@ jf rt transfer-files source-server target-server --prechecks
 
 By default, files that are larger than 25 GB will be blocked by the JFrog Cloud infrastructure during the file transfer. To check whether your source Artifactory instance hosts files larger than that size, do the following.
 
-1: Run the following curl command from your terminal, after replacing the `<source instance URL>`, `<username>` and `<password>` tokens with your source instance details. The command execution may take a few minutes, depending on the number of files hosted by Artifactory.
+1. Run the following curl command from your terminal, after replacing the `<source instance URL>`, `<username>` and `<password>` tokens with your source instance details. The command execution may take a few minutes, depending on the number of files hosted by Artifactory.
 
 ```sh
 curl -X POST <source instance URL>/artifactory/api/search/aql -H "Content-Type: text/plain" -d 'items.find({"name" : {"$match":"\*"}}).include("size").sort({"$desc" : \["size"\]}).limit(1)' -u <username>:<password>
 ```
 
-2: You should get a result that looks like the following.
-
-```
+2. You should get a result that looks like the following.
+```json
  {
    "results":[
        {
@@ -468,18 +448,16 @@ curl -X POST <source instance URL>/artifactory/api/search/aql -H "Content-Type: 
    }
  }
 ```
-
 The value of **size** represents the largest file size hosted by your source Artifactory instance.
 
-3: If the size value you received is larger than 25000000000, please avoid initiating the files transfer before contacting JFrog Support, to check whether this size limit can be increased for you. You can contact Support by sending an email to [support@jfrog.com](mailto:support@jfrog.com)
+3. If the size value you received is larger than 25000000000, please avoid initiating the files transfer before contacting JFrog Support, to check whether this size limit can be increased for you. You can contact Support by sending an email to [support@jfrog.com](mailto:support@jfrog.com)
 
 ### Routing the traffic from the source to the target through an HTTPS proxy
 
 The `jf rt transfer-files` command pushes the files directly from the source to the target instance over the network. In case the traffic from the source instance needs to be routed through an HTTPS proxy, follow these steps.
 
-1: Define the proxy details in the source instance UI as described in the Managing ProxiesManaging Proxies documentation.
-
-2: When running the `jf rt transfer-files` command, add the `--proxy-key` option to the command, with Proxy Key you configured in the UI as the option value. For example, if the Proxy Key you configured is **my-proxy-key**, run the command as follows:
+1. Define the proxy details in the source instance UI as described in the Managing ProxiesManaging Proxies documentation.
+2. When running the `jf rt transfer-files` command, add the `--proxy-key` option to the command, with Proxy Key you configured in the UI as the option value. For example, if the Proxy Key you configured is **my-proxy-key**, run the command as follows:
 
 ```sh
 jf rt transfer-files my-source my-target --proxy-key my-proxy-key
@@ -506,4 +484,4 @@ Yes. The source Artifactory instance stores a checksum for every file it hosts. 
 
 **Can I stop the jf rt transfer-files command and then start it again? Would that cause any issues?**
 
-You can stop the command at any time by hitting CTRL+C and then run it again. JFrog CLI stores the state of the transfer process in the "transfer" directory under the JFrog CLI home directory. This directory is usually located at \~/.jfrog/transfer. Subsequent executions of the command use the data stored in that directory to try and avoid transferring files that have already been transferred in previous command executions.
+You can stop the command at any time by hitting CTRL+C and then run it again. JFrog CLI stores the state of the transfer process in the "transfer" directory under the JFrog CLI home directory. This directory is usually located at `~/.jfrog/transfer`. Subsequent executions of the command use the data stored in that directory to try and avoid transferring files that have already been transferred in previous command executions.
