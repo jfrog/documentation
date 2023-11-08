@@ -21,6 +21,38 @@ If your JFrog environment is behind an HTTP/S proxy, follow these steps to confi
 
 * Alternatively, you can use the HTTP\_PROXY and HTTPS\_PROXY environment variables.
 
+### External Resource Repository
+
+By default, the JFrog extension downloads the necessary tools needed from https://releases.jfrog.io. If the machine that runs JFrog extension has no access to it, you can create a remote repository in Artifactory which proxy https://releases.jfrog.io and set the JFrog extension setting:
+
+![externalResourcesRepository](../../.gitbook/assets/vscode/externalResourcesRepository.png)
+
+ or set the following enviable variable
+
+```
+JFROG_IDE_RELEASES_REPO=jfrog-releases-repository
+```
+
+
+To set up a remote repository that acts as a proxy for [https://releases.jfrog.io](https://releases.jfrog.io), follow these steps:
+
+1. Log in using credentials with administrative privileges.
+
+2. Create a Remote Repository:
+   - Navigate to the Remote Repository creation section.
+   - Configure the repository with the following properties:
+
+   Basic Configuration:
+   - Package Type: Generic
+   - Repository Key: jfrog-releases-repository
+   - URL: [https://releases.jfrog.io](https://releases.jfrog.io)
+
+   Advanced Configuration:
+   - Uncheck the 'Store Artifacts Locally' option.
+
+These settings will establish the remote repository as a proxy for the specified URL.
+Remember to set `jfrog-releases-repository` as the releases repository using either an environment variable or in the External Resource Repository within the extension settings.
+
 #### Proxy Authorization
 
 If your proxy server requires credentials, follow these steps:
