@@ -34,7 +34,7 @@ By default, the JFrog extension downloads the necessary resources needed from ht
         URL: https://releases.jfrog.io
     - Under the 'Advanced' tab:
         Uncheck the 'Store Artifacts Locally' option
-3. Open JFrog VS Code extension settings and add the Repository Key you created in the External Resources Repository section.
+3. Open JFrog VS Code extension settings and add the Repository Key you created in the External Resources Repository section:
 ![externalResourcesRepository](../../.gitbook/assets/vscode/externalResourcesRepository.png)
 Or set the `JFROG_IDE_RELEASES_REPO` environment variable with the Repository Key you created.
 
