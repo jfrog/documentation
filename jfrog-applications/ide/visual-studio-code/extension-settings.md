@@ -23,10 +23,10 @@ If your JFrog environment is behind an HTTP/S proxy, follow these steps to confi
 
 #### Downloading External Resources Through Artifactory
 
-JFrog VS Code extension required necessary resources for scanning vulnerabilities in your project.
-By default, the JFrog extension downloads the necessary resources needed from https://releases.jfrog.io. If the machine that runs JFrog extension has no access to it, follow these steps to allow the tools to be downloaded from an Artifactory instance, which the machine has access to:
+JFrog VS Code extension requires necessary resources for scanning your projects.
+By default, the JFrog extension downloads the necessary resources needed from https://releases.jfrog.io. If the machine that runs VS Code has no access to it, follow these steps to allow the tools to be downloaded through an Artifactory instance, which the machine has access to:
 
-1. Login to the Artifactory UI, with a user who has admin credentials.
+1. Login to the JFrog Platform UI, with a user who has admin credentials.
 
 2. Create a Remote Repository with the following properties set:
     - Under the 'Basic' tab:
