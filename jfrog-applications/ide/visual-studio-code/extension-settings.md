@@ -9,7 +9,7 @@ To open the extension settings, use the following VS Code menu command:
 
 #### Exclude Paths from Scan
 
-By default, paths containing the words `test`, `venv` and `node_modules` are excluded from Xray scan. The exclude pattern can be configured in the [Extension Settings](extension-settings.md).
+By default, paths containing the words `.git`, `test`, `venv` and `node_modules` are excluded from Xray scan. The exclude pattern can be configured in the [Extension Settings](extension-settings.md).
 
 #### Proxy Configuration
 

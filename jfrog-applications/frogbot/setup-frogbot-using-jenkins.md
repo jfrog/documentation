@@ -105,7 +105,7 @@
 
 * Use the following template to create the pipeline script for the job
 
-  ```yml
+  ```groovy
   pipeline {
 
       agent any // Use your agent here with installed package manager (npm,go,python etc..)
@@ -207,9 +207,9 @@
           // Relative path to the root of the project in the Git repository
           // JF_WORKING_DIR= path/to/project/dir
 
-          // [Default: "*node_modules*;*target*;*venv*;*test*"]
+          // [Default: "*.git*;*node_modules*;*target*;*venv*;*test*"]
           // List of exclusion patterns (utilizing wildcards) for excluding paths in the source code of the Git repository during SCA scans.
-          // JF_PATH_EXCLUSIONS= "*node_modules*;*target*;*venv*;*test*"
+          // JF_PATH_EXCLUSIONS= "*.git*;*node_modules*;*target*;*venv*;*test*"
 
           // [Optional]
           // Xray Watches. Learn more about them here: https://www.jfrog.com/confluence/display/JFROG/Configuring+Xray+Watches
@@ -348,7 +348,7 @@
 
 * Use the following template for pipeline.
 
-  ```yml
+  ```groovy
   // Run the job once a day
   CRON_SETTINGS = '''0 0 * * *'''
 
@@ -421,9 +421,9 @@
           // Relative path to the root of the project in the Git repository
           // JF_WORKING_DIR= path/to/project/dir
           
-          // [Default: "*node_modules*;*target*;*venv*;*test*"]
+          // [Default: "*.git*;*node_modules*;*target*;*venv*;*test*"]
           // List of exclusion patterns (utilizing wildcards) for excluding paths in the source code of the Git repository during SCA scans.
-          // JF_PATH_EXCLUSIONS= "*node_modules*;*target*;*venv*;*test*"
+          // JF_PATH_EXCLUSIONS= "*.git*;*node_modules*;*target*;*venv*;*test*"
 
           // [Optional]
           // Xray Watches. Learn more about them here: https://www.jfrog.com/confluence/display/JFROG/Configuring+Xray+Watches

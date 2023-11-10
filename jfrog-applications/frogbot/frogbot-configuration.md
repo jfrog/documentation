@@ -182,7 +182,7 @@ Frogbot expects the frogbot-config.yml file to be in the following path from the
       #   workingDirs:
       #     - "."
 
-      # [Default: ["*node_modules*", "*target*", "*venv*", "*test*"]]
+      # [Default: ["*.git*", "*node_modules*", "*target*", "*venv*", "*test*"]]
       # List of exclusion patterns (utilizing wildcards) for excluding paths in the source code of the Git repository during SCA scans.
       #   pathExclusions:
       #     - "*node_modules*"
