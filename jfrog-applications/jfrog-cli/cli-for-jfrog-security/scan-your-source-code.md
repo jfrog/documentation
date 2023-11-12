@@ -36,7 +36,7 @@ This command also supports the following Advanced Scans with the **Advanced Secu
 #### Commands Params
 
 |                       |                                                                                                                                                                                                                                                                                                                                                                   |
-|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Command name**      | audit                                                                                                                                                                                                                                                                                                                                                             |
 | **Abbreviation**      | aud                                                                                                                                                                                                                                                                                                                                                               |
 | **Command options**   |                                                                                                                                                                                                                                                                                                                                                                   |
@@ -52,7 +52,7 @@ This command also supports the following Advanced Scans with the **Advanced Secu
 | --exclude-test-deps   | <p>[Default: false] [Gradle]<br><br>Set to true if you'd like to exclude Gradle test dependencies from Xray scanning.</p>                                                                                                                                                                                                                                         |
 | --requirements-file   | <p>[Optional] [Pip]<br><br>Defines pip requirements file name. For example: 'requirements.txt'</p>                                                                                                                                                                                                                                                                |
 | --working-dirs        | <p>[Optional]<br><br>A comma-separated list of relative working directories, to determine the audit targets locations.</p>                                                                                                                                                                                                                                        |
-| --exclusions          | <p>[Default: \*.git\*;\*node_modules\*;\*target\*;\*venv\*;\*test\*]<br><br>List of exclusions separated by semicolons, utilized to skip sub-projects from undergoing an audit. These exclusions may incorporate the * and ? wildcards.</p>                                                                                                                                |
+| --exclusions          | <p>[Default: *.git*;*node_modules*;*target*;*venv*;*test*]<br><br>List of exclusions separated by semicolons, utilized to skip sub-projects from undergoing an audit. These exclusions may incorporate the * and ? wildcards.</p>                                                                                                                                 |
 | --fixable-only        | <p>[Optional]<br><br>Set to true if you wish to display issues that have a fix version only.</p>                                                                                                                                                                                                                                                                  |
 | --min-severity        | <p>[Optional]<br><br>Set the minimum severity of issues to display. The following values are accepted: Low, Medium, High or Critical</p>                                                                                                                                                                                                                          |
 | --go                  | <p>[Default: false]<br><br>Set to true to request audit for a Go project.</p>                                                                                                                                                                                                                                                                                     |
@@ -66,8 +66,6 @@ This command also supports the following Advanced Scans with the **Advanced Secu
 | **Command arguments** | The command accepts no arguments                                                                                                                                                                                                                                                                                                                                  |
 
 #### **Output Example**
-
-&#x20;&#x20;
 
 #### Example 1
 
@@ -119,7 +117,7 @@ jf audit --repo-path "libs-local/release-artifacts/"
 
 #### Example 7
 
-Audit the project in the current directory, excluding all files inside the _node_modules_ directory and files with the _to_exclude_ suffix.
+Audit the project in the current directory, excluding all files inside the _node\_modules_ directory and files with the _to\_exclude_ suffix.
 
 ```
 jf audit --exclusions "*node_modules*;*to_exclude"
@@ -139,7 +137,6 @@ Execute a cUrl command, using the configured Xray details. The command expects t
 | --server-id              | <p>[Optional]<br><br>Server ID configured using the <em>jf c add</em> command. If not specified, the default configured server is used.</p>                                                                                                                                               |
 | Command arguments        |                                                                                                                                                                                                                                                                                           |
 | cUrl arguments and flags | <p>The same list of arguments and flags passed to cUrl, except for the following changes:<br><br>1. The full Xray URL should not be passed. Instead, the REST endpoint URI should be sent.<br>2. The login credentials should not be passed. Instead, the --server-id should be used.</p> |
-
 
 #### Example 1
 
