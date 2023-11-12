@@ -1,7 +1,5 @@
 # Extension Settings
 
-The extension is licensed under Apache License 2.0.
-
 To open the extension settings, use the following VS Code menu command:
 
 * On Windows/Linux - File > Preferences > Settings > Extensions > JFrog
@@ -35,7 +33,9 @@ By default, the JFrog extension downloads the necessary resources needed from ht
     - Under the 'Advanced' tab:
         Uncheck the 'Store Artifacts Locally' option
 3. Open JFrog VS Code extension settings and add the Repository Key you created in the External Resources Repository section:
+
 ![externalResourcesRepository](../../.gitbook/assets/vscode/externalResourcesRepository.png)
+
 Or set the `JFROG_IDE_RELEASES_REPO` environment variable with the Repository Key you created.
 
 #### Proxy Authorization
