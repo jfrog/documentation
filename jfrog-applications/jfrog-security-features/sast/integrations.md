@@ -4,8 +4,8 @@
 
 JFrog SAST is available in the following IDEs with the JFrog plugin:
 
-* [Visual Studio Code](../../ide/jfrog-security-in-your-ide/visual-studio-code/)
-* [JetBrains IDEs](../../jfrog-applications/ide/jetbrains-ides/)
+* [Visual Studio Code](../../ide/visual-studio-code/)
+* [JetBrains IDEs](../../ide/jetbrains-ides/)
 
 ## SCM Scanning
 

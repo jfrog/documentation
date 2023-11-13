@@ -12,13 +12,13 @@ Each file node in the tree is interactive, click and expand it to view its child
 
 In addition, the locations with vulnerabilities will be marked in the editor. By clicking on the light bulb icon next to a vulnerable location in the editor, we can instantly jump to the corresponding entry in the tree view.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Clicking on a CVE in the list will open the location with the issue in the editor and a vulnerability details view. This view contains information about the vulnerability, the vulnerable component, fixed versions, impact paths, and much more.
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 <details>
 
@@ -27,12 +27,11 @@ Clicking on a CVE in the list will open the location with the issue in the edito
 For selected security issues, get leverage-enhanced CVE data that is provided by our JFrog Security Research team. Prioritize the CVEs based on:
 
 * JFrog Severity: The severity given by the JFrog Security Research team after the manual analysis of the CVE by the team. CVEs with the highest JFrog security severity are the most likely to be used by real-world attackers. This means that you should put effort into fixing them as soon as possible.
-* Research Summary: The summary that is based on JFrog's security analysis of the security issue provides detailed technical information on the specific conditions for the CVE to be applicable.
-Remediation: Detailed fix and mitigation options for the CVEs
+* Research Summary: The summary that is based on JFrog's security analysis of the security issue provides detailed technical information on the specific conditions for the CVE to be applicable. Remediation: Detailed fix and mitigation options for the CVEs
 
 Check out what our research team is up to and stay updated on newly discovered issues by clicking on this [link](https://research.jfrog.com).
 
-![JFrog_Research](../../../.gitbook/assets/vscode/research.png)
+<img src="../../.gitbook/assets/vscode/research.png" alt="JFrog_Research" data-size="original">
 
 </details>
 
@@ -40,7 +39,7 @@ Check out what our research team is up to and stay updated on newly discovered i
 
 <summary>Vulnerability Contextual Analysis</summary>
 
-**_NOTE:_**  Vulnerability Contextual Analysis requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
+_**NOTE:**_ Vulnerability Contextual Analysis requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
 
 Xray automatically validates some high and very high impact vulnerabilities, such as vulnerabilities that have prerequisites for exploitations, and provides contextual analysis information for these vulnerabilities, to assist you in figuring out which vulnerabilities need to be fixed. Vulnerability Contextual Analysis data includes:
 
@@ -48,7 +47,7 @@ Xray automatically validates some high and very high impact vulnerabilities, suc
 * Vulnerability Contextual Analysis breakdown: An explanation provided by our research team as to why the CVE was found applicable or not applicable.
 * Remediation: Contextual mitigation steps and options provided by our research team that assist you with remediating the issues.
 
-![Contextual_Analysis](../../../.gitbook/assets/vscode/contextualDetails.png)
+<img src="../../.gitbook/assets/vscode/contextualDetails.png" alt="Contextual_Analysis" data-size="original">
 
 </details>
 
@@ -56,18 +55,16 @@ Xray automatically validates some high and very high impact vulnerabilities, suc
 
 <summary>Static Application Security Testing (SAST)</summary>
 
-**_NOTE:_**  Static Application Security Testing (SAST) requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
+_**NOTE:**_ Static Application Security Testing (SAST) requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
 
-JFrog SAST scans mainly for specific sensitive operations (DB queries, OS commands, outgoing connection destinations, etc) that can be controlled by an external attacker without proper sanitation injections such as: SQL injections, Command injections, Code injections and SSRF.
-It also detects cases when certain APIs (encryption, cryptographic signing, file operations, etc.) are used with parameters or under circumstances that render the API use unsafe.
+JFrog SAST scans mainly for specific sensitive operations (DB queries, OS commands, outgoing connection destinations, etc) that can be controlled by an external attacker without proper sanitation injections such as: SQL injections, Command injections, Code injections and SSRF. It also detects cases when certain APIs (encryption, cryptographic signing, file operations, etc.) are used with parameters or under circumstances that render the API use unsafe.
 
 SAST findings are presented in a way that will help you easily locate the vulnerable data flow in your code. The data is represented within an easy-to-use interface that enables you to track each vulnerability in the code and provides the following information per vulnerability:
 
 * **Data Flow Analysis**: Provides information on the overall code flow and the different entry points of the vulnerability up to the execution point of the vulnerability. At JFrog we understand the developers need to see the entire picture of their code, rather than just providing the specific vulnerability found in the code. With Data Analysis Flow you will be able to follow the entire lifecycle of the vulnerability.
-* **Fix Steps**: To help you fix the security issues, the JFrog security team provides you with detailed fixes and mitigation options for the vulnerabilities. Xray empowers you to make smart choices when creating the mitigation plan and choosing the paths with the highest return on investment.
-Along with the JFrog severity given, you can make informed decisions on what vulnerabilities are a priority to fix. For example, vulnerabilities with low JFrog security severity are considered less risky, as it would be very unlikely to exploit them in the real world, or the impact of the exploitation is low.
+* **Fix Steps**: To help you fix the security issues, the JFrog security team provides you with detailed fixes and mitigation options for the vulnerabilities. Xray empowers you to make smart choices when creating the mitigation plan and choosing the paths with the highest return on investment. Along with the JFrog severity given, you can make informed decisions on what vulnerabilities are a priority to fix. For example, vulnerabilities with low JFrog security severity are considered less risky, as it would be very unlikely to exploit them in the real world, or the impact of the exploitation is low.
 
-![Contextual_Analysis](../../../.gitbook/assets/vscode/sast.png)
+<img src="../../.gitbook/assets/vscode/sast.png" alt="Contextual_Analysis" data-size="original">
 
 </details>
 
@@ -75,11 +72,11 @@ Along with the JFrog severity given, you can make informed decisions on what vul
 
 <summary>Secrets Detection</summary>
 
- **_NOTE:_**  Secrets Detection requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
+_**NOTE:**_ Secrets Detection requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
 
 Detect any secrets left exposed inside the code. to prevent any accidental leak of internal tokens or credentials. To ignore detected secrets, you can add a comment which includes the phrase _jfrog-ignore_ above the line with the secret.
 
-![Secrets_Detection](../../../.gitbook/assets/vscode/secrets.png)
+<img src="../../.gitbook/assets/vscode/secrets.png" alt="Secrets_Detection" data-size="original">
 
 </details>
 
@@ -87,10 +84,10 @@ Detect any secrets left exposed inside the code. to prevent any accidental leak 
 
 <summary>Infrastructure as Code (IaC) Scan</summary>
 
-**_NOTE:_**  Infrastructure as Code (IaC) requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
+_**NOTE:**_ Infrastructure as Code (IaC) requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with Advanced DevSecOps.
 
 Scan Infrastructure as Code (Terraform) files for early detection of cloud and infrastructure misconfigurations.
 
-![iac_scan](../../../.gitbook/assets/vscode/iac.png)
+<img src="../../.gitbook/assets/vscode/iac.png" alt="iac_scan" data-size="original">
 
 </details>
