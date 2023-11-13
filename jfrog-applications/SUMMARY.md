@@ -47,8 +47,6 @@
   * [Setup](frogbot/setup-frogbot.md)
     * [Frogbot Configuration](frogbot/frogbot-configuration.md)
     * [Setup Frogbot Using GitHub Actions](frogbot/setup-frogbot-using-github-actions.md)
-      * [Scan Pull Request Template](frogbot/templates/github-actions/frogbot-scan-pull-request.yml)
-      * [Scan Repository Template](frogbot/templates/github-actions/frogbot-scan-repository.yml)
     * [Setup Frogbot Using Jenkins](frogbot/setup-frogbot-using-jenkins.md)
     * [Setup Frogbot Using JFrog Pipelines](frogbot/setup-frogbot-using-jfrog-pipelines.md)
     * [Setup Frogbot Using GitLab CI](frogbot/setup-frogbot-using-gitlab-ci.md)

@@ -14,7 +14,8 @@ import (
 	"github.com/xeipuuv/gojsonschema"
 	"gopkg.in/yaml.v2"
 
-	clientutils "github.com/jfrog/jfrog-client-go/utils"
+	"github.com/jfrog/jfrog-client-go/utils"
+	"github.com/jfrog/jfrog-client-go/utils/errorutils"
 )
 
 const (
@@ -22,30 +23,39 @@ const (
 	durationBetweenSchemaDownloadRetries = 10 * time.Second
 )
 
+func TestFrogbotSchema(t *testing.T) {
+	// Download frogbot schema
+	schemaLoader := downloadYamlSchema(t, "https://raw.githubusercontent.com/jfrog/frogbot/master/schema/frogbot-schema.json")
+
+	// Validate config in the docs
+	validateYamlSchema(t, schemaLoader, filepath.Join(".frogbot", "frogbot-config.yml"), "")
+}
+
 func TestGitHubActionsTemplates(t *testing.T) {
-	schemaLoader := downloadFromSchemaStore(t, "github-workflow.json")
+	// Download GitHub Actions schema
+	schemaLoader := downloadYamlSchema(t, "https://json.schemastore.org/github-workflow.json")
+
+	// Validate workflows in the "github-actions" directory
 	validateYamlsInDirectory(t, "github-actions", schemaLoader)
 }
 
-// Download a Yaml schema from https://json.schemastore.org.
+// Download a Yaml schema.
 // t      - Testing object
 // schema - The schema file to download
-func downloadFromSchemaStore(t *testing.T, schema string) gojsonschema.JSONLoader {
+func downloadYamlSchema(t *testing.T, url string) gojsonschema.JSONLoader {
 	var response *http.Response
 	var err error
-	retryExecutor := clientutils.RetryExecutor{
+	retryExecutor := utils.RetryExecutor{
 		MaxRetries:               maxRetriesToDownloadSchema,
 		RetriesIntervalMilliSecs: int(durationBetweenSchemaDownloadRetries.Milliseconds()),
-		ErrorMessage:             "Failed to download schema.",
+		ErrorMessage:             "Failed to download schema",
 		ExecutionHandler: func() (bool, error) {
-			response, err = http.Get("https://json.schemastore.org/" + schema)
+			response, err = http.Get(url)
 			if err != nil {
 				return true, err
 			}
-			if response.StatusCode != http.StatusOK {
-				return true, fmt.Errorf("failed to download schema. Response status: %s", response.Status)
-			}
-			return false, nil
+			err = errorutils.CheckResponseStatus(response, http.StatusOK)
+			return err != nil, err
 		},
 	}
 	assert.NoError(t, retryExecutor.Execute())
