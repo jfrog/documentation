@@ -4,7 +4,7 @@ The [on-demand binary scanning](https://jfrog-staging-external.fluidtopics.net/r
 
 ### Scanning Files on the Local File System
 
-This **jf scan**\_ command scans files on the local file system with Xray.
+This _**jf scan**_ command scans files on the local file system with Xray.
 
 ***
 
