@@ -3052,7 +3052,7 @@ For integrating with Maven and Gradle, JFrog CLI uses the build-info-extractor j
 If you're using JFrog CLI on a machine which has no access to the internet, you can configure JFrog CLI to download these jar files from an Artifactory instance. Here's how to configure Artifactory and JFrog CLI to download the jars files.
 
 1. Create a remote Maven repository in Artifactory and name it **extractors**. When creating the repository, configure it to proxy [https://releases.jfrog.io/artifactory/oss-release-local](https://releases.jfrog.io/artifactory/oss-release-local)
-2. Make sure that this Artifactory server is known to JFrog CLI, using the [jfrog c show](https://jfrog.com/help/r/jfrog-cli/showing-the-configured-servers) command. If not, configure it using the [jfrog c add](https://jfrog.com/help/r/jfrog-cli/Adding-and-Editing-Configured-Servers) command.
+2. Make sure that this Artifactory server is known to JFrog CLI, using the [jfrog c show](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration#showing-the-configured-servers) command. If not, configure it using the [jfrog c add](https://jfrog.com/help/r/jfrog-cli/Adding-and-Editing-Configured-Servers) command.
 3. Set the **JFROG\_CLI\_EXTRACTORS\_REMOTE** environment variable with the server ID of the Artifactory server you configured, followed by a slash, and then the name of the repository you created. For example _**my-rt-server/extractors**_
 
 ## Transferring Files Between Artifactory Servers
