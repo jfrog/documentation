@@ -4,7 +4,7 @@
 
 This page describes how to use JFrog CLI with [JFrog Release Lifecycle Management](https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-release-lifecycle-management-solution).
 
-Read more about JFrog CLI [here](https://jfrog.com/help/r/jfrog-cli).
+Read more about JFrog CLI [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli).
 
 ***
 

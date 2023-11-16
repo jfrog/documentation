@@ -1,6 +1,6 @@
 # JFrog Platform Configuration
 
-**Adding and Editing Configured Servers**
+## Adding and Editing Configured Servers
 
 The **config add** and **config edit** commands are used to add and edit JFrog Platform server configuration, stored in JFrog CLI's configuration storage. These configured servers can be used by the other commands. The configured servers' details can be overridden per command by passing in alternative values for the URL and login credentials. The values configured are saved in file under the JFrog CLI home directory.
 
@@ -29,7 +29,7 @@ The **config add** and **config edit** commands are used to add and edit JFrog P
 | Command arguments      |                                                                                                                                                                                                                                                                                                                                                                                                    |
 | server ID              | A unique ID for the server configuration.                                                                                                                                                                                                                                                                                                                                                          |
 
-**Removing Configured Servers**
+## Removing Configured Servers
 
 The _config remove_ command is used to remove JFrog Platform server configuration, stored in JFrog CLI's configuration storage.
 
@@ -42,7 +42,7 @@ The _config remove_ command is used to remove JFrog Platform server configuratio
 | Command arguments |                                                                                      |
 | server ID         | The server ID to remove. If no argument is sent, all configured servers are removed. |
 
-**Showing the Configured Servers**
+## Showing the Configured Servers
 
 The _config show_ command shows the stored configuration. You may show a specific server's configuration by sending its ID as an argument to the command.
 
@@ -53,7 +53,7 @@ The _config show_ command shows the stored configuration. You may show a specifi
 | Command arguments |                                                                                         |
 | server ID         | The ID of the server to show. If no argument is sent, all configured servers are shown. |
 
-**Setting a Server as Default**
+## Setting a Server as Default
 
 The _config use_ command sets a configured server as default. The following commands will use this server.
 
@@ -63,11 +63,11 @@ The _config use_ command sets a configured server as default. The following comm
 | Command arguments |                                         |
 | server ID         | The ID of the server to set as default. |
 
-**Exporting and Importing Configuration**
+## Exporting and Importing Configuration
 
 The _config export_ command generates a token, which stores the server configuration. This token can be used by the _config import_ command, to import the configuration stored in the token, and save it in JFrog CLI's configuration storage.
 
-**Export**
+### Export
 
 |                   |                                |
 | ----------------- | ------------------------------ |
@@ -76,7 +76,7 @@ The _config export_ command generates a token, which stores the server configura
 | Command arguments |                                |
 | server ID         | The ID of the server to export |
 
-**Import**
+### Import
 
 |                   |                     |
 | ----------------- | ------------------- |
