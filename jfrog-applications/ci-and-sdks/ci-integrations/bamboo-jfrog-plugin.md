@@ -4,7 +4,7 @@
 
 The **Bamboo JFrog Plugin** is designed to provide an easy integration between Bamboo and the [JFrog Platform](https://jfrog.com/solution-sheet/jfrog-platform/).
 
-Unlike the legacy [Bamboo Artifactory Plugin](https://plugins.atlassian.com/plugin/details/27818), the new **Bamboo JFrog Plugin** focuses on a single task that runs [JFrog CLI](https://jfrog.com/help/r/jfrog-cli/jfrog-cli) commands. Worth mentioning that both JFrog plugins, can work side by side.
+Unlike the legacy [Bamboo Artifactory Plugin](https://plugins.atlassian.com/plugin/details/27818), the new **Bamboo JFrog Plugin** focuses on a single task that runs [JFrog CLI](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli) commands. Worth mentioning that both JFrog plugins, can work side by side.
 
 The advantage of this approach is that JFrog CLI is a powerful and versatile tool that integrates with all JFrog capabilities. It offers extensive features and functionalities, and it is constantly improved and updated with the latest enhancements from JFrog. This ensures that the Bamboo JFrog Plugin is always up-to-date with the newest features and improvements provided by JFrog.
 

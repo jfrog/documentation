@@ -2,7 +2,7 @@
 
 ## Scanning Published Builds
 
-JFrog CLI is integrated with JFrog Xray and JFrog Artifactory, allowing you to have your build artifacts and dependencies scanned for vulnerabilities and license violations. Please notice that the build in the below example had already been published to Artifactory using the [build-publish command](https://jfrog.com/help/r/jfrog-cli/publishing-build-info).
+JFrog CLI is integrated with JFrog Xray and JFrog Artifactory, allowing you to have your build artifacts and dependencies scanned for vulnerabilities and license violations. Please notice that the build in the below example had already been published to Artifactory using the [build-publish command](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info).
 
 ### Commands Params
 
