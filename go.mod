@@ -1,4 +1,4 @@
-module documentation
+module github.com/jfrog/documentation
 
 go 1.21
 
