@@ -40,6 +40,7 @@
     * [Install the JFrog IDEA Plugin](ide/jetbrains-ides/install-the-jfrog-idea-plugin.md)
     * [Connect the JFrog Plugin to the JFrog Platform](ide/jetbrains-ides/connect-the-jfrog-plugin-to-the-jfrog-platform.md)
     * [Using the JFrog Plugin in the JetBrains IDEs](ide/jetbrains-ides/using-the-jfrog-plugin-in-the-jetbrains-ides.md)
+    * [Plugin Configuration](ide/jetbrains-ides/plugin-configuration.md)
     * [Apply Xray Policies and Watches](ide/jetbrains-ides/apply-xray-policies-and-watches.md)
     * [Android Studio Support for JCEF](ide/jetbrains-ides/android-studio-support-for-jcef.md)
     * [Troubleshooting](ide/jetbrains-ides/troubleshooting.md)
