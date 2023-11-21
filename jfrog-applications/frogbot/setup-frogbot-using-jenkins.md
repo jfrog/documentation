@@ -484,6 +484,11 @@
             // [Optional, Default: eco-system+frogbot@jfrog.com]
             // Set the email of the commit author
             // JF_GIT_EMAIL_AUTHOR: ""
+
+            // [Optional]
+            // Set the list of allowed licenses, The full list of licenses can be found in: 
+            // https://github.com/jfrog/frogbot/blob/master/docs/licenses.md
+            // JF_ALLOWED_LICENSES: "MIT, Apache-2.0"
         }
 
         stages {

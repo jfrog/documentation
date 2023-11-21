@@ -30,3 +30,7 @@ The following alert types are supported:
 **4. Static Application Security Testing (Sast) vulnerabilities**
 
 ![](../.gitbook/assets/github-code-scanning-sast-content.png)
+
+**5. Validate Dependency Licenses**
+
+![](../.gitbook/assets/github-code-scanning-license-violation-content.png)
