@@ -127,9 +127,9 @@ If new vulnerabilities are found, Frogbot adds them as a comment on the pull req
 
 ![](https://raw.githubusercontent.com/jfrog/frogbot/master/images/pr-iac.png)
 
-**Validate Dependency Licenses**
+**Validate Allowed Licenses**
 
-When Frogbot scans newly opened pull requests, it checks the licenses of any new direct project dependencies introduced by the pull request. If Frogbot identifies licenses that are not listed in a predefined set of approved licenses, it appends a comment to the pull request providing this information.
+When Frogbot scans newly opened pull requests, it checks the licenses of any new direct project dependencies introduced by the pull request. If Frogbot identifies licenses that are not listed in a predefined set of approved licenses, it appends a comment to the pull request providing this information. The list of allowed licenses is set up as a variable within the Frogbot workflow.
 
 ![](https://raw.githubusercontent.com/jfrog/frogbot/master/images/violated-licenses.png)
 

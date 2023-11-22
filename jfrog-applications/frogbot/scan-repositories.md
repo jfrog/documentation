@@ -31,6 +31,10 @@ The following alert types are supported:
 
 ![](../.gitbook/assets/github-code-scanning-sast-content.png)
 
-**5. Validate Dependency Licenses**
+**5. Validate Allowed Licenses**
+
+When Frogbot scans the repository periodically, it checks the licenses of any project dependencies. If Frogbot identifies licenses that are not listed in a predefined set of approved licenses, it adds an alert. The list of allowed licenses is set up as a variable within the Frogbot workflow.
+
+
 
 ![](../.gitbook/assets/github-code-scanning-license-violation-content.png)
