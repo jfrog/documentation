@@ -167,6 +167,12 @@ jobs:
             # Set the email of the commit author
             # JF_GIT_EMAIL_AUTHOR: ""
 
+            # [Optional]
+            # Set the list of allowed licenses
+            # The full list of licenses can be found in:
+            # https://github.com/jfrog/frogbot/blob/master/docs/licenses.md
+            # JF_ALLOWED_LICENSES: "MIT, Apache-2.0"
+
          inputs:
             script: |
                getFrogbotScriptPath=$(if [ -z "$JF_RELEASES_REPO" ]; then echo "https://releases.jfrog.io"; else echo "${JF_URL}/artifactory/${JF_RELEASES_REPO}"; fi)
@@ -310,6 +316,12 @@ jobs:
            # detected during pull request scanning. The notification is also sent to the email set
            # in the committer git profile regardless of whether this variable is set or not.
            # JF_EMAIL_RECEIVERS: ""
+
+           # [Optional]
+           # Set the list of allowed licenses
+           # The full list of licenses can be found in:
+           # https://github.com/jfrog/frogbot/blob/master/docs/licenses.md
+           # JF_ALLOWED_LICENSES: "MIT, Apache-2.0"
  
          inputs:
             script: |

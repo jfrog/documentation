@@ -108,9 +108,9 @@ If new vulnerabilities are found, Frogbot adds them as a comment on the pull req
 
 |                                                               SEVERITY                                                              |             CONTEXTUAL ANALYSIS             | DIRECT DEPENDENCIES | IMPACTED DEPENDENCY |       FIXED VERSIONS      |
 | :---------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------: | :-----------------: | :-----------------: | :-----------------------: |
-| <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/notApplicableCritical.png" alt=""><br>Critical</p> | $\color{#3CB371}{\textsf{Not Applicable\}}$ |    minimist:1.2.5   |    minimist:1.2.5   | <p>[0.2.4]<br>[1.2.6]</p> |
-|   <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/applicableHighSeverity.png" alt=""><br>High</p>  |   $\color{#FF7377}{\textsf{Applicable\}}$   |  protobufjs:6.11.2  |  protobufjs:6.11.2  |         \[6.11.3]         |
-|     <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/notApplicableHigh.png" alt=""><br>High</p>     | $\color{#3CB371}{\textsf{Not Applicable\}}$ |    lodash:4.17.19   |    lodash:4.17.19   |         \[4.17.21]        |
+| <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/notApplicableCritical.png" alt=""><br>Critical</p> | $\color{#3CB371}{\textsf{Not Applicable}}$ |    minimist:1.2.5   |    minimist:1.2.5   | <p>[0.2.4]<br>[1.2.6]</p> |
+|   <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/applicableHighSeverity.png" alt=""><br>High</p>  |   $\color{#FF7377}{\textsf{Applicable}}$   |  protobufjs:6.11.2  |  protobufjs:6.11.2  |         \[6.11.3]         |
+|     <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/notApplicableHigh.png" alt=""><br>High</p>     | $\color{#3CB371}{\textsf{Not Applicable}}$ |    lodash:4.17.19   |    lodash:4.17.19   |         \[4.17.21]        |
 
 \
 
@@ -127,9 +127,9 @@ If new vulnerabilities are found, Frogbot adds them as a comment on the pull req
 
 ![](https://raw.githubusercontent.com/jfrog/frogbot/master/images/pr-iac.png)
 
-**Validate Dependency Licenses**
+**Validate Allowed Licenses**
 
-When Frogbot scans newly opened pull requests, it checks the licenses of any new direct project dependencies introduced by the pull request. If Frogbot identifies licenses that are not listed in a predefined set of approved licenses, it appends a comment to the pull request providing this information.
+When Frogbot scans newly opened pull requests, it checks the licenses of any new direct project dependencies introduced by the pull request. If Frogbot identifies licenses that are not listed in a predefined set of approved licenses, it appends a comment to the pull request providing this information. The list of allowed licenses is set up as a variable within the Frogbot workflow.
 
 ![](https://raw.githubusercontent.com/jfrog/frogbot/master/images/violated-licenses.png)
 
