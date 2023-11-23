@@ -35,12 +35,12 @@ This commands creates and updates an unsigned Release Bundle on JFrog Distributi
 #### Commands Params
 
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name           | release-bundle-create / release-bundle-update                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Abbreviation           | rbc / rbu                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Command options        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --server-id            | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --spec                 | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to<a href="https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-UsingFileSpecs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                           |
+| --spec                 | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --spec-vars            | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                                                                                                                                                                                                                                                                                                                                                          |
 | --target-props         | <p>[Optional]<br><br>The list of properties, in the form of key1=value1;key2=value2,..., to be added to the artifacts after distribution of the release bundle.</p>                                                                                                                                                                                                                                                                                                                                                                                   |
 | --target               | <p>[Optional]<br><br>The target path for distributed artifacts on the edge node. If not specified, the artifacts will have the same path and name on the edge node, as on the source Artifactory server. For flexibility in specifying the distribution path, you can include <a href="https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-UsingPlaceholders">placeholders</a> in the form of {1}, {2} which are replaced by corresponding tokens in the pattern path that are enclosed in parenthesis.</p> |
@@ -105,6 +105,65 @@ This example uses [placeholders](https://www.jfrog.com/confluence/display/CLI/CL
 
 ```
 jf ds rbc myApp 1.0.0 "my-local-repo/zips/(*).zip" --target "my-target-repo/target-zips/{1}-target.zip"
+```
+
+#### Example 7
+
+This example creates a release bundle and applies "pathMapping" to the artifact paths after distributing the release bundle.
+
+All occurrences of the "a1.in" file are fetched and mapped to the "froggy" repository at the edges.
+
+1. Fetch all artifacts retrieved by the AQL query.
+2. Create the release bundle with the artifacts and apply the path mappings at the edges after distribution.
+
+The "pathMapping" option is provided, allowing users to control the destination of the release bundle artifacts at the edges.
+
+To learn more, visit the [Create Release Bundle v1 Version documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v1-version).
+
+*Note*: The "target" option is designed to work for most use cases. The "pathMapping" option is intended for specific use cases, such as including a list.manifest.json file inside the release bundle.
+
+In that scenario, the distribution server dynamically includes all the manifest.json and their layers and assigns the given path mapping, whereas "target" doesn't achieve this.
+```
+jf ds rbc --spec=/path/to/rb-spec.json myApp 1.0.0
+```
+Spec file content:
+```json
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "repo": "my-local-repo",
+          "$and": [
+            {
+              "name": {
+                "$match": "a1.in"
+              }
+            },
+            {
+              "$or": [
+                {
+                  "path": {
+                    "$match": "."
+                  }
+                },
+                {
+                  "path": {
+                    "$match": "*"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "pathMapping": {
+        "input": "my-local-repo/(.*)",
+        "output": "froggy/$1"
+      }
+    }
+  ]
+}
 ```
 
 ### Signing an Existing Release Bundle
