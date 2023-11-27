@@ -17,4 +17,18 @@ git submodule update
 
 3. Build and create the VS-Code extension vsix file by running the following npm command:
 
+```bash
+    npm i
+    npm run package
+```
+
 After the build finishes, you'll find the vsix file in the _jfrog-vscode-extension_ directory. The vsix file can be loaded into VS-Code
+
+####  Test Instructions:
+* Set the environment variables JFROG_IDE_PLATFORM_URL and JFROG_IDE_ACCESS_TOKEN to establish a connection with a valid JFrog instance.
+* create a remote repository named `releases-proxy` designed to function as a  [proxy jfrog releases](external-resource-repository).
+
+To run the test, execute the following command:
+```bash
+npm t
+```
