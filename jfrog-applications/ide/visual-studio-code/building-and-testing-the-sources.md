@@ -26,7 +26,7 @@ After the build finishes, you'll find the vsix file in the _jfrog-vscode-extensi
 
 ####  Test Instructions:
 * Set the environment variables JFROG_IDE_PLATFORM_URL and JFROG_IDE_ACCESS_TOKEN to establish a connection with a valid JFrog instance.
-* create a remote repository named `releases-proxy` designed to function as a  [proxy jfrog releases](external-resource-repository).
+* create a remote repository named `releases-proxy` designed to function as a  [proxy jfrog releases](https://docs.jfrog-applications.jfrog.io/jfrog-applications/ide/visual-studio-code/extension-settings#downloading-external-resources-through-artifactory).
 
 To run the test, execute the following command:
 ```bash
