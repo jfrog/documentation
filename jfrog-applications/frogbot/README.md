@@ -11,8 +11,8 @@ JFrog Frogbot is a Git bot that scans your Git repositories for security vulnera
 
 #### Frogbot supports the following Git providers:
 
-| <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-icon.png"> GitHub | <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gitlab-icon.png"> GitLab | <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/azure-devops-icon.png"> Azure Repos | <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/bitbucket-icon.png"> Bitbucket Server |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| <img width="10%" height="10%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-icon.png"> GitHub | <img width="10%" height="10%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gitlab-icon.png"> GitLab | <img width="10%" height="10%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/azure-devops-icon.png"> Azure Repos | <img width="10%" height="10%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/bitbucket-icon.png"> Bitbucket Server |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 
 #### For SCA Scanning. Frogbot supports projects that use the following package managers:
 
