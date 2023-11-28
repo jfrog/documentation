@@ -11,14 +11,23 @@ JFrog Frogbot is a Git bot that scans your Git repositories for security vulnera
 
 #### Frogbot supports the following Git providers:
 
-| <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-icon.png"> GitHub | <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gitlab-icon.png"> GitLab | <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/azure-devops-icon.png"> Azure Repos | <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/bitbucket-icon.png"> Bitbucket Server |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+- ![GitHub](https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-icon.png) GitHub
+- ![GitLab](https://raw.githubusercontent.com/jfrog/frogbot/master/images/gitlab-icon.png) GitLab
+- ![Azure](https://raw.githubusercontent.com/jfrog/frogbot/master/images/azure-devops-icon.png) Azure Repos
+- ![Bitbucket](https://raw.githubusercontent.com/jfrog/frogbot/master/images/bitbucket-icon.png) Bitbucket Server
 
 #### For SCA Scanning. Frogbot supports projects that use the following package managers:
 
-| ![Go](https://raw.githubusercontent.com/jfrog/frogbot/master/images/go-icon.png) Go         | ![Gradle](https://raw.githubusercontent.com/jfrog/frogbot/master/images/gradle-icon.png) Gradle | ![Maven](https://raw.githubusercontent.com/jfrog/frogbot/master/images/maven-icon.png) Maven | ![npm](https://raw.githubusercontent.com/jfrog/frogbot/master/images/npm-icon.png) npm       | ![Yarn](https://raw.githubusercontent.com/jfrog/frogbot/master/images/yarn-icon.png) Yarn       |
-| ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| ![.NET](https://raw.githubusercontent.com/jfrog/frogbot/master/images/dotnet-icon.png) .NET | ![NuGet](https://raw.githubusercontent.com/jfrog/frogbot/master/images/nuget-icon.png) NuGet    | ![Pip](https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png) Pip       | ![Pipenv](https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png) Pipenv | ![Poetry](https://raw.githubusercontent.com/jfrog/frogbot/master/images/poetry-icon.png) Poetry |
+- ![Go](https://raw.githubusercontent.com/jfrog/frogbot/master/images/go-icon.png) Go
+- ![Gradle](https://raw.githubusercontent.com/jfrog/frogbot/master/images/gradle-icon.png) Gradle
+- ![Maven](https://raw.githubusercontent.com/jfrog/frogbot/master/images/maven-icon.png) Maven
+- ![npm](https://raw.githubusercontent.com/jfrog/frogbot/master/images/npm-icon.png) npm
+- ![Yarn](https://raw.githubusercontent.com/jfrog/frogbot/master/images/yarn-icon.png) Yarn
+- ![.NET](https://raw.githubusercontent.com/jfrog/frogbot/master/images/dotnet-icon.png) .NET
+- ![NuGet](https://raw.githubusercontent.com/jfrog/frogbot/master/images/nuget-icon.png) NuGet
+- ![Pip](https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png) Pip
+- ![Pipenv](https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png) Pipenv
+- ![Poetry](https://raw.githubusercontent.com/jfrog/frogbot/master/images/poetry-icon.png) Poetry
 
 ### Why use JFrog Frogbot?
 
