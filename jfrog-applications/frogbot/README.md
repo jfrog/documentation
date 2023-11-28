@@ -9,26 +9,6 @@ JFrog Frogbot is a Git bot that scans your Git repositories for security vulnera
 1. It scans pull requests immediately after they are opened but before they are merged. This process notifies you if the pull request is about to introduce new vulnerabilities to your code. This unique capability ensures the code is scanned and can be fixed even before vulnerabilities are introduced into the codebase.
 2. It scans the Git repository periodically and creates pull requests with fixes for detected vulnerabilities.
 
-#### Frogbot supports the following Git providers:
-
-- ![GitHub](https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-icon.png) GitHub
-- ![GitLab](https://raw.githubusercontent.com/jfrog/frogbot/master/images/gitlab-icon.png) GitLab
-- ![Azure](https://raw.githubusercontent.com/jfrog/frogbot/master/images/azure-devops-icon.png) Azure Repos
-- ![Bitbucket](https://raw.githubusercontent.com/jfrog/frogbot/master/images/bitbucket-icon.png) Bitbucket Server
-
-#### For SCA Scanning. Frogbot supports projects that use the following package managers:
-
-- ![Go](https://raw.githubusercontent.com/jfrog/frogbot/master/images/go-icon.png) Go
-- ![Gradle](https://raw.githubusercontent.com/jfrog/frogbot/master/images/gradle-icon.png) Gradle
-- ![Maven](https://raw.githubusercontent.com/jfrog/frogbot/master/images/maven-icon.png) Maven
-- ![npm](https://raw.githubusercontent.com/jfrog/frogbot/master/images/npm-icon.png) npm
-- ![Yarn](https://raw.githubusercontent.com/jfrog/frogbot/master/images/yarn-icon.png) Yarn
-- ![.NET](https://raw.githubusercontent.com/jfrog/frogbot/master/images/dotnet-icon.png) .NET
-- ![NuGet](https://raw.githubusercontent.com/jfrog/frogbot/master/images/nuget-icon.png) NuGet
-- ![Pip](https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png) Pip
-- ![Pipenv](https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png) Pipenv
-- ![Poetry](https://raw.githubusercontent.com/jfrog/frogbot/master/images/poetry-icon.png) Poetry
-
 ### Why use JFrog Frogbot?
 
 * **Software Composition Analysis (SCA)**: Scan your project dependencies for security issues. For selected security issues, get leverage-enhanced CVE data from our JFrog Security Research team. Frogbot uses JFrog's vast vulnerabilities database, to which we continuously add new component vulnerability data.&#x20;
@@ -39,3 +19,23 @@ JFrog Frogbot is a Git bot that scans your Git repositories for security vulnera
 * **Infrastructure as Code scans (IaC)**: Scan Infrastructure as Code (Terraform) files for early detection of cloud and infrastructure misconfigurations.
 
 > _**NOTE:**_ **SAST**, **Vulnerability Contextual Analysis**, **Secrets Detection** and **Infrastructure as Code scans** require the [JFrog Advanced Security Package](https://jfrog.com/xray/).
+
+#### Frogbot supports the following Git providers:
+
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-icon.png" width="15"> GitHub
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gitlab-icon.png" width="15"> GitLab
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/azure-devops-icon.png" width="15"> Azure Repos
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/bitbucket-icon.png" width="15"> Bitbucket Server
+
+#### For SCA Scanning. Frogbot supports projects that use the following package managers:
+
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/go-icon.png" width="15"> Go
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gradle-icon.png" width="15"> Gradle
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/maven-icon.png" width="15"> Maven
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/npm-icon.png" width="15"> npm
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/yarn-icon.png" width="15"> Yarn
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/dotnet-icon.png" width="15"> .NET
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/nuget-icon.png" width="15"> NuGet
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png" width="15"> Pip
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png" width="15"> Pipenv
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/poetry-icon.png" width="15"> Poetry
