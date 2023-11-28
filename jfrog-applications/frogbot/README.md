@@ -11,23 +11,23 @@ JFrog Frogbot is a Git bot that scans your Git repositories for security vulnera
 
 #### Frogbot supports the following Git providers:
 
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-icon.png"> GitHub
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gitlab-icon.png"> GitLab
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/azure-devops-icon.png"> Azure Repos
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/bitbucket-icon.png"> Bitbucket Server
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/github-icon.png" width="15%"> GitHub
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gitlab-icon.png" width="15%"> GitLab
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/azure-devops-icon.png" width="15%"> Azure Repos
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/bitbucket-icon.png" width="15%"> Bitbucket Server
 
 #### For SCA Scanning. Frogbot supports projects that use the following package managers:
 
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/go-icon.png"> Go
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gradle-icon.png"> Gradle
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/maven-icon.png"> Maven
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/npm-icon.png"> npm
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/yarn-icon.png"> Yarn
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/dotnet-icon.png"> .NET
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/nuget-icon.png"> NuGet
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png"> Pip
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png"> Pipenv
-- <img width="15%" height="15%" src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/poetry-icon.png"> Poetry
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/go-icon.png" width="15%"> Go
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/gradle-icon.png" width="15%"> Gradle
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/maven-icon.png" width="15%"> Maven
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/npm-icon.png" width="15%"> npm
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/yarn-icon.png" width="15%"> Yarn
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/dotnet-icon.png" width="15%"> .NET
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/nuget-icon.png" width="15%"> NuGet
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png" width="15%"> Pip
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/pip-icon.png" width="15%"> Pipenv
+- <img src="https://raw.githubusercontent.com/jfrog/frogbot/master/images/poetry-icon.png" width="15%"> Poetry
 
 ### Why use JFrog Frogbot?
 
