@@ -24,6 +24,7 @@
   * [CLI for JFrog Pipelines](jfrog-cli/cli-for-jfrog-pipelines.md)
   * [CLI for JFrog Release Lifecycle Management](jfrog-cli/cli-for-jfrog-release-lifecycle-management.md)
   * [CLI for JFrog Cloud Transfer](jfrog-cli/cli-for-jfrog-cloud-transfer.md)
+  * [JFrog CLI Plugins](jfrog-cli/cli-plugins.md)
 * [IDE](ide/README.md)
   * [Visual Studio Code](ide/visual-studio-code/README.md)
     * [Install the JFrog VS Code Extension](ide/visual-studio-code/install-the-jfrog-vscode-extension.md)
