@@ -84,3 +84,36 @@ The _config export_ command generates a token, which stores the server configura
 | Abbreviation      | c im                |
 | Command arguments |                     |
 | server token      | The token to import |
+
+## Sensitive Data Encryption
+
+### File-Based Encryption
+
+Starting from version 1.37.0, JFrog CLI introduces support for encrypting sensitive data stored in its configuration using an encryption key stored in a file. Follow these steps to enable encryption:
+
+1. Generate a random 32-character master key. Ensure that the key size is exactly 32 characters. For example: *f84hc22dQfhe9f8ydFwfsdn48!wejh8A*
+2. Create a file named **security.yaml** under **~/.jfrog/security**.
+
+   > If you've customized the default JFrog CLI home directory by setting the JFROG_CLI_HOME_DIR environment variable, create the **security/security.yaml** file under the configured home directory.
+
+3. Add the generated master key to the **security.yaml** file:
+
+   ```yaml
+   version: 1
+   masterKey: "your master key"
+   ```
+
+4. Ensure that the **security.yaml** file has only read permissions for the user running JFrog CLI.
+
+The configuration will be encrypted the next time JFrog CLI accesses the config. If you have existing configurations stored before creating the file, you'll need to reconfigure the servers stored in the config.
+
+> **Warning:** When upgrading JFrog CLI from a version prior to 1.37.0 to version 1.37.0 or above, automatic changes are made to the content of the **~/.jfrog** directory to support the new functionality introduced. Before making these changes, the content of the **~/.jfrog** directory is backed up inside the **~/.jfrog/backup** directory. After enabling sensitive data encryption, it is recommended to remove the **backup** directory to ensure no sensitive data is left unencrypted.
+
+### Environment Variable-Based Encryption
+
+Starting from version 2.36.0, JFrog CLI also supports encrypting sensitive data in its configuration using an encryption key stored in an environment variable. To enable encryption, follow these steps:
+
+1. Generate a random 32-character master key. Ensure that the key size is exactly 32 characters. For example: *f84hc22dQfhe9f8ydFwfsdn48!wejh8A*
+2. Store the key in an environment variable named **JFROG_CLI_ENCRYPTION_KEY**.
+
+The configuration will be encrypted the next time JFrog CLI attempts to access the config. If you have configurations already stored before setting the environment variable, you'll need to reconfigure the servers stored in the config.
