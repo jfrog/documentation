@@ -4,7 +4,7 @@
 
 ## Overview
 
-**JFrog CLI Plugins** allow enhancing the functionality of JFrog CLI to meet the specific user and organization needs.
+[JFrog CLI Plugins](README.md) allow enhancing the functionality of JFrog CLI to meet the specific user and organization needs.
 The source code of a plugin is maintained as an open source Go project on GitHub. All public plugins are registered
 in [JFrog CLI's Plugins Registry](https://github.com/jfrog/jfrog-cli-plugins-reg). We encourage you, as developers, to
 create plugins and share them publicly with the rest of the community. When a plugin is included in the registry, it
