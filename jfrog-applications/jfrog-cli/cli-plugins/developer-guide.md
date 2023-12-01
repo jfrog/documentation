@@ -1,6 +1,6 @@
 # JFrog CLI Plugin Developer Guide
 
-![](../../.gitbook/assets/jfrog-cli-plugins-header.png)
+![](../.gitbook/assets/jfrog-cli-header.png)
 
 ## Overview
 
