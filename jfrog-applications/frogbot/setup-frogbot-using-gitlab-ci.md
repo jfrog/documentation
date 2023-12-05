@@ -14,7 +14,6 @@ To install Frogbot on GitLab repositories using GitLab CI:
 
 **Important**
 
-* Set the **JF\_INSTALL\_DEPS\_CMD** variable below, or the **installCommand** property in your frogbot-config.yml file, if the project uses yarn 2, NuGet or .NET to download its dependencies
 * Make sure that either **JF\_USER** and **JF\_PASSWORD** or **JF\_ACCESS\_TOKEN** are set, **but not both**.
 
 ```yml

@@ -30,7 +30,8 @@ When your Git repository includes multiple subprojects, and each subproject has 
             - path/to/npm/project-2
 ```
 
-Here's another example. Notice that projects which use the nuget client to download the dependencies, the download command needs to be specified.
+Here's another example. Notice that we can specify our own download command with our own flags, although this is not mandatory.
+In case the project's dependencies needs to be resolved and no download command was provided, an automatic 'install' command will be executed according to the detected package manager.
 
 ```yaml
 - params:
@@ -46,8 +47,6 @@ Here's another example. Notice that projects which use the nuget client to downl
           workingDirs:
             - path/to/.net/project
 ```
-
-See the full **frogbot-config.yml** structure here.
 
 ### Can one frogbot-config.yml file be used for multiple Git repositories?
 
