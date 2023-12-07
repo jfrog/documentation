@@ -4,18 +4,18 @@
 
 ### What is the frogbot-config.yml file?
 
-The frogbot-config.yml file includes configuration related to your projects, to help Frogbot scan your Git repositories.
+The **frogbot-config.yml** file encompasses project-related configurations used by Frogbot's scanning. This includes details about the repository's directory structure and may additionally encompass package manager commands necessary for Frogbot to list the project's dependencies.
 
 ### Is the frogbot-config.yml file mandatory?
 
-Not all projects require the **frogbot-config.yml** file, but any project can use it.
+No, the file isn't mandatory. In most cases, Frogbot can understand the structure of the projects in the repository and list the project's depedencies without the file.
 
-If your project doesn't use a **frogbot-config.yml** file, all of the configuration Frogbot requires\
+If your project doesn't use a **frogbot-config.yml** file, all the configuration Frogbot requires\
 should be provided as variables as part of the Frogbot workflows.
 
 ### How does the frogbot-config.yml file helps Frogbot scan the repository?
 
-When your Git repository includes multiple subprojects, and each subproject has its own descriptor file (package.json in the case of npm), Frogbot will attempt to detect these projects recursively and scan them. In cases where the detection is not accurate, you can use the **frogbot-config.yml** file to include the relative paths to the subprojects. Frogbot uses this configuration to scan each subproject separately. In the following example, there are two subprojects under `path/to/project-1` and `path/to/project-2`.
+Frogbot relies on the project's descriptor files, such as package.json and pom.xml, to identify the project's dependencies. It scans the repository for these descriptor files and utilizes the appropriate package manager, such as npm or Maven, to compile a list of dependencies for the project. If you desire manual control over the project structure or the package manager commands, you can achieve this by creating a **frogbot-config.yml** file. In the provided example, we outline two subprojects located at **path/to/project-1** and **path/to/project-2** for Frogbot to include in its scanning process.
 
 ```yaml
 - params:
@@ -30,8 +30,7 @@ When your Git repository includes multiple subprojects, and each subproject has 
             - path/to/npm/project-2
 ```
 
-Here's another example. Notice that we can specify our own download command with our own flags, although this is not mandatory.
-In case the project's dependencies needs to be resolved and no download command was provided, an automatic 'install' command will be executed according to the detected package manager.
+Here's another example. Notice that we specify a custom 'install' command here.
 
 ```yaml
 - params:
