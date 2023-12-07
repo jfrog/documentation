@@ -32,7 +32,7 @@ JFrog Frogbot is a Git bot that scans your Git repositories for security vulnera
 - Go
 - Gradle
 - Maven
-- npm
+- Npm
 - Yarn
 - .NET
 - NuGet

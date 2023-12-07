@@ -27,9 +27,8 @@ This command also supports the following Advanced Scans with the **Advanced Secu
 
 **Note**
 
->
-
 * The **jf audit** command does not extract the internal content of the scanned dependencies. This means that if a package includes other vulnerable components bundled inside the binary, they may not be shown as part of the results. This is contrary to the **jf scan** command, which drills down into the package content.
+* To generate the dependency tree for scanning purposes, the system will execute an 'install' command on the project if it hasn't been executed previously.
 
 ***
 
