@@ -101,19 +101,13 @@ If new vulnerabilities are found, Frogbot adds them as a comment on the pull req
 
 [![](https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/vulnerabilitiesBannerPR.png)](scan-pull-requests.md#-issues)
 
-\
-
-
 **VULNERABLE DEPENDENCIES**
 
-|                                                               SEVERITY                                                              |             CONTEXTUAL ANALYSIS             | DIRECT DEPENDENCIES | IMPACTED DEPENDENCY |       FIXED VERSIONS      |
-| :---------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------: | :-----------------: | :-----------------: | :-----------------------: |
-| <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/notApplicableCritical.png" alt=""><br>Critical</p> | $\color{#3CB371}{\textsf{Not Applicable}}$ |    minimist:1.2.5   |    minimist:1.2.5   | <p>[0.2.4]<br>[1.2.6]</p> |
-|   <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/applicableHighSeverity.png" alt=""><br>High</p>  |   $\color{#FF7377}{\textsf{Applicable}}$   |  protobufjs:6.11.2  |  protobufjs:6.11.2  |         \[6.11.3]         |
-|     <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/notApplicableHigh.png" alt=""><br>High</p>     | $\color{#3CB371}{\textsf{Not Applicable}}$ |    lodash:4.17.19   |    lodash:4.17.19   |         \[4.17.21]        |
-
-\
-
+|                                                               SEVERITY                                                              | CONTEXTUAL ANALYSIS | DIRECT DEPENDENCIES | IMPACTED DEPENDENCY |       FIXED VERSIONS      |
+| :---------------------------------------------------------------------------------------------------------------------------------: |:-------------------:| :-----------------: | :-----------------: | :-----------------------: |
+| <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/notApplicableCritical.png" alt=""><br>Critical</p> |  Not Applicable     |    minimist:1.2.5   |    minimist:1.2.5   | <p>[0.2.4]<br>[1.2.6]</p> |
+|   <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/applicableHighSeverity.png" alt=""><br>High</p>  |     Applicable      |  protobufjs:6.11.2  |  protobufjs:6.11.2  |         \[6.11.3]         |
+|     <p><img src="https://raw.githubusercontent.com/jfrog/frogbot/master/resources/v2/notApplicableHigh.png" alt=""><br>High</p>     |   Not Applicable    |    lodash:4.17.19   |    lodash:4.17.19   |         \[4.17.21]        |
 
 **Vulnerability Contextual Analysis**
 
