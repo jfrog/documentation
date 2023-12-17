@@ -577,7 +577,7 @@ This command is used to search and display files in Artifactory.
 | Abbreviation      | rt s                                                                                                                                                                                                                                                                                                                                                                                     |
 | Command options   | <p><strong>Warning</strong><br><br>When using the * or ; characters in the command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                                   |
 | --server-id       | <p>[Optional]<br><br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>                                                                                                                                                                                                                                             |
-| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                      |
+| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                         |
 | --count           | <p>[Optional]<br><br>Set to true to display only the total of files or folders found.</p>                                                                                                                                                                                                                                                                                                |
 | --include-dirs    | <p>[Optional]<br><br>Set to true if you'd like to also apply the source path pattern for directories and not only for files</p>                                                                                                                                                                                                                                                          |
 | --spec-vars       | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                                                                                                                                                                                             |
@@ -637,7 +637,7 @@ This command is used for setting properties on existing files in Artifactory.
 | Abbreviation      | rt sp                                                                                                                                                                                                                                                                                                                                                                                    |
 | Command options   | <p><strong>Warning</strong><br><br>When using the * or ; characters in the command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                                   |
 | --server-id       | <p>[Optional]<br><br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>                                                                                                                                                                                                                                             |
-| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                      |
+| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                         |
 | --spec-vars       | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                                                                                                                                                                                             |
 | --props           | <p>[Optional]<br><br>List of properties in the form of "key1=value1;key2=value2,...". Only files with these properties names and values are affected.</p>                                                                                                                                                                                                                                |
 | --exclude-props   | <p>[Optional]<br><br>A list of Artifactory <a href="https://jfrog.com/help/r/jfrog-artifactory-documentation/Working-With-Jfrog-Properties">properties</a> specified as "key=value" pairs separated by a semi-colon (for example, "key1=value1;key2=value2;key3=value3"). Only artifacts <strong>without all</strong> of the specified properties names and values will be affected.</p> |
@@ -2651,6 +2651,7 @@ The file spec schema for the create and update release bundle commands is as fol
 "files": [
   {
     "pattern" or "aql": "[Mandatory]",
+    "pathMapping": "[Optional, Applicable only when 'aql' is specified]",
     "target": "[Optional]",
     "props": "[Optional]",
     "targetProps": "[Optional]",
@@ -3014,6 +3015,57 @@ The first one uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io
 }
 ```
 
+**Example 15:**
+
+This example creates a release bundle and applies "pathMapping" to the artifact paths after distributing the release bundle.
+
+All occurrences of the "a1.in" file are fetched and mapped to the "froggy" repository at the edges.
+
+1. Fetch all artifacts retrieved by the AQL query.
+2. Create the release bundle with the artifacts and apply the path mappings at the edges after distribution.
+
+The "pathMapping" option is provided, allowing users to control the destination of the release bundle artifacts at the edges.
+
+To learn more, visit the [Create Release Bundle v1 Version documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v1-version).
+```json
+{
+  "files": [
+    {
+      "aql": {
+        "items.find": {
+          "repo": "my-local-repo",
+          "$and": [
+            {
+              "name": {
+                "$match": "a1.in"
+              }
+            },
+            {
+              "$or": [
+                {
+                  "path": {
+                    "$match": "."
+                  }
+                },
+                {
+                  "path": {
+                    "$match": "*"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "pathMapping": {
+        "input": "my-local-repo/(.*)",
+        "output": "froggy/$1"
+      }
+    }
+  ]
+}
+```
+
 ### Schema Validation
 
 [JSON schemas](https://json-schema.org/) allow you to annotate and validate JSON files. The JFrog File Spec schema is available in the [JSON Schema Store](https://www.schemastore.org/json/) catalog and in the following link: [https://github.com/jfrog/jfrog-cli/blob/v2/schema/filespec-schema.json](https://github.com/jfrog/jfrog-cli/blob/v2/schema/filespec-schema.json).
@@ -3136,7 +3188,7 @@ Once the `jf rt transfer-files` command finishes transferring the files, you can
 
 **Note:**
 
-> Read more about how the transfer files works in [this](https://https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-cloud-transfer#how-does-file-transfer-work) section.
+> Read more about how the transfer files works in [this](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-cloud-transfer#how-does-file-transfer-work) section.
 
 ***
 
