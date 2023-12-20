@@ -7,5 +7,5 @@ You can show people that your repository is scanned by Frogbot by adding a badge
 You can add this badge by copying the following markdown snippet and pasting it into your repository's README.md file.
 
 ```
-[![Scanned by Frogbot](https://raw.github.com/jfrog/frogbot/master/images/frogbot-badge.svg)](https://github.com/jfrog/frogbot#readme)
+[![Scanned by Frogbot](https://raw.github.com/jfrog/frogbot/master/images/frogbot-badge.svg)](https://docs.jfrog-applications.jfrog.io/jfrog-applications/frogbot)
 ```
