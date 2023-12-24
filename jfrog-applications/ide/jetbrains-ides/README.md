@@ -1,6 +1,6 @@
 # JetBrains IDEs
 
-<img src="../../.gitbook/assets/jetbrains-ides-header.png" />
+![](../../.gitbook/assets/jetbrains-ides-header.png)
 
 ## About the JFrog Plugin
 
@@ -80,14 +80,7 @@ The JFrog Plugin supports the following IDEs:
 
 ## Supported Packages
 
-| Features                                          |  Go | Maven | Gradle / Kotlin | npm | Yarn v1 | Python | Terraform |
-| ------------------------------------------------- | :-: | :---: | :-------------: | :-: | :-----: | :----: | :-------: |
-| Software Composition Analysis (SCA)               |  ✅  |   ✅   |        ✅        |  ✅  |    ✅    |    ✅   |     ❌     |
-| CVE Research and Enrichment                       |  ✅  |   ✅   |        ✅        |  ✅  |    ✅    |    ✅   |     ❌     |
-| Upgrade vulnerable dependencies to fixed versions |  ✅  |   ✅   |        ✅        |  ✅  |    ✅    |    ❌   |     ❌     |
-| CVEs Contextual Analysis                          |  ❌  |   ✅   |        ✅        |  ✅  |    ✅    |    ✅   |     ❌     |
-| Secrets Detection                                 |  ✅  |   ✅   |        ✅        |  ✅  |    ✅    |    ✅   |     ✅     |
-| Infrastructure as Code (IaC) Scan                 |  ❌  |   ❌   |        ❌        |  ❌  |    ❌    |    ❌   |     ✅     |
+<table><thead><tr><th width="257">Feature</th><th>Go</th><th width="100">Maven</th><th>Gradle</th><th>npm</th><th>Yarn v1</th><th>Yarn v2</th><th>Pip</th><th>Pipenv</th><th>Conda</th><th>Poetry</th><th>.NET CLI</th><th>NuGet</th><th>Terraform</th></tr></thead><tbody><tr><td>SCA</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>Contextual Analysis</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>Secrets Detection</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>SAST</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>Exclude dev dependencies</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>Infrastructure as Code (IaC)</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Autofix for direct dep.</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>License Violations</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td></tr></tbody></table>
 
 ## Getting Started
 
