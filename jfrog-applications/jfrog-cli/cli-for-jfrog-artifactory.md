@@ -1001,7 +1001,7 @@ This command is used to publish build info to Artifactory. To publish the accumu
 For example, the following command publishes all the build-info collected for build **my-build-name** with build number 18:
 
 ```
-jf bp my-build-name 18
+jf rt bp my-build-name 18
 ```
 
 #### Commands Params
