@@ -2,6 +2,9 @@ module github.com/jfrog/documentation
 
 go 1.21
 
+
+
+
 require (
 	github.com/jfrog/jfrog-client-go v1.34.4
 	github.com/stretchr/testify v1.8.4
