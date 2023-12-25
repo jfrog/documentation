@@ -2094,6 +2094,18 @@ jf dotnet restore --build-name=my-build-name --build-number=1
 
 In addition, record the build-info as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
 
+##### Example 4
+
+To incorporate both the artifact and its dependency within a module in a build, utilize the --module flag with the following commands:
+
+```
+jf rt dotnet restore <PACKAGE_NAME> --module my-module-name --build-name=my-build-name --build-number=1
+jf rt dotnet build <PACKAGE_NAME> --module my-module-name  --build-name=my-build-name --build-number=1
+jf rt u example.1.0.0.nupkg <LOCAL_REPOSITORY_NAME> --module my-module-name --build-name=my-build-name --build-number=1
+
+jf rt bp --build-name=my-build-name --build-number=1
+```
+Keep in mind that the resulting build will be published under a single module, and it's important to note that the module type will be generic.
 
 ### Packaging and Publishing Terraform Modules
 
