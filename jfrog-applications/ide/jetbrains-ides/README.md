@@ -78,10 +78,6 @@ The JFrog Plugin supports the following IDEs:
 * Android Studio
 * GoLand
 
-## Supported Packages
-
-<table><thead><tr><th width="257">Feature</th><th>Go</th><th width="100">Maven</th><th>Gradle</th><th>npm</th><th>Yarn v1</th><th>Yarn v2</th><th>Pip</th><th>Pipenv</th><th>Poetry</th><th>Terraform</th></tr></thead><tbody><tr><td>SCA</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>Contextual Analysis</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>Secrets Detection</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>SAST</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>Infrastructure as Code (IaC)</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Autofix for direct dep.</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>License Violations</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
-
 ## Getting Started
 
 1. Install the JFrog Plugin via the Plugins tab in the IDE settings, or in [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/9834-jfrog).
