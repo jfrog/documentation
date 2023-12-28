@@ -36,7 +36,7 @@ To set up the source instance for files transfer, you must install the **data-tr
 
 ### Step 2 - Push the Files from the Source to the Target Instance
 
-Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/transferring-files-between-artifactory-servers.md#installing-jfrog-cli-on-a-machine-with-network-access-to-the-source-and-target-machines).
+Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/transferring-files-between-artifactory-servers#installing-jfrog-cli-on-a-machine-with-network-access-to-the-source-and-target-machines).
 
 Run the following command to start pushing the files from all the repositories in source instance to the target instance.
 
