@@ -2096,10 +2096,9 @@ In addition, record the build-info as part of build **my-build-name/1**. The bui
 
 ##### Example 4
 
-To incorporate both the artifact and its dependency within a module in a build, utilize the --module flag with the following commands:
+To incorporate both the build artifacts and the dependencies within the same module in the published build-info, utilize the --module option with the following commands:
 
 ```
-jf rt dotnet restore <PACKAGE_NAME> --module my-module-name --build-name=my-build-name --build-number=1
 jf rt dotnet build <PACKAGE_NAME> --module my-module-name  --build-name=my-build-name --build-number=1
 jf rt u example.1.0.0.nupkg <LOCAL_REPOSITORY_NAME> --module my-module-name --build-name=my-build-name --build-number=1
 
