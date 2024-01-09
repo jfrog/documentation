@@ -1,6 +1,6 @@
 # Scan your Binaries
 
-The [on-demand binary scanning](https://jfrog-staging-external.fluidtopics.net/r/help/DevSecOps-Xray/Xray-On-Demand-Binary-Scan) enables you to point to a binary in your local file system and receive a report that contains a list of vulnerabilities, licenses, and policy violations for that binary prior to uploading the binary or build to Artifactory.
+The [on-demand binary scanning](https://jfrog.com/help/r/jfrog-security-documentation/xray-on-demand-binary-scan) enables you to point to a binary in your local file system and receive a report that contains a list of vulnerabilities, licenses, and policy violations for that binary prior to uploading the binary or build to Artifactory.
 
 ### Scanning Files on the Local File System
 
