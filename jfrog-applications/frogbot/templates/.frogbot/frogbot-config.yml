@@ -77,7 +77,7 @@
       # - installCommand: ""
 
       # [Default: root directory]
-      # List of relative path's to the projects directories in the git repository
+      # List of relative path's to the projects directories in the git repository. If not specified, a recursive scan is triggered from the root directory of the project.
       #   workingDirs:
       #     - "."
 
