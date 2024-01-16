@@ -6,7 +6,7 @@ Frogbot scans your Git repositories periodically and automatically creates pull 
   
   ![](../.gitbook/assets/fix-pr.png)
 
-_**NOTE:**_: The pull request fix is presently unavailable for older NuGet projects that use the package.config file instead of the PackageReference syntax.
+_**NOTE:**_ The pull request fix is presently unavailable for older NuGet projects that use the package.config file instead of the PackageReference syntax.
 
 #### Adding Security Alerts
 
