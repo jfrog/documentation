@@ -11,7 +11,7 @@ JFrog Frogbot is a Git bot that scans your Git repositories for security vulnera
 
 ### Why use JFrog Frogbot?
 
-* **Software Composition Analysis (SCA)**: Scan your project dependencies for security issues. For selected security issues, get leverage-enhanced CVE data from our JFrog Security Research team. Frogbot uses JFrog's vast vulnerabilities database, to which we continuously add new component vulnerability data.&#x20;
+* **Software Composition Analysis (SCA)**: Scan your project dependencies for security issues. For selected security issues, get leverage-enhanced CVE data from our JFrog Security Research team. Frogbot uses JFrog's vast vulnerabilities database, to which we continuously add new component vulnerability data.
 * **Validate Dependency Licenses**: Ensure that the licenses for the project's dependencies are in compliance with a predefined list of approved licenses.
 * **Static Application Security Testing (SAST)**: Provides fast and accurate security-focused engines that detect zero-day security vulnerabilities on your source code sensitive operations, while minimizing false positives.
 * **CVE Vulnerability Contextual Analysis**: This feature uses the code context to eliminate false positive reports on vulnerable dependencies that are not applicable to the code. For CVE vulnerabilities that are applicable to your code, Frogbot will create pull request comments on the relevant code lines with full descriptions regarding the security issues caused by the CVE. Vulnerability Contextual Analysis is currently supported for Python, JavaScript, and Java code.
@@ -22,20 +22,8 @@ JFrog Frogbot is a Git bot that scans your Git repositories for security vulnera
 
 #### Frogbot supports the following Git providers:
 
-- Azure Repos
-- Bitbucket Server
-- GitHub
-- GitLab
+* Azure Repos
+* Bitbucket Server
+* GitHub
+* GitLab
 
-#### For SCA Scanning. Frogbot supports projects that use the following package managers:
-
-- Go
-- Gradle
-- Maven
-- Npm
-- Yarn
-- .NET
-- NuGet
-- Pip
-- Pipenv
-- Poetry

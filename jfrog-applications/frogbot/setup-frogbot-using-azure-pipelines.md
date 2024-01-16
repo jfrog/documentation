@@ -205,7 +205,7 @@ variables:
   JF_GIT_PROJECT: $(System.TeamProject)
   JF_GIT_REPO: $(Build.Repository.Name)
   JF_GIT_API_ENDPOINT: $(System.CollectionUri)
-  JF_GIT_BASE_BRANCH: $(System.PullRequest.TargetBranch)
+  JF_GIT_BASE_BRANCH: $(System.PullRequest.TargetBranchName)
   JF_GIT_OWNER: $(System.TeamProject)
   JF_GIT_PROVIDER: 'azureRepos'
 
