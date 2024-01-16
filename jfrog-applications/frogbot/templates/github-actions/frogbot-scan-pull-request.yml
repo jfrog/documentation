@@ -80,7 +80,7 @@ jobs:
           # JF_INSTALL_DEPS_CMD: ""
 
           # [Optional, default: "."]
-          # Relative path to the root of the project in the Git repository. If not specified, a recursive scan is triggered from the root directory of the project.
+          # Relative path to the root of the project in the Git repository. If left empty (without providing "." yourself as default), a recursive scan is triggered from the root directory of the project.
           # JF_WORKING_DIR: path/to/project/dir
 
           # [Default: "*git*;*node_modules*;*target*;*venv*;*test*"]
