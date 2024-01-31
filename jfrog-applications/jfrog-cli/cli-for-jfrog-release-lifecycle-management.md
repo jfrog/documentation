@@ -111,20 +111,19 @@ This commands allows promoting a release bundle to a target environment.
 
 #### Commands Params
 
-|                        |                                                                                                                                                                                                                             |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Command-name           | release-bundle-promote                                                                                                                                                                                                      |
-| Abbreviation           | rbp                                                                                                                                                                                                                         |
-| Command options        |                                                                                                                                                                                                                             |
-| --overwrite            | <p>[Default: false]<br><br>Set to true to replace artifacts with the same name but a different checksum if such already exist at the promotion targets. By default, the promotion is stopped in a case of such conflict</p> |
-| --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p>                                                                                                                                            |
-| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p>                                                                                                                                            |
-| --signing-key          | <p>[Mandatory]<br><br>The GPG/RSA key-pair name given in Artifactory.</p>                                                                                                                                                   |
-| --sync                 | <p>[Default: false]<br><br>Set to true to run synchronously.</p>                                                                                                                                                            |
-| Command arguments      |                                                                                                                                                                                                                             |
-| release bundle name    | Name of the Release Bundle to promote.                                                                                                                                                                                      |
-| release bundle version | Version of the Release Bundle to promote.                                                                                                                                                                                   |
-| environment            | Name of the target environment for the promotion.                                                                                                                                                                           |
+|                        |                                                                                  |
+|------------------------|----------------------------------------------------------------------------------|
+| Command-name           | release-bundle-promote                                                           |
+| Abbreviation           | rbp                                                                              |
+| Command options        |                                                                                  |
+| --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p> |
+| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p> |
+| --signing-key          | <p>[Mandatory]<br><br>The GPG/RSA key-pair name given in Artifactory.</p>        |
+| --sync                 | <p>[Default: false]<br><br>Set to true to run synchronously.</p>                 |
+| Command arguments      |                                                                                  |
+| release bundle name    | Name of the Release Bundle to promote.                                           |
+| release bundle version | Version of the Release Bundle to promote.                                        |
+| environment            | Name of the target environment for the promotion.                                |
 
 
 #### Example 1
@@ -137,10 +136,10 @@ jf rbp --signing-key=myKeyPair myApp 1.0.0 PROD
 
 #### Example 2
 
-Promote a release bundle synchronously to environment "PROD". The release bundle is named "myApp", version "1.0.0", of project "project0". Use signing key pair "myKeyPair" and overwrite at conflict.
+Promote a release bundle synchronously to environment "PROD". The release bundle is named "myApp", version "1.0.0", of project "project0". Use signing key pair "myKeyPair".
 
 ```
-jf rbp --signing-key=myKeyPair --project=project0 --overwrite=true --sync=true myApp 1.0.0 PROD
+jf rbp --signing-key=myKeyPair --project=project0 --sync=true myApp 1.0.0 PROD
 ```
 
 ### Distributing a release bundle
