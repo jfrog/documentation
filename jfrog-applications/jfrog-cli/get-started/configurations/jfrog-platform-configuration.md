@@ -1,5 +1,13 @@
 # JFrog Platform Configuration
 
+## Web Login to the JFrog Platform
+
+You can use the `jf login` command to authenticate with the JFrog Platform through the web browser.
+This command is solely interactive, meaning it does not receive any options and cannot be used in a CI server.
+
+![](../../../.gitbook/assets/login-page.png)
+![](../../../.gitbook/assets/login-successful.png)
+
 ## Adding and Editing Configured Servers
 
 The **config add** and **config edit** commands are used to add and edit JFrog Platform server configuration, stored in JFrog CLI's configuration storage. These configured servers can be used by the other commands. The configured servers' details can be overridden per command by passing in alternative values for the URL and login credentials. The values configured are saved in file under the JFrog CLI home directory.
