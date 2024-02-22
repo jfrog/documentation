@@ -5,6 +5,7 @@ The _**jf audit**_ command allows scanning your source code dependencies to find
 * Maven (mvn) - Version 3.1.0 or above of Maven is supported.
 * Gradle (gradle)
 * Npm (npm)
+* Pnpm (pnpm)
 * Yarn (yarn)
 * Pip (pip)
 * Pipenv (pipenv)
