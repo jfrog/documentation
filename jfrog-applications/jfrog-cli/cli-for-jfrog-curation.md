@@ -11,10 +11,11 @@ JFrog Curation enables you to block malicious or risky open-source packages ente
 
 For more information on JFrog Curation and how to set it up, see the JFrog Curation general documentation at https://jfrog.com/help.
 
-JFrog Curation requires [Xray version 3.78.9](https://jfrog.com/help/r/jfrog-release-information/xray-3.78.9) and above, and [Artifactory version 7.63.5](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.63) and above. It also requires Enterprise X and Enterprise + subscriptions. 
-Currently, the following package managers are supported
-* Npm (npm)
-* Maven (mvn) - Requires xray 3.92 and above, and Artifactory 7.82 and above
+JFrog Curation requires Enterprise X and Enterprise + subscriptions. 
+Currently, the following package managers are supported:
+* Npm (npm) - Requires [Xray version 3.78.9](https://jfrog.com/help/r/jfrog-release-information/xray-3.78.9) and above, and [Artifactory version 7.63.5](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.63) and above
+* Maven (mvn) - Requires [Xray version 3.92](https://jfrog.com/help/r/jfrog-release-information/xray-3.92) and above, and [Artifactory version 7.82](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.82) and above
+'''
 ***
 
 ### Commands
