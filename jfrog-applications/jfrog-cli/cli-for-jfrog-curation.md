@@ -11,17 +11,15 @@ JFrog Curation enables you to block malicious or risky open-source packages ente
 
 For more information on JFrog Curation and how to set it up, see the JFrog Curation general documentation at https://jfrog.com/help.
 
-JFrog Curation requires [Xray version 3.78.9](https://jfrog.com/help/r/jfrog-release-information/xray-3.78.9) and above, and [Artifactory version 7.63.5](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.63) and above. It also requires Enterprise X and Enterprise + subscriptions.
-
+JFrog Curation requires [Xray version 3.78.9](https://jfrog.com/help/r/jfrog-release-information/xray-3.78.9) and above, and [Artifactory version 7.63.5](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.63) and above. It also requires Enterprise X and Enterprise + subscriptions. 
+Currently, the following package managers are supported
+* Npm (npm)
+* Maven (mvn) - Requires xray 3.92 and above, and Artifactory 7.82 and above
 ***
 
 ### Commands
 
 Audit your Project with JFrog Curation
-
-**Note**
-
-> The **curation-audit** command currently only supports npm and maven projects.
 
 The **jf curation-audit** command enables developers to scan project dependencies to find packages that were blocked by the JFrog curation service. This command provides developers with more detailed information, such as whether the blocked package is the project’s direct dependency or is a transitive dependency. This information helps developers to resolve blocked packages more efficiently as they will be able to make a more informative decision based on what Policy violation occurred and what exactly needs to be resolved.
 
@@ -29,9 +27,20 @@ For each blocked package the CLI provides the violated Curation Policies. The co
 
 Before running the command, do the following:
 
-1. Connect the JFrog CLI to your JFrog Platform instance by running the **jf c add** command.
-2. Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Set the repository with the **jf npmc** command inside the project directory.\
-   \
+1. Connect the JFrog CLI to your JFrog Platform instance by running the [**jf c add**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration#adding-and-editing-configured-servers) command.
+2. Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Here are details for each package manager:
+
+
+**NPM**
+* Set the repository with the [**jf npmc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#setting-npm-repositories) command inside the project directory</br>
+
+**MAVEN**
+* Set the repository with the [**jf mvnc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#setting-maven-repositories) command inside the project directory
+* Configure pass-through on the curated repositories
+
+<br/>
+
+
 
 #### Commands Params
 
