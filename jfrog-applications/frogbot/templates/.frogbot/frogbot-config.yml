@@ -101,6 +101,11 @@
       # Name of a Virtual Repository in Artifactory to resolve (download) the project dependencies from
       #   repository: ""
 
+      # [Optional]
+      # A unique string that is used to identify a subproject inside a Git repository. This key enables differentiating between subprojects
+      # That utilize the same technology, which can lead to collisions in the created branch's names during scan-repository flow.
+      #   uniqueIdentifier: ""
+
     # JFrog Platform parameters
     jfrogPlatform:
     # [Optional]
