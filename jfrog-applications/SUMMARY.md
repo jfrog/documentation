@@ -13,6 +13,7 @@
     * [Setting up a CI Pipeline](jfrog-cli/get-started/configurations/setting-up-a-ci-pipeline.md)
     * [Proxy Support](jfrog-cli/get-started/configurations/proxy-support.md)
   * [CLI for JFrog Artifactory](jfrog-cli/cli-for-jfrog-artifactory/README.md)
+    * [Using File Specs](jfrog-cli/cli-for-jfrog-artifactory/using-file-specs.md)
     * [Transferring Files Between Artifactory Servers](jfrog-cli/cli-for-jfrog-artifactory/transferring-files-between-artifactory-servers.md)
   * [CLI for JFrog Security](jfrog-cli/cli-for-jfrog-security/README.md)
     * [Authentication](jfrog-cli/cli-for-jfrog-security/authentication.md)
