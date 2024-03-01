@@ -226,7 +226,7 @@ This command is used to upload files to Artifactory.
 | Command options    | <p><strong>Warning</strong><br><br>When using the * or ; characters in the upload command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --archive          | <p>[Optional]<br><br>Set to "zip" to pack and deploy the files to Artifactory inside a ZIP archive. Currently, the only packaging format supported is zip.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --server-id        | <p>[Optional]<br><br>Server ID configured using the <strong>jf c add</strong> command. If not specified, the default configured Artifactory server is used.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --spec             | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --spec             | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --spec-vars        | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --build-name       | <p>[Optional]<br><br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --build-number     | <p>[Optional]<br><br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
@@ -331,7 +331,7 @@ This command is used to download files from Artifactory.
 | --build-number      | <p>[Optional]<br><br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --project           | <p>[Optional]<br><br>JFrog project key.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --module            | <p>[Optional]<br><br>Optional module name for the build-info.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --spec              | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --spec              | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --spec-vars         | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --props             | <p>[Optional]<br><br>A list of Artifactory <a href="https://jfrog.com/help/r/jfrog-artifactory-documentation/Working-With-Jfrog-Properties">properties</a> specified as "key=value" pairs separated by a semi-colon (for example, "key1=value1;key2=value2;key3=value3"). Only artifacts with <strong>all</strong> of the specified properties names and values will be downloaded.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --exclude-props     | <p>[Optional]<br><br>A list of Artifactory <a href="https://jfrog.com/help/r/jfrog-artifactory-documentation/Working-With-Jfrog-Properties">properties</a> specified as "key=value" pairs separated by a semi-colon (for example, "key1=value1;key2=value2;key3=value3"). Only artifacts <strong>without all</strong> of the specified properties names and values will be downloaded.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
@@ -409,7 +409,7 @@ This command is used to copy files in Artifactory
 | Abbreviation      | rt cp                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Command options   | <p><strong>Warning</strong><br><br>When using the * or ; characters in the copy command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --server-id       | <p>[Optional]<br><br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --props           | <p>[Optional]<br><br>A list of Artifactory <a href="https://jfrog.com/help/r/jfrog-artifactory-documentation/Working-With-Jfrog-Properties">properties</a> specified as "key=value" pairs separated by a semi-colon. (For example, "key1=value1;key2=value2;key3=value3"). Only artifacts with these properties names and values will be copied.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --exclude-props   | <p>[Optional]<br><br>A list of Artifactory <a href="https://jfrog.com/help/r/jfrog-artifactory-documentation/Working-With-Jfrog-Properties">properties</a> specified as "key=value" pairs separated by a semi-colon (for example, "key1=value1;key2=value2;key3=value3"). Only artifacts <strong>without all</strong> of the specified properties names and values will be copied.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --build           | <p>[Optional]<br><br>If specified, only artifacts of the specified build are matched. The property format is build-name/build-number. If you do not specify the build number, the artifacts are filtered by the latest build number.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -468,7 +468,7 @@ This command is used to move files in Artifactory
 | Abbreviation      | rt mv                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Command options   | <p><strong>Warning</strong><br><br>When using the * or ; characters in the copy command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --server-id       | <p>[Optional]<br><br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --props           | <p>[Optional]<br><br>A list of Artifactory <a href="https://jfrog.com/help/r/jfrog-artifactory-documentation/Working-With-Jfrog-Properties">properties</a> specified as "key=value" pairs separated by a semi-colon (for example, "key1=value1;key2=value2;key3=value3"). Only artifacts with these properties names and values will be moved.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --exclude-props   | <p>[Optional]<br><br>A list of Artifactory <a href="https://jfrog.com/help/r/jfrog-artifactory-documentation/Working-With-Jfrog-Properties">properties</a> specified as "key=value" pairs separated by a semi-colon (for example, "key1=value1;key2=value2;key3=value3"). Only artifacts <strong>without all</strong> of the specified properties names and values will be moved.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --build           | <p>[Optional]<br><br>If specified, only artifacts of the specified build are matched. The property format is build-name/build-number. If you do not specify the build number, the artifacts are filtered by the latest build number.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -528,7 +528,7 @@ This command is used to delete files in Artifactory
 | Abbreviation      | rt del                                                                                                                                                                                                                                                                                                                                                                                  |
 | Command options   | <p><strong>Warning</strong><br><br>When using the * or ; characters in the delete command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                           |
 | --server-id       | <p>[Optional]<br><br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>                                                                                                                                                                                                                                            |
-| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                     |
+| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                     |
 | --props           | <p>[Optional]<br><br>A list of Artifactory <a href="https://jfrog.com/help/r/jfrog-artifactory-documentation/Working-With-Jfrog-Properties">properties</a> specified as "key=value" pairs separated by a semi-colon (for example, "key1=value1;key2=value2;key3=value3"). Only artifacts with these properties names and values will be deleted.</p>                                    |
 | --exclude-props   | <p>[Optional]<br><br>A list of Artifactory <a href="https://jfrog.com/help/r/jfrog-artifactory-documentation/Working-With-Jfrog-Properties">properties</a> specified as "key=value" pairs separated by a semi-colon (for example, "key1=value1;key2=value2;key3=value3"). Only artifacts <strong>without all</strong> of the specified properties names and values will be deleted.</p> |
 | --build           | <p>[Optional]<br><br>If specified, only artifacts of the specified build are matched. The property format is build-name/build-number. If you do not specify the build number, the artifacts are filtered by the latest build number.</p>                                                                                                                                                |
@@ -578,7 +578,7 @@ This command is used to search and display files in Artifactory.
 | Abbreviation      | rt s                                                                                                                                                                                                                                                                                                                                                                                     |
 | Command options   | <p><strong>Warning</strong><br><br>When using the * or ; characters in the command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                                   |
 | --server-id       | <p>[Optional]<br><br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>                                                                                                                                                                                                                                             |
-| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                         |
+| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/using-file-specs">Using File Specs</a>.</p>                                                                                                                                                         |
 | --count           | <p>[Optional]<br><br>Set to true to display only the total of files or folders found.</p>                                                                                                                                                                                                                                                                                                |
 | --include-dirs    | <p>[Optional]<br><br>Set to true if you'd like to also apply the source path pattern for directories and not only for files</p>                                                                                                                                                                                                                                                          |
 | --spec-vars       | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                                                                                                                                                                                             |
@@ -638,7 +638,7 @@ This command is used for setting properties on existing files in Artifactory.
 | Abbreviation      | rt sp                                                                                                                                                                                                                                                                                                                                                                                    |
 | Command options   | <p><strong>Warning</strong><br><br>When using the * or ; characters in the command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                                   |
 | --server-id       | <p>[Optional]<br><br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>                                                                                                                                                                                                                                             |
-| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                         |
+| --spec            | <p>[Optional]<br><br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/using-file-specs">Using File Specs</a>.</p>                                                                                                                                                         |
 | --spec-vars       | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                                                                                                                                                                                             |
 | --props           | <p>[Optional]<br><br>List of properties in the form of "key1=value1;key2=value2,...". Only files with these properties names and values are affected.</p>                                                                                                                                                                                                                                |
 | --exclude-props   | <p>[Optional]<br><br>A list of Artifactory <a href="https://jfrog.com/help/r/jfrog-artifactory-documentation/Working-With-Jfrog-Properties">properties</a> specified as "key=value" pairs separated by a semi-colon (for example, "key1=value1;key2=value2;key3=value3"). Only artifacts <strong>without all</strong> of the specified properties names and values will be affected.</p> |
@@ -2587,520 +2587,6 @@ This command permanently deletes a permission target.
 | --quiet                | <p>[Default: $CI]<br><br>Set to true to skip the delete confirmation message.</p>   |
 | Command arguments      |                                                                                     |
 | permission target name | The permission target that should be removed.                                       |
-
-## Using File Specs
-
-To achieve complex file manipulations you may require several CLI commands. For example, you may need to upload several different sets of files to different repositories. To simplify the implementation of these complex manipulations, you can apply JFrog CLI **download**, **upload**, **move**, **copy** and **delete** commands with JFrog Artifactory using **--spec** option to replace the inline command arguments and options. Similarly, you can **create and update release bundles** by providing the `--spec` command option. Each command uses an array of file specifications in JSON format with a corresponding schema as described in the sections below. Note that if any of these commands are issued using both inline options and the file specs, then the inline options override their counterparts specified in the file specs.
-
-### File Spec Schemas
-
-#### Copy and Move Commands Spec Schema
-
-The file spec schema for the copy and move commands is as follows:
-
-```
-{
-  "files": [
-  {
-    "pattern" or "aql": "[Mandatory]",
-    "target": "[Mandatory]",
-    "props": "[Optional]",
-    "excludeProps": "[Optional]",
-    "recursive": "[Optional, Default: 'true']",
-    "flat": "[Optional, Default: 'false']",
-    "exclusions": "[Optional, Applicable only when 'pattern' is specified]",
-    "archiveEntries": "[Optional]",
-    "build": "[Optional]",
-    "bundle": "[Optional]",
-    "validateSymlinks": "[Optional]",
-    "sortBy": "[Optional]",
-    "sortOrder": "[Optional, Default: 'asc']",
-    "limit": "[Optional],
-    "offset": [Optional] }
-  ]
-}
-```
-
-#### Download Command Spec Schema
-
-The file spec schema for the download command is as follows:
-
-```
-{
-  "files": [
-  {
-    "pattern" or "aql": "[Mandatory]",
-    "target": "[Optional]",
-    "props": "[Optional]",
-    "excludeProps": "[Optional]",
-    "recursive": "[Optional, Default: 'true']",
-    "flat": "[Optional, Default: 'false']",
-    "exclusions": "[Optional, Applicable only when 'pattern' is specified]",
-    "archiveEntries": "[Optional]",
-    "build": "[Optional]",
-    "bundle": "[Optional]",
-    "sortBy": "[Optional]",
-    "sortOrder": "[Optional, Default: 'asc']",
-    "limit": [Optional],
-    "offset": [Optional] }
-  ]
-}
-```
-
-#### Create and Update Release Bundle Commands Spec Schema
-
-The file spec schema for the create and update release bundle commands is as follows:
-
-```
-{
-"files": [
-  {
-    "pattern" or "aql": "[Mandatory]",
-    "pathMapping": "[Optional, Applicable only when 'aql' is specified]",
-    "target": "[Optional]",
-    "props": "[Optional]",
-    "targetProps": "[Optional]",
-    "excludeProps": "[Optional]",
-    "recursive": "[Optional, Default: 'true']",
-    "flat": "[Optional, Default: 'false']",
-    "exclusions": "[Optional, Applicable only when 'pattern' is specified]",
-    "archiveEntries": "[Optional]",
-    "build": "[Optional]",
-    "bundle": "[Optional]",
-    "sortBy": "[Optional]",
-    "sortOrder": "[Optional, Default: 'asc']",
-    "limit": [Optional],
-    "offset": [Optional] }
-  ]
-}
-```
-
-#### Upload Command Spec Schema
-
-The file spec schema for the upload command is as follows:
-
-```
-{
-  "files": [
-  {
-    "pattern": "[Mandatory]",
-    "target": "[Mandatory]",
-    "targetProps": "[Optional]",
-    "recursive": "[Optional, Default: 'true']",
-    "flat": "[Optional, Default: 'true']",
-    "regexp": "[Optional, Default: 'false']",
-    "ant": "[Optional, Default: 'false']",
-    "archive": "[Optional, Must be: 'zip']",
-    "exclusions": "[Optional]" }
-  ]
-}
-```
-
-#### Search, Set-Props and Delete Commands Spec Schema
-
-The file spec schema for the search and delete commands are as follows:
-
-```
-{
-  "files": [
-  {
-    "pattern" or "aql": "[Mandatory]",
-    "props": "[Optional]",
-    "excludeProps": "[Optional]",
-    "recursive": "[Optional, Default: 'true']",
-    "exclusions": "[Optional, Applicable only when 'pattern' is specified]",
-    "archiveEntries": "[Optional]",
-    "build": "[Optional]",
-    "bundle": "[Optional]",
-    "sortBy": "[Optional]",
-    "sortOrder": "[Optional, Default: 'asc']",
-    "limit": [Optional],
-    "offset": [Optional] }
-  ]
-}
-```
-
-**Examples**
-
-The following examples can help you get started using File Specs.
-
-**Example 1:**
-
-Download all files located under the **all-my-frogs** directory in the **my-local-repo** repository to the **froggy** directory.
-
-```
-{
-  "files": [
-  {
-    "pattern": "my-local-repo/all-my-frogs/",
-    "target": "froggy/" }
-  ]
-}
-```
-
-**Example 2:**
-
-Download all files located under the **all-my-frogs** directory in the **my-local-repo** repository to the **froggy** directory. Download only files which are artifacts of build number 5 of build **my-build** .
-
-```
-{
-  "files": [
-    {
-      "pattern": "my-local-repo/all-my-frogs/",
-      "target": "froggy/",
-      "build": "my-build/5"
-    }
-  ]
-}
-```
-
-**Example 3:**
-
-Download all files retrieved by the AQL query to the **froggy** directory.
-
-```
-{
-  "files": [
-    {
-      "aql": {
-        "items.find": {
-          "repo": "my-local-repo",
-          "$or": [
-            {
-              "$and": [
-                {
-                  "path": {
-                    "$match": "."
-                  },
-                  "name": {
-                    "$match": "a1.in"
-                  }
-                }
-              ]
-            },
-            {
-              "$and": [
-                {
-                  "path": {
-                    "$match": "*"
-                  },
-                  "name": {
-                    "$match": "a1.in"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "target": "froggy/"
-    }
-  ]
-}
-```
-
-**Example 4: Upload**
-
-1. All zip files located under the **resources** directory to the **zip** folder, under the **all-my-frogs** repository. AND
-2. All TGZ files located under the **resources** directory to the \*\*tgz folder, under the **all-my-frogs** repository.
-3. Tag all zip files with type = zip and status = ready.
-4. Tag all tgz files with type = tgz and status = ready.
-
-```
-{
-  "files": [
-    {
-      "pattern": "resources/*.zip",
-      "target": "all-my-frogs/zip/",
-      "props": "type=zip;status=ready"
-    },
-    {
-      "pattern": "resources/*.tgz",
-      "target": "all-my-frogs/tgz/",
-      "props": "type=tgz;status=ready"
-    }
-  ]
-}
-```
-
-**Example 5:**
-
-Upload all zip files located under the **resources** directory to the **zip** folder, under the **all-my-frogs** repository.
-
-```
-{
-  "files": [
-    {
-      "pattern": "resources/*.zip",
-      "target": "all-my-frogs/zip/"
-    }
-  ]
-}
-```
-
-**Example 6:**
-
-Package all files located (including subdirectories) under the **resources** directory into a zip archive named **archive.zip** , and upload it into the root of the **all-my-frogs** repository.
-
-```
-{
-  "files": [
-    {
-      "pattern": "resources/",
-      "archive": "zip",
-      "target": "all-my-frogs/"
-    }
-  ]
-}
-```
-
-**Example 7:**
-
-Download all files located under the **all-my-frogs** directory in the **my-local-repo** repository **except** for files with .txt extension and all files inside the **all-my-frogs** directory with the props. prefix.\`
-
-Notice that the exclude patterns do not include the repository.
-
-```
-{
-    "files": [
-     {
-        "pattern": "my-local-repo/all-my-frogs/",
-        "exclusions": ["*.txt","all-my-frog/props.*"]
-     }
-    ]
-}
-```
-
-**Example 8:**
-
-Download The latest file uploaded to the **all-my-frogs** directory in the **my-local-repo** repository.
-
-```
-{
-    "files": [
-     {
-        "pattern": "my-local-repo/all-my-frogs/",
-        "target": "all-my-frogs/files/",
-        "sortBy": ["created"],
-        "sortOrder": "desc",
-        "limit": 1
-     }
-    ]
-}
-```
-
-**Example 9:**
-
-Search for the three largest files located under the **all-my-frogs** directory in the **my-local-repo** repository. If there are files with the same size, sort them "internally" by creation date.
-
-```
-{
-    "files": [
-     {
-        "pattern": "my-local-repo/all-my-frogs/",
-        "sortBy": ["size","created"],
-        "sortOrder": "desc",
-        "limit": 3
-     }
-    ]
-}
-```
-
-**Example 10:**
-
-Download The second-latest file uploaded to the **all-my-frogs** directory in the **my-local-repo** repository.
-
-```
-{
-    "files": [
-     {
-        "pattern": "my-local-repo/all-my-frogs/",
-        "target": "all-my-frogs/files/",
-        "sortBy": ["created"],
-        "sortOrder": "desc",
-        "limit": 1,
-        "offset": 1
-     }
-    ]
-}
-```
-
-**Example 11:**
-
-This example shows how to [delete artifacts in artifactory under specified path based on how old they are](https://stackoverflow.com/questions/58328701/delete-artifacts-in-artifactory-under-specified-path-based-on-how-old-they-are).
-
-The following File Spec finds all the folders which match the following criteria:
-
-1. They are under the my-repo repository.
-2. They are inside a folder with a name that matches abc-\*-xyz and is located at the root of the repository.
-3. Their name matches ver\*
-4. They were created more than 7 days ago.
-
-```
-{
-  "files": [
-    {
-      "aql": {
-        "items.find": {
-          "repo": "myrepo",
-          "path": {"$match":"abc-*-xyz"},
-          "name": {"$match":"ver*"},
-          "type": "folder",
-          "$or": [
-            {
-              "$and": [
-                {
-                  "created": { "$before":"7d" }
-                }
-              ]
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-**Example 12**
-
-This example uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-placeholders). For each .tgz file in the source directory, create a corresponding directory with the same name in the target repository and upload it there. For example, a file named froggy.tgz should be uploaded to my-local-rep/froggy. (froggy will be created a folder in Artifactory).
-
-```
-{
-    "files": [
-      {
-        "pattern": "(*).tgz",
-        "target": "my-local-repo/{1}/",
-      }
-    ]
-}
-```
-
-**Example 13**
-
-This examples uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-placeholders). Upload all files whose name begins with "frog" to folder frogfiles in the target repository, but append its name with the text "-up". For example, a file called froggy.tgz should be renamed froggy.tgz-up.
-
-```
-{
-    "files": [
-      {
-        "pattern": "(frog*)",
-        "target": "my-local-repo/frogfiles/{1}-up",
-        "recursive": "false"
-      }
-    ]
-}
-```
-
-**Example 14**
-
-The following two examples lead to the exact same outcome.\
-The first one uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-placeholders), while the second one does not. Both examples download all files from the generic-local repository to be under the ֿֿmy/local/path/ local file-system path, while maintaining the original Artifactory folder hierarchy. Notice the different flat values in the two examples.
-
-```
-{
-    "files": [
-      {
-        "pattern": "generic-local/{*}",
-        "target": "my/local/path/{1}",
-        "flat": "true"
-      }
-    ]
-}
-
-{
-    "files": [
-      {
-        "pattern": "generic-local/",
-        "target": "my/local/path/",
-        "flat": "false"
-      }
-    ]
-}
-```
-
-**Example 15:**
-
-This example creates a release bundle and applies "pathMapping" to the artifact paths after distributing the release bundle.
-
-All occurrences of the "a1.in" file are fetched and mapped to the "froggy" repository at the edges.
-
-1. Fetch all artifacts retrieved by the AQL query.
-2. Create the release bundle with the artifacts and apply the path mappings at the edges after distribution.
-
-The "pathMapping" option is provided, allowing users to control the destination of the release bundle artifacts at the edges.
-
-To learn more, visit the [Create Release Bundle v1 Version documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v1-version).
-```json
-{
-  "files": [
-    {
-      "aql": {
-        "items.find": {
-          "repo": "my-local-repo",
-          "$and": [
-            {
-              "name": {
-                "$match": "a1.in"
-              }
-            },
-            {
-              "$or": [
-                {
-                  "path": {
-                    "$match": "."
-                  }
-                },
-                {
-                  "path": {
-                    "$match": "*"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "pathMapping": {
-        "input": "my-local-repo/(.*)",
-        "output": "froggy/$1"
-      }
-    }
-  ]
-}
-```
-
-### Schema Validation
-
-[JSON schemas](https://json-schema.org/) allow you to annotate and validate JSON files. The JFrog File Spec schema is available in the [JSON Schema Store](https://www.schemastore.org/json/) catalog and in the following link: [https://github.com/jfrog/jfrog-cli/blob/v2/schema/filespec-schema.json](https://github.com/jfrog/jfrog-cli/blob/v2/schema/filespec-schema.json).
-
-**Using Jetbrains IDEs (Intellij IDEA, Webstorm, Goland, etc...)?**
-
-The File Spec schema is automatically applied to the following file patterns:
-
-\*\*/filespecs/\*.json
-
-\*filespec\*.json
-
-\*.filespec
-
-**Using Visual Studio Code?**
-
-To apply the File Spec schema validation, install the [JFrog VS-Code extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-vscode-extension).
-
-Alternatively, copy the following to your settings.json file:
-
-**settings.json**
-
-```
-"json.schemas": [
-  {
-    "fileMatch": ["**/filespecs/*.json", "\*filespec\*.json", "*.filespec"],
-    "url": "https://raw.githubusercontent.com/jfrog/jfrog-cli/v2/schema/filespec-schema.json"
-  }
-]
-```
 
 ## Downloading the Maven and Gradle Extractor JARs
 
