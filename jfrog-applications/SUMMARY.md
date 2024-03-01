@@ -14,6 +14,7 @@
     * [Proxy Support](jfrog-cli/get-started/configurations/proxy-support.md)
   * [CLI for JFrog Artifactory](jfrog-cli/cli-for-jfrog-artifactory/README.md)
     * [Using File Specs](jfrog-cli/cli-for-jfrog-artifactory/using-file-specs.md)
+    * [Build Integration](jfrog-cli/cli-for-jfrog-artifactory/build-integration.md)
     * [Package Managers Integration](jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration.md)
     * [Managing Configuration Entities](jfrog-cli/cli-for-jfrog-artifactory/managing-configuration-entities.md)
     * [Transferring Files Between Artifactory Servers](jfrog-cli/cli-for-jfrog-artifactory/transferring-files-between-artifactory-servers.md)
