@@ -116,58 +116,6 @@ In this case, you'll need to make those certificates available for JFrog CLI, by
 2. Some commands support the **--insecure-tls** option, which skips the TLS certificates verification.
 3. Before version 1.37.0, JFrog CLI expected the certificates to be located directly under the **security** directory. JFrog CLI will automatically move the certificates to the new directory when installing version 1.37.0 or above. Downgrading back to an older version requires replacing the configuration directory manually. You'll find a backup if the old configuration under **.jfrog/backup**
 
-## Storing Symlinks in Artifactory
-
-JFrog CLI lets you upload and download artifacts from your local file system to Artifactory, this also includes uploading symlinks (soft links).
-
-Symlinks are stored in Artifactory as files with a zero size, with the following properties:\
-**symlink.dest** - The actual path on the original filesystem to which the symlink points\
-**symlink.destsha1** - the SHA1 checksum of the value in the **symlink.dest** property
-
-To upload symlinks, the `jf rt upload` command should be executed with the `--symlinks` option set to true.
-
-When downloading symlinks stored in Artifactory, the CLI can verify that the file to which the symlink points actually exists and that it has the correct SHA1 checksum. To add this validation, you should use the `--validate-symlinks` option with the `jf rt download` command.
-
-***
-
-## Using Placeholders
-
-The JFrog CLI offers enormous flexibility in how you **download, upload**, **copy**, or **move** files through the use of wildcard or regular expressions with placeholders.
-
-Any wildcard enclosed in parentheses in the source path can be matched with a corresponding placeholder in the target path to determine the name of the artifact once uploaded.
-
-#### Example 1: Upload all files to the target repository
-
-For each .tgz file in the source directory, create a corresponding directory with the same name in the target repository and upload it there. For example, a file named **froggy.tgz** should be uploaded to **my-local-rep/froggy**. **froggy** will be created in a folder in Artifactory).
-
-```
-jf rt u "(*).tgz" my-local-repo/{1}/ --recursive=false
-```
-
-#### Example 2: Upload all files sharing the same prefix to the target repository
-
-Upload all files whose name begins with "frog" to folder **frogfiles** in the target repository, but append its name with the text "-up". For example, a file called **froggy.tgz** should be renamed **froggy.tgz-up**.
-
-```
-jf u "(frog*)" my-local-repo/frogfiles/{1}-up --recursive=false
-```
-
-#### Example 3: Upload all files to corresponding directories according to extension type
-
-Upload all files in the current directory to the **my-local-repo** repository and place them in directories that match their file extensions.
-
-```
-jf rt u "(*).(*)" my-local-repo/{2}/{1}.{2} --recursive=false
-```
-
-#### Example 4: Copy all zip files to target repository and append with an extension
-
-Copy all zip files under /rabbit in the **source-frog-repo** repository into the same path in the **target-frog-repo** repository and append the copied files' names with ".cp".
-
-```
-jf rt cp "source-frog-repo/rabbit/(*.zip)" target-frog-repo/rabbit/{1}.cp
-```
-
 ## General Commands
 
 The following sections describe the commands available in the JFrog CLI for use with Artifactory.

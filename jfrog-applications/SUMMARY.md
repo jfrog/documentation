@@ -15,6 +15,8 @@
   * [CLI for JFrog Artifactory](jfrog-cli/cli-for-jfrog-artifactory/README.md)
     * [Generic Files](jfrog-cli/cli-for-jfrog-artifactory/generic-files.md)
     * [Using File Specs](jfrog-cli/cli-for-jfrog-artifactory/using-file-specs.md)
+    * [Using Placeholders](jfrog-cli/cli-for-jfrog-artifactory/using-placeholders.md)
+    * [Storing Symlinks in Artifactory](jfrog-cli/cli-for-jfrog-artifactory/storing-symlinks.md)
     * [Build Integration](jfrog-cli/cli-for-jfrog-artifactory/build-integration.md)
     * [Package Managers Integration](jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration.md)
     * [Managing Configuration Entities](jfrog-cli/cli-for-jfrog-artifactory/managing-configuration-entities.md)
