@@ -100,7 +100,6 @@ The **gradle** command triggers the gradle client, while resolving dependencies 
 
 > **Note**: If the machine running JFrog CLI has no access to the internet, make sure to read the[Downloading the Maven and Gradle Extractor JARs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#downloading-the-maven-and-gradle-extractor-jars)section.
 
-
 #### Commands Params
 
 The following table lists the command arguments and flags:
@@ -123,6 +122,16 @@ Build the project using the **artifactoryPublish** task, while resolving and dep
 ```
 jf gradle clean artifactoryPublish -b path/to/build.gradle
 ```
+
+## Downloading the Maven and Gradle Extractor JARs
+
+For integrating with Maven and Gradle, JFrog CLI uses the build-info-extractor jars files. These jar files are downloaded by JFrog CLI from jcenter the first time they are needed.
+
+If you're using JFrog CLI on a machine which has no access to the internet, you can configure JFrog CLI to download these jar files from an Artifactory instance. Here's how to configure Artifactory and JFrog CLI to download the jars files.
+
+1. Create a remote Maven repository in Artifactory and name it **extractors**. When creating the repository, configure it to proxy [https://releases.jfrog.io/artifactory/oss-release-local](https://releases.jfrog.io/artifactory/oss-release-local)
+2. Make sure that this Artifactory server is known to JFrog CLI, using the [jfrog c show](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration#showing-the-configured-servers) command. If not, configure it using the [jfrog c add](https://jfrog.com/help/r/jfrog-cli/Adding-and-Editing-Configured-Servers) command.
+3. Set the **JFROG\_CLI\_EXTRACTORS\_REMOTE** environment variable with the server ID of the Artifactory server you configured, followed by a slash, and then the name of the repository you created. For example _**my-rt-server/extractors**_
 
 ## Running Builds with MSBuild
 
