@@ -1,20 +1,18 @@
-# CLI for JFrog Release Lifecycle Management
+# Release Lifecycle Management
 
 ## Overview
 
-This page describes how to use JFrog CLI with [JFrog Release Lifecycle Management](https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-release-lifecycle-management-solution).
-
-Read more about JFrog CLI [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli).
+This page describes how to use JFrog CLI with [Release Lifecycle Management](https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-release-lifecycle-management-solution).
 
 ***
 
 **Note**
 
-> JFrog Release Lifecycle Management is only available since [Artifactory 7.63.2](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.63.2-cloud).
+> Release Lifecycle Management is only available since [Artifactory 7.63.2](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.63.2-cloud).
 
 ***
 
-### Syntax
+## Syntax
 
 When used with JFrog Release Lifecycle Management, JFrog CLI uses the following syntax:
 
@@ -22,11 +20,7 @@ When used with JFrog Release Lifecycle Management, JFrog CLI uses the following 
 $ jf command-name global-options command-options arguments
 ```
 
-### Commands
-
-The following sections describe the commands available in JFrog CLI for use with JFrog Release Lifecycle Management.
-
-### Creating a release bundle from builds or from existing release bundles
+## Creating a release bundle from builds or from existing release bundles
 
 This commands allows creating a release bundle from one of two sources:
 
@@ -64,7 +58,7 @@ This commands allows creating a release bundle from one of two sources:
     `project` is optional, default project will be used if empty.
     
     
-#### Commands Params
+### Commands Params
 
 |                        |                                                                                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -81,6 +75,7 @@ This commands allows creating a release bundle from one of two sources:
 | release bundle name    | Name of the newly created Release Bundle.                                                                                                |
 | release bundle version | Version of the newly created Release Bundle.                                                                                             |
 
+### Examples
 #### Example 1
 
 Create a release bundle with name "myApp" and version "1.0.0", with signing key pair "myKeyPair". The release bundle will include artifacts of the builds that were provided in the builds spec.
@@ -105,11 +100,11 @@ Create a release bundle synchronously with name "myApp" and version "1.0.0", in 
 jf rbc --release-bundles=/path/to/release-bundles-spec.json --signing-key=myKeyPair --sync=true --project=project0 myApp 1.0.0
 ```
 
-### Promoting a release bundle
+## Promoting a release bundle
 
 This commands allows promoting a release bundle to a target environment.
 
-#### Commands Params
+### Commands Params
 
 |                        |                                                                                  |
 |------------------------|----------------------------------------------------------------------------------|
@@ -125,7 +120,7 @@ This commands allows promoting a release bundle to a target environment.
 | release bundle version | Version of the Release Bundle to promote.                                        |
 | environment            | Name of the target environment for the promotion.                                |
 
-
+### Examples
 #### Example 1
 
 Promote a release bundle named "myApp" version "1.0.0" to environment "PROD". Use signing key pair "myKeyPair".
@@ -142,7 +137,7 @@ Promote a release bundle synchronously to environment "PROD". The release bundle
 jf rbp --signing-key=myKeyPair --project=project0 --sync=true myApp 1.0.0 PROD
 ```
 
-### Distributing a release bundle
+## Distributing a release bundle
 
 This command distributes a release bundle to an edge node.
 
@@ -194,7 +189,7 @@ The Distribution Rules format also supports wildcards. For example:
    }
    ```
 
-
+### Examples
 #### Example 1
 Distribute the release bundle named myApp with version 1.0.0. Use the distribution rules defined in the specified file.
 
