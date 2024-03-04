@@ -102,8 +102,9 @@
       #   repository: ""
 
       # [Optional]
-      # A unique string that is used to identify a subproject inside a Git repository. This key enables differentiating between subprojects
-      # That utilize the same technology, which can lead to collisions in the created branch's names during scan-repository flow.
+      # A distinctive string employed to distinguish a subproject within a Git repository.
+      # This identifier allows for differentiation between subprojects utilizing the same technology,
+      # Thereby preventing collisions in branch names generated during the scan-repository flow.
       #   uniqueIdentifier: ""
 
     # JFrog Platform parameters
