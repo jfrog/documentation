@@ -105,7 +105,7 @@
       # A distinctive string employed to distinguish a subproject within a Git repository.
       # This identifier allows for differentiation between subprojects utilizing the same technology,
       # Thereby preventing collisions in branch names generated during the scan-repository flow.
-      #   uniqueIdentifier: ""
+      #   projectName: ""
 
     # JFrog Platform parameters
     jfrogPlatform:
