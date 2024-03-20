@@ -58,9 +58,9 @@ The file spec schema for the download command is as follows:
 }
 ```
 
-### Create and Update Release Bundle Commands Spec Schema
+### Create and Update Release Bundle V1 Commands Spec Schema
 
-The file spec schema for the create and update release bundle commands is as follows:
+The file spec schema for the create and update release bundle v1 commands is as follows:
 
 ```
 {
@@ -433,12 +433,12 @@ The first one uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io
 
 #### Example 15
 
-This example creates a release bundle and applies "pathMapping" to the artifact paths after distributing the release bundle.
+This example creates a release bundle v1 and applies "pathMapping" to the artifact paths after distributing the release bundle v1.
 
 All occurrences of the "a1.in" file are fetched and mapped to the "froggy" repository at the edges.
 
 1. Fetch all artifacts retrieved by the AQL query.
-2. Create the release bundle with the artifacts and apply the path mappings at the edges after distribution.
+2. Create the release bundle v1 with the artifacts and apply the path mappings at the edges after distribution.
 
 The "pathMapping" option is provided, allowing users to control the destination of the release bundle artifacts at the edges.
 
