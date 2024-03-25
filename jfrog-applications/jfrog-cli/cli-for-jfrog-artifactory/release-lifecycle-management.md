@@ -330,3 +330,51 @@ Delete the distributions of release bundle named myApp with version 1.0.0 from e
 Delete the distributions of the release bundle associated with project "proj" from the provided edge nodes. Run the command synchronously and skip the confirmation message.
 
 	jf rbd --dist-rules=/path/to/dist-rules.json --project="proj" --quiet --sync myApp 1.0.0
+
+## Exporting Release Bundle Archive
+Exports a release bundle and downloads the archive.
+
+|                        |                                                                                                                                                 |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | release-bundle-export                                                                                                                           |
+| Abbreviation           | rbe                                                                                                                                             |
+| Command arguments      |                                                                                                                                                 |
+| release bundle name    | Name of the release bundle to distribute.                                                                                                       |
+| release bundle version | Version of the release bundle to distribute.                                                                                                    
+| target pattern         | Specifies the local file system target download path                                                                                                    
+| Command options        |                                                                                                                                                 |
+| --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p>                                                                |
+| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p>                                                                |
+
+#### Example
+Export release bundle named "myApp" and version 1.0.0
+
+	jf rbe myApp 1.0.0
+
+#### Example
+Download to a specific location
+
+	jf rbe myApp 1.0.0 /user/mybundle/
+
+
+## Importing Release Bundle Archive
+Import a local release bundle archive to Artifactory.
+
+Please note this functionality only works on onPrem platforms.
+
+|                        |                                                                                  |
+|------------------------|----------------------------------------------------------------------------------|
+| Command-name           | release-bundle-import                                                            |
+| Abbreviation           | rbi                                                                              |
+| Command arguments      |                                                                                  |
+| path to archive        | path to the release bundle archive on the filesystem                             | 
+| Command options        |                                                                                  |
+| --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p> |
+| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p> |
+
+#### Example
+Export release bundle named "myApp" and version 1.0.0
+
+	jf rbi ./myApp.zip
+
+
