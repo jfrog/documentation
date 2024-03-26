@@ -70,7 +70,12 @@
     * [Setup Frogbot Using JFrog Pipelines](frogbot/setup-frogbot-using-jfrog-pipelines.md)
     * [Setup Frogbot Using GitLab CI](frogbot/setup-frogbot-using-gitlab-ci.md)
     * [Setup Frogbot Using Azure Pipelines](frogbot/setup-frogbot-using-azure-pipelines.md)
-  * [Scan Pull Requests](frogbot/scan-pull-requests.md)
+  * [Scan Pull Requests](jfrog-applications/frogbot/scan-pull-requests/README.md)
+    * [Scan Github Pull Request](jfrog-applications/frogbot/scan-pull-requests/scan-github-pull-request.md)
+    * [Scan Gitlab Pull Request](jfrog-applications/frogbot/scan-pull-requests/scan-gitlab-pull-request.md)
+    * [Scan Azure Repos Pull Request](jfrog-applications/frogbot/scan-pull-requests/scan-azure-repos-pull-request.md)
+    * [Scan Bitbucket Server Pull Request](jfrog-applications/frogbot/scan-pull-requests/scan-bitbucket-server-pull-request.md)
+    * [Pull Request Scan Results](jfrog-applications/frogbot/scan-pull-requests/pull-request-scan-results.md)
   * [Scan Repositories](frogbot/scan-repositories.md)
   * [Frogbot Badge](frogbot/frogbot-badge.md)
 
