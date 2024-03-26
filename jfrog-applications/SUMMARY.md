@@ -76,7 +76,8 @@
     * [Scan Azure Repos Pull Request](jfrog-applications/frogbot/scan-pull-requests/scan-azure-repos-pull-request.md)
     * [Scan Bitbucket Server Pull Request](jfrog-applications/frogbot/scan-pull-requests/scan-bitbucket-server-pull-request.md)
     * [Pull Request Scan Results](jfrog-applications/frogbot/scan-pull-requests/pull-request-scan-results.md)
-  * [Scan Repositories](frogbot/scan-repositories.md)
+  * [Scan Git Repositories](jfrog-applications/frogbot/scan-repositories/README.md)
+    * [View Security Alerts on Github](jfrog-applications/frogbot/scan-repositories/view-security-alerts-on-github.md)
   * [Frogbot Badge](frogbot/frogbot-badge.md)
 
 ## CI & SDKs
