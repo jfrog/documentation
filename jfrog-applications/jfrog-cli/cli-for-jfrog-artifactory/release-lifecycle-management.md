@@ -378,8 +378,8 @@ Please note this functionality only works on Edge nodes within an Air Gap enviro
 | --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p> |
 
 #### Example
-Export release bundle named "myApp" and version 1.0.0
+Export release bundle named "myExportedApp" and version 1.0.0
 
-	jf rbi ./myApp.zip
+	jf rbi ./myExportedApp.zip
 
 
