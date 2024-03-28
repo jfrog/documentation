@@ -332,7 +332,10 @@ Delete the distributions of the release bundle associated with project "proj" fr
 	jf rbd --dist-rules=/path/to/dist-rules.json --project="proj" --quiet --sync myApp 1.0.0
 
 ## Exporting Release Bundle Archive
-Exports a release bundle and downloads the archive.
+JFrog Distribution supports distributing your Release Bundles to remote Distribution Edge nodes within an Air Gap environment. This use case is mainly intended for organizations such as financial institutions and military installations that have two or more JFrog Artifactory instances that have no network connection between them.
+
+The procedure below describes how to export a Release Bundle v2 to a .zip file that can be transferred to a different Artifactory instance in an Air Gap environment.
+
 
 |                        |                                                                                                                                                 |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -341,10 +344,12 @@ Exports a release bundle and downloads the archive.
 | Command arguments      |                                                                                                                                                 |
 | release bundle name    | Name of the release bundle to distribute.                                                                                                       |
 | release bundle version | Version of the release bundle to distribute.                                                                                                    
-| target pattern         | Specifies the local file system target download path                                                                                                    
+| target pattern         | Specifies the local file system target download path                                                                                                     
 | Command options        |                                                                                                                                                 |
 | --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p>                                                                |
 | --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p>                                                                |
+| mapping-pattern        | <p>[Optional]<br><br> Specify a list of input regex mapping pairs that define where the queried artifact is located and where it should be placed after it is imported                                                                                                   
+| mapping-target         | <p>[Optional]<br><br> Specify a list of output regex mapping pairs that define where the queried artifact is located and where it should be placed after it is imported
 
 #### Example
 Export release bundle named "myApp" and version 1.0.0
@@ -358,9 +363,9 @@ Download to a specific location
 
 
 ## Importing Release Bundle Archive
-Import a local release bundle archive to Artifactory.
+Import a Release Bundle archive from a release bundle exported zip file.
 
-Please note this functionality only works on onPrem platforms.
+Please note this functionality only works on Edge nodes within an Air Gap environment.
 
 |                        |                                                                                  |
 |------------------------|----------------------------------------------------------------------------------|
