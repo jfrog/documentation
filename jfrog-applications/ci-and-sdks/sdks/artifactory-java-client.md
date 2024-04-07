@@ -1,4 +1,4 @@
-# Artifactory Java Client
+#sudo su # Artifactory Java Client
 
 Artifactory Java client provides simple yet powerful Artifactory connection and management within your Java code.
 
