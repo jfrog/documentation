@@ -334,7 +334,7 @@ Delete the distributions of the release bundle associated with project "proj" fr
 ## Exporting Release Bundle Archive
 JFrog Lifecycle Management supports distributing your Release Bundles to remote Edge nodes within an air-gapped environment. This use case is mainly intended for organizations that have two or more JFrog instances that have no network connection between them.
 
-The procedure below describes how to export a Release Bundle v2 to a .zip file that can be transferred to a different Artifactory instance in an Air Gap environment.
+The following command allows exporting a Release Bundle as an archive to the filesystem that can be transferred to a different instance in an air-gapped environment.
 
 
 |                        |                                                                                                                                                 |
