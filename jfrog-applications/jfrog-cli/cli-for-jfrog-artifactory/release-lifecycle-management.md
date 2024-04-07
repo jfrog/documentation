@@ -332,7 +332,7 @@ Delete the distributions of the release bundle associated with project "proj" fr
 	jf rbd --dist-rules=/path/to/dist-rules.json --project="proj" --quiet --sync myApp 1.0.0
 
 ## Exporting Release Bundle Archive
-JFrog Distribution supports distributing your Release Bundles to remote Distribution Edge nodes within an Air Gap environment. This use case is mainly intended for organizations such as financial institutions and military installations that have two or more JFrog Artifactory instances that have no network connection between them.
+JFrog Lifecycle Management supports distributing your Release Bundles to remote Edge nodes within an air-gapped environment. This use case is mainly intended for organizations that have two or more JFrog instances that have no network connection between them.
 
 The procedure below describes how to export a Release Bundle v2 to a .zip file that can be transferred to a different Artifactory instance in an Air Gap environment.
 
