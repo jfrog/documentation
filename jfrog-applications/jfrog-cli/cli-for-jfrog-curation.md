@@ -9,13 +9,12 @@ JFrog Curation enables you to block malicious or risky open-source packages ente
 * Protect against known and unknown threats, allowing only trusted software packages into your SDLC.
 * Create policies to block packages with known vulnerabilities, malicious code, operational risk, or license compliance issues.
 
-For more information on JFrog Curation and how to set it up, see the JFrog Curation general documentation at https://jfrog.com/help.
+For more information on JFrog Curation and how to set it up, see the JFrog Curation general documentation at [**Jfrog curation help center**](https://jfrog.com/help/r/jfrog-curation/jfrog-curation-overview).
+ 
 
-JFrog Curation requires Enterprise X and Enterprise + subscriptions. 
-Currently, the following package managers are supported:
-* Npm (npm) - Requires [Xray version 3.78.9](https://jfrog.com/help/r/jfrog-release-information/xray-3.78.9) and above, and [Artifactory version 7.63.5](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.63) and above
-* Maven (mvn) - Requires [Xray version 3.92](https://jfrog.com/help/r/jfrog-release-information/xray-3.92) and above, and [Artifactory version 7.82](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.82) and above
-'''
+## Supported package managers
+* Npm (npm)
+* Maven (mvn) - Requires xray 3.92 and above, and Artifactory 7.82 and above
 ***
 
 ### Commands
@@ -26,20 +25,37 @@ The **jf curation-audit** command enables developers to scan project dependencie
 
 For each blocked package the CLI provides the violated Curation Policies. The command builds a deep dependencies graph for the project, and requests the Curation status by a HEAD request for each node in the tree. It uses the package manager that is used in the project to build the dependencies graph.
 
-Before running the command, do the following:
+### Setup:
 
-1. Connect the JFrog CLI to your JFrog Platform instance by running the [**jf c add**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration#adding-and-editing-configured-servers) command.
-2. Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Here are details for each package manager:
+1. **Connect JFrog CLI to JFrog Platform**
 
+   Connect the JFrog CLI to your JFrog Platform instance by running the following command:
 
-**NPM**
-* Set the repository with the [**jf npmc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#setting-npm-repositories) command inside the project directory</br>
+    ```
+    jf c add
+    ```
 
-**MAVEN**
-* Set the repository with the [**jf mvnc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#setting-maven-repositories) command inside the project directory
-* Configure pass-through on the curated repositories
+    - When prompted for the access token, use the token generated from Artifactory. For more details, refer to the [JFrog CLI documentation](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration#adding-and-editing-configured-servers).
 
-<br/>
+    ```
+    jf c show
+    ```
+
+    - It should present Artifactory server just added (with default true)
+      </br></br>
+2. **Configure JFrog CLI for Project**</br>
+Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Here are details for each package manager:
+
+    - **NPM:**
+
+      - Set the resolved repository using the [**jf npmc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-npm-repositories).
+
+    - **MAVEN:**
+
+      - Set the resolved repository using the [**jf mvnc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-maven-repositories) command inside the project directory.
+
+      - Configure pass-through on the curated repositories.
+<br/></br>
 
 
 
