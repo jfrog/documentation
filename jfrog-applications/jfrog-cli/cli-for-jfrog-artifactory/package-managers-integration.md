@@ -429,9 +429,9 @@ The following table lists the command arguments and flags:
 | --module          | <p>[Optional]<br><br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | --threads         | <p>[Default: 3]<br><br>Number of working threads for build-info collection.</p>                                                                                                                                             |
 | Command arguments | The command accepts the same arguments and options as the npm client.                                                                                                                                                       |
-| --project         | <p>[Optional]<br><br>JFrog project key.</p>                                                                                                                    |
-| --module          | <p>[Optional]<br><br>Optional module name for the build-info.</p>                                                                                              |
-| Command arguments | The command accepts the same arguments and options as the npm client.                                                                                          |
+| --project         | <p>[Optional]<br><br>JFrog project key.</p>                                                                                                                                                                                 |
+| --module          | <p>[Optional]<br><br>Optional module name for the build-info.</p>                                                                                                                                                           |
+| Command arguments | The command accepts the same arguments and options as the npm client.                                                                                                                                                       |
 
 #### Examples
 ##### Example 1
