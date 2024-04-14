@@ -12,7 +12,7 @@ This command can be used to verify that Artifactory is accessible by sending an 
 | Command options   |                                                                                                                                                             |
 | --url             | <p>[Optional]<br>Artifactory URL.</p>                                                                                                                       |
 | --server-id       | <p>[Optional]<br>Server ID configured using the <strong>jf c add</strong> command. If not specified, the default configured Artifactory server is used.</p> |
-| --insecure-tls    | <p>[Optional]<br>Set to true to skip TLS certificates verification.</p>                                                                                     |
+| --insecure-tls    | <p>[Default: false]<br>Set to true to skip TLS certificates verification.</p>                                                                                     |
 | Command arguments | The command accepts no arguments.                                                                                                                           |
 
 ## Examples
