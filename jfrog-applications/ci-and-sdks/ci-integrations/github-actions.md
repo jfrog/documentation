@@ -6,7 +6,7 @@ This GitHub Action downloads, installs and configures JFrog CLI, so that it can 
 
 In addition, the Action includes the following features, when using JFrog CLI to work with JFrog Platform.
 
-* The connection details of the JFrog platform used by JFrog CLI can be stored as secrets. Read more about it [here](broken-reference).
+* The connection details of the JFrog platform used by JFrog CLI can be stored as secrets.
 * There's no need to add the _build name_ and _build number_ options and arguments to commands which accept them. All build related operations will be automatically recorded with the _Workflow Name_ as build name and _Run Number_ as build number.
 
 ## Usage
@@ -52,7 +52,7 @@ You can use these environment variables in your workflow as follows:
 ```
 
 | Important: If both Config Token(JF\_ENV\_\*) and separate environment variables(JF\_URL, ...) are provided, the default config will be the Config Token. To make the above separate environment variables as the default config use `jf c use setup-jfrog-cli-server` |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 #### Storing the connection details using single Config Token
 
@@ -93,7 +93,7 @@ If you have multiple Config Tokens as secrets, you can use all of them in the wo
 ```
 
 | Important: When exposing more than one JFrog configuration to the Action, you should always add the `jf c use` command to specify the server to use. |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 ### Setting the build name and build number when publishing build-info to Artifactory
 

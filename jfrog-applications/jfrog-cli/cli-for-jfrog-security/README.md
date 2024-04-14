@@ -15,7 +15,7 @@ To authenticate yourself using your Xray login credentials, either configure you
 To authenticate yourself using an Xray Access Token, either configure your Access Token once using the \_jf c add\_command or provide the following option to each command.
 
 |                |                                                         |
-| -------------- | ------------------------------------------------------- |
+|----------------|---------------------------------------------------------|
 | Command option | Description                                             |
 | --url          | JFrog Xray API endpoint URL. It usually ends with /xray |
 | --access-token | JFrog access token                                      |

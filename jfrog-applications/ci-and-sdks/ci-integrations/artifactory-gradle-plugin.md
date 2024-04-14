@@ -23,8 +23,8 @@ The plugin adds the `artifactoryPublish` task for each project, in the 'publishi
 *   The below convention attributes have been removed:
 
     | Attribute | Migration action                                                                                                                                                                                                                              |
-    | :-------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    |   parent  | No longer supported.                                                                                                                                                                                                                          |
+    |:---------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    |  parent   | No longer supported.                                                                                                                                                                                                                          |
     |  resolve  | To define the Artifactory resolution repositories for your build, declare the repositories under the repositories section as described [here](https://docs.gradle.org/current/userguide/declaring\_repositories.html#declaring-repositories). |
 
 </details>

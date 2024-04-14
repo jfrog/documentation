@@ -94,7 +94,7 @@ the following guidelines before publishing it.
 * **Create a Readme.** Make sure that your plugin code includes a README.md file and place it in the root of the
   repository. The README needs to be structured according to
   the [jfrog-cli-plugin-template]((https://github.com/jfrog/jfrog-cli-plugin-template.git)) README. It needs to include
-  all the information and relevant details for the relevant plugin users..
+  all the information and relevant details for the relevant plugin users.
 * **Consider create a tag for your plugin sources.** Although this is not mandatory, we recommend creating a tag for
   your GitHub repository before publishing the plugin. You can then provide this tag to the Registry when publishing the
   plugin, to make sure the correct code is built.
