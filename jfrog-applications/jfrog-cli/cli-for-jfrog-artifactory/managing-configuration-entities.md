@@ -19,16 +19,16 @@ The CSV can include additional columns, with different headers, which will be ig
 
 ### Commands Params
 
-|                   |                                                                                                                                                 |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | rt users-create                                                                                                                                 |
-| Abbreviation      | rt uc                                                                                                                                           |
-| Command options   |                                                                                                                                                 |
-| --server-id       | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p>                                                             |
-| --csv             | <p>[Mandatory]<br><br>Path to a CSV file with the users' details. The first row of the file should include the name,password,email headers.</p> |
-| --replace         | <p>[Optional]<br><br>Set to true if you'd like existing users or groups to be replaced.</p>                                                     |
-| --users-groups    | <p>[Optional]<br><br>A list of comma-separated groups for the new users to be associated to.</p>                                                |
-| Command arguments | The command accepts no arguments                                                                                                                |
+|                   |                                                                                                                                             |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name      | rt users-create                                                                                                                             |
+| Abbreviation      | rt uc                                                                                                                                       |
+| Command options   |                                                                                                                                             |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                             |
+| --csv             | <p>[Mandatory]<br>Path to a CSV file with the users' details. The first row of the file should include the name,password,email headers.</p> |
+| --replace         | <p>[Optional]<br>Set to true if you'd like existing users or groups to be replaced.</p>                                                     |
+| --users-groups    | <p>[Optional]<br>A list of comma-separated groups for the new users to be associated to.</p>                                                |
+| Command arguments | The command accepts no arguments                                                                                                            |
 
 ### Example
 
@@ -55,15 +55,15 @@ The CSV can include additional columns, with different headers, which will be ig
 
 ### Commands Params
 
-|                   |                                                                                                                                                                                    |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | rt users-delete                                                                                                                                                                    |
-| Abbreviation      | rt udel                                                                                                                                                                            |
-| Command options   |                                                                                                                                                                                    |
-| --server-id       | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p>                                                                                                |
-| --csv             | <p>[Optional]<br><br>Path to a csv file with the usernames to delete. The first row of the file is the reserved for the cells' headers. It must include the "username" header.</p> |
-| Command arguments |                                                                                                                                                                                    |
-| users list        | Comma-separated list of usernames to delete. If the --csv command option is used, then this argument becomes optional.                                                             |
+|                   |                                                                                                                                                                                |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name      | rt users-delete                                                                                                                                                                |
+| Abbreviation      | rt udel                                                                                                                                                                        |
+| Command options   |                                                                                                                                                                                |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                |
+| --csv             | <p>[Optional]<br>Path to a csv file with the usernames to delete. The first row of the file is the reserved for the cells' headers. It must include the "username" header.</p> |
+| Command arguments |                                                                                                                                                                                |
+| users list        | Comma-separated list of usernames to delete. If the --csv command option is used, then this argument becomes optional.                                                         |
 
 ### Examples
 #### Example 1
@@ -88,14 +88,14 @@ This command creates a new users group.
 
 ### Commands Params
 
-|                   |                                                                                     |
-|-------------------|-------------------------------------------------------------------------------------|
-| Command-name      | rt group-create                                                                     |
-| Abbreviation      | rt gc                                                                               |
-| Command options   |                                                                                     |
-| --server-id       | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p> |
-| Command arguments |                                                                                     |
-| group name        | The name of the group to create.                                                    |
+|                   |                                                                                 |
+|-------------------|---------------------------------------------------------------------------------|
+| Command-name      | rt group-create                                                                 |
+| Abbreviation      | rt gc                                                                           |
+| Command options   |                                                                                 |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p> |
+| Command arguments |                                                                                 |
+| group name        | The name of the group to create.                                                |
 
 ### Example
 
@@ -111,15 +111,15 @@ This command adds a list fo existing users to a group.
 
 ### Commands Params
 
-|                   |                                                                                     |
-|-------------------|-------------------------------------------------------------------------------------|
-| Command-name      | rt group-add-users                                                                  |
-| Abbreviation      | rt gau                                                                              |
-| Command options   |                                                                                     |
-| --server-id       | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p> |
-| Command arguments |                                                                                     |
-| group name        | The name of the group to add users to.                                              |
-| users list        | Comma-seperated list of usernames to add to the specified group.                    |
+|                   |                                                                                 |
+|-------------------|---------------------------------------------------------------------------------|
+| Command-name      | rt group-add-users                                                              |
+| Abbreviation      | rt gau                                                                          |
+| Command options   |                                                                                 |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p> |
+| Command arguments |                                                                                 |
+| group name        | The name of the group to add users to.                                          |
+| users list        | Comma-seperated list of usernames to add to the specified group.                |
 
 ### Example
 
@@ -135,14 +135,14 @@ This command deletes a group.
 
 ### Commands Params
 
-|                   |                                                                                     |
-|-------------------|-------------------------------------------------------------------------------------|
-| Command-name      | rt group-delete                                                                     |
-| Abbreviation      | rt gdel                                                                             |
-| Command options   |                                                                                     |
-| --server-id       | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p> |
-| Command arguments |                                                                                     |
-| group name        | The name of the group to delete.                                                    |
+|                   |                                                                                 |
+|-------------------|---------------------------------------------------------------------------------|
+| Command-name      | rt group-delete                                                                 |
+| Abbreviation      | rt gdel                                                                         |
+| Command options   |                                                                                 |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p> |
+| Command arguments |                                                                                 |
+| group name        | The name of the group to delete.                                                |
 
 ### Example
 
@@ -198,15 +198,15 @@ These two commands create a new repository and updates an existing a repository.
 
 #### Commands Params
 
-|                   |                                                                                                                                                                                            |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | rt repo-create / rt repo-update                                                                                                                                                            |
-| Abbreviation      | rt rc / rt ru                                                                                                                                                                              |
-| Command options   |                                                                                                                                                                                            |
-| --server-id       | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p>                                                                                                        |
-| --vars            | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
-| Command arguments |                                                                                                                                                                                            |
-| template path     | Specifies the local file system path for the template file to be used for the repository creation. The template can be created using the "jf rt rpt" command.                              |
+|                   |                                                                                                                                                                                        |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name      | rt repo-create / rt repo-update                                                                                                                                                        |
+| Abbreviation      | rt rc / rt ru                                                                                                                                                                          |
+| Command options   |                                                                                                                                                                                        |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                        |
+| --vars            | <p>[Optional]<br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
+| Command arguments |                                                                                                                                                                                        |
+| template path     | Specifies the local file system path for the template file to be used for the repository creation. The template can be created using the "jf rt rpt" command.                          |
 
 #### Examples
 ##### Example 1
@@ -244,8 +244,8 @@ This command permanently deletes a repository, including all of its content.
 | Command name      | rt repo-delete                                                                                             |
 | Abbreviation      | rt rdel                                                                                                    |
 | Command options   |                                                                                                            |
-| --server-id       | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p>                        |
-| --quiet           | <p>[Default: $CI]<br><br>Set to true to skip the delete confirmation message.</p>                          |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                            |
+| --quiet           | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>                              |
 | Command arguments |                                                                                                            |
 | repository key    | Specifies the repositories that should be removed. You can use wildcards to specify multiple repositories. |
 
@@ -302,15 +302,15 @@ This command creates a new replication job for a repository. The command accepts
 
 #### Commands Params
 
-|                   |                                                                                                                                                                                            |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | replication-create                                                                                                                                                                         |
-| Abbreviation      | rt rplc                                                                                                                                                                                    |
-| Command options   |                                                                                                                                                                                            |
-| --server-id       | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p>                                                                                                        |
-| --vars            | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
-| Command arguments |                                                                                                                                                                                            |
-| template path     | Specifies the local file system path for the template file to be used for the replication job creation. The template can be created using the "jf rt rplt" command.                        |
+|                   |                                                                                                                                                                                        |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name      | replication-create                                                                                                                                                                     |
+| Abbreviation      | rt rplc                                                                                                                                                                                |
+| Command options   |                                                                                                                                                                                        |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                        |
+| --vars            | <p>[Optional]<br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
+| Command arguments |                                                                                                                                                                                        |
+| template path     | Specifies the local file system path for the template file to be used for the replication job creation. The template can be created using the "jf rt rplt" command.                    |
 
 #### Examples
 ##### Example 1
@@ -335,15 +335,15 @@ This command permanently deletes a replication jobs from a repository.
 
 #### Commands Params
 
-|                   |                                                                                     |
-|-------------------|-------------------------------------------------------------------------------------|
-| Command name      | rt replication-delete                                                               |
-| Abbreviation      | rt rpldel                                                                           |
-| Command options   |                                                                                     |
-| --server-id       | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p> |
-| --quiet           | <p>[Default: $CI]<br><br>Set to true to skip the delete confirmation message.</p>   |
-| Command arguments |                                                                                     |
-| repository key    | The repository from which the replications will be deleted.                         |
+|                   |                                                                                 |
+|-------------------|---------------------------------------------------------------------------------|
+| Command name      | rt replication-delete                                                           |
+| Abbreviation      | rt rpldel                                                                       |
+| Command options   |                                                                                 |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p> |
+| --quiet           | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>   |
+| Command arguments |                                                                                 |
+| repository key    | The repository from which the replications will be deleted.                     |
 
 #### Example
 
@@ -373,26 +373,26 @@ This command creates a configuration template file, which should be used as an a
 
 This command creates a new permission target. The command accepts as an argument a configuration template, which can be created by the **jf rt permission-target-template** command. The template also supports variables, which can be replaced with values, provided when it is used.
 
-|                   |                                                                                                                                                                                            |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | permission-target-create / permission-target-update                                                                                                                                        |
-| Abbreviation      | rt ptc / rt ptu                                                                                                                                                                            |
-| Command options   |                                                                                                                                                                                            |
-| --server-id       | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p>                                                                                                        |
-| --vars            | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
-| Command arguments |                                                                                                                                                                                            |
-| template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template can be created using the "jf rt ptt" command.             |
+|                   |                                                                                                                                                                                        |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name      | permission-target-create / permission-target-update                                                                                                                                    |
+| Abbreviation      | rt ptc / rt ptu                                                                                                                                                                        |
+| Command options   |                                                                                                                                                                                        |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                        |
+| --vars            | <p>[Optional]<br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
+| Command arguments |                                                                                                                                                                                        |
+| template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template can be created using the "jf rt ptt" command.         |
 
 ### Deleting Permission Targets
 
 This command permanently deletes a permission target.
 
-|                        |                                                                                     |
-|------------------------|-------------------------------------------------------------------------------------|
-| Command name           | rt permission-target-delete                                                         |
-| Abbreviation           | rt ptdel                                                                            |
-| Command options        |                                                                                     |
-| --server-id            | <p>[Optional]<br><br>Artifactory server ID configured using the config command.</p> |
-| --quiet                | <p>[Default: $CI]<br><br>Set to true to skip the delete confirmation message.</p>   |
-| Command arguments      |                                                                                     |
-| permission target name | The permission target that should be removed.                                       |
+|                        |                                                                                 |
+|------------------------|---------------------------------------------------------------------------------|
+| Command name           | rt permission-target-delete                                                     |
+| Abbreviation           | rt ptdel                                                                        |
+| Command options        |                                                                                 |
+| --server-id            | <p>[Optional]<br>Artifactory server ID configured using the config command.</p> |
+| --quiet                | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>   |
+| Command arguments      |                                                                                 |
+| permission target name | The permission target that should be removed.                                   |
