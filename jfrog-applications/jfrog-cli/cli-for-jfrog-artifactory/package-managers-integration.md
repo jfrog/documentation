@@ -427,7 +427,6 @@ The following table lists the command arguments and flags:
 | --build-number    | <p>[Optional]<br><br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | --project         | <p>[Optional]<br><br>JFrog project key.</p>                                                                                                                    |
 | --module          | <p>[Optional]<br><br>Optional module name for the build-info.</p>                                                                                              |
-| --threads         | <p>[Default: 3]<br><br>Number of working threads for build-info collection.</p>                                                                                |
 | Command arguments | The command accepts the same arguments and options as the npm client.                                                                                          |
 
 #### Examples
