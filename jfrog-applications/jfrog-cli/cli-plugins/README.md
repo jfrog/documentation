@@ -22,7 +22,7 @@ To create your own private plugins registry, follow these steps.
 
 * On your Artifactory server, create a local generic repository named _jfrog-cli-plugins_.
 * Make sure your Artifactory server is included in JFrog CLI's configuration, by running the _jf c show_ command.
-* If needed, configure your Artifactory instance using the _jfrog c add_ command.
+* If needed, configure your Artifactory instance using the _jf c add_ command.
 * Set the ID of the configured server as the value of the JFROG_CLI_PLUGINS_SERVER environment variable.
 * If you wish the name of the plugins repository to be different from jfrog-cli-plugins, set this name as the value of the JFROG_CLI_PLUGINS_REPO environment variable.
 

@@ -45,7 +45,7 @@ The following limitations need to be kept in mind before you start the migration
 5. Artifacts in remote repositories caches are not transferred.
 6. Federated repositories are transferred without their federation members. After the transfer, you'll need to reconfigure the federation as described in the Federated Repositories documentation. Federated Repositories
 7. Docker repositories with names that include dots or underscores aren't allowed in JFrog Cloud.
-8. Artifact properties with a value longer than 2.4K characters are not supported in JFrog Cloud. Such properties are generally seen in Conan artifacts. The artifacts will transferred without the properties in this case. A report with these artifacts will become available to you at the end of the transfer.
+8. Artifact properties with a value longer than 2.4K characters are not supported in JFrog Cloud. Such properties are generally seen in Conan artifacts. The artifacts will be transferred without the properties in this case. A report with these artifacts will become available to you at the end of the transfer.
 9. The files transfer process allows transferring files that were created or modified on the source instance after the process started. However, files that were deleted on the source instance after the process started, are not deleted on the target instance by the process.
 10. The files transfer process allows transferring files that were created or modified on the source instance after the process started. The custom properties of those files are also updated on the target instance. However, if only the custom properties of those files were modified on the source, but not the files' content, the properties are not modified on the target instance by the process.
 
@@ -86,7 +86,7 @@ Follow the below steps to enable the configuration transfer.
 4. If you have an Enterprise+ subscription with more than one Artifactory instance, select the target instance from the drop-down menu.
 5. Toggle **Enable Configuration Transfer** to enable the transfer. The process may take a few minutes to complete. \
 ![](../.gitbook/assets/transfer-2.png)
-6. The configuration transfer is now enabled and you can continue with the transfer process.
+6. The configuration transfer is now enabled, and you can continue with the transfer process.
 
 #### Step 2: Set up the source instance for pushing files to the target instance
 
@@ -173,7 +173,7 @@ This command might take up to two minutes to run.
 
 ***
 
-6. View the command output in the terminal to verify that there are no errors. The command output is divided in to the following four phases:
+6. View the command output in the terminal to verify that there are no errors. The command output is divided into the following four phases:
 
 ```
 ========== Phase 1/4 - Preparations ==========

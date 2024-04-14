@@ -15,7 +15,7 @@ $ jf pl command-name arguments command-options
 Where:
 
 |                 |                                                                                                 |
-| --------------- | ----------------------------------------------------------------------------------------------- |
+|-----------------|-------------------------------------------------------------------------------------------------|
 | command-name    | The command to execute. Note that you can use either the full command name or its abbreviation. |
 | command-options | A set of options corresponding to the command                                                   |
 | arguments       | A set of arguments corresponding to the command                                                 |
@@ -31,7 +31,7 @@ The following sections describe the commands available in the JFrog CLI for use 
 ##### Commands Params
 
 |                   |                                                                                                                                                    |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command name      | pl version                                                                                                                                         |
 | Abbreviation      | v                                                                                                                                                  |
 | Command arguments | The command accepts no arguments.                                                                                                                  |
@@ -52,7 +52,7 @@ Get the status of the run for the specified pipeline
 ##### Commands Params
 
 |                   |                                                                                                                                |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | Command name      | pl status                                                                                                                      |
 | Abbreviation      | s                                                                                                                              |
 | Command arguments | The command accepts no arguments.                                                                                              |
@@ -86,7 +86,7 @@ Trigger a pipeline run.
 ##### Commands Params
 
 |                   |                                                                                                                          |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------ |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------|
 | Command name      | pl trigger                                                                                                               |
 | Abbreviation      | t                                                                                                                        |
 | Command options   |                                                                                                                          |
@@ -117,7 +117,7 @@ jf pl trigger myPipeline main/jobs --server-id repo21
 ##### Commands Params
 
 |                 |                                                                                           |
-| --------------- | ----------------------------------------------------------------------------------------- |
+|-----------------|-------------------------------------------------------------------------------------------|
 | Command name    | pl sync                                                                                   |
 | Abbreviation    | sy                                                                                        |
 | Command options |                                                                                           |
@@ -137,7 +137,7 @@ jf pl sync --repository jfrog/artifactory --branch main/jobs --server-id repo21
 ##### Commands Params
 
 |                   |                                                                  |
-| ----------------- | ---------------------------------------------------------------- |
+|-------------------|------------------------------------------------------------------|
 | Command name      | pl sync-status                                                   |
 | Abbreviation      | ss                                                               |
 | Command options   |                                                                  |

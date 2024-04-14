@@ -20,7 +20,7 @@ The CSV can include additional columns, with different headers, which will be ig
 ### Commands Params
 
 |                   |                                                                                                                                                 |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command-name      | rt users-create                                                                                                                                 |
 | Abbreviation      | rt uc                                                                                                                                           |
 | Command options   |                                                                                                                                                 |
@@ -56,7 +56,7 @@ The CSV can include additional columns, with different headers, which will be ig
 ### Commands Params
 
 |                   |                                                                                                                                                                                    |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command-name      | rt users-delete                                                                                                                                                                    |
 | Abbreviation      | rt udel                                                                                                                                                                            |
 | Command options   |                                                                                                                                                                                    |
@@ -89,7 +89,7 @@ This command creates a new users group.
 ### Commands Params
 
 |                   |                                                                                     |
-| ----------------- | ----------------------------------------------------------------------------------- |
+|-------------------|-------------------------------------------------------------------------------------|
 | Command-name      | rt group-create                                                                     |
 | Abbreviation      | rt gc                                                                               |
 | Command options   |                                                                                     |
@@ -112,7 +112,7 @@ This command adds a list fo existing users to a group.
 ### Commands Params
 
 |                   |                                                                                     |
-| ----------------- | ----------------------------------------------------------------------------------- |
+|-------------------|-------------------------------------------------------------------------------------|
 | Command-name      | rt group-add-users                                                                  |
 | Abbreviation      | rt gau                                                                              |
 | Command options   |                                                                                     |
@@ -136,7 +136,7 @@ This command deletes a group.
 ### Commands Params
 
 |                   |                                                                                     |
-| ----------------- | ----------------------------------------------------------------------------------- |
+|-------------------|-------------------------------------------------------------------------------------|
 | Command-name      | rt group-delete                                                                     |
 | Abbreviation      | rt gdel                                                                             |
 | Command options   |                                                                                     |
@@ -165,7 +165,7 @@ When using this command to create the template, you can also provide replaceable
 #### Commands Params
 
 |                   |                                                                                                               |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+|-------------------|---------------------------------------------------------------------------------------------------------------|
 | Command-name      | rt repo-template                                                                                              |
 | Abbreviation      | rt rpt                                                                                                        |
 | Command options   | The command has no options.                                                                                   |
@@ -199,7 +199,7 @@ These two commands create a new repository and updates an existing a repository.
 #### Commands Params
 
 |                   |                                                                                                                                                                                            |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command-name      | rt repo-create / rt repo-update                                                                                                                                                            |
 | Abbreviation      | rt rc / rt ru                                                                                                                                                                              |
 | Command options   |                                                                                                                                                                                            |
@@ -240,7 +240,7 @@ This command permanently deletes a repository, including all of its content.
 #### Commands Params
 
 |                   |                                                                                                            |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- |
+|-------------------|------------------------------------------------------------------------------------------------------------|
 | Command name      | rt repo-delete                                                                                             |
 | Abbreviation      | rt rdel                                                                                                    |
 | Command options   |                                                                                                            |
@@ -270,7 +270,7 @@ When using this command to create the template, you can also provide replaceable
 #### Commands Params
 
 |                   |                                                                                                               |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+|-------------------|---------------------------------------------------------------------------------------------------------------|
 | Command-name      | rt replication-template                                                                                       |
 | Abbreviation      | rt rplt                                                                                                       |
 | Command options   | The command has no options.                                                                                   |
@@ -303,7 +303,7 @@ This command creates a new replication job for a repository. The command accepts
 #### Commands Params
 
 |                   |                                                                                                                                                                                            |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command-name      | replication-create                                                                                                                                                                         |
 | Abbreviation      | rt rplc                                                                                                                                                                                    |
 | Command options   |                                                                                                                                                                                            |
@@ -336,7 +336,7 @@ This command permanently deletes a replication jobs from a repository.
 #### Commands Params
 
 |                   |                                                                                     |
-| ----------------- | ----------------------------------------------------------------------------------- |
+|-------------------|-------------------------------------------------------------------------------------|
 | Command name      | rt replication-delete                                                               |
 | Abbreviation      | rt rpldel                                                                           |
 | Command options   |                                                                                     |
@@ -362,7 +362,7 @@ JFrog CLI offers commands creating, updating and deleting permission targets in 
 This command creates a configuration template file, which should be used as an argument for the **jf rt permission-target-create** and **jf rt permission-target-update** commands.
 
 |                   |                                                                                                               |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+|-------------------|---------------------------------------------------------------------------------------------------------------|
 | Command-name      | rt permission-target-template                                                                                 |
 | Abbreviation      | rt ptt                                                                                                        |
 | Command options   | The command has no options.                                                                                   |
@@ -374,7 +374,7 @@ This command creates a configuration template file, which should be used as an a
 This command creates a new permission target. The command accepts as an argument a configuration template, which can be created by the **jf rt permission-target-template** command. The template also supports variables, which can be replaced with values, provided when it is used.
 
 |                   |                                                                                                                                                                                            |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command-name      | permission-target-create / permission-target-update                                                                                                                                        |
 | Abbreviation      | rt ptc / rt ptu                                                                                                                                                                            |
 | Command options   |                                                                                                                                                                                            |
@@ -388,7 +388,7 @@ This command creates a new permission target. The command accepts as an argument
 This command permanently deletes a permission target.
 
 |                        |                                                                                     |
-| ---------------------- | ----------------------------------------------------------------------------------- |
+|------------------------|-------------------------------------------------------------------------------------|
 | Command name           | rt permission-target-delete                                                         |
 | Abbreviation           | rt ptdel                                                                            |
 | Command options        |                                                                                     |
