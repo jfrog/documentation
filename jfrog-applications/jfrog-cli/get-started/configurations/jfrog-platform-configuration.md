@@ -15,7 +15,7 @@ This command allows creating [Access Tokens](https://jfrog.com/help/r/jfrog-plat
 ### Commands Params
 
 |                   |                                                                                                                                                                                                                                                                                                                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command name      | access-token-create                                                                                                                                                                                                                                                                                                                                                |
 | Abbreviation      | atc                                                                                                                                                                                                                                                                                                                                                                |
 | Command arguments |                                                                                                                                                                                                                                                                                                                                                                    |
@@ -54,7 +54,7 @@ jf atc toad
 The **config add** and **config edit** commands are used to add and edit JFrog Platform server configuration, stored in JFrog CLI's configuration storage. These configured servers can be used by the other commands. The configured servers' details can be overridden per command by passing in alternative values for the URL and login credentials. The values configured are saved in file under the JFrog CLI home directory.
 
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command Name           | config add / config edit                                                                                                                                                                                                                                                                                                                                                                           |
 | Abbreviation           | c add / c edit                                                                                                                                                                                                                                                                                                                                                                                     |
 | Command options        |                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -64,7 +64,7 @@ The **config add** and **config edit** commands are used to add and edit JFrog P
 | --client-cert-key-path | <p>[Optional]</p><p>Private key file for the client certificate in PEM format.</p>                                                                                                                                                                                                                                                                                                                 |
 | --client-cert-path     | <p>[Optional]</p><p>Client certificate file in PEM format.</p>                                                                                                                                                                                                                                                                                                                                     |
 | --dist-url             | <p>[Optional]</p><p>Distribution URL.</p>                                                                                                                                                                                                                                                                                                                                                          |
-| --enc-password         | <p>[Default: true]<br>If true, the configured password will be encrypted using Artifactory's<a href="https://www.jfrog.com/confluence/display/RTF/Artifactory+REST+API#ArtifactoryRESTAPI-GetUserEncryptedPassword">encryption API</a> before being stored. If false, the configured password will not be encrypted.</p>                                                                       |
+| --enc-password         | <p>[Default: true]<br>If true, the configured password will be encrypted using Artifactory's<a href="https://www.jfrog.com/confluence/display/RTF/Artifactory+REST+API#ArtifactoryRESTAPI-GetUserEncryptedPassword">encryption API</a> before being stored. If false, the configured password will not be encrypted.</p>                                                                           |
 | --insecure-tls         | <p>[Default: false]</p><p>Set to true to skip TLS certificates verification, while encrypting the Artifactory password during the config process.</p>                                                                                                                                                                                                                                              |
 | --interactive          | <p>[Default: true, unless $CI is true]</p><p>Set to false if you do not want the config command to be interactive.</p>                                                                                                                                                                                                                                                                             |
 | --mission-control-url  | <p>[Optional]</p><p>Mission Control URL.</p>                                                                                                                                                                                                                                                                                                                                                       |
@@ -74,7 +74,7 @@ The **config add** and **config edit** commands are used to add and edit JFrog P
 | --url                  | <p>[Optional]</p><p>JFrog platform URL.</p>                                                                                                                                                                                                                                                                                                                                                        |
 | --user                 | <p>[Optional]</p><p>JFrog Platform username.</p>                                                                                                                                                                                                                                                                                                                                                   |
 | --xray-url             | \[Optional] Xray URL.                                                                                                                                                                                                                                                                                                                                                                              |
-| --overwrite            | <p>[Available for <em>config add</em> only]<br>[Default: false]<br>Overwrites the instance configuration if an instance with the same ID already exists.</p>                                                                                                                                                                                                                               |
+| --overwrite            | <p>[Available for <em>config add</em> only]<br>[Default: false]<br>Overwrites the instance configuration if an instance with the same ID already exists.</p>                                                                                                                                                                                                                                       |
 | Command arguments      |                                                                                                                                                                                                                                                                                                                                                                                                    |
 | server ID              | A unique ID for the server configuration.                                                                                                                                                                                                                                                                                                                                                          |
 
@@ -83,7 +83,7 @@ The **config add** and **config edit** commands are used to add and edit JFrog P
 The _config remove_ command is used to remove JFrog Platform server configuration, stored in JFrog CLI's configuration storage.
 
 |                   |                                                                                      |
-| ----------------- | ------------------------------------------------------------------------------------ |
+|-------------------|--------------------------------------------------------------------------------------|
 | Command name      | config remove                                                                        |
 | Abbreviation      | c rm                                                                                 |
 | Command options   |                                                                                      |
@@ -96,7 +96,7 @@ The _config remove_ command is used to remove JFrog Platform server configuratio
 The _config show_ command shows the stored configuration. You may show a specific server's configuration by sending its ID as an argument to the command.
 
 |                   |                                                                                         |
-| ----------------- | --------------------------------------------------------------------------------------- |
+|-------------------|-----------------------------------------------------------------------------------------|
 | Command name      | config show                                                                             |
 | Abbreviation      | c s                                                                                     |
 | Command arguments |                                                                                         |
@@ -107,7 +107,7 @@ The _config show_ command shows the stored configuration. You may show a specifi
 The _config use_ command sets a configured server as default. The following commands will use this server.
 
 |                   |                                         |
-| ----------------- | --------------------------------------- |
+|-------------------|-----------------------------------------|
 | Command name      | config use                              |
 | Command arguments |                                         |
 | server ID         | The ID of the server to set as default. |
@@ -119,7 +119,7 @@ The _config export_ command generates a token, which stores the server configura
 ### Export
 
 |                   |                                |
-| ----------------- | ------------------------------ |
+|-------------------|--------------------------------|
 | Command name      | config export                  |
 | Abbreviation      | c ex                           |
 | Command arguments |                                |
@@ -128,7 +128,7 @@ The _config export_ command generates a token, which stores the server configura
 ### Import
 
 |                   |                     |
-| ----------------- | ------------------- |
+|-------------------|---------------------|
 | Command name      | config import       |
 | Abbreviation      | c im                |
 | Command arguments |                     |
