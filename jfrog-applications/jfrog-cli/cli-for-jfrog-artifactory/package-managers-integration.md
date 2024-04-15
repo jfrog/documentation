@@ -88,7 +88,7 @@ Before using the **gradle** command, the project needs to be pre-configured with
 | --deploy-ivy-desc       | <p>[Default: true]<br>Set to false if you do not wish to deploy Ivy descriptors.</p>                                                                                               |
 | --ivy-desc-pattern      | <p>[Default: '[organization]/[module]/ivy-[revision].xml'<br><br>Set the deployed Ivy descriptor pattern.</p>                                                                      |
 | --ivy-artifacts-pattern | <p>[Default: '[organization]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]'<br><br>Set the deployed Ivy artifacts pattern.</p>                                    |
-| --scan                  | <p>[Optional]<br>Set if you'd like all files to be scanned by Xray on the local file system prior to the upload, and skip the upload if any of the files are found vulnerable.</p> |
+| --scan                  | <p>[Default: false]<br>Set if you'd like all files to be scanned by Xray on the local file system prior to the upload, and skip the upload if any of the files are found vulnerable.</p> |
 | --format                | <p>[Default: table]<br>Should be used with the --scan option. Defines the scan output format. Accepts table or json as values.</p>                                                 |
 | Command arguments       | The command accepts no arguments                                                                                                                                                   |
 
@@ -480,7 +480,7 @@ The following table lists the command arguments and flags:
 | --project          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | --module           | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | --detailed-summary | <p>[Default: false]<br>Set true to include a list of the affected files as part of the command output summary.</p>                                                                                                            |
-| --scan             | <p>[Optional]<br>Set if you'd like all files to be scanned by Xray on the local file system prior to the upload, and skip the upload if any of the files are found vulnerable.</p>                                      |
+| --scan             | <p>[Default: false]<br>Set if you'd like all files to be scanned by Xray on the local file system prior to the upload, and skip the upload if any of the files are found vulnerable.</p>                                      |
 | --format           | <p>[Default: table]<br>Should be used with the --scan option. Defines the scan output format. Accepts table or JSON as values.</p>                                                                                      |
 | Command argument   | The command accepts the same arguments and options that the **npm pack** command expects.                                                                                                                               |
 
@@ -625,7 +625,7 @@ The following table lists the command arguments and flags:
 | --build-name      | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
 | --build-number    | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | --project         | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
-| --no-fallback     | <p>[Optional]<br>Set to avoid downloading packages from the VCS, if they are missing in Artifactory.</p>                                                                                                                |
+| --no-fallback     | <p>[Default false]<br>Set to avoid downloading packages from the VCS, if they are missing in Artifactory.</p>                                                                                                                |
 | --module          | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | Command arguments |                                                                                                                                                                                                                         |
 | Go command        | The command accepts the same arguments and options as the go client.                                                                                                                                                    |
