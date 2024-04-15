@@ -91,7 +91,7 @@ brew install jfrog-cli
 #### Install with cUrl
 
 ```
-url -fL https://install-cli.jfrog.io | sh
+curl -fL https://install-cli.jfrog.io | sh
 ```
 
 #### Download with cUrl
