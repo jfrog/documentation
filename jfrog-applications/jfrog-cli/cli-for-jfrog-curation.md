@@ -1,31 +1,33 @@
-# CLI for JFrog Curation
+# JFrog CLI curation-audit command (for JFrog Curation project audit)
 
 ## Overview
 
-JFrog Curation enables you to block malicious or risky open-source packages entering your software supply chain. What can you do with Curation?
+JFrog Curation defends your software supply chain, enabling early blocking of malicious or risky open-source packages before they even enter. Seamlessly identify harmful, vulnerable, or risky packages, ensuring increased security, compliance, and developer productivity.
 
-* Track the open-source packages downloaded by your organization to gain centralized visibility and control.
-* Prevent harmful packages from getting into your software development pipelines.
-* Protect against known and unknown threats, allowing only trusted software packages into your SDLC.
-* Create policies to block packages with known vulnerabilities, malicious code, operational risk, or license compliance issues.
+For more information see: https://jfrog.com/curation/
 
-For more information on JFrog Curation and how to set it up, see the JFrog Curation general documentation at [**Jfrog curation help center**](https://jfrog.com/help/r/jfrog-curation/jfrog-curation-overview).
- 
+"The 'curation-audit' is a JFrog CLI command designed for developers to scan their projects and identify third-party dependencies that violate the restrictions set by the Curation service. This command provides detailed insights into the specific package policies that are being violated, leading to their blockage by the Curation service. Additionally, when feasible, 'curation-audit' may suggest alternative versions of the packages that comply with the Curation policies."
 
-## Supported package managers
+## Supported package managers & build systems
+
+For a full list of the package managers and build systems supported by the curation-audit command and the required Artifactory and Xray versions to use it please see: https://jfrog.com/help/r/jfrog-curation/jfrog-curation-support-matrix
+
+curation-audit command supported package managers and build systems:
 * Npm (npm)
 * Maven (mvn) - Requires xray 3.92 and above, and Artifactory 7.82 and above
+* Pip (pip) - Requires xray 3.92 and above, and Artifactory 7.82 and above
 ***
 
 ### Commands
 
-Audit your Project with JFrog Curation
-
-The **jf curation-audit** command enables developers to scan project dependencies to find packages that were blocked by the JFrog curation service. This command provides developers with more detailed information, such as whether the blocked package is the project’s direct dependency or is a transitive dependency. This information helps developers to resolve blocked packages more efficiently as they will be able to make a more informative decision based on what Policy violation occurred and what exactly needs to be resolved.
-
-For each blocked package the CLI provides the violated Curation Policies. The command builds a deep dependencies graph for the project, and requests the Curation status by a HEAD request for each node in the tree. It uses the package manager that is used in the project to build the dependencies graph.
+Audit your Project with JFrog CLI curation-audit command
 
 ### Setup:
+
+Prerequisites:
+
+Make sure your JFrog Artifactory admin configured the curated remote repository you are using during your build process. For more information refer your Artifactory admin to:
+https://jfrog.com/help/r/jfrog-curation/configure-curation-pass-through
 
 1. **Connect JFrog CLI to JFrog Platform**
 
@@ -35,29 +37,28 @@ For each blocked package the CLI provides the violated Curation Policies. The co
     jf c add
     ```
 
-    - When prompted for the access token, use the token generated from Artifactory. For more details, refer to the [JFrog CLI documentation](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration#adding-and-editing-configured-servers).
+   - When prompted for the access token, use the token generated from Artifactory. For more details, refer to the [JFrog CLI documentation](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration#adding-and-editing-configured-servers).
 
     ```
     jf c show
     ```
 
-    - It should present Artifactory server just added (with default true)
-      </br></br>
+   - It should present Artifactory server just added (with default true)
+     </br></br>
 2. **Configure JFrog CLI for Project**</br>
-Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Here are details for each package manager:
+   Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Here are details for each package manager:
 
-    - **NPM:**
+   - **NPM:**
 
-      - Set the resolved repository using the [**jf npmc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-npm-repositories).
+      - Set the resolved repository using the [**jf npmc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-npm-repositories) command inside the project directory.
 
-    - **MAVEN:**
+   - **MAVEN:**
 
       - Set the resolved repository using the [**jf mvnc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-maven-repositories) command inside the project directory.
+   
+   - **PIP:**
 
-      - Configure pass-through on the curated repositories.
-<br/></br>
-
-
+       - Set the resolved repository using the [**jf pipc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-python-repository) command inside the project directory (The only package installer supported for now by Python is "pip").
 
 #### Commands Params
 
@@ -69,6 +70,7 @@ Ensure your project is configured in the JFrog CLI with the repository you would
 | --format            | <p>[Default: table]<br><br>Defines the output format of the command. Acceptable values are: table and json.</p>                        |
 | --working-dirs      | <p>[Optional]<br><br>A comma separated list of relative working directories, to determine the audit targets locations.</p>             |
 | --threads           | <p>[Default: 10]<br><br>The number of parallel threads used to determine the curation status for each package in the project tree.</p> |
+| --requirements-file | <p>[Optional] [Pip]<br><br>Defines pip requirements file name. For example: 'requirements.txt'</p>                                                                                                                                                                                                                                                                |
 
 
 #### Example 1
@@ -94,3 +96,4 @@ Audit the project in the current directory using 5 threads to check the packages
 ```
 jf curation-audit --threads=5
 ```
+
