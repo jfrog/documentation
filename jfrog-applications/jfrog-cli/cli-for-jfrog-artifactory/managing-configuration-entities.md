@@ -154,7 +154,7 @@ jf rt group-delete "reviewers"
 
 ## Managing Repositories
 
-JFrog CLI offers a set of commands for managing Artifactory repositories. You can create, update and delete repositories. To make it easier to manage repositories, the commands which create and update the repositories accept a pre-defined configuration template file. This template file can also include variables. which can be later replaced with values, when creating or updating the repositories. The configuration template file is created using the **jf rt repo-template** command.
+JFrog CLI offers a set of commands for managing Artifactory repositories. You can create, update and delete repositories. To make it easier to manage repositories, the commands which create and update the repositories accept a pre-defined configuration template file. This template file can also include variables, which can be later replaced with values, when creating or updating the repositories. The configuration template file is created using the **jf rt repo-template** command.
 
 ### Creating or Configuration Template
 
@@ -259,11 +259,11 @@ jf rt repo-delete generic-local
 
 ## Managing Replications
 
-JFrog CLI offers commands creating and deleting replication jobs in Artifactory. To make it easier to create replication jobs, the commands which creates the replication job accepts a pre-defined configuration template file. This template file can also include variables. which can be later replaced with values, when creating the replication job. The configuration template file is created using the **jf rt replication-template** command.
+JFrog CLI offers commands creating and deleting replication jobs in Artifactory. To make it easier to create replication jobs, the commands which creates the replication job accepts a pre-defined configuration template file. This template file can also include variables, which can be later replaced with values, when creating the replication job. The configuration template file is created using the **jf rt replication-template** command.
 
 ### Creating a Configuration Template
 
-This command creates a configuration template file, which should be used as an argument for the **jf rt replication-create** command.
+This command creates a configuration template file, which will be used as an argument for the **jf rt replication-create** command.
 
 When using this command to create the template, you can also provide replaceable variable, instead of fixes values. Then, when the template is used to create replication jobs, values can be provided to replace the variables in the template.
 
@@ -378,7 +378,7 @@ These commands create/update a permission target. The commands accept as an argu
 | Command-name      | permission-target-create / permission-target-update                                                                                                                                                        |
 | Abbreviation      | rt ptc / rt ptu                                                                                                                                                                                            |
 | Command arguments |                                                                                                                                                                                                            |
-| template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template can be created using the "jf rt ptt" command.                             |
+| template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template should be created using the "jf rt ptt" command.                          |
 | Command-name      | permission-target-create / permission-target-update                                                                                                                                                        |
 | Abbreviation      | rt ptc / rt ptu                                                                                                                                                                                            |
 | Command options   |                                                                                                                                                                                                            |
