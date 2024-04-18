@@ -10,7 +10,6 @@
   * [Usage](jfrog-cli/get-started/download-and-install/usage.md)
   * [Configurations](jfrog-cli/get-started/configurations/README.md)
     * [JFrog Platform Configuration](jfrog-cli/get-started/configurations/jfrog-platform-configuration.md)
-    * [Setting up a CI Pipeline](jfrog-cli/get-started/configurations/setting-up-a-ci-pipeline.md)
     * [Proxy Support](jfrog-cli/get-started/configurations/proxy-support.md)
   * [CLI for JFrog Artifactory](jfrog-cli/cli-for-jfrog-artifactory/README.md)
     * [Environment Variables](jfrog-cli/cli-for-jfrog-artifactory/environment-variables.md)
