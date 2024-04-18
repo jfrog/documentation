@@ -9,7 +9,7 @@ JFrog Curation enables you to block malicious or risky open-source packages ente
 * Protect against known and unknown threats, allowing only trusted software packages into your SDLC.
 * Create policies to block packages with known vulnerabilities, malicious code, operational risk, or license compliance issues.
 
-For more information on JFrog Curation and how to set it up, see the JFrog Curation general documentation at https://jfrog.com/help.
+For more information on JFrog Curation and how to set it up, see the [JFrog Curation](https://jfrog.com/help/r/jfrog-curation/jfrog-curation-overview) general documentation.
 
 JFrog Curation requires [Xray version 3.78.9](https://jfrog.com/help/r/jfrog-release-information/xray-3.78.9) and above, and [Artifactory version 7.63.5](https://jfrog.com/help/r/jfrog-release-information/artifactory-7.63) and above. It also requires Enterprise X and Enterprise + subscriptions.
 
@@ -31,7 +31,7 @@ Before running the command, do the following:
 
 1. Connect the JFrog CLI to your JFrog Platform instance by running the **jf c add** command.
 2. Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Set the repository with the **jf npmc** command inside the project directory.\
-   \
+   \\
 
 #### Commands Params
 

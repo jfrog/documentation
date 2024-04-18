@@ -355,11 +355,11 @@ jf rt rpldel my-repo-name
 
 ## Managing Permission Targets
 
-JFrog CLI offers commands creating, updating and deleting permission targets in Artifactory. To make it easier to create and update permission targets, the commands which create and update the permission targets accept a pre-defined configuration template file. This template file can also include variables. which can be later replaced with values, when creating or updating the permission target. The configuration template file is created using the **jf rt permission-target-template** command.
+JFrog CLI offers commands creating, updating and deleting permission targets in Artifactory. To make it easier to create and update permission targets, the commands which create and update the permission targets accept a pre-defined configuration template file. This template file can also include variables, which can be later replaced with values, when creating or updating the permission target. The configuration template file is created using the **jf rt permission-target-template** command.
 
 ### Creating a Configuration Template
 
-This command creates a configuration template file, which should be used as an argument for the **jf rt permission-target-create** and **jf rt permission-target-update** commands.
+This command creates a configuration template file, which will be used as an argument for the **jf rt permission-target-create** and **jf rt permission-target-update** commands.
 
 |                   |                                                                                                               |
 |-------------------|---------------------------------------------------------------------------------------------------------------|
@@ -371,7 +371,7 @@ This command creates a configuration template file, which should be used as an a
 
 ### Creating / Updating Permission Targets
 
-This command creates a new permission target. The command accepts as an argument a configuration template, which can be created by the **jf rt permission-target-template** command. The template also supports variables, which can be replaced with values, provided when it is used.
+These commands create/update a permission target. The commands accept as an argument a configuration template, which should be created by the **jf rt permission-target-template** command beforehand. The template also supports variables, which can be replaced with values, provided when it is used. 
 
 |                   |                                                                                                                                                                                        |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -382,6 +382,15 @@ This command creates a new permission target. The command accepts as an argument
 | --vars            | <p>[Optional]<br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
 | Command arguments |                                                                                                                                                                                        |
 | template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template can be created using the "jf rt ptt" command.         |
+|                   |                                                                                                                                                                                        |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name      | permission-target-create / permission-target-update                                                                                                                                    |
+| Abbreviation      | rt ptc / rt ptu                                                                                                                                                                        |
+| Command options   |                                                                                                                                                                                        |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                        |
+| --vars            | <p>[Optional]<br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
+| Command arguments |                                                                                                                                                                                        |
+| template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template should be created using the "jf rt ptt" command.      |
 
 ### Deleting Permission Targets
 

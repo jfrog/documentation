@@ -330,3 +330,59 @@ Delete the distributions of release bundle named myApp with version 1.0.0 from e
 Delete the distributions of the release bundle associated with project "proj" from the provided edge nodes. Run the command synchronously and skip the confirmation message.
 
 	jf rbd --dist-rules=/path/to/dist-rules.json --project="proj" --quiet --sync myApp 1.0.0
+
+## Exporting Release Bundle archive
+JFrog Lifecycle Management supports distributing your Release Bundles to remote Edge nodes within an air-gapped environment. This use case is mainly intended for organizations that have two or more JFrog instances that have no network connection between them.
+
+The following command allows exporting a Release Bundle as an archive to the filesystem that can be transferred to a different instance in an air-gapped environment.
+
+
+|                        |                                                                                                                                                |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | release-bundle-export                                                                                                                          |
+| Abbreviation           | rbe                                                                                                                                            |
+| Command arguments      |                                                                                                                                                |
+| release bundle name    | Name of the Release Bundle to export.                                                                                                       |
+| release bundle version | Version of the release bundle to export.                                                                                                   
+| target pattern         | The argument is optional and specifies the local file system target path.If the target path ends with a slash, the path is assumed to be a directory.For example, if you specify the target as "repo-name/a/b/", then "b" is assumed to be a directory into which files should be downloaded.If there is no terminal slash, the target path is assumed to be a file to which the downloaded file should be renamed.For example, if you specify the target as "a/b", the downloaded file is renamed to "b".                                                                                                     
+| Command options        |                                                                                                                                                |
+| --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p>                                                               |
+| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p>                                                               |
+| mapping-pattern        | <p>[Optional]<br><br> Specify a list of input regex mapping pairs that define where the queried artifact is located and where it should be placed after it is imported. Use this option if the path on the target is different than the source path.                                                                                                  
+| mapping-target         | <p>[Optional]<br><br> Specify a list of output regex mapping pairs that define where the queried artifact is located and where it should be placed after it is imported. Use this option if the path on the target is different than the source path. 
+| split-count            | <p>[Optional]<br><br> The maximum number of parts that can be concurrently uploaded per file during a multi-part upload. Set to 0 to disable multi-part upload.
+| min-split              | <p>[Optional]<br><br> Minimum file size in KB to split into ranges when downloading. Set to -1 for no splits 
+
+
+#### Example
+Export release bundle named "myApp" and version 1.0.0
+
+	jf rbe myApp 1.0.0
+
+#### Example
+Download to a specific location
+
+	jf rbe myApp 1.0.0 /user/mybundle/
+
+
+## Importing Release Bundle archive
+Import a Release Bundle archive from a release bundle exported zip file.
+
+Please note this functionality only works on Edge nodes within an air-gapped environment.
+
+|                        |                                                                                  |
+|------------------------|----------------------------------------------------------------------------------|
+| Command-name           | release-bundle-import                                                            |
+| Abbreviation           | rbi                                                                              |
+| Command arguments      |                                                                                  |
+| path to archive        | Path to the release bundle archive on the filesystem                             | 
+| Command options        |                                                                                  |
+| --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p> |
+| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p> |
+
+#### Example
+Import a Release Bundle named "myExportedApp" and version 1.0.0
+
+	jf rbi ./myExportedApp.zip
+
+
