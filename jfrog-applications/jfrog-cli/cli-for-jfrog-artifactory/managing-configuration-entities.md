@@ -381,6 +381,15 @@ These commands create/update a permission target. The commands accept as an argu
 | --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                        |
 | --vars            | <p>[Optional]<br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
 | Command arguments |                                                                                                                                                                                        |
+| template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template can be created using the "jf rt ptt" command.         |
+|                   |                                                                                                                                                                                        |
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name      | permission-target-create / permission-target-update                                                                                                                                    |
+| Abbreviation      | rt ptc / rt ptu                                                                                                                                                                        |
+| Command options   |                                                                                                                                                                                        |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                        |
+| --vars            | <p>[Optional]<br>List of variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
+| Command arguments |                                                                                                                                                                                        |
 | template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template should be created using the "jf rt ptt" command.      |
 
 ### Deleting Permission Targets

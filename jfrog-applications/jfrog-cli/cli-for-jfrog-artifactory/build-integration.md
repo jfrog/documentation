@@ -38,6 +38,10 @@ This command is used to collect environment variables and attach them to a build
 
 Environment variables are collected using the `build-collect-env` (`bce`) command.
 
+#### Usage
+
+```jf rt bce <build name> <build number>```
+
 #### Commands Params
 
 The following table lists the command arguments and flags:
@@ -46,11 +50,11 @@ The following table lists the command arguments and flags:
 |-------------------|-----------------------------------------|
 | Command name      | rt build-collect-env                    |
 | Abbreviation      | rt bce                                  |
-| Command options   |                                         |
-| --project         | <p>[Optional]<br>JFrog project key.</p> |
 | Command arguments | The command accepts two arguments.      |
 | Build name        | Build name.                             |
 | Build number      | Build number.                           |
+| Command options   |                                         |
+| --project         | <p>[Optional]<br>JFrog project key.</p> |
 
 #### Examples
 ##### Example 1
@@ -73,6 +77,10 @@ jf rt bce frogger-build 17
 
 The `build-add-git` (bag) command collects the Git revision and URL from the local .git directory and adds it to the build-info. It can also collect the list of tracked project issues (for example, issues stored in JIRA or other bug tracking systems) and add them to the build-info. The issues are collected by reading the git commit messages from the local git log. Each commit message is matched against a pre-configured regular expression, which retrieves the issue ID and issue summary. The information required for collecting the issues is retrieved from a yaml configuration file provided to the command.
 
+#### Usage
+
+```jf rt bag [command options] <build name> <build number> [Path To .git]```
+
 #### Commands Params
 
 The following table lists the command arguments and flags:
@@ -81,14 +89,14 @@ The following table lists the command arguments and flags:
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command name      | rt build-add-git                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Abbreviation      | rt bag                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Command options   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --config          | <p>[Optional]<br>Path to a yaml configuration file, used for collecting tracked project issues and adding them to the build-info.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --server-id       | <p>[Optional]<br>Server ID configured using the <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration">'jf config' command</a>. This is the server to which the build-info will be later published, using the <code>jf rt build-publish</code> command. This option, if provided, overrides the serverID value in this command's yaml configuration. If both values are not provided, the default server, configured by the <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration">'jf config' command</a>, is used.</p> |
-| --project         | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Command arguments | The command accepts three arguments.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Build name        | Build name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Build number      | Build number.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | .git path         | Optional - Path to a directory containing the .git directory. If not specific, the .git directory is assumed to be in the current directory or in one of the parent directories.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Command options   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --config          | <p>[Optional]<br>Path to a yaml configuration file, used for collecting tracked project issues and adding them to the build-info.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --server-id       | <p>[Optional]<br>Server ID configured using the <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration">'jf config' command</a>. This is the server to which the build-info will be later published, using the <code>jf rt build-publish</code> command. This option, if provided, overrides the serverID value in this command's yaml configuration. If both values are not provided, the default server, configured by the <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration">'jf config' command</a>, is used.</p> |
+| --project         | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 #### Configuration file properties
 
@@ -136,12 +144,21 @@ The download command, as well as other commands which download dependencies from
 
 By default, the command collects the files from the local file system. If you'd like the files to be collected from Artifactory however, add the **--from-rt** option to the command.
 
+#### Usage
+
+```jf rt bad [command options] <build name> <build number> <pattern>```
+```jf rt bad --spec=<File Spec path> [command options] <build name> <build number>```
+
 #### Commands Params
 
 |                   |                                                                                                                                                                                                                                                                                                                                                                     |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command name      | rt build-add-dependencies                                                                                                                                                                                                                                                                                                                                           |
 | Abbreviation      | rt bad                                                                                                                                                                                                                                                                                                                                                              |
+| Command arguments | The command takes three arguments.                                                                                                                                                                                                                                                                                                                                  |
+| Build name        | The build name to add the dependencies to                                                                                                                                                                                                                                                                                                                           |
+| Build number      | The build number to add the dependencies to                                                                                                                                                                                                                                                                                                                         |
+| Pattern           | Specifies the local file system path to dependencies which should be added to the build info. You can specify multiple dependencies by using wildcards or a regular expression as designated by the --regexp command option. If you have specified that you are using regular expressions, then the first one used in the argument must be enclosed in parenthesis. |
 | Command options   | <p>When using the * or ; characters in the command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                                              |
 | --from-rt         | <p>[Default: false]<br>Set to true to search the files in Artifactory, rather than on the local file system. The --regexp option is not supported when --from-rt is set to true.</p>                                                                                                                                                                                |
 | --server-id       | <p>[Optional]<br>Server ID configured using the config command.</p>                                                                                                                                                                                                                                                                                                 |
@@ -152,10 +169,6 @@ By default, the command collects the files from the local file system. If you'd 
 | --dry-run         | <p>[Default: false]<br>Set to true to only get a summery of the dependencies that will be added to the build info.</p>                                                                                                                                                                                                                                              |
 | --module          | <p>[Optional]<br>Optional module name in the build-info for adding the dependency.</p>                                                                                                                                                                                                                                                                              |
 | --exclusions      | A list of Semicolon-separated exclude patterns. Allows using wildcards or a regular expression according to the value of the 'regexp' option.                                                                                                                                                                                                                       |
-| Command arguments | The command takes three arguments.                                                                                                                                                                                                                                                                                                                                  |
-| Build name        | The build name to add the dependencies to                                                                                                                                                                                                                                                                                                                           |
-| Build number      | The build number to add the dependencies to                                                                                                                                                                                                                                                                                                                         |
-| Pattern           | Specifies the local file system path to dependencies which should be added to the build info. You can specify multiple dependencies by using wildcards or a regular expression as designated by the --regexp command option. If you have specified that you are using regular expressions, then the first one used in the argument must be enclosed in parenthesis. |
 
 #### Examples
 ##### Example 1
@@ -187,9 +200,10 @@ jf rt bad my-build-name 7 "path/to/build/dependencies/dir/" --module m1
 This command is used to publish build info to Artifactory. To publish the accumulated build-info for a build to Artifactory, use the **build-publish** command. 
 For example, the following command publishes all the build-info collected for build **my-build-name** with build number 18:
 
-```
-jf rt bp my-build-name 18
-```
+### Usage
+
+```jf rt bp [command options] <build name> <build number>```
+
 
 ### Commands Params
 
@@ -197,6 +211,9 @@ jf rt bp my-build-name 18
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command name      | rt build-publish                                                                                                                                                                 |
 | Abbreviation      | rt bp                                                                                                                                                                            |
+| Command arguments | The command accepts two arguments.                                                                                                                                               |
+| Build name        | Build name to be published.                                                                                                                                                      |
+| Build number      | Build number to be published.                                                                                                                                                    |
 | Command options   |                                                                                                                                                                                  |
 | --server-id       | <p>[Optional]<br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>                                         |
 | --project         | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                          |
@@ -204,10 +221,7 @@ jf rt bp my-build-name 18
 | --env-include     | <p>[Default: *]<br>List of patterns in the form of "value1;value2;..." Only environment variables that match those patterns will be included in the build info.</p>              |
 | --env-exclude     | <p>[Default: *password*;*secret*;*key*]<br>List of case insensitive patterns in the form of "value1;value2;..." environment variables match those patterns will be excluded.</p> |
 | --dry-run         | <p>[Default: false]<br>Set to true to disable communication with Artifactory.</p>                                                                                                |
-| --insecure-tls    | <p>[Default: false]<br>Set to true to skip TLS certificates verification.</p>                                                                                                    |
-| Command arguments | The command accepts two arguments.                                                                                                                                               |
-| Build name        | Build name to be published.                                                                                                                                                      |
-| Build number      | Build number to be published.                                                                                                                                                    |
+| --insecure-tls    | <p>[Default: false]<br>Set to true to skip TLS certificates verification.</p>                                                                                                    | |
 
 ### Example
 
@@ -253,16 +267,23 @@ The way to do this is by using the **build-append** command. Running this comman
 
 Now, when downloading the artifacts of the "master" build, you'll actually be downloading the artifacts of all of its referenced builds. The examples below demonstrates this,
 
+### Usage
+
+```jf rt ba <build name> <build number> <build name to append> <build number to append>```
+
+### Commands Params
+
 |                        |                                                           |
 |------------------------|-----------------------------------------------------------|
 | Command name           | rt build-append                                           |
 | Abbreviation           | rt ba                                                     |
-| Command options        | This command has no options.                              |
 | Command arguments      | The command accepts four arguments.                       |
 | Build name             | The current (not yet published) build name.               |
 | Build number           | The current (not yet published) build number,             |
 | build name to append   | The published build name to append to the current build   |
 | build number to append | The published build number to append to the current build |
+| Command options        | This command has no options.                              |
+
 
 **Requirements**
 
@@ -296,12 +317,20 @@ jf rt download --build aggregating-build/10
 
 This command is used to [promote build](https://jfrog.com/knowledge-base/how-does-build-promotion-work/) in Artifactory.
 
+### Usage
+
+```jf rt bpr [command options] <build name> <build number> <target repository>```
+
 ### Commands Params
 
 |                        |                                                                                                                                             |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Command name           | rt build-promote                                                                                                                            |
 | Abbreviation           | rt bpr                                                                                                                                      |
+| Command arguments      | The command accepts three arguments.                                                                                                        |
+| Build name             | Build name to be promoted.                                                                                                                  |
+| Build number           | Build number to be promoted.                                                                                                                |
+| Target repository      | Build promotion target repository.                                                                                                          |
 | Command options        |                                                                                                                                             |
 | --server-id            | <p>[Optional]<br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>    |
 | --project              | <p>[Optional]<br>JFrog project key.</p>                                                                                                     |
@@ -312,11 +341,7 @@ This command is used to [promote build](https://jfrog.com/knowledge-base/how-doe
 | --copy                 | <p>[Default: false]<br>If set true, the build artifacts and dependencies are copied to the target repository, otherwise they are moved.</p> |
 | --props                | <p>[Optional]<br>List of properties in the form of "key1=value1;key2=value2,...". to attach to the build artifacts.</p>                     |
 | --dry-run              | <p>[Default: false]<br>If true, promotion is only simulated. The build is not promoted.</p>                                                 |
-| --insecure-tls         | <p>[Default: false]<br>Set to true to skip TLS certificates verification.</p>                                                               |
-| Command arguments      | The command accepts three arguments.                                                                                                        |
-| Build name             | Build name to be promoted.                                                                                                                  |
-| Build number           | Build number to be promoted.                                                                                                                |
-| Target repository      | Build promotion target repository.                                                                                                          |
+| --insecure-tls         | <p>[Default: false]<br>Set to true to skip TLS certificates verification.</p>                                                               | |
 
 ### Example
 
@@ -330,6 +355,10 @@ jf rt bpr my-build-name 18 target-repository
 
 Build-info is accumulated by the CLI according to the commands you apply until you publish the build-info to Artifactory. If, for any reason, you wish to "reset" the build-info and cleanup (i.e. delete) any information accumulated so far, you can use the `build-clean` (`bc`) command.
 
+### Usage
+
+```jf rt bc <build name> <build number>```
+
 ### Commands Params
 
 The following table lists the command arguments and flags:
@@ -338,10 +367,10 @@ The following table lists the command arguments and flags:
 |-------------------|------------------------------------|
 | Command name      | rt build-clean                     |
 | Abbreviation      | rt bc                              |
-| Command options   | The command has no options.        |
 | Command arguments | The command accepts two arguments. |
 | Build name        | Build name.                        |
 | Build number      | Build number.                      |
+| Command options   | The command has no options.        |
 
 
 ### Example
@@ -356,6 +385,10 @@ jf rt bc my-build-name 18
 
 This command is used to discard builds previously published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
 
+### Usage
+
+```jf rt bdi [command options] <build name>```
+
 ### Commands Params
 
 The following table lists the command arguments and flags:
@@ -364,6 +397,8 @@ The following table lists the command arguments and flags:
 |--------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Command name       | rt build-discard                                                                                                                         |
 | Abbreviation       | rt bdi                                                                                                                                   |
+| Command arguments  | The command accepts one argument.                                                                                                        |
+| Build name         | Build name.                                                                                                                              |
 | Command options    |                                                                                                                                          |
 | --server-id        | <p>[Optional]<br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p> |
 | --max-days         | <p>[Optional]<br>The maximum number of days to keep builds in Artifactory.</p>                                                           |
@@ -371,9 +406,7 @@ The following table lists the command arguments and flags:
 | --exclude-builds   | <p>[Optional]<br>List of build numbers in the form of "value1,value2,...", that should not be removed from Artifactory.</p>              |
 | --delete-artifacts | <p>[Default: false]<br>If set to true, automatically removes build artifacts stored in Artifactory.</p>                                  |
 | --async            | <p>[Default: false]<br>If set to true, build discard will run asynchronously and will not wait for response.</p>                         |
-| Command arguments  | The command accepts one argument.                                                                                                        |
-| Build name         | Build name.                                                                                                                              |
-
+                                                                                                                     |
 ### Examples
 #### Example 1
 

@@ -1,4 +1,4 @@
-# View Security Alerts on Github
+# View Security Alerts on GitHub
 
 For GitHub repositories, issues that are found during Frogbot's periodic scans are also added to the [Security Alerts](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository) view in the UI.
 

@@ -36,7 +36,7 @@ Before running the command, do the following:
 #### Commands Params
 
 |                     |                                                                                                                                    |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | **Command name**    | curation-audit                                                                                                                     |
 | **Abbreviation**    | ca                                                                                                                                 |
 | **Command options** |                                                                                                                                    |
@@ -44,9 +44,10 @@ Before running the command, do the following:
 | --working-dirs      | <p>[Optional]<br>A comma separated list of relative working directories, to determine the audit targets locations.</p>             |
 | --threads           | <p>[Default: 10]<br>The number of parallel threads used to determine the curation status for each package in the project tree.</p> |
 
+
 #### Example 1
 
-Audit the project in the current directory. Displays all known packages that were blocked by Curation Policies.
+Curation-Audit the project in the current directory. Displays all known packages that were blocked by Curation Policies.
 
 ```
 jf curation-audit
@@ -54,7 +55,7 @@ jf curation-audit
 
 #### Example 2
 
-Audit the projects according to the specific paths defined in the "working-dirs" option. Displays all known packages that were blocked by Curation Policies for all projects. The data is displayed in separate tables.
+Curation-Audit the projects according to the specific paths defined in the "working-dirs" option. Displays all known packages that were blocked by Curation Policies for all projects. The data is displayed in separate tables.
 
 ```
 jf curation-audit --working-dirs="/path/to/project/npm_project1,/path/to/project/npm_project2"
@@ -62,7 +63,7 @@ jf curation-audit --working-dirs="/path/to/project/npm_project1,/path/to/project
 
 #### Example 3
 
-Audit the project in the current directory using 5 threads to check the packages Curation status in parallel. Displays all known packages blocked by Curation Policies.
+Curation-Audit the project in the current directory using 5 threads to check the packages Curation status in parallel. Displays all known packages blocked by Curation Policies.
 
 ```
 jf curation-audit --threads=5
