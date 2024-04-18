@@ -470,7 +470,7 @@ This command is used for setting properties on existing files in Artifactory.
 | Abbreviation      | rt sp                                                                                                                                                                                                                                                                                                                                                                                |
 | Command arguments | <p>The command takes two arguments, files pattern and files properties.<br><br>In case the --spec option is used, the commands accept no arguments.</p>                                                                                                                                                                                                                              |
 | Files pattern     | Files that match the pattern will be set with the specified properties.                                                                                                                                                                                                                                                                                                              |
-| Files properties  | The list of properties, in the form of key1=value1;key2=value2,..., to be set on the matching artifacts.                                                                                                                                                                                                                                                                             |
+| Files properties  | A list of Semicolon-separated key-values in the form of key1=value1;key2=value2,..., to be set on the matching files.                                                                                                                                                                                                                                                                |
 | Command options   | <p>When using the * or ; characters in the command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                                                               |
 | --server-id       | <p>[Optional]<br>Server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>                                                                                                                                                                                                                                             |
 | --spec            | <p>[Optional]<br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/using-file-specs">Using File Specs</a>.</p>                                                                                                                                                         |
@@ -510,13 +510,37 @@ The command will set the property "a" with "1" value and the property "b" with t
 jf rt sp "a=1;b=2,3" --spec my-spec
 ```
 
+#### Example 3
+
+Set the properties on all the jar files in the maven-local repository. The command will set the property "version" with "1.0.0" value and the property "release" with "stable" value.
+
+```
+jf rt sp "maven-local/*.jar" "version=1.0.0;release=stable"
+```
+
+#### Example 4
+
+The command will set the property "environment" with "production" value and the property "team" with "devops" value on all files found by the File Spec prod-spec.
+
+```
+jf rt sp "environment=production;team=devops" --spec prod-spec
+```
+
+#### Example 5
+
+Set the properties on all the tar.gz files in the devops-local repository. The command will set the property "build" with "102" value and the property "branch" with "main" value.
+
+```
+jf rt sp "devops-local/*.tar.gz" "build=102;branch=main"
+```
+
 ## Deleting Properties from Files
 
 This command is used for deleting properties from existing files in Artifactory.
 
 ### Usage
 
-```jf rt delp [command options] <Files pattern> <Files properties>```
+```jf rt delp [command options] <Files pattern> <Properties list>```
 ```jf rt delp <artifact properties> --spec=<File Spec path> [command options]```
 
 ### Commands Params
@@ -526,8 +550,8 @@ This command is used for deleting properties from existing files in Artifactory.
 | Command name      | rt delete-props                                                                                                                                                                                                                                                                                                                                                                      |
 | Abbreviation      | rt delp                                                                                                                                                                                                                                                                                                                                                                              |
 | Command arguments | <p>The command takes two arguments, files pattern and files properties.<br><br>In case the --spec option is used, the commands accept no arguments.</p>                                                                                                                                                                                                                              |
-| Files pattern     | The properties will be deleted from files that match the pattern.                                                                                                                                                                                                                                                                                                                    |
-| Files properties  | The list of properties, in the form of key1,key2,..., to be deleted from the matching artifacts.                                                                                                                                                                                                                                                                                     |
+| Files pattern     | Specifies the files pattern in the following format: `[repository name]/[repository path].` You can use wildcards to specify multiple repositories and files.                                                                                                                                                                                                                        |
+| Properties list   | A comma-separated list of properties, in the form of key1,key2,..., to be deleted from the matching files.                                                                                                                                                                                                                                                                           |
 | Command options   | <p>When using the * or ; characters in the command options or arguments, make sure to wrap the whole options or arguments string in quotes (") to make sure the * or ; characters are not interpreted as literals.</p>                                                                                                                                                               |
 | --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command. If not specified, the default configured Artifactory server is used.</p>                                                                                                                                                                                                                                 |
 | --props           | <p>[Optional]<br>List of properties in the form of "key1=value1;key2=value2,...". Only files with these properties are affected.</p>                                                                                                                                                                                                                                                 |
@@ -547,10 +571,45 @@ This command is used for deleting properties from existing files in Artifactory.
 | --retries         | <p>[Default: 3]<br>Number of HTTP retry attempts.</p>                                                                                                                                                                                                                                                                                                                                |
 | --retry-wait-time | <p>[Default: 0s]<br>Number of seconds or milliseconds to wait between retries. The numeric value should either end with s for seconds or ms for milliseconds.retry-wait-time</p>                                                                                                                                                                                                     |
 
-### Example
 
-Delete the "status" and "phase" properties from all the zip files in the generic-local repository.
+### Examples
+
+#### Example 1
+
+Remove the properties 'version' and 'release' from all the jar files in the maven-local repository.
 
 ```
-jf rt delp "generic-local/*.zip" "status,phase"
+jf rt delp "maven-local/*.jar" "version,release"
+```
+
+#### Example 2
+
+Delete the properties 'build' and 'branch' from all tar.gz files in the devops-local repo.
+
+```
+jf rt delp "devops-local/*.tar.gz" "build,branch"
+```
+
+#### Example 3
+
+Remove the properties 'status', 'phase' and 'stage' from all deb files that start with DEV in the debian-repository.
+
+```
+jf rt delp "debian-repository/DEV*.deb" "status,phase,stage"
+```
+
+#### Example 4
+
+Delete the 'environment' property from '/tests/local/block.rpm' in the centos-repo.
+
+```
+jf rt delp "centos-repo/tests/local/block.rpm" "environment"
+```
+
+#### Example 5
+
+Remove the properties 'component', 'layer' and 'level' from files in the docker-hub repository.
+
+```
+jf rt delp "docker-hub/*" "component,layer,level"
 ```

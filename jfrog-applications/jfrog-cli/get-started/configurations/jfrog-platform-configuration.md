@@ -91,6 +91,7 @@ The _config remove_ command is used to remove JFrog Platform server configuratio
 | Command arguments |                                                                                      |
 | server ID         | The server ID to remove. If no argument is sent, all configured servers are removed. |
 
+
 ## Showing the Configured Servers
 
 The _config show_ command shows the stored configuration. You may show a specific server's configuration by sending its ID as an argument to the command.
