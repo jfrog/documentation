@@ -266,7 +266,7 @@ jf rt cp "source-frog-repo/rabbit/*" target-frog-repo/rabbit/ --props=Version=1.
 
 #### Example 4
 
-Copy all artifacts located under /rabbit in the **source-frog-repo** repository to an absulote path.
+Copy all artifacts located under /rabbit in the **source-frog-repo** repository into the same path in the target-frog-repo repository without maintaining the original subdirectory hierarchy.
 ```
 jf rt cp "source-frog-repo/rabbit/*" target-frog-repo/rabbit/ --flat
 ```
@@ -338,10 +338,9 @@ jf rt mv "source-frog-repo/rabbit/*" target-frog-repo/rabbit/ --props=Version=1.
 
 #### Example 4
 
-Move all artifacts located under /rabbit in the **source-frog-repo** repository to an absulote path.
-
+Move all artifacts located under /rabbit in the **source-frog-repo** repository into the same path in the target-frog-repo repository without maintaining the original subdirectory hierarchy.
 ```
-jf rt cp "source-frog-repo/rabbit/*" target-frog-repo/rabbit/ --flat
+jf rt mv "source-frog-repo/rabbit/*" target-frog-repo/rabbit/ --flat
 ```
 
 ## Deleting Files
