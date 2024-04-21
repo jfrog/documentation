@@ -1,4 +1,4 @@
-# JFrog CLI curation-audit command (for JFrog Curation project audit)
+# CLI for JFrog Curation
 
 ## Overview
 
@@ -37,7 +37,7 @@ https://jfrog.com/help/r/jfrog-curation/configure-curation-pass-through
     jf c add
     ```
 
-   - When prompted for the access token, use the token generated from Artifactory. For more details, refer to the [JFrog CLI documentation](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration#adding-and-editing-configured-servers).
+   - When prompted for the access token, use the token generated from Artifactory. For more details, refer to the [adding and editing configured servers documentation](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration#adding-and-editing-configured-servers).
 
     ```
     jf c show
