@@ -10,7 +10,7 @@ For more information see: https://jfrog.com/curation/
 
 ## Supported package managers & build systems
 
-For a full list of the package managers and build systems supported by the curation-audit command and the required Artifactory and Xray versions to use it please see: https://jfrog.com/help/r/jfrog-curation/jfrog-curation-support-matrix
+For a full list of the package managers and build systems supported by the curation-audit command and the required Artifactory and Xray versions to use it please see: https://jfrog.com/help/r/jfrog-curation/curation-support-matrix
 
 curation-audit command supported package managers and build systems:
 * Npm (npm)
