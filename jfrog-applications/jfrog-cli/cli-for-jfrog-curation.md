@@ -41,7 +41,7 @@ Before running the command, do the following:
 | **Abbreviation**    | ca                                                                                                                                 |
 | **Command options** |                                                                                                                                    |
 | --format            | <p>[Default: table]<br>Defines the output format of the command. Acceptable values are: table and json.</p>                        |
-| --working-dirs      | <p>[Optional]<br>A comma separated list of relative working directories, to determine the audit targets locations.</p>             |
+| --working-dirs      | <p>[Optional]<br>A comma-separated(,) list of relative working directories, to determine the audit targets locations.</p>             |
 | --threads           | <p>[Default: 10]<br>The number of parallel threads used to determine the curation status for each package in the project tree.</p> |
 
 

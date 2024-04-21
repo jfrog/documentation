@@ -95,9 +95,9 @@ To set up the source instance, you must install the data-transfer user plugin in
 1. Install JFrog CLI on the primary node machine of the source instance as described [here](#installing-jfrog-cli-on-the-source-instance-machine).
 2. Configure the connection details of the source Artifactory instance with your admin credentials by running the following command from the terminal.
 
-```sh
-jf c add source-server
-```
+    ```sh
+    jf c add source-server
+    ```
 
 3. Ensure that the **JFROG\_HOME** environment variable is set and holds the value of the JFrog installation directory. It usually points to the **/opt/jfrog** directory. In case the variable isn't set, set its value to point to the correct directory as described in the JFrog Product Directory Structure article.System Directories
 
@@ -132,21 +132,21 @@ jf rt transfer-plugin-install source-server --dir "<plugin files dir>"
 1. Install JFrog CLI on the source instance machine as described [here](#installing-jfrog-cli-on-the-source-instance-machine).
 2. Configure the connection details of the source Artifactory instance with your admin credentials by running the following command from the terminal.
 
-```sh
-jf c add source-server
-```
+    ```sh
+    jf c add source-server
+    ```
 
 3. Configure the connection details of the target Artifactory server with your admin credentials by running the following command from the terminal.
 
-```sh
-jf c add target-server
-```
+    ```sh
+    jf c add target-server
+    ```
 
 4. Run the following command to verify that the target URLs of all the remote repositories are accessible from the target.
 
-```sh
-jf rt transfer-config source-server target-server --prechecks
-```
+    ```sh
+    jf rt transfer-config source-server target-server --prechecks
+    ```
 
 If the command output shows that a target URL isn't accessible for any of the repositories, you'll need to make the URL accessible before proceeding to transfer the config. You can then rerun the command to ensure that the URLs are accessible.
 
@@ -160,9 +160,9 @@ If the command output shows that a target URL isn't accessible for any of the re
 
 5. Transfer the configuration from the source to the target by running the following command.
 
-```sh
-jf rt transfer-config source-server target-server
-```
+    ```sh
+    jf rt transfer-config source-server target-server
+    ```
 
 This command might take up to two minutes to run.
 
@@ -175,12 +175,12 @@ This command might take up to two minutes to run.
 
 6. View the command output in the terminal to verify that there are no errors. The command output is divided into the following four phases:
 
-```
-========== Phase 1/4 - Preparations ==========
-========== Phase 2/4 - Export configuration from the source Artifactory ==========
-========== Phase 3/4 - Download and modify configuration ==========
-========== Phase 4/4 - Import configuration to the target Artifactory ==========
-```
+    ```
+    ========== Phase 1/4 - Preparations ==========
+    ========== Phase 2/4 - Export configuration from the source Artifactory ==========
+    ========== Phase 3/4 - Download and modify configuration ==========
+    ========== Phase 4/4 - Import configuration to the target Artifactory ==========
+   ```
 
 7. View the log to verify there are no errors.\
 ![](../.gitbook/assets/transfer-3.png)
@@ -202,9 +202,9 @@ Disabling the configuration transfer might take some time.
 1. Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](#installing-jfrog-cli-on-a-machine-with-network-access-to-the-source-and-target-machines).
 2. Run the following command to start pushing the files from all the repositories in the source instance to the target instance.
 
-```sh
-jf rt transfer-files source-server target-server
-```
+    ```sh
+    jf rt transfer-files source-server target-server
+    ```
 
 This command may take a few days to push all the files, depending on your system size and your network speed. While the command is running, It displays the transfer progress visually inside the terminal. \
 ![](../.gitbook/assets/transfer-4.png)
@@ -428,27 +428,27 @@ By default, files that are larger than 25 GB will be blocked by the JFrog Cloud 
 
 1. Run the following curl command from your terminal, after replacing the `<source instance URL>`, `<username>` and `<password>` tokens with your source instance details. The command execution may take a few minutes, depending on the number of files hosted by Artifactory.
 
-```sh
-curl -X POST <source instance URL>/artifactory/api/search/aql -H "Content-Type: text/plain" -d 'items.find({"name" : {"$match":"\*"}}).include("size").sort({"$desc" : \["size"\]}).limit(1)' -u <username>:<password>
-```
+    ```sh
+    curl -X POST <source instance URL>/artifactory/api/search/aql -H "Content-Type: text/plain" -d 'items.find({"name" : {"$match":"\*"}}).include("size").sort({"$desc" : \["size"\]}).limit(1)' -u <username>:<password>
+    ```
 
 2. You should get a result that looks like the following.
-```json
- {
-   "results":[
-       {
-         "size":132359021
+    ```json
+     {
+       "results":[
+           {
+             "size":132359021
+           }
+       ],
+       "range":{
+           "start_pos":0,
+           "end_pos":1,
+           "total":1,
+           "limit":1
        }
-   ],
-   "range":{
-       "start_pos":0,
-       "end_pos":1,
-       "total":1,
-       "limit":1
-   }
- }
-```
-The value of **size** represents the largest file size hosted by your source Artifactory instance.
+     }
+    ```
+    The value of **size** represents the largest file size hosted by your source Artifactory instance.
 
 3. If the size value you received is larger than 25000000000, please avoid initiating the files transfer before contacting JFrog Support, to check whether this size limit can be increased for you. You can contact Support by sending an email to [support@jfrog.com](mailto:support@jfrog.com)
 

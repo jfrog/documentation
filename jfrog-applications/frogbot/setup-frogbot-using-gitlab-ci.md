@@ -178,7 +178,7 @@ frogbot-scan:
     # JF_GIT_EMAIL_AUTHOR: ""
     
     # [Optional]
-    # List of comma separated email addresses to receive email notifications about secrets
+    # List of comma-separated(,) email addresses to receive email notifications about secrets
     # detected during pull request scanning. The notification is also sent to the email set
     # in the committer git profile regardless of whether this variable is set or not.
     # JF_EMAIL_RECEIVERS: ""
