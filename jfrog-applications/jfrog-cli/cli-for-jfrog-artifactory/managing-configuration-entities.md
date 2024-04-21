@@ -27,7 +27,7 @@ The CSV can include additional columns, with different headers, which will be ig
 | --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                             |
 | --csv             | <p>[Mandatory]<br>Path to a CSV file with the users' details. The first row of the file should include the name,password,email headers.</p> |
 | --replace         | <p>[Optional]<br>Set to true if you'd like existing users or groups to be replaced.</p>                                                     |
-| --users-groups    | <p>[Optional]<br>A list of comma-separated(,) groups for the new users to be associated to.</p>                                                |
+| --users-groups    | <p>[Optional]<br>A list of comma-separated(,) groups for the new users to be associated to.</p>                                             |
 | Command arguments | The command accepts no arguments                                                                                                            |
 
 ### Example
@@ -63,7 +63,7 @@ The CSV can include additional columns, with different headers, which will be ig
 | --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                |
 | --csv             | <p>[Optional]<br>Path to a csv file with the usernames to delete. The first row of the file is the reserved for the cells' headers. It must include the "username" header.</p> |
 | Command arguments |                                                                                                                                                                                |
-| users list        | comma-separated(,) list of usernames to delete. If the --csv command option is used, then this argument becomes optional.                                                         |
+| users list        | comma-separated(,) list of usernames to delete. If the --csv command option is used, then this argument becomes optional.                                                      |
 
 ### Examples
 #### Example 1
@@ -198,15 +198,15 @@ These two commands create a new repository and updates an existing a repository.
 
 #### Commands Params
 
-|                   |                                                                                                                                                                                                            |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | rt repo-create / rt repo-update                                                                                                                                                                            |
-| Abbreviation      | rt rc / rt ru                                                                                                                                                                                              |
-| Command options   |                                                                                                                                                                                                            |
-| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                                            |
+|                   |                                                                                                                                                                                                               |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name      | rt repo-create / rt repo-update                                                                                                                                                                               |
+| Abbreviation      | rt rc / rt ru                                                                                                                                                                                                 |
+| Command options   |                                                                                                                                                                                                               |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                                               |
 | --vars            | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
-| Command arguments |                                                                                                                                                                                                            |
-| template path     | Specifies the local file system path for the template file to be used for the repository creation. The template can be created using the "jf rt rpt" command.                                              |
+| Command arguments |                                                                                                                                                                                                               |
+| template path     | Specifies the local file system path for the template file to be used for the repository creation. The template can be created using the "jf rt rpt" command.                                                 |
 
 #### Examples
 ##### Example 1
@@ -302,15 +302,15 @@ This command creates a new replication job for a repository. The command accepts
 
 #### Commands Params
 
-|                   |                                                                                                                                                                                                            |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | replication-create                                                                                                                                                                                         |
-| Abbreviation      | rt rplc                                                                                                                                                                                                    |
-| Command options   |                                                                                                                                                                                                            |
-| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                                            |
+|                   |                                                                                                                                                                                                               |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name      | replication-create                                                                                                                                                                                            |
+| Abbreviation      | rt rplc                                                                                                                                                                                                       |
+| Command options   |                                                                                                                                                                                                               |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                                               |
 | --vars            | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
-| Command arguments |                                                                                                                                                                                                            |
-| template path     | Specifies the local file system path for the template file to be used for the replication job creation. The template can be created using the "jf rt rplt" command.                                        |
+| Command arguments |                                                                                                                                                                                                               |
+| template path     | Specifies the local file system path for the template file to be used for the replication job creation. The template can be created using the "jf rt rplt" command.                                           |
 
 #### Examples
 ##### Example 1
@@ -373,16 +373,16 @@ This command creates a configuration template file, which will be used as an arg
 
 These commands create/update a permission target. The commands accept as an argument a configuration template, which should be created by the **jf rt permission-target-template** command beforehand. The template also supports variables, which can be replaced with values, provided when it is used. 
 
-|                   |                                                                                                                                                                                                            |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | permission-target-create / permission-target-update                                                                                                                                                        |
-| Abbreviation      | rt ptc / rt ptu                                                                                                                                                                                            |
-| Command arguments |                                                                                                                                                                                                            |
-| template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template should be created using the "jf rt ptt" command.                          |
-| Command-name      | permission-target-create / permission-target-update                                                                                                                                                        |
-| Abbreviation      | rt ptc / rt ptu                                                                                                                                                                                            |
-| Command options   |                                                                                                                                                                                                            |
-| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                                            |
+|                   |                                                                                                                                                                                                               |
+|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name      | permission-target-create / permission-target-update                                                                                                                                                           |
+| Abbreviation      | rt ptc / rt ptu                                                                                                                                                                                               |
+| Command arguments |                                                                                                                                                                                                               |
+| template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template should be created using the "jf rt ptt" command.                             |
+| Command-name      | permission-target-create / permission-target-update                                                                                                                                                           |
+| Abbreviation      | rt ptc / rt ptu                                                                                                                                                                                               |
+| Command options   |                                                                                                                                                                                                               |
+| --server-id       | <p>[Optional]<br>Artifactory server ID configured using the config command.</p>                                                                                                                               |
 | --vars            | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
 
 ### Deleting Permission Targets
