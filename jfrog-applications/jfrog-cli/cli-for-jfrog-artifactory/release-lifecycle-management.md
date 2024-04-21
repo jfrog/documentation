@@ -94,20 +94,20 @@ The file spec may be of one of the following creation sources:
     
 ### Commands Params
 
-|                        |                                                                                                                                                                                                                  |
-|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name           | release-bundle-create                                                                                                                                                                                            |
-| Abbreviation           | rbc                                                                                                                                                                                                              |
-| Command options        |                                                                                                                                                                                                                  |
-| --project              | <p>[Optional]<br><br>Project key associated with the created Release Bundle version.</p>                                                                                                                         |
-| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p>                                                                                                                                 |
-| --signing-key          | <p>[Mandatory]<br><br>The GPG/RSA key-pair name given in Artifactory.</p>                                                                                                                                        |
-| --spec                 | <p>[Optional]<br><br>Path to a File Spec.</p>                                                                                                                                                                    |
-| --spec-vars            | <p>[Optional]<br><br>List of variables in the form of "key1=value1;key2=value2;..." (wrapped by quotes) to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p> |
-| --sync                 | <p>[Default: false]<br><br>Set to true to run synchronously.</p>                                                                                                                                                 |
-| Command arguments      |                                                                                                                                                                                                                  |
-| release bundle name    | Name of the newly created Release Bundle.                                                                                                                                                                        |
-| release bundle version | Version of the newly created Release Bundle.                                                                                                                                                                     |
+|                        |                                                                                                                                                                                                                                     |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | release-bundle-create                                                                                                                                                                                                               |
+| Abbreviation           | rbc                                                                                                                                                                                                                                 |
+| Command arguments      |                                                                                                                                                                                                                                     |
+| release bundle name    | Name of the newly created Release Bundle.                                                                                                                                                                                           |
+| release bundle version | Version of the newly created Release Bundle.                                                                                                                                                                                        |
+| Command options        |                                                                                                                                                                                                                                     |
+| --project              | <p>[Optional]<br>Project key associated with the created Release Bundle version.</p>                                                                                                                                                |
+| --server-id            | <p>[Optional]<br>Platform server ID configured using the config command.</p>                                                                                                                                                        |
+| --signing-key          | <p>[Mandatory]<br>The GPG/RSA key-pair name given in Artifactory.</p>                                                                                                                                                               |
+| --spec                 | <p>[Optional]<br>Path to a File Spec.</p>                                                                                                                                                                                           |
+| --spec-vars            | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." (wrapped by quotes) to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p> |
+| --sync                 | <p>[Default: false]<br>Set to true to run synchronously.</p>                                                                                                                                                                        | |
 
 ### Examples
 #### Example 1
@@ -140,21 +140,21 @@ This command allows promoting a release bundle to a target environment.
 
 ### Commands Params
 
-|                        |                                                                                                                                                                                                                                                                                                                       |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name           | release-bundle-promote                                                                                                                                                                                                                                                                                                |
-| Abbreviation           | rbp                                                                                                                                                                                                                                                                                                                   |
-| Command options        |                                                                                                                                                                                                                                                                                                                       |
-| --input-repos          | <p>[Optional]<br><br>A list of semicolon-separated repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. If one or more repositories are specifically included, all other repositories are excluded.</p> |
-| --exclude-repos        | <p>[Optional]<br><br>A list of semicolon-separated repositories to exclude from the promotion.</p>                                                                                                                                                                                                                    |
-| --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p>                                                                                                                                                                                                                                      |
-| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p>                                                                                                                                                                                                                                      |
-| --signing-key          | <p>[Mandatory]<br><br>The GPG/RSA key-pair name given in Artifactory.</p>                                                                                                                                                                                                                                             |
-| --sync                 | <p>[Default: false]<br><br>Set to true to run synchronously.</p>                                                                                                                                                                                                                                                      |
-| Command arguments      |                                                                                                                                                                                                                                                                                                                       |
-| release bundle name    | Name of the Release Bundle to promote.                                                                                                                                                                                                                                                                                |
-| release bundle version | Version of the Release Bundle to promote.                                                                                                                                                                                                                                                                             |
-| environment            | Name of the target environment for the promotion.                                                                                                                                                                                                                                                                     |
+|                        |                                                                                                                                                                                                                                                                                                                      |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | release-bundle-promote                                                                                                                                                                                                                                                                                               |
+| Abbreviation           | rbp                                                                                                                                                                                                                                                                                                                  |
+| Command arguments      |                                                                                                                                                                                                                                                                                                                      |
+| release bundle name    | Name of the Release Bundle to promote.                                                                                                                                                                                                                                                                               |
+| release bundle version | Version of the Release Bundle to promote.                                                                                                                                                                                                                                                                            |
+| environment            | Name of the target environment for the promotion.                                                                                                                                                                                                                                                                    |
+| Command options        |                                                                                                                                                                                                                                                                                                                      |
+| --input-repos          | <p>[Optional]<br>A list of semicolon-separated(;) repositories to include in the promotion. If this property is left undefined, all repositories (except those specifically excluded) are included in the promotion. If one or more repositories are specifically included, all other repositories are excluded.</p> |
+| --exclude-repos        | <p>[Optional]<br>A list of semicolon-separated(;) repositories to exclude from the promotion.</p>                                                                                                                                                                                                                    |
+| --project              | <p>[Optional]<br>Project key associated with the Release Bundle version.</p>                                                                                                                                                                                                                                         |
+| --server-id            | <p>[Optional]<br>Platform server ID configured using the config command.</p>                                                                                                                                                                                                                                         |
+| --signing-key          | <p>[Mandatory]<br>The GPG/RSA key-pair name given in Artifactory.</p>                                                                                                                                                                                                                                                |
+| --sync                 | <p>[Default: false]<br>Set to true to run synchronously.</p>                                                                                                                                                                                                                                                         | |
 
 ### Examples
 #### Example 1
@@ -193,26 +193,26 @@ jf rbp --signing-key=myKeyPair --exclude-repos="generic-local;my-repo" myApp 1.0
 
 This command distributes a release bundle to an edge node.
 
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name           | release-bundle-distribute                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Abbreviation           | rbd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Command options        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --city                 | <p>[Default: *]<br><br>Wildcard filter for site city name.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --country-codes        | <p>[Default: *]<br><br>Semicolon-separated list of wildcard filters for site country codes.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --create-repo          | <p>[Default: false]<br><br>Set to true to create the repository on the edge if it does not exist.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| --dist-rules           | <p>[Optional]<br><br>Path to a file, which includes the Distribution Rules in a JSON format. See the "Distribution Rules Structure" bellow.</p>                                                                                                                                                                                                                                                                                                                                                                                            |
-| --dry-run              | <p>[Default: false]<br><br>Set to true to disable communication with JFrog Distribution.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --mapping-pattern      | <p>[Optional]<br><br>Specify along with 'mapping-target' to distribute artifacts to a different path on the edge node. You can use wildcards to specify multiple artifacts.</p>                                                                                                                                                                                                                                                                                                                                                            |
-| --mapping-target       | <p>[Optional]<br><br>The target path for distributed artifacts on the edge node. If not specified, the artifacts will have the same path and name on the edge node, as on the source Artifactory server. For flexibility in specifying the distribution path, you can include [placeholders](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-UsingPlaceholders) in the form of {1}, {2} which are replaced by corresponding tokens in the pattern path that are enclosed in parenthesis.</p> |
-| --max-wait-minutes     | <p>[Default: 60]<br><br>Max minutes to wait for sync distribution.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --site                 | <p>[Default: *]<br><br>Wildcard filter for site name.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --sync                 | <p>[Default: false]<br><br>Set to true to run synchronously.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Command arguments      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| release bundle name    | Name of the release bundle to distribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| release bundle version | Version of the release bundle to distribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | release-bundle-distribute                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Abbreviation           | rbd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Command arguments      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| release bundle name    | Name of the release bundle to distribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| release bundle version | Version of the release bundle to distribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Command options        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --city                 | <p>[Default: *]<br>Wildcard filter for site city name.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --country-codes        | <p>[Default: *]<br>semicolon-separated(;) list of wildcard filters for site country codes.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --create-repo          | <p>[Default: false]<br>Set to true to create the repository on the edge if it does not exist.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --dist-rules           | <p>[Optional]<br>Path to a file, which includes the Distribution Rules in a JSON format. See the "Distribution Rules Structure" bellow.</p>                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dry-run              | <p>[Default: false]<br>Set to true to disable communication with JFrog Distribution.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --mapping-pattern      | <p>[Optional]<br>Specify along with 'mapping-target' to distribute artifacts to a different path on the edge node. You can use wildcards to specify multiple artifacts.</p>                                                                                                                                                                                                                                                                                                                                                            |
+| --mapping-target       | <p>[Optional]<br>The target path for distributed artifacts on the edge node. If not specified, the artifacts will have the same path and name on the edge node, as on the source Artifactory server. For flexibility in specifying the distribution path, you can include [placeholders](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-UsingPlaceholders) in the form of {1}, {2} which are replaced by corresponding tokens in the pattern path that are enclosed in parenthesis.</p> |
+| --max-wait-minutes     | <p>[Default: 60]<br>Max minutes to wait for sync distribution.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --project              | <p>[Optional]<br>Project key associated with the Release Bundle version.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --server-id            | <p>[Optional]<br>Platform server ID configured using the config command.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --site                 | <p>[Default: *]<br>Wildcard filter for site name.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --sync                 | <p>[Default: false]<br>Set to true to run synchronously.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | |
 
 **Distribution Rules Structure**
    ```json
@@ -247,21 +247,25 @@ The Distribution Rules format also supports wildcards. For example:
 ### Examples
 #### Example 1
 Distribute the release bundle named myApp with version 1.0.0. Use the distribution rules defined in the specified file.
-
-	jf rbd --dist-rules=/path/to/dist-rules.json myApp 1.0.0
+```
+jf rbd --dist-rules=/path/to/dist-rules.json myApp 1.0.0
+```
 
 #### Example 2
 
 Distribute the release bundle named myApp with version 1.0.0 using the default distribution rules.
 Map files under the 'source' directory to be placed under the 'target' directory.
 
-	jf rbd --dist-rules=/path/to/dist-rules.json --mapping-pattern="(*)/source/(*)" --mapping-target="{1}/target/{2}" myApp 1.0.0
+```
+jf rbd --dist-rules=/path/to/dist-rules.json --mapping-pattern="(*)/source/(*)" --mapping-target="{1}/target/{2}" myApp 1.0.0
+```
 
 #### Example 3
-Synchronously distribute a release bundle associated with project "proj" 
+Synchronously distribute a release bundle associated with project "proj"
 
-	jf rbd --dist-rules=/path/to/dist-rules.json --sync --project="proj" myApp 1.0.0
-
+```
+jf rbd --dist-rules=/path/to/dist-rules.json --sync --project="proj" myApp 1.0.0
+```
 
 ## Deleting release bundle locally
 This command allows deleting all release bundle promotions to an environment or deleting a release bundle locally altogether.
@@ -271,62 +275,130 @@ Deleting locally means distributions of the release bundle will not be deleted.
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Command-name           | release-bundle-delete-local                                                                                                            |
 | Abbreviation           | rbdell                                                                                                                                 |
-| Command options        |                                                                                                                                        |
-| --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p>                                                       |
-| --quiet                | <p>[Default: $CI]<br><br>Set to true to skip the delete confirmation message.</p>                                                      |
-| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p>                                                       |
-| --sync                 | <p>[Default: false]<br><br>Set to true to run synchronously.</p>                                                                       |
 | Command arguments      |                                                                                                                                        |
 | release bundle name    | Name of the release bundle to distribute.                                                                                              |
 | release bundle version | Version of the release bundle to distribute.                                                                                           |
 | environment            | If provided, all promotions to this environment are deleted. Otherwise, the release bundle is deleted locally with all its promotions. |
+| Command options        |                                                                                                                                        |
+| --project              | <p>[Optional]<br>Project key associated with the Release Bundle version.</p>                                                           |
+| --quiet                | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>                                                          |
+| --server-id            | <p>[Optional]<br>Platform server ID configured using the config command.</p>                                                           |
+| --sync                 | <p>[Default: false]<br>Set to true to run synchronously.</p>                                                                           |
 
 ### Examples
 #### Example 1
 Locally delete the release bundle named myApp with version 1.0.0 altogether.
 
-	jf rbdell myApp 1.0.0
+```
+jf rbdell myApp 1.0.0
+```
 
 #### Example 2
 Delete a release bundle locally altogether. Run the command synchronously and skip the confirmation message.
 
-	jf rbdell --quiet --sync myApp 1.0.0
+```
+jf rbdell --quiet --sync myApp 1.0.0
+```
 
 #### Example 3
 Delete all promotions of the release bundle to environment "PROD".
 
-	jf rbdell myApp 1.0.0 PROD
-
+```
+jf rbdell myApp 1.0.0 PROD
+```
 
 ## Deleting release bundle remotely
 This command will delete distributions of a release bundle from edge nodes.
 
-|                        |                                                                                                                                                 |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name           | release-bundle-delete-remote                                                                                                                    |
-| Abbreviation           | rbdelr                                                                                                                                          |
-| Command options        |                                                                                                                                                 |
-| --city                 | <p>[Default: *]<br><br>Wildcard filter for site city name.</p>                                                                                  |
-| --country-codes        | <p>[Default: *]<br><br>Semicolon-separated list of wildcard filters for site country codes.</p>                                                 |
-| --dist-rules           | <p>[Optional]<br><br>Path to a file, which includes the Distribution Rules in a JSON format. See the "Distribution Rules Structure" bellow.</p> |
-| --dry-run              | <p>[Default: false]<br><br>Set to true to disable communication with JFrog Distribution.</p>                                                    |
-| --max-wait-minutes     | <p>[Default: 60]<br><br>Max minutes to wait for sync distribution.</p>                                                                          |
-| --project              | <p>[Optional]<br><br>Project key associated with the Release Bundle version.</p>                                                                |
-| --quiet                | <p>[Default: $CI]<br><br>Set to true to skip the delete confirmation message.</p>                                                               |
-| --server-id            | <p>[Optional]<br><br>Platform server ID configured using the config command.</p>                                                                |
-| --site                 | <p>[Default: *]<br><br>Wildcard filter for site name.</p>                                                                                       |
-| --sync                 | <p>[Default: false]<br><br>Set to true to run synchronously.</p>                                                                                |
-| Command arguments      |                                                                                                                                                 |
-| release bundle name    | Name of the release bundle to distribute.                                                                                                       |
-| release bundle version | Version of the release bundle to distribute.                                                                                                    |
+|                        |                                                                                                                                             |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | release-bundle-delete-remote                                                                                                                |
+| Abbreviation           | rbdelr                                                                                                                                      |
+| Command arguments      |                                                                                                                                             |
+| release bundle name    | Name of the release bundle to distribute.                                                                                                   |
+| release bundle version | Version of the release bundle to distribute.                                                                                                |
+| Command options        |                                                                                                                                             |
+| --city                 | <p>[Default: *]<br>Wildcard filter for site city name.</p>                                                                                  |
+| --country-codes        | <p>[Default: *]<br>semicolon-separated(;) list of wildcard filters for site country codes.</p>                                              |
+| --dist-rules           | <p>[Optional]<br>Path to a file, which includes the Distribution Rules in a JSON format. See the "Distribution Rules Structure" bellow.</p> |
+| --dry-run              | <p>[Default: false]<br>Set to true to disable communication with JFrog Distribution.</p>                                                    |
+| --max-wait-minutes     | <p>[Default: 60]<br>Max minutes to wait for sync distribution.</p>                                                                          |
+| --project              | <p>[Optional]<br>Project key associated with the Release Bundle version.</p>                                                                |
+| --quiet                | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>                                                               |
+| --server-id            | <p>[Optional]<br>Platform server ID configured using the config command.</p>                                                                |
+| --site                 | <p>[Default: *]<br>Wildcard filter for site name.</p>                                                                                       |
+| --sync                 | <p>[Default: false]<br>Set to true to run synchronously.</p>                                                                                |
 
 ### Examples
 #### Example 1
 Delete the distributions of release bundle named myApp with version 1.0.0 from edge nodes matching the provided distribution rules defined in the specified file.
 
-	jf rbd --dist-rules=/path/to/dist-rules.json myApp 1.0.0
+```
+jf rbd --dist-rules=/path/to/dist-rules.json myApp 1.0.0
+```
 
 #### Example 2
 Delete the distributions of the release bundle associated with project "proj" from the provided edge nodes. Run the command synchronously and skip the confirmation message.
 
-	jf rbd --dist-rules=/path/to/dist-rules.json --project="proj" --quiet --sync myApp 1.0.0
+```
+jf rbd --dist-rules=/path/to/dist-rules.json --project="proj" --quiet --sync myApp 1.0.0
+```
+
+## Exporting Release Bundle archive
+JFrog Lifecycle Management supports distributing your Release Bundles to remote Edge nodes within an air-gapped environment. This use case is mainly intended for organizations that have two or more JFrog instances that have no network connection between them.
+
+The following command allows exporting a Release Bundle as an archive to the filesystem that can be transferred to a different instance in an air-gapped environment.
+
+|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | release-bundle-export                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Abbreviation           | rbe                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Command arguments      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| release bundle name    | Name of the Release Bundle to export.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| release bundle version | Version of the release bundle to export.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| target pattern         | The argument is optional and specifies the local file system target path.If the target path ends with a slash, the path is assumed to be a directory.For example, if you specify the target as "repo-name/a/b/", then "b" is assumed to be a directory into which files should be downloaded.If there is no terminal slash, the target path is assumed to be a file to which the downloaded file should be renamed.For example, if you specify the target as "a/b", the downloaded file is renamed to "b". |
+| Command options        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --project              | <p>[Optional]<br>Project key associated with the Release Bundle version.</p>                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --server-id            | <p>[Optional]<br>Platform server ID configured using the config command.</p>                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| mapping-pattern        | <p>[Optional]<br>Specify a list of input regex mapping pairs that define where the queried artifact is located and where it should be placed after it is imported. Use this option if the path on the target is different than the source path.                                                                                                                                                                                                                                                            |
+| mapping-target         | <p>[Optional]<br>Specify a list of output regex mapping pairs that define where the queried artifact is located and where it should be placed after it is imported. Use this option if the path on the target is different than the source path.                                                                                                                                                                                                                                                           |
+| split-count            | <p>[Optional]<br>The maximum number of parts that can be concurrently uploaded per file during a multi-part upload. Set to 0 to disable multi-part upload.                                                                                                                                                                                                                                                                                                                                                 |
+| min-split              | <p>[Optional]<br>Minimum file size in KB to split into ranges when downloading. Set to -1 for no splits                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+
+#### Example
+Export release bundle named "myApp" and version 1.0.0
+
+```
+jf rbe myApp 1.0.0
+```
+
+#### Example
+Download to a specific location
+
+```
+jf rbe myApp 1.0.0 /user/mybundle/
+```
+
+## Importing Release Bundle archive
+Import a Release Bundle archive from a release bundle exported zip file.
+
+Please note this functionality only works on Edge nodes within an air-gapped environment.
+
+|                        |                                                                              |
+|------------------------|------------------------------------------------------------------------------|
+| Command-name           | release-bundle-import                                                        |
+| Abbreviation           | rbi                                                                          |
+| Command arguments      |                                                                              |
+| path to archive        | Path to the release bundle archive on the filesystem                         | 
+| Command options        |                                                                              |
+| --project              | <p>[Optional]<br>Project key associated with the Release Bundle version.</p> |
+| --server-id            | <p>[Optional]<br>Platform server ID configured using the config command.</p> |
+
+#### Example
+Import a Release Bundle named "myExportedApp" and version 1.0.0
+
+```
+jf rbi ./myExportedApp.zip
+```
+

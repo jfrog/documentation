@@ -75,7 +75,7 @@ https://jfrog.com/help/r/jfrog-curation/configure-curation-pass-through
 
 #### Example 1
 
-Audit the project in the current directory. Displays all known packages that were blocked by Curation Policies.
+Curation-Audit the project in the current directory. Displays all known packages that were blocked by Curation Policies.
 
 ```
 jf curation-audit
@@ -83,7 +83,7 @@ jf curation-audit
 
 #### Example 2
 
-Audit the projects according to the specific paths defined in the "working-dirs" option. Displays all known packages that were blocked by Curation Policies for all projects. The data is displayed in separate tables.
+Curation-Audit the projects according to the specific paths defined in the "working-dirs" option. Displays all known packages that were blocked by Curation Policies for all projects. The data is displayed in separate tables.
 
 ```
 jf curation-audit --working-dirs="/path/to/project/npm_project1,/path/to/project/npm_project2"
@@ -91,7 +91,7 @@ jf curation-audit --working-dirs="/path/to/project/npm_project1,/path/to/project
 
 #### Example 3
 
-Audit the project in the current directory using 5 threads to check the packages Curation status in parallel. Displays all known packages blocked by Curation Policies.
+Curation-Audit the project in the current directory using 5 threads to check the packages Curation status in parallel. Displays all known packages blocked by Curation Policies.
 
 ```
 jf curation-audit --threads=5
