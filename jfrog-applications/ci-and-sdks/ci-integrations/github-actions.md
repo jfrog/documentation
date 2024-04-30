@@ -128,7 +128,7 @@ It is also possible to set the latest JFrog CLI version by adding the _version_ 
 
 ### Downloading JFrog CLI from Artifactory
 
-If your agent has no Internet access, you can configure the workflow to download JFrog CLI from a [remote repository](https://www.jfrog.com/confluence/display/JFROG/Remote+Repositories) in your JFrog Artifactory, which is configured to proxy the official download URL.
+If your agent has no Internet access, you can configure the workflow to download JFrog CLI from a [remote repository](https://www.jfrog.com/confluence/display/JFROG/Remote+Repositories) in your JFrog Artifactory, which is configured to proxy the official download URL. When creating the remote repository, select the Generic package type for the repository.
 
 Here's how you do this:
 
