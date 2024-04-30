@@ -252,7 +252,7 @@ This command deletes a Release Bundle from the Edge Nodes and optionally from Di
 
 **Note**
 
-> These commands require version 2.0 or higher of[JFrog Distribution](https://www.jfrog.com/confluence/display/JFROG/JFrog+Distribution).
+> These commands require version 2.0 or higher of [JFrog Distribution](https://www.jfrog.com/confluence/display/JFROG/JFrog+Distribution).
 
 ***
 
