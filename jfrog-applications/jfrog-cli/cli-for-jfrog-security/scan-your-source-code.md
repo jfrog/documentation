@@ -94,7 +94,7 @@ jf audit --watches "watch1"
 
 #### Example 4
 
-Audit the project at the current directory using _watch1_ and \_watch2\_defined in Xray.
+Audit the project at the current directory using _watch1_ and \_watch2\_ defined in Xray.
 
 ```
 jf audit --watches "watch1,watch2"
