@@ -21,7 +21,7 @@
 
 * For open-source projects: Create a new [GitHub environment](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#creating-an-environment) called **frogbot** and add people or public teams as reviewers. The chosen reviewers can trigger Frogbot scans on pull requests.
 
-![](../../../.gitbook/assets/github-environment.png)
+![](../.gitbook/assets/github-environment.png)
 
 ### Frogbot GitHub Action Templates
 
