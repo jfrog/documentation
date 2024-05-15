@@ -5,8 +5,13 @@
 * Go to your repository's **settings** tab and save the JFrog connection details as repository secrets with the following names:
   * **JF\_URL** (JFrog Platform URL - Example: `https://acme.jfrog.io`)
   * **JF\_ACCESS\_TOKEN** (JFrog access token)
+  * **JF\_GIT\_TOKEN** (GitHub access token - Read note below)
 
 > You can also use **JF\_XRAY\_URL** and **JF\_ARTIFACTORY\_URL** instead of **JF\_URL**, and **JF\_USER** + **JF\_PASSWORD** instead of **JF\_ACCESS\_TOKEN**
+> 
+> You can utilize [${{secrets.GITHUB_TOKEN}}](https://docs.github.com/en/actions/security-guides/automatic-token-authentication) for **JF_GIT_TOKEN**, which is an automatically generated token by GitHub. 
+> However, this option comes with a limitation: a workflow, such as Frogbot itself, cannot trigger another workflow. Consequently, if you have additional workflows intended to activate upon the creation of a new pull request, they might not be initiated. 
+> To resolve this issue, you can generate a [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and use it as JF_GIT_TOKEN.
 
 ![](../.gitbook/assets/github-repository-secrets.png)
 
@@ -16,7 +21,7 @@
 
 * For open-source projects: Create a new [GitHub environment](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#creating-an-environment) called **frogbot** and add people or public teams as reviewers. The chosen reviewers can trigger Frogbot scans on pull requests.
 
-![](../../../.gitbook/assets/github-environment.png)
+![](../.gitbook/assets/github-environment.png)
 
 ### Frogbot GitHub Action Templates
 

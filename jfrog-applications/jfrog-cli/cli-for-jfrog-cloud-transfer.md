@@ -46,8 +46,9 @@ The following limitations need to be kept in mind before you start the migration
 6. Federated repositories are transferred without their federation members. After the transfer, you'll need to reconfigure the federation as described in the Federated Repositories documentation. Federated Repositories
 7. Docker repositories with names that include dots or underscores aren't allowed in JFrog Cloud.
 8. Artifact properties with a value longer than 2.4K characters are not supported in JFrog Cloud. Such properties are generally seen in Conan artifacts. The artifacts will be transferred without the properties in this case. A report with these artifacts will become available to you at the end of the transfer.
-9. The files transfer process allows transferring files that were created or modified on the source instance after the process started. However, files that were deleted on the source instance after the process started, are not deleted on the target instance by the process.
-10. The files transfer process allows transferring files that were created or modified on the source instance after the process started. The custom properties of those files are also updated on the target instance. However, if only the custom properties of those files were modified on the source, but not the files' content, the properties are not modified on the target instance by the process.
+9. The files transfer process allows transferring files that were created or modified on the source instance after the process started. However:
+   1. Files that were deleted on the source instance after the process started, are not deleted on the target instance by the process. 
+   2. The custom properties of those files are also updated on the target instance. However, if only the custom properties of those files were modified on the source, but not the files' content, the properties are not modified on the target instance by the process.
 
 ### Before you begin
 
@@ -316,7 +317,7 @@ In case you'd like to ignore the stored state, and restart the file transfer fro
 
 ### Installing JFrog CLI on a machine with network access to the source and target machines
 
-Unlike the transfer-config command, which should be run from the primary note machines of Artifactory, it is recommended to run the transfer-files command from a machine that has network access to the source Artifactory URL. This allows the spreading the transfer load on all the Artifactory cluster nodes. This machine should also have network access to the target Artifactory URL.
+Unlike the transfer-config command, which should be run from the primary node machines of Artifactory, it is recommended to run the transfer-files command from a machine that has network access to the source Artifactory URL. This allows the spreading the transfer load on all the Artifactory cluster nodes. This machine should also have network access to the target Artifactory URL.
 
 Follow these steps to install JFrog CLI on that machine.
 
