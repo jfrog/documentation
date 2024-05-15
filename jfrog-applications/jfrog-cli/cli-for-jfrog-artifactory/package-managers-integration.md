@@ -177,7 +177,7 @@ The following table lists the command arguments and flags:
 | Command-name      | docker pull                                                                                                                                                                                                             |
 | Abbreviation      | dpl                                                                                                                                                                                                                     |
 | Command options   |                                                                                                                                                                                                                         |
-| --server-id       | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                                |
+| --server-id       | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                           |
 | --build-name      | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
 | --build-number    | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | --project         | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
@@ -208,7 +208,7 @@ The following table lists the command arguments and flags:
 | Command-name       | docker push                                                                                                                                                                                                             |
 | Abbreviation       | dp                                                                                                                                                                                                                      |
 | Command options    |                                                                                                                                                                                                                         |
-| --server-id        | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                                |
+| --server-id        | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                           |
 | --build-name       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
 | --build-number     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | --project          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
@@ -241,7 +241,7 @@ The following table lists the command arguments and flags:
 | Command-name      | rt podman-pull                                                                                                                                                                                                          |
 | Abbreviation      | rt ppl                                                                                                                                                                                                                  |
 | Command options   |                                                                                                                                                                                                                         |
-| --server-id       | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                                |
+| --server-id       | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                           |
 | --build-name      | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
 | --build-number    | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | --project         | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
@@ -274,7 +274,7 @@ The following table lists the command arguments and flags:
 | Command-name       | rt podman-push                                                                                                                                                                                                          |
 | Abbreviation       | rt pp                                                                                                                                                                                                                   |
 | Command options    |                                                                                                                                                                                                                         |
-| --server-id        | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                                |
+| --server-id        | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                           |
 | --build-name       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
 | --build-number     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | --project          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
@@ -323,7 +323,7 @@ The **build-docker-create** command allows adding a docker image, which is alrea
 | Abbreviation      | rt bdc                                                                                                                                                                                                                            |
 | Command options   |                                                                                                                                                                                                                                   |
 | --image-file      | <p>Path to a file which includes one line in the following format: IMAGE-TAG@sha256:MANIFEST-SHA256. For example:<br><br>cat image-file-details<br>superfrog-docker.jfrog.io/hello-frog@sha256:30f04e684493fb5ccc030969df6de0</p> |
-| --server-id       | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                                          |
+| --server-id       | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                                     |
 | --build-name      | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>             |
 | --build-number    | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>           |
 | --project         | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                           |
@@ -354,20 +354,20 @@ Promotion is the action of moving or copying a group of artifacts from one repos
 
 The following table lists the command arguments and flags:
 
-|                       |                                                                                                                                          |
-|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name          | rt docker-promote                                                                                                                        |
-| Abbreviation          | rt dpr                                                                                                                                   |
-| Command options       |                                                                                                                                          |
+|                       |                                                                                                                                               |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name          | rt docker-promote                                                                                                                             |
+| Abbreviation          | rt dpr                                                                                                                                        |
+| Command options       |                                                                                                                                               |
 | --server-id           | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p> |
-| --copy                | <p>[Default: false]<br>If set true, the Docker image is copied to the target repository, otherwise it is moved.</p>                      |
-| --source-tag          | <p>[Optional]<br>The tag name to promote.</p>                                                                                            |
-| --target-docker-image | <p>[Optional]<br>Docker target image name.</p>                                                                                           |
-| --target-tag          | <p>[Optional]<br>The target tag to assign the image after promotion.</p>                                                                 |
-| Command argument      |                                                                                                                                          |
-| source docker image   | The docker image name to promote.                                                                                                        |
-| source repository     | Source repository in Artifactory.                                                                                                        |
-| target repository     | Target repository in Artifactory.                                                                                                        |
+| --copy                | <p>[Default: false]<br>If set true, the Docker image is copied to the target repository, otherwise it is moved.</p>                           |
+| --source-tag          | <p>[Optional]<br>The tag name to promote.</p>                                                                                                 |
+| --target-docker-image | <p>[Optional]<br>Docker target image name.</p>                                                                                                |
+| --target-tag          | <p>[Optional]<br>The target tag to assign the image after promotion.</p>                                                                      |
+| Command argument      |                                                                                                                                               |
+| source docker image   | The docker image name to promote.                                                                                                             |
+| source repository     | Source repository in Artifactory.                                                                                                             |
+| target repository     | Target repository in Artifactory.                                                                                                             |
 
 #### Examples
 
