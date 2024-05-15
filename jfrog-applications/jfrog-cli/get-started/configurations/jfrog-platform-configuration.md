@@ -18,7 +18,7 @@ This command allows creating [Access Tokens](https://jfrog.com/help/r/jfrog-plat
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command name      | access-token-create                                                                                                                                                                                                                                                                                                                                                |
 | Abbreviation      | atc                                                                                                                                                                                                                                                                                                                                                                |
-| Command arguments |                                                                                                                                                                                                                                                                                                                                                                    |
+| **Command arguments:** |                                                                                                                                                                                                                                                                                                                                                                    |
 | username          | The username for which this token is created. If not specified, the token will be created for the current user.                                                                                                                                                                                                                                                    |
 | **Command options:**   |                                                                                                                                                                                                                                                                                                                                                                    |
 | `--audience` | <p>[Optional]</p><p>A space-separated list of the other instances or services that should accept this token identified by their Service-IDs.</p>                                                                                                                                                                                                                   |
@@ -75,7 +75,7 @@ The **config add** and **config edit** commands are used to add and edit JFrog P
 | `--user` | <p>[Optional]</p><p>JFrog Platform username.</p>                                                                                                                                                                                                                                                                                                                                                   |
 | `--xray-url` | \[Optional] Xray URL. (example: https://acme.jfrog.io/xray)                                                                                                                                                                                                                                                                                                                                        |
 | `--overwrite` | <p>[Available for <em>config add</em> only]<br>[Default: false]<br>Overwrites the instance configuration if an instance with the same ID already exists.</p>                                                                                                                                                                                                                                       |
-| Command arguments      |                                                                                                                                                                                                                                                                                                                                                                                                    |
+| **Command arguments:**      |                                                                                                                                                                                                                                                                                                                                                                                                    |
 | server ID              | A unique ID for the server configuration.                                                                                                                                                                                                                                                                                                                                                          |
 
 ## Removing Configured Servers
@@ -88,7 +88,7 @@ The _config remove_ command is used to remove JFrog Platform server configuratio
 | Abbreviation      | c rm                                                                                 |
 | **Command options:**   |                                                                                      |
 | `--quiet` | <p>[Default: $CI]</p><p>Set to true to skip the delete confirmation message.</p>     |
-| Command arguments |                                                                                      |
+| **Command arguments:** |                                                                                      |
 | server ID         | The server ID to remove. If no argument is sent, all configured servers are removed. |
 
 
@@ -100,7 +100,7 @@ The _config show_ command shows the stored configuration. You may show a specifi
 |-------------------|-----------------------------------------------------------------------------------------|
 | Command name      | config show                                                                             |
 | Abbreviation      | c s                                                                                     |
-| Command arguments |                                                                                         |
+| **Command arguments:** |                                                                                         |
 | server ID         | The ID of the server to show. If no argument is sent, all configured servers are shown. |
 
 ## Setting a Server as Default
@@ -110,7 +110,7 @@ The _config use_ command sets a configured server as default. The following comm
 |                   |                                         |
 |-------------------|-----------------------------------------|
 | Command name      | config use                              |
-| Command arguments |                                         |
+| **Command arguments:** |                                         |
 | server ID         | The ID of the server to set as default. |
 
 ## Exporting and Importing Configuration
@@ -123,7 +123,7 @@ The _config export_ command generates a token, which stores the server configura
 |-------------------|--------------------------------|
 | Command name      | config export                  |
 | Abbreviation      | c ex                           |
-| Command arguments |                                |
+| **Command arguments:** |                                |
 | server ID         | The ID of the server to export |
 
 ### Import
@@ -132,7 +132,7 @@ The _config export_ command generates a token, which stores the server configura
 |-------------------|---------------------|
 | Command name      | config import       |
 | Abbreviation      | c im                |
-| Command arguments |                     |
+| **Command arguments:** |                     |
 | server token      | The token to import |
 
 ## Sensitive Data Encryption

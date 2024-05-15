@@ -34,7 +34,7 @@ The following sections describe the commands available in the JFrog CLI for use 
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command name      | pl version                                                                                                                                     |
 | Abbreviation      | v                                                                                                                                              |
-| Command arguments | The command accepts no arguments.                                                                                                              |
+| **Command arguments:** | The command accepts no arguments.                                                                                                              |
 | **Command options:**   |                                                                                                                                                |
 | `--server-id` | <p>[Optional]<br>Specify Pipelines server for which the version is to be fetched. If not specified, the default configured server is used.</p> |
 
@@ -55,7 +55,7 @@ Get the status of the run for the specified pipeline
 |-------------------|----------------------------------------------------------------------------------------------------------------------------|
 | Command name      | pl status                                                                                                                  |
 | Abbreviation      | s                                                                                                                          |
-| Command arguments | The command accepts no arguments.                                                                                          |
+| **Command arguments:** | The command accepts no arguments.                                                                                          |
 |                   |                                                                                                                            |
 | **Command options:**   |                                                                                                                            |
 | `--pipeline-name` | <p>[Optional]<br>Name of the pipeline.</p>                                                                                 |
@@ -92,7 +92,7 @@ Trigger a pipeline run.
 | **Command options:**   |                                                                                                                      |
 | `--server-id` | <p>[Optional]<br>Name of the server.</p>                                                                             |
 | `--single-branch` | <p>[Optional]<br>To be used when using a single branch. When used, <code>branch_name</code> argument is ignored.</p> |
-| Command arguments |                                                                                                                      |
+| **Command arguments:** |                                                                                                                      |
 | pipeline\_name    | Name of the pipeline to be triggered.                                                                                |
 | branch\_name      | Name of the multi branch.                                                                                            |
 
@@ -142,7 +142,7 @@ jf pl sync --repository jfrog/artifactory --branch main/jobs --server-id repo21
 | Abbreviation      | ss                                                               |
 | **Command options:**   |                                                                  |
 | `--server-id` | <p>[Optional]<br>Name of the server.</p>                         |
-| Command arguments |                                                                  |
+| **Command arguments:** |                                                                  |
 | full\_repo\_name  | Full name of the repository where the pipeline source is stored. |
 | branch\_name      | Name of the branch.                                              |
 
