@@ -36,7 +36,7 @@ This will open the Sign in page:
 
 Fill in your connection details and click on the `Sign In` button to start using the extension
 
-**Note**: If you would like to use custom URLs for Artifactory or Xray, click on 'Advanced'.
+**Note**: If you would like to use custom URLs for Artifactory or Xray, click on `Advanced`.
 
 You can also choose other option to authenticate with your JFrog Platform instance:
 

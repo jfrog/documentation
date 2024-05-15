@@ -14,15 +14,15 @@ By default, the JFrog IDEA Plugin downloads the resources it requires from <http
 1. Login to the JFrog Platform UI, with a user who has admin permissions.
 
 2. Create a Remote Repository with the following properties set:
-    - Under the 'Basic' tab:
+    - Under the `Basic` tab:
         - Package Type: Generic
         - Repository Key: jfrog-releases-repository
         - URL: <https://releases.jfrog.io>
 
     ![ExternalResourcesThroughArtifactoryPart1](../../.gitbook/assets/externalResourcesThroughArtifactoryPart1.png)
 
-    - Under the 'Advanced' tab:
-        - Uncheck the 'Store Artifacts Locally' option
+    - Under the `Advanced` tab:
+        - Uncheck the `Store Artifacts Locally` option
 
     ![ExternalResourcesThroughArtifactoryPart2](../../.gitbook/assets/externalResourcesThroughArtifactoryPart2.png)
 
