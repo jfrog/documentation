@@ -6,7 +6,7 @@ JFrog Curation defends your software supply chain, enabling early blocking of ma
 
 For more information see: https://jfrog.com/curation/
 
-"The 'curation-audit' is a JFrog CLI command designed for developers to scan their projects and identify third-party dependencies that violate the restrictions set by the Curation service. This command provides detailed insights into the specific package policies that are being violated, leading to their blockage by the Curation service. Additionally, when feasible, 'curation-audit' may suggest alternative versions of the packages that comply with the Curation policies."
+The 'curation-audit' is a JFrog CLI command designed for developers to scan their projects and identify third-party dependencies that violate the restrictions set by the Curation service. This command provides detailed insights into the specific package policies that are being violated, leading to their blockage by the Curation service. Additionally, when feasible, 'curation-audit' may suggest alternative versions of the packages that comply with the Curation policies.
 
 ## Supported package managers & build systems
 
@@ -63,14 +63,14 @@ https://jfrog.com/help/r/jfrog-curation/configure-curation-pass-through
 #### Commands Params
 
 |                     |                                                                                                                                        |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | **Command name**    | curation-audit                                                                                                                         |
 | **Abbreviation**    | ca                                                                                                                                     |
 | **Command options** |                                                                                                                                        |
 | --format            | <p>[Default: table]<br><br>Defines the output format of the command. Acceptable values are: table and json.</p>                        |
 | --working-dirs      | <p>[Optional]<br><br>A comma separated list of relative working directories, to determine the audit targets locations.</p>             |
 | --threads           | <p>[Default: 10]<br><br>The number of parallel threads used to determine the curation status for each package in the project tree.</p> |
-| --requirements-file | <p>[Optional] [Pip]<br><br>Defines pip requirements file name. For example: 'requirements.txt'</p>                                                                                                                                                                                                                                                                |
+| --requirements-file | <p>[Optional] [Pip]<br><br>Defines pip requirements file name. For example: 'requirements.txt'</p>                                     |
 
 
 #### Example 1

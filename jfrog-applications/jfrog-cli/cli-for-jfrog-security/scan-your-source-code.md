@@ -46,7 +46,7 @@ This command also supports the following Advanced Scans with the **Advanced Secu
 | --watches             | <p>[Optional]<br>A comma-separated(,) list of Xray watches, to enable Xray to determine violations accordingly. The command accepts this option only if the --repo-path and --repo-path options are not provided. If none of the three options are provided, the command will show all known vulnerabilities</p>                                              |
 | --licenses            | <p>[Default: false]<br>Set if you'd also like the list of licenses to be displayed.</p>                                                                                                                                                                                                                                                                       |
 | --format              | <p>[Default: table]<br>Defines the output format of the command. Acceptable values are: table and json.</p>                                                                                                                                                                                                                                                   |
-| --fail                | <p>[Default: true]<br>When using one of the flags --watches, --project or --repo-path and a Fail build rule is matched the command will return exit code 3. Set to false if you'd like to see violations with exit code 0.</p>                                                                                                                                                                                                                |
+| --fail                | <p>[Default: true]<br>When using one of the flags --watches, --project or --repo-path and a Fail build rule is matched the command will return exit code 3. Set to false if you'd like to see violations with exit code 0.</p>                                                                                                                                |
 | --use-wrapper         | <p>[Default: false] [Gradle]<br>Set to true if you'd like to use the Gradle wrapper.</p>                                                                                                                                                                                                                                                                      |
 | --dep-type            | <p>[Default: all] [npm]<br>Defines npm dependencies type. Possible values are: all, devOnly and prodOnly</p>                                                                                                                                                                                                                                                  |
 | --exclude-test-deps   | <p>[Default: false] [Gradle]<br>Set to true if you'd like to exclude Gradle test dependencies from Xray scanning.</p>                                                                                                                                                                                                                                         |
@@ -94,7 +94,7 @@ jf audit --watches "watch1"
 
 #### Example 4
 
-Audit the project at the current directory using _watch1_ and \_watch2\_defined in Xray.
+Audit the project at the current directory using _watch1_ and \_watch2\_ defined in Xray.
 
 ```
 jf audit --watches "watch1,watch2"

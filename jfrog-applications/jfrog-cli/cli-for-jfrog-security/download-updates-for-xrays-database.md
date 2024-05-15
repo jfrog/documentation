@@ -43,12 +43,12 @@ The offline-update command downloads updates to Xray's vulnerabilities database.
          <td>[Default: ./]<br>Path for downloaded update files.</td>
       </tr>
       <tr>
-         <td>--dbsyncv3</td>
-         <td>[Default: false]<br>Set to true to use Xray DBSync V3.</td>
+         <td>--stream</td>
+         <td>[Default: false]<br>Set to true to use Xray DBSync V3 stream, Possible values are: public_data, exposures and contextual_analysis.</td>
       </tr>
       <tr>
          <td>--periodic</td>
-         <td>[Default: false]<br>Set to true to get the Xray DBSync V3 Periodic Package (Use with dbsyncv3 flag).</td>
+         <td>[Default: false]<br>Set to true to get the Xray DBSync V3 Periodic Package (Use with stream flag).</td>
       </tr>
       <tr>
          <td>Command arguments</td>
