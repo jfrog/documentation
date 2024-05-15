@@ -52,12 +52,12 @@ To utilize the OIDC protocol, follow these steps:
 
 #### JFrog Platform configuration
 
-1. **Configure an OIDC Integration**: This phase sets an integration between GitHub Actions to the JFrog platform.
-  1. Navigate to the Administration tab In the JFrog Platform UI
-  2. Click `General` | `Manage Integrations`
-  3. Click `New Integration` | `OpenID Connect`:<br>
+1. **Configure an OIDC Integration**: This phase sets an integration between GitHub Actions to the JFrog platform.<br>
+  A) Navigate to the Administration tab In the JFrog Platform UI<br>
+  B) Click `General` | `Manage Integrations`<br>
+  C) Click `New Integration` | `OpenID Connect`:<br>
      ![](../.gitbook/assets/oidc-new-integration.png)
-  4. Configure the OIDC integration:<br>
+  D) Configure the OIDC integration:<br>
      ![](../.gitbook/assets/oidc-configure-integration.png)
 
 | NOTE:                                                                                                                                                                                                                                      |
