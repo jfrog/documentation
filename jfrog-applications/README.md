@@ -21,7 +21,7 @@ layout:
 
 
 
-## &#x20;Welcome to the JFrog Applications Doc Hub
+## Welcome to the JFrog Applications Doc Hub
 
 <table data-view="cards" data-full-width="false"><thead><tr><th></th><th data-hidden data-card-target data-type="content-ref"></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><strong>IDE</strong></td><td><a href="ide/">ide</a></td><td><a href=".gitbook/assets/IDE.png">IDE.png</a></td></tr><tr><td><strong>CLI</strong></td><td><a href="jfrog-cli/">jfrog-cli</a></td><td><a href=".gitbook/assets/cli.png">cli.png</a></td></tr><tr><td><strong>Frogbot</strong></td><td><a href="frogbot/">frogbot</a></td><td><a href=".gitbook/assets/FROG BOT.png">FROG BOT.png</a></td></tr><tr><td><strong>CI</strong> </td><td><a href="ci-and-sdks/ci-integrations/">ci-integrations</a></td><td><a href=".gitbook/assets/CI Integrations.png">CI Integrations.png</a></td></tr><tr><td><strong>SDKs</strong></td><td><a href="ci-and-sdks/sdks/">sdks</a></td><td><a href=".gitbook/assets/SDK.png">SDK.png</a></td></tr></tbody></table>
 
