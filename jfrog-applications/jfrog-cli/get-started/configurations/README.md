@@ -1,2 +1,2 @@
-# Configurations&#x20;
+# Configurations
 
