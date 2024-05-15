@@ -70,7 +70,7 @@ To utilize the OIDC protocol, follow these steps:
 2.  **Configure an identity mapping**: This phase sets an integration between a particular GitHub repository to the JFrog platform.
 
     An identity mapping is a configuration object utilized by the JFrog Platform to associate incoming OIDC claims with particular selected fields. These fields might include `repository`, `actor`, `workflow`, and others.
-    To configure the identity mapping, click on the identity mapping created in section 1 and then click on `Add Identity Mapping`. Fill in priority 1 and fill out all required fields:<br>
+    To configure the identity mapping, click on the identity mapping created in section 1 and then click on `Add Identity Mapping`. In the 'priority' field  insert the value '1' and fill in the rest of the required fields:<br>
     ![](../.gitbook/assets/oidc-identity-mapping.png)
 
     You have the flexibility to define any valid list of claims required for request authentication. You can check a list of the possible claims [here](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token).
