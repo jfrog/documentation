@@ -4,7 +4,7 @@
 
 The Gradle Artifactory Plugin provides tight integration with Gradle. All that is needed is a simple modification of your `build.gradle` script file with a few configuration parameters, and you can deploy your build artifacts and build information to Artifactory.
 
-The plugin adds the `artifactoryPublish` task for each project, in the 'publishing' group. The task performs the following actions on the project and its submodules:
+The plugin adds the `artifactoryPublish` task for each project, in the `publishing` group. The task performs the following actions on the project and its submodules:
 
 1. Extracting the [build-info](https://www.buildinfo.org/) file located in the root project. This file contains comprehensive information about the build, such as its configuration, dependencies, and other relevant details.
 2. Deploying both the generated artifacts and the build-info file to your Artifactory repository. This ensures that the artifacts, which are the output of the build process, and the accompanying build-info file are stored and organized in your Artifactory repository for easy access and management.

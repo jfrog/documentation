@@ -13,8 +13,8 @@ By default, paths containing the words `.git`, `test`, `venv` and `node_modules`
 If your JFrog environment is behind an HTTP/S proxy, follow these steps to configure the proxy server:
 
 1. Go to Preferences --> Settings --> Application --> Proxy
-2. Set the proxy URL under 'Proxy'.
-3. Make sure 'Proxy Support' is 'override' or 'on'.
+2. Set the proxy URL under `Proxy`.
+3. Make sure 'Proxy Support' is `override` or `on`.
 
 * Alternatively, you can use the HTTP\_PROXY and HTTPS\_PROXY environment variables.
 
@@ -26,14 +26,14 @@ By default, the JFrog VS Code extension downloads the resources it requires from
 1. Login to the JFrog Platform UI, with a user who has admin permissions.
 
 2. Create a Remote Repository with the following properties set:
-    * Under the 'Basic' tab:
+    * Under the `Basic` tab:
         * Package Type: Generic
         * Repository Key: jfrog-releases-repository
         * URL: <https://releases.jfrog.io>
 
     ![ExternalResourcesThroughArtifactoryPart1](../../.gitbook/assets/externalResourcesThroughArtifactoryPart1.png)
 
-    * Under the 'Advanced' tab:
+    * Under the `Advanced` tab:
         * Uncheck the 'Store Artifacts Locally' option
 
     ![ExternalResourcesThroughArtifactoryPart2](../../.gitbook/assets/externalResourcesThroughArtifactoryPart2.png)
@@ -82,4 +82,4 @@ settings.json:
 
 ### Troubleshooting
 
-Change the log level to 'debug', 'info', 'warn', or 'err' in the [Extension Settings](extension-settings.md).
+Change the log level to `debug`, `info`, `warn`, or `err` in the [Extension Settings](extension-settings.md).

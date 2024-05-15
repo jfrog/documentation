@@ -42,5 +42,5 @@ To authenticate yourself using an Xray Access Token, either configure your Acces
 |                |                                                         |
 |----------------|---------------------------------------------------------|
 | Command option | Description                                             |
-| --url          | JFrog Xray API endpoint URL. It usually ends with /xray |
-| --access-token | JFrog access token                                      |
+| `--url` | JFrog Xray API endpoint URL. It usually ends with /xray |
+| `--access-token` | JFrog access token                                      |
