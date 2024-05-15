@@ -1,8 +1,6 @@
 # Usage
 
-To use the CLI, [install](https://jfrog.com/getcli/) it on your local machine, or [download](https://jfrog.com/getcli/) its executable, place it anywhere in your file system and add its location to your&#x20;
-
-`PATH` environment variable.
+To use the CLI, [install](https://jfrog.com/getcli/) it on your local machine, or [download](https://jfrog.com/getcli/) its executable, place it anywhere in your file system and add its location to your `PATH` environment variable.
 
 **Environment Variables**
 
