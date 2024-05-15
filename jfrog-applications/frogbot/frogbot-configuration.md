@@ -30,7 +30,7 @@ Frogbot relies on the project's descriptor files, such as package.json and pom.x
             - path/to/npm/project-2
 ```
 
-Here's another example. Notice that we specify a custom 'install' command here.
+Here's another example. Notice that we specify a custom `install` command here.
 
 ```yaml
 - params:
