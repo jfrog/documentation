@@ -9,7 +9,7 @@
   > You can also use **JF\_USER** + **JF\_PASSWORD** instead of **JF\_ACCESS\_TOKEN**.
   >
   > 
-  > Instead of using **JF\_ACCESS\_TOKEN** and providing an access token as a GitHub secret, you can utilize the GitHub **OpenID Connect (OIDC)** authentication protocol.<br>Refer to the **'Authenticating using OpenID Connect (OIDC)'** section below for more information.
+  > Instead of using **JF\_ACCESS\_TOKEN** and providing an access token as a GitHub secret, you can utilize the GitHub [OpenID Connect (OIDC)](#authenticating-using-openid-connect-oidc) authentication protocol.
   * **JF\_GIT\_TOKEN** (GitHub token)
   > You can utilize [${{secrets.GITHUB_TOKEN}}](https://docs.github.com/en/actions/security-guides/automatic-token-authentication) for **JF_GIT_TOKEN**, which is an automatically generated token by GitHub.
   > However, this option comes with a limitation: a workflow, such as Frogbot itself, cannot trigger another workflow. Consequently, if you have additional workflows intended to activate upon the creation of a new pull request, they might not be initiated.
@@ -55,7 +55,7 @@ To utilize the OIDC protocol, follow these steps:
   A) Navigate to the Administration tab In the JFrog Platform UI<br>
   B) Click `General` | `Manage Integrations`<br>
   C) Click `New Integration` | `OpenID Connect`:<br>
-     ![](../.gitbook/assets/oidc-new-integration.png)
+     ![](../.gitbook/assets/oidc-new-integration.png)<br>
   D) Configure the OIDC integration:<br>
      ![](../.gitbook/assets/oidc-configure-integration.png)
 
