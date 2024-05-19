@@ -9,7 +9,7 @@
   > You can also use **JF\_USER** + **JF\_PASSWORD** instead of **JF\_ACCESS\_TOKEN**.
   >
   > 
-  > Instead of using **JF\_ACCESS\_TOKEN** and providing an access token as a GitHub secret, you can utilize the GitHub [OpenID Connect (OIDC)](#connecting-using-openid-connect-oidc) authentication protocol.
+  > Instead of using **JF\_ACCESS\_TOKEN** and providing an access token as a GitHub secret, you can utilize the GitHub **OpenID Connect (OIDC)** authentication protocol.<br>Refer to the **'Authenticating using OpenID Connect (OIDC)'** section below for more information.
   * **JF\_GIT\_TOKEN** (GitHub token)
   > You can utilize [${{secrets.GITHUB_TOKEN}}](https://docs.github.com/en/actions/security-guides/automatic-token-authentication) for **JF_GIT_TOKEN**, which is an automatically generated token by GitHub.
   > However, this option comes with a limitation: a workflow, such as Frogbot itself, cannot trigger another workflow. Consequently, if you have additional workflows intended to activate upon the creation of a new pull request, they might not be initiated.
@@ -40,7 +40,6 @@
 5. Now, create a file named **frogbot-scan-repository.yml**. Again, populate it with the provided [template](templates/github-actions/frogbot-scan-repository.yml) and push it into the **.github/workflows** directory at the root of your GitHub repository.
 
 <br>
-<a id="connecting-using-openid-connect-oidc"></a>
 <details>
 <summary><big><b>Authenticating using OpenID Connect (OIDC)</b></big></summary>
 
