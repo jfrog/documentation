@@ -100,7 +100,7 @@ Example step utilizing OpenID Connect:
 ```yml
 - uses: jfrog/frogbot@v2
   env:
-      JF_URL: ${{ secrets.JF_URL }}
+      JF_URL: ${{ vars.JF_URL }}
       JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   with:
       oidc-provider-name: frogbot-integration
