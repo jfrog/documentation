@@ -12,6 +12,30 @@ Saving data to the filesystem is essential because CLI command executes in separ
 Consequently, each command that records new data should also incorporate any existing data into the aggregated markdown.
 This is required because the CLI cannot determine when a command will be the last one executed in a sequence of commands.
 
+
+An instance of how Command summaries are utilized can be observed in the [setup-cli GitHub action](https://github.com/jfrog/setup-jfrog-cli/blob/master/README.md#github-job-summaries).
+This action employs the compiled markdown to generate a comprehensive summary of the entire workflow.
+
+### Currently supported commands:
+`jf rt upload`
+
+![rt-upload-summary-example](../.gitbook/assets/rt-upload-summary.png)
+
+
+`jf rt build-publish`
+
+![rt-upload-summary-example](../.gitbook/assets/build-info-summary.png)
+
+
+`jf scan `
+
+![jf-scan-example](../.gitbook/assets/jf-scan-summary.png)
+
+
+`jf build-scan `
+
+![jf-scan-example](../.gitbook/assets/jf-build-scan-summary.png)
+
 ## Notes for Developers 🖥️👩🏻‍💻⚙️
 
 To use the command summaries, you'll need to set the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` environment variable.
