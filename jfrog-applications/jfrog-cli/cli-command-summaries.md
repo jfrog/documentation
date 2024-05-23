@@ -4,9 +4,13 @@
 
 The command summaries feature allows the recording of JFrog CLI command outputs into the local file system. This can be used to display a summary of the executed CLI command.
 
-Each command execution that has implemented this feature can save data files into the file system. These files will then be used to create a summary markdown.
+Each command execution that has implemented this feature can save data files into the file system. These files will then be used to create a summary markdown aggregation.
 
-## How to use?
+It's important to save to the filesystem as CLI commands does not share a context.
+That's why each command that record a new data should aggregate the previous data if exists to the aggregated markdown.
+And becuase the CLI doesn't know when a command will be the last command to be executed inside a seaquance of commands.
+
+## Notes for developers
 
 To use the command summaries, you'll need to set the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` environment variable.
 

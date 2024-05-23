@@ -37,6 +37,7 @@
   * [CLI for JFrog Distribution](jfrog-cli/cli-for-jfrog-distribution.md)
   * [CLI for JFrog Pipelines](jfrog-cli/cli-for-jfrog-pipelines.md)
   * [CLI for JFrog Cloud Transfer](jfrog-cli/cli-for-jfrog-cloud-transfer.md)
+  * [CLI Command Summaries](jfrog-cli/cli-command-summaries.md)
   * [JFrog CLI Plugins](jfrog-cli/cli-plugins/README.md)
     * [JFrog CLI Plugins Developer Guide](jfrog-cli/cli-plugins/developer-guide.md)
 * [IDE](ide/README.md)
