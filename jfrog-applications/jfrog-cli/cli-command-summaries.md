@@ -63,13 +63,13 @@ type CommandSummaryInterface interface {
 
 #### Record Data During Runtime
 ```go
-    // Initialize your implementation
-	myNewCommandSummary, err := commandsummary.New(&MyCommandStruct{}, "myNewCommandSummary")
-	if err != nil {
-		return
-	}
-	// Record
-	return myNewCommandSummary.Record(data)
+// Initialize your implementation
+myNewCommandSummary, err := commandsummary.New(&MyCommandStruct{}, "myNewCommandSummary")
+if err != nil {
+    return
+}
+// Record
+return myNewCommandSummary.Record(data)
  ```
 
 The `GenerateMarkdownFromFiles` function needs to process multiple data files, which are the results of previous command executions, and generate a single markdown string content. As each CLI command has its own context, we need to regenerate the entire markdown with the newly added results each time.
