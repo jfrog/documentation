@@ -41,10 +41,11 @@ This action employs the compiled markdown to generate a comprehensive summary of
 To use the command summaries, you'll need to set the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` environment variable.
 This variable designates the directory where the data files and markdown files will be stored.
 
-### ⚠️ Notice: Delete Your Files After Multiple Executions
-
-The CLI does not delete the files itself as they need to persist after more than one execution.
-Therefore, it is your responsibility to clean up your pipelines.
+###  ⚠️ Attention: Files Remain After CLI Execution
+The CLI does not automatically remove the files as they are designed to remain beyond a single execution.
+As a result, it is your responsibility to you to manage your pipelines and delete files as necessary.
+You can clear the entire directory
+of `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` that you have configured to activate this feature.
 
 ## How to Implement? 👩‍💻
 
