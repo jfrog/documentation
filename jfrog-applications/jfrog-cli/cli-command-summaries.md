@@ -2,8 +2,9 @@
 
 ## Overview
 
-The command summaries feature enables the recording of JFrog CLI command outputs into the local file system.
-This functionality can be used to generate a summary of the executed CLI command.
+**The Command Summaries** feature enables the recording of JFrog CLI command outputs into the local file system.
+This functionality can be used to generate a summary in the context of an entire workflow
+(a sequence of JFrog CLU commands) and not only in the scope of a specific command.
 
 Each command execution that incorporates this feature can save data files into the file system.
 These files are then used to create an aggregated summary in Markdown format.
@@ -36,9 +37,9 @@ This action employs the compiled markdown to generate a comprehensive summary of
 
 ![jf-scan-example](../.gitbook/assets/jf-build-scan-summary.png)
 
-## Notes for Developers 🖥️👩🏻‍💻⚙️
+## Notes for Developers 
 
-To use the command summaries, you'll need to set the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` environment variable.
+To use **The Command Summaries**, you'll need to set the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` environment variable.
 This variable designates the directory where the data files and markdown files will be stored.
 
 ###  ⚠️ Attention: Files Remain After CLI Execution
@@ -47,7 +48,7 @@ As a result, it is your responsibility to you to manage your pipelines and delet
 You can clear the entire directory
 of `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` that you have configured to activate this feature.
 
-## How to Implement? 👩‍💻
+### How to Implement? 
 
 If you wish to implement your own summary, follow these steps:
 
@@ -74,7 +75,7 @@ return myNewCommandSummary.Record(data)
 
 The `GenerateMarkdownFromFiles` function needs to process multiple data files, which are the results of previous command executions, and generate a single markdown string content. As each CLI command has its own context, we need to regenerate the entire markdown with the newly added results each time.
 
-### Example Implementation ✍️
+### Example Implementation
 
 
 ```go
@@ -117,9 +118,7 @@ func recordCommandSummary(data any) (err error) {
 
  ```
 
-
-
-## How Does It Work? 🚧
+### How Does It Work? 
 
 Each command that implements the `CommandSummaryInterface` will have its own subdirectory inside the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR/JFROG_COMMAND_SUMMARY` directory.
 
@@ -142,9 +141,3 @@ JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR/JFROG_COMMAND_SUMMARY
 
 The user-implemented function will process all of the data files inside its subdirectory and will generate a markdown string.
 
-#### ❓ Why Do We Need to Generate Markdown from All the Files Every Time?
-
-The reason for this is that the CLI commands execution does not share a common context. 
-Therefore, the markdown file should be regenerated every time, assuming it is the last command that will run.
-Since we cannot determine when the last command will be executed, every time we call record,
-we also have to generate the markdown from all the existing files in the directory.
