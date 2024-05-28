@@ -122,8 +122,10 @@ func recordCommandSummary(data any) (err error) {
 
 Each command that implements the `CommandSummaryInterface` will have its own subdirectory inside the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR/JFROG_COMMAND_SUMMARY` directory.
 
-Each subdirectory will contain data files, each representing a command recording, and a markdown file which has been generated from all the data files.
-
+Every subdirectory will house data files, each one corresponding to a command recording,
+along with a markdown file that has been created from all the data files.
+The function implemented by the user is responsible
+for processing all the data files within its respective subdirectory and generating a markdown string.
 
 ```
 JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR/JFROG_COMMAND_SUMMARY  
@@ -138,6 +140,3 @@ JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR/JFROG_COMMAND_SUMMARY
         datafile2.txt
         markdown.txt
 ```
-
-The user-implemented function will process all of the data files inside its subdirectory and will generate a markdown string.
-
