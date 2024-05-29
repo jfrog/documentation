@@ -2,7 +2,7 @@
 
 ## Overview
 
-**The Command Summaries** feature enables the recording of JFrog CLI command outputs into the local file system.
+The **Command Summaries** feature enables the recording of JFrog CLI command outputs into the local file system.
 This functionality can be used to generate a summary in the context of an entire workflow
 (a sequence of JFrog CLU commands) and not only in the scope of a specific command.
 
@@ -14,7 +14,7 @@ Consequently, each command that records new data should also incorporate any exi
 This is required because the CLI cannot determine when a command will be the last one executed in a sequence of commands.
 
 
-An instance of how Command summaries are utilized can be observed in the [setup-cli GitHub action](https://github.com/jfrog/setup-jfrog-cli/blob/master/README.md#github-job-summaries).
+An instance of how **Command Summaries** are utilized can be observed in the [setup-cli GitHub action](https://github.com/jfrog/setup-jfrog-cli/blob/master/README.md#github-job-summaries).
 This action employs the compiled markdown to generate a comprehensive summary of the entire workflow.
 
 ### Currently supported commands:
@@ -39,7 +39,7 @@ This action employs the compiled markdown to generate a comprehensive summary of
 
 ## Notes for Developers 
 
-To use **The Command Summaries**, you'll need to set the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` environment variable.
+To use the **Command Summaries**, you'll need to set the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` environment variable.
 This variable designates the directory where the data files and markdown files will be stored.
 
 ###  ⚠️ Attention: Files Remain After CLI Execution
