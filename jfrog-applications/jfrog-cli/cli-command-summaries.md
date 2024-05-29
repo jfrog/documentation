@@ -14,7 +14,7 @@ Consequently, each command that records new data should also incorporate any exi
 This is required because the CLI cannot determine when a command will be the last one executed in a sequence of commands.
 
 
-An instance of how **Command Summaries** are utilized can be observed in the [setup-cli GitHub action](https://github.com/jfrog/setup-jfrog-cli/blob/master/README.md#github-job-summaries).
+An instance of how **Command Summaries** are utilized can be observed in the [setup-cli GitHub action](https://github.com/jfrog/setup-jfrog-cli/blob/master/README.md#JFrog-Job-Summary).
 This action employs the compiled markdown to generate a comprehensive summary of the entire workflow.
 
 ### Currently supported commands:
