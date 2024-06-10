@@ -16,6 +16,7 @@ curation-audit command supported package managers and build systems:
 * Npm (npm)
 * Maven (mvn) - Requires xray 3.92 and above, and Artifactory 7.82 and above
 * Pip (pip) - Requires xray 3.92 and above, and Artifactory 7.82 and above
+* Go (go) - Requires xray 3.92 and above, and Artifactory 7.87 and above
 ***
 
 ### Commands
@@ -59,6 +60,10 @@ https://jfrog.com/help/r/jfrog-curation/configure-curation-pass-through
    - **PIP:**
 
        - Set the resolved repository using the [**jf pipc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-python-repository) command inside the project directory (The only package installer supported for now by Python is "pip").
+     
+    - **GO:**
+
+         - Set the resolved repository using the [**jf goc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-go-repositories) command inside the project directory.
 
 #### Commands Params
 
