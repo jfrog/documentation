@@ -13,7 +13,7 @@ The script does the following:
 
 ### Installation
 
-1. Ensure you have the connection details for the JFrog Platform. Don't have a JFrog Platform? [Set up](broken-reference/) a free JFrog Platform instance in the cloud now
+1. Ensure you have the connection details for the JFrog Platform.&#x20;
 2. [Store](broken-reference/) the JFrog Platform connection details on GitLab
 3. Optionally set the URL of your Artifactory Docker Registry as the value of the **JF\_DOCKER\_REGISTRY** variable
 4. [Add](broken-reference/) the **setup-jfrog** pipeline script in your GitLab pipeline

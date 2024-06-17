@@ -1,31 +1,5 @@
 # Connect VS Code to the JFrog Platform
 
-<details>
-
-<summary>If you don't have a JFrog Platform instance, create a free instance in the cloud by running one of the following commands in your terminal.</summary>
-
-**MacOS and Linux using cUrl**
-
-```
-curl -fL "https://getcli.jfrog.io?setup" | sh
-```
-
-**Windows using PowerShell**
-
-```
-powershell "Start-Process -Wait -Verb RunAs powershell '-NoProfile iwr https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/[RELEASE]/jfrog-cli-windows-amd64/jf.exe -OutFile $env:SYSTEMROOT\system32\jf.exe'" ; jf setup
-```
-
-The commands will do the following:
-
-1. Install JFrog CLI on your machine.
-2. Create a FREE JFrog environment in the cloud for you.
-3. Configure VS Code to connect to your new environment.
-
-</details>
-
-\\
-
 Once the JFrog Extension is installed in VS Code, click on the JFrog tab:
 
 ![jfrogTab](../../.gitbook/assets/vscode/jfrogTab.png)
