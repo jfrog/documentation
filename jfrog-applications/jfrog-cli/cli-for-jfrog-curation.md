@@ -62,15 +62,15 @@ https://jfrog.com/help/r/jfrog-curation/configure-curation-pass-through
 
 #### Commands Params
 
-|                       |                                                                                                                                        |
-|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| **Command name**      | curation-audit                                                                                                                         |
-| **Abbreviation**      | ca                                                                                                                                     |
-| **Command options**   |                                                                                                                                        |
-| `--format`            | <p>[Default: table]<br><br>Defines the output format of the command. Acceptable values are: table and json.</p>                        |
-| `--working-dirs`      | <p>[Optional]<br><br>A comma separated list of relative working directories, to determine the audit targets locations.</p>             |
-| `--threads`           | <p>[Default: 10]<br><br>The number of parallel threads used to determine the curation status for each package in the project tree.</p> |
-| `--requirements-file` | <p>[Optional] [Pip]<br><br>Defines pip requirements file name. For example: 'requirements.txt'</p>                                     |
+|                       |                                                                                                                                       |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| **Command name**      | curation-audit                                                                                                                        |
+| **Abbreviation**      | ca                                                                                                                                    |
+| **Command options**   |                                                                                                                                       |
+| `--format`            | <p>[Default: table]<br><br>Defines the output format of the command. Acceptable values are: table and json.</p>                       |
+| `--working-dirs`      | <p>[Optional]<br><br>A comma separated list of relative working directories, to determine the audit targets locations.</p>            |
+| `--threads`           | <p>[Default: 3]<br><br>The number of parallel threads used to determine the curation status for each package in the project tree.</p> |
+| `--requirements-file` | <p>[Optional] [Pip]<br><br>Defines pip requirements file name. For example: 'requirements.txt'</p>                                    |
 
 
 #### Example 1
