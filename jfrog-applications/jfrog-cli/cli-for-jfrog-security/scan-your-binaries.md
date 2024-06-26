@@ -84,7 +84,7 @@ jf s "*.tgz"
 
 ### Scanning Docker Containers on the Local File System
 
-This j\_**f docker scan**\_ command scans docker containers located on the local file-system using the _**docker client**_ and _**JFrog Xray**_. The containers don't need to be deployed to Artifactory or any other container registry before it can be scanned.
+This _**jf docker scan**_ command scans docker containers located on the local file-system using the _**docker client**_ and _**JFrog Xray**_. The containers don't need to be deployed to Artifactory or any other container registry before it can be scanned.
 
 ***
 
