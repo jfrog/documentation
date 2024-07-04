@@ -18,15 +18,15 @@ This _**jf sbom enrich <file_path>**_ command enriches a file that is found on f
 
 #### Commands Params
 
-|                       |                                                                                                                                                                                                                                                                                                                |
-|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Command name**      | sbom enrich                                                                                                                                                                                                                                                                                                    |
-| **Abbreviation**      | se                                                                                                                                                                                                                                                                                                             |
-| **Command options**   |                                                                                                                                                                                                                                                                                                                |
-| `--server-id` | <p>[Optional]<br>Server ID configured using the <em>jf c add</em> command. If not specified, the default configured server is used.</p>                                                                                                                                                                        |
+|                       |                                                                                                                                         |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| **Command name**      | sbom-enrich                                                                                                                             |
+| **Abbreviation**      | se                                                                                                                                      |
+| **Command options**   |                                                                                                                                         |
+| `--server-id` | <p>[Optional]<br>Server ID configured using the <em>jf c add</em> command. If not specified, the default configured server is used.</p> |
 | **Command arguments** |       
- | `file_path`          | the sbom file path.
-| **Pattern**           | Specifies the local file system path to artifacts to be scanned.                                                                                                                                                                                            |
+ | `file_path`          | the sbom file path.                                                                                                                     
+| **Pattern**           | Specifies the local file system path to artifacts to be scanned.                                                                        |
 
 #### Example 1
 
