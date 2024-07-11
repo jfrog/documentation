@@ -4,15 +4,7 @@
 
 The **Command Summaries** feature enables the recording of JFrog CLI command outputs into the local file system.
 This functionality can be used to generate a summary in the context of an entire workflow
-(a sequence of JFrog CLU commands) and not only in the scope of a specific command.
-
-Each command execution that incorporates this feature can save data files into the file system.
-These files are then used to create an aggregated summary in Markdown format.
-
-Saving data to the filesystem is essential because CLI command executes in separate contexts.
-Consequently, each command that records new data should also incorporate any existing data into the aggregated markdown.
-This is required because the CLI cannot determine when a command will be the last one executed in a sequence of commands.
-
+(a sequence of JFrog CLI commands) and not only in the scope of a specific command.
 
 An instance of how **Command Summaries** are utilized can be observed in the [setup-cli GitHub action](https://github.com/jfrog/setup-jfrog-cli/blob/master/README.md#JFrog-Job-Summary).
 This action employs the compiled markdown to generate a comprehensive summary of the entire workflow.
@@ -37,10 +29,15 @@ This action employs the compiled markdown to generate a comprehensive summary of
 
 ![jf-scan-example](../.gitbook/assets/jf-build-scan-summary.png)
 
+
 ## Notes for Developers 
 
-To use the **Command Summaries**, you'll need to set the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` environment variable.
-This variable designates the directory where the data files and markdown files will be stored.
+Each command execution that incorporates this feature can save data files into the file system.
+These files are then used to create an aggregated summary in Markdown format.
+
+Saving data to the filesystem is essential because CLI command executes in separate contexts.
+Consequently, each command that records new data should also incorporate any existing data into the aggregated markdown.
+This is required because the CLI cannot determine when a command will be the last one executed in a sequence of commands.
 
 ###  ⚠️ Attention: Files Remain After CLI Execution
 The CLI does not automatically remove the files as they are designed to remain beyond a single execution.
@@ -48,9 +45,16 @@ As a result, it is your responsibility to you to manage your pipelines and delet
 You can clear the entire directory
 of `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` that you have configured to activate this feature.
 
+
+To use the **Command Summaries**, you'll need to set the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` environment variable.
+This variable designates the directory where the data files and markdown files will be stored.
+
+
 ### How to Implement? 
 
-If you wish to implement your own summary, follow these steps:
+If you wish to contribute a new CLI command summary to the existing ones,
+you can submit a pull request once you've followed these implementation guidelines:
+
 
 1. Implement the CommandSummaryInterface
 2. Record data during runtime
