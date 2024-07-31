@@ -10,15 +10,13 @@ An instance of how **Command Summaries** are utilized can be observed in the [se
 This action employs the compiled markdown to generate a comprehensive summary of the entire workflow.
 
 ### Currently supported commands:
-`jf rt upload`
-
-![rt-upload-summary-example](../.gitbook/assets/rt-upload-summary.png)
-
-
 `jf rt build-publish`
 
 ![rt-upload-summary-example](../.gitbook/assets/build-info-summary.png)
 
+`jf rt upload`
+
+![rt-upload-summary-example](../.gitbook/assets/rt-upload-summary.png)
 
 `jf scan `
 
