@@ -27,7 +27,9 @@ The file spec schema for the copy and move commands is as follows:
     "build": "[Optional]",
     "bundle": "[Optional]",
     "validateSymlinks": "[Optional]",
-    "sortBy": "[Optional]",
+    "sortBy": [
+      "Optional"
+    ],
     "sortOrder": "[Optional, Default: 'asc']",
     "limit": "[Optional],
     "offset": [Optional] }
@@ -56,7 +58,9 @@ The file spec schema for the download command is as follows:
     "archiveEntries": "[Optional]",
     "build": "[Optional]",
     "bundle": "[Optional]",
-    "sortBy": "[Optional]",
+    "sortBy": [
+      "Optional"
+    ],
     "sortOrder": "[Optional, Default: 'asc']",
     "limit": [Optional],
     "offset": [Optional] }
@@ -87,7 +91,9 @@ The file spec schema for the create and update release bundle v1 commands is as 
     "archiveEntries": "[Optional]",
     "build": "[Optional]",
     "bundle": "[Optional]",
-    "sortBy": "[Optional]",
+    "sortBy": [
+      "Optional"
+    ],
     "sortOrder": "[Optional, Default: 'asc']",
     "limit": [Optional],
     "offset": [Optional] }
@@ -137,7 +143,9 @@ The file spec schema for the search and delete commands are as follows:
     "archiveEntries": "[Optional]",
     "build": "[Optional]",
     "bundle": "[Optional]",
-    "sortBy": "[Optional]",
+    "sortBy": [
+      "Optional"
+    ],
     "sortOrder": "[Optional, Default: 'asc']",
     "limit": [Optional],
     "offset": [Optional] }
