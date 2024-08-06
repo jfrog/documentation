@@ -19,7 +19,10 @@ The file spec schema for the copy and move commands is as follows:
     "excludeProps": "[Optional]",
     "recursive": "[Optional, Default: 'true']",
     "flat": "[Optional, Default: 'false']",
-    "exclusions": "[Optional, Applicable only when 'pattern' is specified]",
+    "exclusions": [
+      "Optional",
+      "Applicable only when 'pattern' is specified"
+    ],
     "archiveEntries": "[Optional]",
     "build": "[Optional]",
     "bundle": "[Optional]",
@@ -46,7 +49,10 @@ The file spec schema for the download command is as follows:
     "excludeProps": "[Optional]",
     "recursive": "[Optional, Default: 'true']",
     "flat": "[Optional, Default: 'false']",
-    "exclusions": "[Optional, Applicable only when 'pattern' is specified]",
+    "exclusions": [
+      "Optional",
+      "Applicable only when 'pattern' is specified"
+    ],
     "archiveEntries": "[Optional]",
     "build": "[Optional]",
     "bundle": "[Optional]",
@@ -74,7 +80,10 @@ The file spec schema for the create and update release bundle v1 commands is as 
     "excludeProps": "[Optional]",
     "recursive": "[Optional, Default: 'true']",
     "flat": "[Optional, Default: 'false']",
-    "exclusions": "[Optional, Applicable only when 'pattern' is specified]",
+    "exclusions": [
+      "Optional",
+      "Applicable only when 'pattern' is specified"
+    ],
     "archiveEntries": "[Optional]",
     "build": "[Optional]",
     "bundle": "[Optional]",
@@ -102,7 +111,9 @@ The file spec schema for the upload command is as follows:
     "regexp": "[Optional, Default: 'false']",
     "ant": "[Optional, Default: 'false']",
     "archive": "[Optional, Must be: 'zip']",
-    "exclusions": "[Optional]" }
+    "exclusions": [
+      "Optional"
+    ] }
   ]
 }
 ```
@@ -119,7 +130,10 @@ The file spec schema for the search and delete commands are as follows:
     "props": "[Optional]",
     "excludeProps": "[Optional]",
     "recursive": "[Optional, Default: 'true']",
-    "exclusions": "[Optional, Applicable only when 'pattern' is specified]",
+    "exclusions": [
+      "Optional",
+      "Applicable only when 'pattern' is specified"
+    ],
     "archiveEntries": "[Optional]",
     "build": "[Optional]",
     "bundle": "[Optional]",
