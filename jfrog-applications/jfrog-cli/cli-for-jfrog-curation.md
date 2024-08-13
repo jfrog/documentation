@@ -44,8 +44,8 @@ Make sure your JFrog Artifactory admin configured the curated remote repository 
     jf c show
     ```
 
-    * It should present Artifactory server just added (with default true)\
-      \
+    * It should present Artifactory server just added (with default true)
+    
 
 2. **Configure JFrog CLI for Project**\
    Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Here are details for each package manager:
