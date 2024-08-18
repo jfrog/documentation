@@ -50,11 +50,11 @@ A typical build plugin configuration would be as follows:
 </build>
 ```
 
-The plugin's invocation phase is validate by default, and we recommend you don't change it so the plugin is called as early as possible in the lifecycle of your Maven build.
+The plugin's invocation phase is validated by default, and we recommend you don't change it so the plugin is called as early as possible in the lifecycle of your Maven build.
 
 #### Full Configuration
 
-The example above configures the Artifactory publisher, to deploy build artifacts either to the releases or the snapshots repository of Artifactory when `mvn deploy` is executed.
+The example above configures the Artifactory publisher to deploy and build artifacts either to the releases or the snapshots repository of Artifactory when `mvn deploy` is executed.
 
 However, the Maven Artifactory Plugin provides many other configurations:
 
@@ -98,9 +98,9 @@ However, the Maven Artifactory Plugin provides many other configurations:
     <excludePatterns>..</excludePatterns>
     <includePatterns>..</includePatterns>
     <filterExcludedArtifactsFromBuild>true/false</filterExcludedArtifactsFromBuild>
-    <!-- If true build information published to Artifactory will include implicit project as well as build-time dependencies -->
+    <!-- If true build information published to Artifactory will include the implicit project as well as build-time dependencies -->
     <recordAllDependencies>true/false</recordAllDependencies>
-    <!-- Minimum file size in KB for which the plugin performs checksum deploy optimization. Default: 10. Set to 0 to disable uploading files with checksum that already exists in Artifactory. -->
+    <!-- Minimum file size in KB for which the plugin performs checksum deploy optimization. Default: 10. Set to 0 to disable uploading files with the checksum that already exists in Artifactory. -->
     <minChecksumDeploySizeKb>10</minChecksumDeploySizeKb>
   </publisher>
   <proxy>
@@ -118,13 +118,13 @@ However, the Maven Artifactory Plugin provides many other configurations:
 |:--------------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `<deployProperties>` | Specifies properties you can attach to published artifacts. For example: prop-value.                                                                                                                                                                     |
 |   `<artifactory>`    | Specifies whether environment variables are published as part of BuildInfo metadata and which include or exclude patterns are applied when variables are collected                                                                                       |
-|    `<publisher>`     | Defines an Artifactory repository where build artifacts should be published using a combination of a `<contextUrl>` and `<repoKey>/<snapshotRepoKey>`. Build artifacts are deployed if the deploy goal is executed and only after all modules are built. |
+|    `<publisher>`     | Defines an Artifactory repository where build artifacts should be published using a combination of a `<contextUrl>` and `<repoKey>/<snapshotRepoKey>`. Build artifacts are deployed only after the deployment goal is executed and after all modules are built. |
 |    `<buildInfo>`     | Updates BuildInfo metadata published together with build artifacts. You can configure whether or not BuildInfo metadata is published using the configuration.                                                                                            |
 |      `<proxy>`       | Specifies HTTP/S proxy.                                                                                                                                                                                                                                  |
 
 #### Reading Environment Variables and System Properties
 
-Every build server provides its own set of environment variables. You can utilize these variables when configuring the plugin as shown in the following example:
+Every build server provides its own set of environment variables. You can utilize these variables when configuring the plugin, as shown in the following example:
 
 ```xml
 
