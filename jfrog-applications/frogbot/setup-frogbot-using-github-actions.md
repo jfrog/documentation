@@ -57,7 +57,10 @@ The sensitive connection details, such as the access token used by JFrog Frogbot
    D) Configure the OIDC integration:\
    ![](../.gitbook/assets/oidc-configure-integration.png)
 
-<!---->
+**Notes**: \
+The 'Provider Name' value should be used as the 'oidc-provider-name' input in Workflow Configuration step 2 below.
+
+The 'Audience' field does NOT represent the 'aud' claim that can be added to identity-mapping configured in the 'Claims JSON' (shown below). Only claims that are included in the 'Claims Json' created during step 2 will be validated.
 
 2.  **Configure an identity mapping**: This phase sets an integration between a particular GitHub repository to the JFrog platform.
 
@@ -85,7 +88,9 @@ The sensitive connection details, such as the access token used by JFrog Frogbot
 
 Example step utilizing OpenID Connect:
 
-```yml
+When using OIDC integration, you might encounter failures in Xray scans or JFrog Advanced Security scans due to token expiration.&#x20;
+
+```
 - uses: jfrog/frogbot@v2
   env:
       JF_URL: ${{ vars.JF_URL }}
@@ -93,5 +98,7 @@ Example step utilizing OpenID Connect:
   with:
       oidc-provider-name: frogbot-integration
 ```
+
+**Note**: If this occurs, try extending the "Token Expiration Time|" in the 'Identity Mapping Configuration" phase to ensure the token remains valid until all scanners are triggered, which may vary depending on the project's size.
 
 </details>
