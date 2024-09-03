@@ -7,10 +7,10 @@
 
 #### Select your preferred CI server:
 
-* [GitHub Actions](setup-frogbot-using-github-actions.md)
+* [GitHub Actions](../jfrog-applications/frogbot/setup-frogbot/setup-frogbot-using-github-actions/)
 * [Jenkins](setup-frogbot-using-jenkins.md)
 * [JFrog Pipelines](setup-frogbot-using-jfrog-pipelines.md)
-* [GitLab CI](setup-frogbot-using-gitlab-ci.md)
+* [GitLab CI](../jfrog-applications/frogbot/setup-frogbot/setup-frogbot-using-gitlab-ci/)
 * [Azure Pipelines](setup-frogbot-using-azure-pipelines.md)
 
 <details>
