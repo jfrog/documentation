@@ -12,9 +12,27 @@ The Artifactory Transfer solution currently transfers the config and data of JFr
 
 In this page, we refer to the source self-hosted instance as the source instance, and the target JFrog Cloud instance as the target instance.
 
-### Artifactory Version Support
+### Noteworthy Details
 
-The Artifactory Transfer solution is supported for any version of Artifactory 7.x and Artifactory version 6.23.21 and above.
+   * **Artifactory Version Support:** The Artifactory Transfer solution is supported for any version of Artifactory 7.x and Artifactory version 6.23.21 and above. If your current Artifactory version is not of compatible version, please consider upgrading the Artifactory instance. 
+   * **Supported OS Platforms:** The transfer tool can help transfer the files and configuration from operating systems of all types, including Windows and Container environments.
+
+### Limitations
+
+The following limitations need to be kept in mind before you start the migration process
+
+1. The Archive Search Enabled feature is not supported on JFrog Cloud.
+2. Artifactory System Properties are not transferred and JFrog Cloud defaults are applied after the transfer.
+3. User plugins are not supported on JFrog Cloud.
+4. Artifact Cold Storage is not supported in JFrog Cloud.
+5. Artifacts in remote repositories caches are not transferred.
+6. Federated repositories are transferred without their federation members. After the transfer, you'll need to reconfigure the federation as described in the Federated Repositories documentation. Federated Repositories
+7. Docker repositories with names that include dots or underscores aren't allowed in JFrog Cloud.
+8. Artifact properties with a value longer than 2.4K characters are not supported in JFrog Cloud. Such properties are generally seen in Conan artifacts. The artifacts will be transferred without the properties in this case. A report with these artifacts will become available to you at the end of the transfer.
+9. The files transfer process allows transferring files that were created or modified on the source instance after the process started. However:
+   * Files that were deleted on the source instance after the process started, are not deleted on the target instance by the process. 
+   * The custom properties of those files are also updated on the target instance. However, if only the custom properties of those files were modified on the source, but not the files' content, the properties are not modified on the target instance by the process.
+10. When transferring files in build-info repositories, JFrog CLI limits the total of working threads to 8. This is done to limit the load on the target instance while transferring build-info.
 
 ### Transfer phases
 
@@ -34,31 +52,15 @@ The transfer process includes two phases, that you must perform in the following
 
 You can do both steps while the source instance is in use. No downtime on the source instance is required while the transfer is in progress.
 
-### Limitations
-
-The following limitations need to be kept in mind before you start the migration process
-
-1. The Archive Search Enabled feature is not supported on JFrog Cloud.
-2. Artifactory System Properties are not transferred and JFrog Cloud defaults are applied after the transfer.
-3. User plugins are not supported on JFrog Cloud.
-4. Artifact Cold Storage is not supported in JFrog Cloud.
-5. Artifacts in remote repositories caches are not transferred.
-6. Federated repositories are transferred without their federation members. After the transfer, you'll need to reconfigure the federation as described in the Federated Repositories documentation. Federated Repositories
-7. Docker repositories with names that include dots or underscores aren't allowed in JFrog Cloud.
-8. Artifact properties with a value longer than 2.4K characters are not supported in JFrog Cloud. Such properties are generally seen in Conan artifacts. The artifacts will be transferred without the properties in this case. A report with these artifacts will become available to you at the end of the transfer.
-9. The files transfer process allows transferring files that were created or modified on the source instance after the process started. However:
-   1. Files that were deleted on the source instance after the process started, are not deleted on the target instance by the process. 
-   2. The custom properties of those files are also updated on the target instance. However, if only the custom properties of those files were modified on the source, but not the files' content, the properties are not modified on the target instance by the process.
-
 ### Before you begin
 
 1. If your source instance hosts files that are larger than 25 GB, they will be blocked during the transfer. To learn how to check whether large files are hosted by your source instance, and what to do in that case, read [this section](#transferring-files-larger-than-25-gb).
 2. Ensure that you can log in to the UI of both the source and target instances with users that have admin permissions.
 3. Ensure that the target instance license does not support fewer features than the source instance license.
 4. Run the file transfer pre-checks as described [here](#running-pre-checks-before-initiating-the-file-transfer-process).
-5. Ensure that all the remote repositories on the source Artifactory instance have network access to their destination URL once they are created in the target instance. Even if one remote or federated repository does not have access, the configuration transfer operation will be canceled. You do have the option of excluding specific repositories from being transferred.
+5. Ensure that all the remote repositories on the source Artifactory instance have network access to their destination URL once they are created in the target instance. Even if one remote or federated repository does not have access, the configuration transfer operation will be cancelled. You do have the option of excluding specific repositories from being transferred.
 6. Ensure that all the replications configured on the source Artifactory instance have network access to their destination URL once they are created in the target instance.
-7. Ensure that you have a user that can log in to [MyJFrog](https://my.jfrog.com/login/).
+7. Ensure that you have a user who can log in to [MyJFrog](https://my.jfrog.com/login/).
 8. Ensure that you can log in to the primary node of your source instance through a terminal.
 
 ### Running the transfer process
@@ -120,6 +122,17 @@ If the source instance has no internet access, follow these steps instead.
 jf rt transfer-plugin-install source-server --dir "<plugin files dir>"
 ```
 
+If the above is not an option, you may also load the transfer plugin manually into the on-premise plugins directory to continue with the transfer process.
+
+**Step-1:** Download the dataTransfer JAR file from here (https://releases.jfrog.io/artifactory/jfrog-releases/data-transfer/[RELEASE]/lib/data-transfer.jar) and add it under $JFROG_HOME/artifactory/var/etc/artifactory/plugins/lib/. If the "lib" directory is not present, create one.
+
+**Step-2:** Download the dataTransfer.groovy file from here (https://releases.jfrog.io/artifactory/jfrog-releases/data-transfer/[RELEASE]/dataTransfer.groovy) and add it under $JFROG_HOME/artifactory/var/etc/artifactory/plugins/.
+
+**Step-3:** Reload the plugin using the following command.
+curl -u admin -X POST http://localhost:8082/artifactory/api/plugins/reload
+
+If the plugin is loaded successfully, source instance is all set to proceed with the configuration transfer.
+
 #### Step 3: Transfer configuration from the source instance to the target instance
 
 ***
@@ -150,6 +163,10 @@ jf rt transfer-plugin-install source-server --dir "<plugin files dir>"
     ```
 
 If the command output shows that a target URL isn't accessible for any of the repositories, you'll need to make the URL accessible before proceeding to transfer the config. You can then rerun the command to ensure that the URLs are accessible.
+
+If the command execution fails with an error indicating that the configuration import failed against the target server due to some existing data, before using the --force flag to override it, consider reviewing the configuration present in the cloud instance to ensure if it's safe to override. If you would like to preserve the existing configuration in cloud instance whilst transferring the additional data from on-premise, refer to the link here (https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-cloud-transfer#transferring-projects-and-repositories-from-multiple-source-instances). This section describes a merge task instead of transfer, to sync the data between the instances.
+
+NOTE: Users will not be transferred while executing merge. Only Repositories and Projects will be merged with the cloud instance.
 
 ***
 
@@ -200,8 +217,24 @@ Disabling the configuration transfer might take some time.
 
 #### Step 5: Push the files from the source to the target instance
 
+### Running pre-checks before initiating the file transfer process
+
+Before initiating the file transfer process, we highly recommend running pre-checks, to identify issues that can affect the transfer. You trigger the pre-checks by running a JFrog CLI command on your terminal. The pre-checks will verify the following:
+
+1. There's network connectivity between the source and target instances.
+2. The source instance does not include artifacts with properties with values longer than 2.4K characters. This is important, because values longer than 2.4K characters are not supported in JFrog Cloud, and those properties are skipped during the transfer process.
+
+To run the pre-checks, follow these steps:
+
 1. Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](#installing-jfrog-cli-on-a-machine-with-network-access-to-the-source-and-target-machines).
-2. Run the following command to start pushing the files from all the repositories in the source instance to the target instance.
+2. Run the following command:
+
+```sh
+jf rt transfer-files source-server target-server --prechecks
+```
+
+**Initiating File Transfer:** 
+Run the following command to start pushing the files from all the repositories in the source instance to the target instance.
 
     ```sh
     jf rt transfer-files source-server target-server
@@ -256,6 +289,45 @@ While the file transfer is running, monitor the load on your source instance, an
 
 You have the option to sync the configuration between the source and target after the file transfer process is complete. You may want to so this if new config entities, such as projects, repositories, or users were created or modified on the source, while the files transfer process has been running. To do this, simply repeat steps 1-3 above.
 
+### Running the transfer process - Exceptional cases
+1. **Transferring files larger than 25GB:** By default, files that are larger than 25 GB will be blocked by the JFrog Cloud infrastructure during the file transfer. To check whether your source Artifactory instance hosts files larger than that size, do the following.
+Run the following curl command from your terminal, after replacing the `<source instance URL>`, `<username>` and `<password>` tokens with your source instance details. The command execution may take a few minutes, depending on the number of files hosted by Artifactory.
+
+    ```sh
+    curl -X POST <source instance URL>/artifactory/api/search/aql -H "Content-Type: text/plain" -d 'items.find({"name" : {"$match":"*"}}).include("size","name","repo").sort({"$desc" : ["size"]}).limit(1)' -u "<USERNAME>:<PASSWORD>"
+    ```
+
+   You should get a result that looks like the following.
+    ```json
+     {
+       "results":[
+           {
+             "size":132359021
+           }
+       ],
+       "range":{
+           "start_pos":0,
+           "end_pos":1,
+           "total":1,
+           "limit":1
+       }
+     }
+    ```
+    The value of **size** represents the largest file size hosted by your source Artifactory instance.
+
+   If the size value you received is larger than 25000000000, please avoid initiating the files transfer before contacting JFrog Support, to check whether this size limit can be increased for you. You can contact Support by sending an email to [support@jfrog.com](mailto:support@jfrog.com)
+
+2. **Routing the traffic from the source to the target through an HTTPS proxy:**
+The `jf rt transfer-files` command pushes the files directly from the source to the target instance over the network. In case the traffic from the source instance needs to be routed through an HTTPS proxy, follow these steps.
+
+   a. Define the proxy details in the source instance UI as described in the Managing ProxiesManaging Proxies documentation.
+   b. When running the `jf rt transfer-files` command, add the `--proxy-key` option to the command, with Proxy Key you configured in the UI as the option value. For example, if the Proxy Key you configured is **my-proxy-key**, run the command as follows:
+
+```sh
+jf rt transfer-files my-source my-target --proxy-key my-proxy-key
+```
+
+
 ### Transferring projects and repositories from multiple source instances
 
 The **jf rt transfer-config** command transfers all the config entities (users, groups, projects, repositories, and more) from the source to the target instance. While doing so, the existing configuration on the target is deleted and replaced with the new configuration from the source. If you'd like to transfer the projects and repositories from multiple source instances to a single target instance, while preserving the existing configuration on the target, follow the below steps.
@@ -301,15 +373,7 @@ The `jf rt transfer-files` command pushes the files from the source instance to 
 * **Phase 3** attempts to push files that failed to be transferred in earlier phases (**Phase 1** or **Phase 2**) or in previous executions of the command.
 * If **Phase 1** finished running for a specific repository, and you run the `jf rt transfer-files` command again, only **Phase 2** and **Phase 3** will be triggered. You can run the `jf rt transfer-files` as many times as needed, till you are ready to move your traffic to the target instance permanently. In any subsequent run of the command, **Phase 2** will transfer the newly created and modified files, and **Phase 3** will retry transferring files that failed to be transferred in previous phases and also **in previous runs of the command**.
 
-#### Using Replication
-
-To help reduce the time it takes for Phase 2 to run, you may configure Event-Based Push Replication for some or all of the local repositories on the source instance. With Replication configured, when files are created or updated on the source repository, they are immediately replicated to the corresponding repository on the target instance. Repository Replication
-
-The replication can be configured at any time. Before, during, or after the file transfer process.
-
-#### Files transfer state
-
-You can run the `jf rt transfer-files` command multiple times. This is needed to allow transferring files that have been created or updated after previous command executions. To achieve this, JFrog CLI stores the current state of the file transfer process in a directory named `transfer` under the JFrog CLI home directory. You can usually find this directory at this location `~/.jfrog/transfer`.
+To achieve this, JFrog CLI stores the current state of the file transfer process in a directory named `transfer` under the JFrog CLI home directory. You can usually find this directory at this location `~/.jfrog/transfer`.
 
 JFrog CLI uses the state stored in this directory to avoid repeating transfer actions performed in previous executions of the command. For example, once **Phase 1** is completed for a specific repository, subsequent executions of the command will skip **Phase 1** and run **Phase 2** and **Phase 3** only.
 
@@ -387,10 +451,6 @@ By default, the `jf rt transfer-files` command uses 8 working threads to push fi
 jf rt transfer-settings
 ```
 
-### Build-info repositories
-
-When transferring files in build-info repositories, JFrog CLI limits the total of working threads to 8. This is done in order to limit the load on the target instance while transferring build-info.
-
 ### Manually copying the filestore to reduce the transfer time
 
 When your self-hosted Artifactory hosts hundreds of terabytes of binaries, you may consult with your JFrog account manager about the option of reducing the file transfer time by manually copying the entire filestore to the JFrog Cloud storage. This reduces the transfer time because the binaries' content does not need to be transferred over the network.
@@ -399,70 +459,13 @@ The `jf rt transfer-files` command transfers the metadata of the binaries to the
 
 To run the file transfer after you copy the filestore, add the `--filestore` command option to the `jf rt transfer-files` command.
 
-### Running pre-checks before initiating the file transfer process
+#### Using Replication
 
-Before initiating the file transfer process, we highly recommend running pre-checks, to identify issues that can affect the transfer. You trigger the pre-checks by running a JFrog CLI command on your terminal. The pre-checks will verify the following:
+To help reduce the time it takes for Phase 2 to run, you may configure Event-Based Push Replication for some or all of the local repositories on the source instance. With Replication configured, when files are created or updated on the source repository, they are immediately replicated to the corresponding repository on the target instance. Repository Replication
 
-1. There's network connectivity between the source and target instances.
-2. The source instance does not include artifacts with properties with values longer than 2.4K characters. This is important, because values longer than 2.4K characters are not supported in JFrog Cloud, and those properties are skipped during the transfer process.
-
-To run the pre-checks, follow these steps:
-
-1. Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](#installing-jfrog-cli-on-a-machine-with-network-access-to-the-source-and-target-machines).
-2. Run the following command:
-
-```sh
-jf rt transfer-files source-server target-server --prechecks
-```
+The replication can be configured at any time. Before, during, or after the file transfer process.
 
 ***
-
-**Note**
-
-> If the traffic between the source and target instance needs to be routed through an HTTPS proxy, add the --proxy-key command option as described in [this](#routing-the-traffic-from-the-source-to-the-target-through-an-https-proxy) section.
-
-***
-
-### Transferring files larger than 25 GB
-
-By default, files that are larger than 25 GB will be blocked by the JFrog Cloud infrastructure during the file transfer. To check whether your source Artifactory instance hosts files larger than that size, do the following.
-
-1. Run the following curl command from your terminal, after replacing the `<source instance URL>`, `<username>` and `<password>` tokens with your source instance details. The command execution may take a few minutes, depending on the number of files hosted by Artifactory.
-
-    ```sh
-    curl -X POST <source instance URL>/artifactory/api/search/aql -H "Content-Type: text/plain" -d 'items.find({"name" : {"$match":"\*"}}).include("size").sort({"$desc" : \["size"\]}).limit(1)' -u <username>:<password>
-    ```
-
-2. You should get a result that looks like the following.
-    ```json
-     {
-       "results":[
-           {
-             "size":132359021
-           }
-       ],
-       "range":{
-           "start_pos":0,
-           "end_pos":1,
-           "total":1,
-           "limit":1
-       }
-     }
-    ```
-    The value of **size** represents the largest file size hosted by your source Artifactory instance.
-
-3. If the size value you received is larger than 25000000000, please avoid initiating the files transfer before contacting JFrog Support, to check whether this size limit can be increased for you. You can contact Support by sending an email to [support@jfrog.com](mailto:support@jfrog.com)
-
-### Routing the traffic from the source to the target through an HTTPS proxy
-
-The `jf rt transfer-files` command pushes the files directly from the source to the target instance over the network. In case the traffic from the source instance needs to be routed through an HTTPS proxy, follow these steps.
-
-1. Define the proxy details in the source instance UI as described in the Managing ProxiesManaging Proxies documentation.
-2. When running the `jf rt transfer-files` command, add the `--proxy-key` option to the command, with Proxy Key you configured in the UI as the option value. For example, if the Proxy Key you configured is **my-proxy-key**, run the command as follows:
-
-```sh
-jf rt transfer-files my-source my-target --proxy-key my-proxy-key
-```
 
 ### Frequently asked questions
 
