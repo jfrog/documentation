@@ -113,7 +113,9 @@ This command is used to download files from Artifactory.
 
 > Download from Remote Repositories:\
 > \
-> By default, the command only downloads files that are cached on the current Artifactory instance. It does not download files located on remote Artifactory instances, through remote or virtual repositories. To allow the command to download files from remote Artifactory instances, which are proxied by the use of remote repositories, set the **JFROG\_CLI\_TRANSITIVE\_DOWNLOAD\_EXPERIMENTAL** environment variable to **true**. This functionality requires version 7.17 or above of Artifactory. The remote download functionality is supported only on remote repositories which proxy repositories on remote Artifactory instances. Downloading through a remote repository that proxies non-Artifactory repositories is not supported.
+> By default, the command downloads only the files that are cached on the current Artifactory instance. It does not retrieve files from remote Artifactory instances accessed via remote or virtual repositories. To enable the command to download files from remote Artifactory instances (proxied through remote repositories), set the **JFROG_CLI_TRANSITIVE_DOWNLOAD** environment variable to **true**. This feature is available in Artifactory version 7.17 or later. Note that remote downloads are supported only for remote repositories that proxy other Artifactory instances. Downloads from remote repositories that proxy non-Artifactory repositories are not supported.\
+> \
+> **IMPORTANT**: Enabling the **JFROG_CLI_TRANSITIVE_DOWNLOAD** environment variable may increase the load on the remote Artifactory instance. It is advisable to use this setting cautiously.
 
 ### Usage
 
