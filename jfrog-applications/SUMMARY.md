@@ -34,6 +34,7 @@
     * [Scan your Binaries](jfrog-cli/cli-for-jfrog-security/scan-your-binaries.md)
     * [Download Updates for Xray's Database](jfrog-cli/cli-for-jfrog-security/download-updates-for-xrays-database.md)
     * [Count Contributing Developers](jfrog-applications/jfrog-cli/cli-for-jfrog-security/count-contributing-developers.md)
+    * [Enrich your SBOM JSONs & XMLs](jfrog-applications/jfrog-cli/cli-for-jfrog-security/enrich-your-sbom.md)
   * [CLI for JFrog Curation](jfrog-cli/cli-for-jfrog-curation.md)
   * [CLI for JFrog Distribution](jfrog-cli/cli-for-jfrog-distribution.md)
   * [CLI for JFrog Pipelines](jfrog-cli/cli-for-jfrog-pipelines.md)
