@@ -6,7 +6,7 @@ This feature is supported in JFrog CLI version 2.60.0
 
 The `git count-contributors` command allows JFrog users to easily determine the number of Git developers contributing to their code. The counts indicate the number of contributing developers to the **default branch**.&#x20;
 
-The command works by counting the contributing developers for all commits performed within a time range you specify. The results are based on email addresses, thus giving you the specific number of unique developers.&#x20;
+The command counts the contributing developers for all commits performed within a specified time range. The results are based on email addresses, thus giving you a specific number of unique developers.&#x20;
 
 We provide several options to obtain the developer count:
 
@@ -22,7 +22,9 @@ Supported Git providers:
 * GitLab
 * Bitbucket
 
-> This command is intended to assist you in gaining insights to your contributors count. However, we recommend that in addition to utilizing this command that you confirm the data.&#x20;
+{% hint style="info" %}
+The CLI outputs may include an estimation of the contributing developers based on the input provided by the user. They may be based on third-party resources and databases and JFrog does not guarantee that the CLI outputs are accurate and/or complete. The CLI outputs are not legal advice and you are solely responsible for your use of it. CLI outputs are provided "as is" and any representation or warranty of or concerning any third-party technology is strictly between the user and the third-party owner or distributor of the third-party technology.
+{% endhint %}
 
 ### Usage
 
