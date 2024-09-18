@@ -1,3 +1,8 @@
+# Scan Git Repository Full Template
+
+Here you can find the full template for Frogbot repository scan workflow:
+
+```yaml
 name: "Frogbot Scan Repository"
 on:
   workflow_dispatch:
@@ -22,7 +27,7 @@ jobs:
         env:
           # [Mandatory]
           # JFrog platform URL
-          JF_URL: ${{ vars.JF_URL }}
+          JF_URL: ${{ secrets.JF_URL }}
 
           # [Mandatory if JF_USER and JF_PASSWORD are not provided]
           # JFrog access token with 'read' permissions on Xray service
@@ -147,3 +152,4 @@ jobs:
         # Insert to oidc-provider-name the 'Provider Name' defined in the OIDC integration configured in the JPD
         # with:
         #   oidc-provider-name: ""
+```

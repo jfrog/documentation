@@ -31,6 +31,7 @@ This _**jf scan**_ command scans files on the local file system with Xray.
 | `--watches` | <p>[Optional]<br>A comma-separated(,) list of Xray watches, to enable Xray to determine violations accordingly. The command accepts this option only if the --project and --repo-path options are not provided. If none of the three options are provided, the command will show all known vulnerabilities.</p> |
 | `--licenses` | <p>[Default: false]<br>Set if you also require the list of licenses to be displayed.</p>                                                                                                                                                                                                                        |
 | --format=json         | <p>[Optional]<br>Produces a JSON file containing the scan results.</p>                                                                                                                                                                                                                                          |
+| `--vuln` | <p>[Optional]<br>Set if you'd like to receive all vulnerabilities, regardless of the policy configured in Xray.</p>                                                                                                            |
 | **Command arguments** |                                                                                                                                                                                                                                                                                                                 |
 | **Pattern**           | Specifies the local file system path to artifacts to be scanned. You can specify multiple files by using wildcards.                                                                                                                                                                                             |
 
@@ -84,7 +85,7 @@ jf s "*.tgz"
 
 ### Scanning Docker Containers on the Local File System
 
-This j\_**f docker scan**\_ command scans docker containers located on the local file-system using the _**docker client**_ and _**JFrog Xray**_. The containers don't need to be deployed to Artifactory or any other container registry before it can be scanned.
+This _**jf docker scan**_ command scans docker containers located on the local file-system using the _**docker client**_ and _**JFrog Xray**_. The containers don't need to be deployed to Artifactory or any other container registry before it can be scanned.
 
 ***
 
@@ -111,6 +112,7 @@ This j\_**f docker scan**\_ command scans docker containers located on the local
 | `--licenses` | <p>[Default: false]<br>Set if you also require the list of licenses to be displayed.</p>                                                                                                                                                                                                                          |
 | `--validate-secrets`  | <p>[Default: false] Triggers token validation on found secrets</p>                                                                                                                                                                                                                                                |
 | --format=json         | <p>[Optional]<br>Produces a JSON file containing the scan results.</p>                                                                                                                                                                                                                                            |
+| `--vuln` | <p>[Optional]<br>Set if you'd like to receive all vulnerabilities, regardless of the policy configured in Xray.</p>                                                                                                            |
 | **Command arguments** |                                                                                                                                                                                                                                                                                                                   |
 | **Pattern**           | Specifies the local file system path to artifacts to be scanned. You can specify multiple files by using wildcards.                                                                                                                                                                                               |
 

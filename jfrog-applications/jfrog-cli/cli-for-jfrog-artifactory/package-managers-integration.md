@@ -53,7 +53,7 @@ The following table lists the command arguments and flags:
 
 #### Deploying Maven Artifacts
 
-The deployment to Artifacts is triggered both by the deployment and install phases. To disable artifacts deployment, add\*\* **-Dartifactory.publish.artifacts=false** to the list of goals and options. For example: "**clean install**\*\*-Dartifactory.publish.artifacts=false"\*\*
+The deployment to Artifacts is triggered both by the deployment and install phases. To disable artifacts deployment, add **-Dartifactory.publish.artifacts=false** to the list of goals and options. For example: "**jf mvn clean install -Dartifactory.publish.artifacts=false**"
 
 
 #### Example
@@ -61,7 +61,7 @@ The deployment to Artifacts is triggered both by the deployment and install phas
 Run clean and install with maven.
 
 ```
-jf mvn clean install -f path/to/pom-file
+jf mvn clean install -f /path/to/pom.xml
 ```
 
 ## Running Gradle Builds
