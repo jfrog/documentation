@@ -815,7 +815,7 @@ The following command triggers twine upload, while recording the build artifacts
 jf twine upload "dist/*" --build-name my-build --build-number 1
 ```
 
-## Poetry
+### Poetry
 JFrog CLI provides partial support for building Python packages using the **poetry** package manager. This allows resolving python dependencies from Artifactory, but currently does NOT record downloaded packages as dependencies in the build-info.
 
 #### Setting Python repository
