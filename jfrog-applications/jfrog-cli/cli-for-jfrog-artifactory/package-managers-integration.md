@@ -695,7 +695,7 @@ jf gp v1.2.3 --build-name my-build-name --build-number 1
 
 ### Pip, Pipenv and Twine
 JFrog CLI provides full support for building Python packages using the **pip** and **pipenv** package managers, and deploying distributions using **twine**. This allows resolving python dependencies from Artifactory, using for **pip** and **pipenv**, while recording the downloaded packages. 
-After the installing and packaging the project, the distributions and wheels can be deployed to Artifactory using **twine**, while recording the uploaded packages.
+After installing and packaging the project, the distributions and wheels can be deployed to Artifactory using **twine**, while recording the uploaded packages.
 The downloaded packages are stored as dependencies in the build-info stored in Artifactory, while the uploaded ones are stored as artifacts.
 
 #### Example projects
@@ -804,7 +804,7 @@ The **jf twine upload** command uses the **twine**, to publish the project distr
 | `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project`          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module`           | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
-| Command argument     | The command accepts the same arguments and options as the twine client.                                                                                                                                                 |
+| Command argument     | The command accepts the arguments and options supported by twine client, except for repository configuration and authentication options.                                                                                |
 
 ##### Examples
 ###### Example 1
