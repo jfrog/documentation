@@ -59,35 +59,35 @@ If needed, you can refine your request and try again.
 <details>
   <summary>How does JFrog CLI AI Command Assistant work?</summary>
 
-    When you make a request using the JFrog CLI AI Command Assistant, your input is sent to a model that generates the appropriate JFrog CLI command. This model has been fine-tuned to produce accurate responses based on various inputs. The fine-tuned model is hosted on Azure OpenAI.
+When you make a request using the JFrog CLI AI Command Assistant, your input is sent to a model that generates the appropriate JFrog CLI command. This model has been fine-tuned to produce accurate responses based on various inputs. The fine-tuned model is hosted on Azure OpenAI.
 </details>
 <details>
     <summary>On what data is the model trained?</summary>
 
-    The model was trained using a dataset built from two primary sources:
-    - **JFrog CLI Public Documentation**: This includes detailed information and examples from JFrog’s publicly available resources.
-    - **Internal Questions and Answers dataset**: The dataset also incorporates internally created questions and answers, which help to refine the model’s ability to provide precise and relevant commands.
+The model was trained using a dataset built from two primary sources:
+- **JFrog CLI Public Documentation**: This includes detailed information and examples from JFrog’s publicly available resources.
+- **Internal Questions and Answers dataset**: The dataset also incorporates internally created questions and answers, which help to refine the model’s ability to provide precise and relevant commands.
 </details>
 <details>
     <summary>Does JFrog send customer data to OpenAI’s platform to train its services?</summary>
 
-    The data you submit and the responses you receive via JFrog CLI AI are not used to fine-tune or improve our model or services. Each data request is sent to Azure OpenAI individually, over an SSL encrypted service, to process and send back to JFrog.
+The data you submit and the responses you receive via JFrog CLI AI are not used to fine-tune or improve our model or services. Each data request is sent to Azure OpenAI individually, over an SSL encrypted service, to process and send back to JFrog.
 </details>
 <details>
     <summary>Are you saving my inputs and outputs?</summary>
 
-    No, JFrog does not save users' input and output data.
+No, JFrog does not save users' input and output data.
 </details>
 <details>
     <summary>Are you using my inputs and outputs to train the JFrog CLI AI model?</summary>
 
-    No, JFrog does not use your inputs and outputs to train the model.
+No, JFrog does not use your inputs and outputs to train the model.
 </details>
 
 <details>
     <summary>Does JFrog use my data to serve other customers?</summary>
 
-    No, JFrog does not use your data to train the model or serve other customers.
+No, JFrog does not use your data to train the model or serve other customers.
 </details>
 
 
