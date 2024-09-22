@@ -100,7 +100,9 @@ To install the **data-transfer** user plugin on the source machine manually, fol
 
 Install JFrog CLI on your source instance by using one of the \[#JFrog CLI Installers]. For example:
 
-`curl -fL https://install-cli.jfrog.io | sh`
+```sh
+curl -fL https://install-cli.jfrog.io | sh
+```
 
 **Note**
 
@@ -152,9 +154,10 @@ Follows these steps to installing JFrog CLI on that machine.
 
 1.  Install JFrog CLI by using one of the \[#JFrog CLI Installers]. For example:
 
-    ```
+    ```sh
     curl -fL https://install-cli.jfrog.io | sh
     ```
+
 2. If your source instance is accessible only through an HTTP/HTTPS proxy, set the proxy environment variable as described \[#here].
 3.  Configure the connection details of the source Artifactory instance with your admin credentials. Run the following command and follow the instructions.
 

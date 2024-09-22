@@ -1,6 +1,6 @@
 # Setup Frogbot Using Jenkins
 
-**Important Notice**: For Scanning Pull Requests, it is advisable to refrain from setting up Frogbot using Jenkins for open source projects. For further details, please refer to the [👮 Security Note for Pull Requests Scanning](../jfrog-applications/frogbot/scan-pull-requests/#security-note-for-pull-requests-scanning).
+**Important Notice**: For Scanning Pull Requests, it is advisable to refrain from setting up Frogbot using Jenkins for open source projects. For further details, please refer to the [👮 Security Note for Pull Requests Scanning](../jfrog-applications/frogbot/scan-execution/scan-pull-requests/#security-note-for-pull-requests-scanning).
 
 #### 🖥️ Follow these steps to install Frogbot on Jenkins
 
@@ -277,7 +277,7 @@
             // JF_GIT_EMAIL_AUTHOR= ""
 
             // [Optional]
-            // List of comma separated email addresses to receive email notifications about secrets
+            // List of comma-separated(,) email addresses to receive email notifications about secrets
             // detected during pull request scanning. The notification is also sent to the email set
             // in the committer git profile regardless of whether this variable is set or not.
             // JF_EMAIL_RECEIVERS= ""

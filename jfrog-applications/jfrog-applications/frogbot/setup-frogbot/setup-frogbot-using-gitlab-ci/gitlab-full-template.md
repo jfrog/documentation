@@ -1,22 +1,8 @@
-# Setup Frogbot Using GitLab CI
+# GitLab Full Template
 
-To install Frogbot on GitLab repositories using GitLab CI:
+Here you can find the full template for Frogbot:
 
-1. Make sure you have the connection details of your JFrog environment.
-2. Go to your GitLab repository settings page and save the JFrog connection details as repository secrets with the following names - **JF\_URL**, **JF\_USER**, and **JF\_PASSWORD**
-
-> _**NOTE:**_ 
-> * You can use **JF\_XRAY\_URL** and **JF\_ARTIFACTORY\_URL** instead of **JF\_URL**.
-> * You can use **JF\_ACCESS\_TOKEN** instead of **JF\_USER** and **JF\_PASSWORD**.
-> * Ensure not set these tokens as **protected** in Gitlab.
-
-3. Add a job named **frogbot-scan** to your **.gitlab-ci.yml** file in your GitLab repository using the code block below.
-
-**Important**
-
-* Make sure that either **JF\_USER** and **JF\_PASSWORD** or **JF\_ACCESS\_TOKEN** are set, **but not both**.
-
-```yml
+```yaml
 frogbot-scan:
   rules:
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
@@ -178,7 +164,7 @@ frogbot-scan:
     # JF_GIT_EMAIL_AUTHOR: ""
     
     # [Optional]
-    # List of comma separated email addresses to receive email notifications about secrets
+    # List of comma-separated(,) email addresses to receive email notifications about secrets
     # detected during pull request scanning. The notification is also sent to the email set
     # in the committer git profile regardless of whether this variable is set or not.
     # JF_EMAIL_RECEIVERS: ""

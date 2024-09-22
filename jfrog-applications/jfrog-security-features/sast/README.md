@@ -4,7 +4,7 @@
 
 ### What is JFrog SAST?
 
-<table data-view="cards"><thead><tr><th align="center"></th><th></th><th></th></tr></thead><tbody><tr><td align="center"><em><strong>FAST</strong></em></td><td>Easy setup with just a few steps</td><td></td></tr><tr><td align="center"> <em><strong>FOCUSED</strong></em></td><td>Deep analysis with focus on security issues</td><td></td></tr><tr><td align="center"><em><strong>LOCAL &#x26; SECURE</strong></em></td><td>Work locally in your environment </td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th align="center"></th><th></th><th></th></tr></thead><tbody><tr><td align="center"><em><strong>FAST</strong></em></td><td>Easy setup with just a few steps</td><td></td></tr><tr><td align="center"> <em><strong>FOCUSED</strong></em></td><td>Deep analysis with focus on security issues</td><td></td></tr><tr><td align="center"><em><strong>LOCAL SECURE</strong></em></td><td>Work locally in your environment </td><td></td></tr></tbody></table>
 
 The JFrog SAST solution aims to enable software developers to hunt, fix, and learn about security issues in their code while allowing them to deliver fast, quality code, and reduce issues.
 
@@ -19,7 +19,7 @@ JFrog SAST scans mainly for specific sensitive operations (DB queries, OS comman
 * SQL injections
 * Command injections
 * Code injections
-* SSRF&#x20;
+* SSRF
 
 It also detects cases when certain APIs (encryption, cryptographic signing, file operations, etc.) are used with parameters or under circumstances that render the API use unsafe.
 

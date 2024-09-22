@@ -8,9 +8,9 @@ To authenticate yourself using your JFrog login credentials, either configure yo
 
 | Command option | Description                                                           |
 |----------------|-----------------------------------------------------------------------|
-| --url          | JFrog Artifactory API endpoint URL. It usually ends with /artifactory |
-| --user         | JFrog username                                                        |
-| --password     | JFrog password or API key                                             |
+| `--url`        | JFrog Artifactory API endpoint URL. It usually ends with /artifactory |
+| `--user`       | JFrog username                                                        |
+| `--password`   | JFrog password or API key                                             |
 
 For enhanced security, when JFrog CLI is configured to use a username and password / API key, it automatically generates an access token to authenticate with Artifactory. The generated access token is valid for one hour only. JFrog CLI automatically refreshed the token before it expires. The **jf c add** command allows disabling this functionality. This feature is currently not supported by commands which use external tools or package managers or work with JFrog Distribution.
 
@@ -18,10 +18,10 @@ For enhanced security, when JFrog CLI is configured to use a username and passwo
 
 To authenticate yourself using an Artifactory Access Token, either configure your Access Token once using the **jf c add** command or provide the following option to each command.
 
-| Command option | Description                                                           |
-|----------------|-----------------------------------------------------------------------|
-| --url          | JFrog Artifactory API endpoint URL. It usually ends with /artifactory |
-| --access-token | JFrog access token                                                    |
+| Command option   | Description                                                           |
+|------------------|-----------------------------------------------------------------------|
+| `--url`          | JFrog Artifactory API endpoint URL. It usually ends with /artifactory |
+| `--access-token` | JFrog access token                                                    |
 
 ## Authenticating with RSA Keys
 

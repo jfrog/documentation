@@ -19,4 +19,4 @@ With JFrog's Software Composition Analysis, get enhanced CVE detection and enhan
 * Scan pull requests immediately after they are opened but before they are merged.
 * Get notified if the pull request is about to introduce new vulnerabilities to your code.
 * Scan the Git repository periodically and create pull requests with fixes for vulnerabilities that are detected.
-* Frogbot uses JFrog's vast vulnerabilities database, to which we continuously add new component vulnerability data.&#x20;
+* Frogbot uses JFrog's vast vulnerabilities database, to which we continuously add new component vulnerability data.

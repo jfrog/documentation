@@ -2,7 +2,7 @@
 
 #### Ignore a Specific Finding
 
-The SAST scanner allows you to ignore a vulnerability finding simply by placing an `jfrog-ignore` annotation directly in the code. Place the `jfrog-ignore` annotation as a comment above the 'sink' line of the vulnerability (the final line in the data flow).
+The SAST scanner allows you to ignore a vulnerability finding simply by placing an `jfrog-ignore` annotation directly in the code. Place the `jfrog-ignore` annotation as a comment above the `sink` line of the vulnerability (the final line in the data flow).
 
 The following example shows how to ignore an unsafe-deserialization issue:
 

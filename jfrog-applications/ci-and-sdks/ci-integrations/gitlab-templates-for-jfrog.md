@@ -13,10 +13,10 @@ The script does the following:
 
 ### Installation
 
-1. Ensure you have the connection details for the JFrog Platform. Don't have a JFrog Platform? [Set up](broken-reference) a free JFrog Platform instance in the cloud now
-2. [Store](broken-reference) the JFrog Platform connection details on GitLab
+1. Ensure you have the connection details for the JFrog Platform.&#x20;
+2. [Store](broken-reference/) the JFrog Platform connection details on GitLab
 3. Optionally set the URL of your Artifactory Docker Registry as the value of the **JF\_DOCKER\_REGISTRY** variable
-4. [Add](broken-reference) the **setup-jfrog** pipeline script in your GitLab pipeline
+4. [Add](broken-reference/) the **setup-jfrog** pipeline script in your GitLab pipeline
 
 #### Storing the JFrog Platform Connection Details
 
@@ -79,7 +79,7 @@ job:
 
 If your GitLab environment is air-gapped, you would want your pipeline to avoid downloading the **setup-jfrog** script and also JFrog CLI from `https://releases.jfrog.io/artifactory`. Here's how you do this:
 
-As shown in the above [Including the Script](broken-reference) and [Referencing the Script](broken-reference) sections, you have the option of copying the **setup-jfrog** script into your pipeline, and thus avoiding its download. Since the **setup-jfrog** script downloads JFrog CLI from `https://releases.jfrog.io/artifactory`, you should also configure the script to download JFrog CLI from a remote repository in your JFrog Artifactory instance. Follow these steps to have JFrog CLI downloaded from your Artifactory instance:
+As shown in the above [Including the Script](broken-reference/) and [Referencing the Script](broken-reference/) sections, you have the option of copying the **setup-jfrog** script into your pipeline, and thus avoiding its download. Since the **setup-jfrog** script downloads JFrog CLI from `https://releases.jfrog.io/artifactory`, you should also configure the script to download JFrog CLI from a remote repository in your JFrog Artifactory instance. Follow these steps to have JFrog CLI downloaded from your Artifactory instance:
 
 1. Create a remote generic repository in Artifactory pointing to `https://releases.jfrog.io/artifactory/`
 2. Add the **JF\_RELEASES\_REPO** variable to GitLab with the name of the repository you created
@@ -164,24 +164,3 @@ $ jf mvn clean install
 * Pip
 * Pipenv
 * Yarn Berry
-
-
-
-### Set Up a FREE JFrog Environment in the Cloud
-
-Need a FREE JFrog environment in the cloud to use with these templates? Just run one of the following commands in your terminal. The commands will do the following:
-
-1. Install JFrog CLI on your machine.
-2. Create a FREE JFrog environment in the cloud for you.
-
-**MacOS and Linux using cURL**
-
-```
-curl -fL "https://getcli.jfrog.io?setup" | sh
-```
-
-**Windows using PowerShell**
-
-```
-powershell "Start-Process -Wait -Verb RunAs powershell '-NoProfile iwr https://releases.jfrog.io/artifactory/jfrog-cli/v2-jf/[RELEASE]/jfrog-cli-windows-amd64/jf.exe -OutFile $env:SYSTEMROOT\system32\jf.exe'" ; jf setup
-```
