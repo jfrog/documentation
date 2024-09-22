@@ -10,7 +10,9 @@ Each query is treated individually, and while the interface allows you to refine
 
 This tool helps users access the full power of JFrog CLI without needing to remember specific syntax, ensuring efficiency and accuracy.
 
-> Note, This is the first version of JFrog CLI AI, hence it is limited only to Artifactory and Xray commands.
+{% hint style="info" %}
+ Note, This is the first version of JFrog CLI AI, hence it is limited only to Artifactory and Xray commands.
+{% endhint %}
 
 ![](../../.gitbook/assets/cli-ai.png)
 
@@ -53,6 +55,8 @@ For the example above, it will generate:
 You can now copy the generated command and run it in your terminal.
 
 If needed, you can refine your request and try again.
+
+***
 
 ## FAQ
 
