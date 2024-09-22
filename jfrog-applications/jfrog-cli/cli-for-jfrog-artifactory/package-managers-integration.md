@@ -98,7 +98,7 @@ The **jf gradle** command triggers the gradle client, while resolving dependenci
 
 > **Note**: Before running the **jf gradle** command on a project for the first time, the project should be configured with the **jf gradle-config** command.
 
-> **Note**: If the machine running JFrog CLI has no access to the internet, make sure to read the[Downloading the Maven and Gradle Extractor JARs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#downloading-the-maven-and-gradle-extractor-jars)section.
+> **Note**: If the machine running JFrog CLI has no access to the internet, make sure to read the [Downloading the Maven and Gradle Extractor JARs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#downloading-the-maven-and-gradle-extractor-jars) section.
 
 #### Commands Params
 
