@@ -56,8 +56,6 @@ You can now copy the generated command and run it in your terminal.
 
 If needed, you can refine your request and try again.
 
-***
-
 ## FAQ
 
 <details>
