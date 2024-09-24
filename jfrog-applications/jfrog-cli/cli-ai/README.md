@@ -24,7 +24,7 @@ To use the JFrog CLI AI Command Assistant, follow these simple steps:
 Ensure that you are in a terminal session where JFrog CLI is installed and configured.
 
 ### 2. Supported Version Validation
-This feature is available starting from CLI version 2.68 and above. To validate your version, run:
+This feature is available starting from CLI version 2.69 and above. To validate your version, run:
 
 `jf --version`
 
