@@ -1,0 +1,87 @@
+
+## JFROG AI ASSISTANT ADDENDUM
+
+**ONLY ACTIVE JFROG CUSTOMERS ARE AUTHORIZED TO USE THE JFROG AI ASSISTANT. ALL OTHER USES ARE PROHIBITED.**
+
+This JFrog AI Assistant Addendum (this “Addendum”) forms part of the JFrog Subscription Agreement or other agreement made by and between JFrog and Customer (the “Agreement”). Capitalized terms not otherwise defined in the body of this Addendum shall have the respective meanings assigned to them in the Agreement. Your use of the JFrog Platform, as applicable, shall continue to be governed by the Agreement.
+
+**THIS ADDENDUM TAKES EFFECT WHEN CUSTOMER (1) CLICKS THE “I ACCEPT” OR SIMILAR BUTTON AND/OR (2) BY ACCESSING OR USING THE APPLICABLE JFROG AI ASSISTANT SERVICE** (respectively, the “AI ASSISTANT SERVICE” and “ADDENDUM EFFECTIVE DATE”). BY DOING SO, CUSTOMER: (A) ACKNOWLEDGES THAT IT HAS READ AND UNDERSTANDS THIS ADDENDUM; (B) REPRESENTS AND WARRANTS THAT IT HAS THE RIGHT, POWER, AND AUTHORITY TO ENTER INTO THIS ADDENDUM AND, IF ENTERING INTO THIS ADDENDUM FOR AN ENTITY, THAT IT HAS THE LEGAL AUTHORITY TO BIND SUCH ENTITY TO THIS ADDENDUM; AND (C) ACCEPTS THIS ADDENDUM AND AGREES THAT IT IS LEGALLY BOUND BY ITS TERMS.
+
+IF CUSTOMER DOES NOT AGREE TO THIS ADDENDUM OR IF CUSTOMER IS A COMPETITOR OF JFROG OR ITS AFFILIATES (OR A PERSON OR ENTITY ACTING ON BEHALF OF A COMPETITOR), PLEASE SELECT THE “I DECLINE” OR SIMILAR BUTTON AND/OR DO NOT UNDER ANY CIRCUMSTANCES ACCESS OR USE THE AI ASSISTANT SERVICE.
+
+## APPLICATION OF THIS ADDENDUM.
+
+### AI Assistant Service.
+
+JFrog offers the applicable AI Assistant Service which references this Addendum, that is designed to enable Customer to:
+
+1. **Generate or receive Output**, in response to Input, for use in connection with the AI Assistant Service; and, if applicable to the specific AI Assistant Service,
+2. **View suggested shortcuts and commands**, in response to use of the AI Assistant Service by Customer, for use in connection with the AI Assistant Service (collectively, together with any Content, other than Output, provided to Customer by the AI Assistant Service, and any documentation for the AI Assistant Service, the “Service”).
+
+This Agreement only applies to the Service provided by JFrog and not to a Service provided by a third party.
+
+### Relationship with Agreement.
+
+In the event of any conflict between this Addendum and the Agreement, this Addendum will control, solely to the extent of the conflict. The Service is part of the “JFrog Platform” and the “JFrog Materials”, in each case, as used in the Agreement. “Customer”, as used herein, means the person or entity other than JFrog, that is party to the Agreement or an Order Form thereunder. “JFrog”, as used herein, means the applicable JFrog Contracting Entity in the Agreement. “Customer Data”, as used in the Agreement, excludes AI Assistant Data.
+
+## LICENSE TO SERVICE.
+
+The license to the JFrog Platform set forth in the Agreement includes the right and license, during the Agreement Term, for Customer to access and use the Service. Without limiting the restrictions on use of the JFrog Platform set forth in the Agreement, Customer will not, directly or indirectly, permit, facilitate, or otherwise allow any other person or entity to:
+
+1. Access or use the Service, except for Customer Users;
+2. Access the source code or other underlying components of the Service, including the model, model parameters, or model weights;
+3. Access, copy, extract, scrape, crawl, or pull from the Service, through manual or automated means, any information, data, materials, text, prompts, images, or other content (“Content”) that has been, is used, or may be used by JFrog, to train, retrain, tune, validate, modify, update, or otherwise improve the Service (“Training Content”);
+4. Develop, build, train, or run a machine learning or artificial intelligence application, functionality, logic, model, software system, or process on or using the Service;
+5. Intentionally generate Output that is sensitive, confidential, or proprietary information of any third party without authorization, or collect personal data from the Service;
+6. Share, generate or prompt any content or engage in behavior that is unlawful, harmful, threatening, obscene, violent, abusive, tortious, defamatory, ridicule, libelous, vulgar, lewd, invasive of another’s privacy, hateful, or otherwise objectionable;
+7. Upload or transmit any personal data (except for Customer User Information), viruses, or other malicious content or code into or through the Service; or
+8. Access or use the Service in a manner that does not comply with the [JFrog Acceptable Use Policy](https://jfrog.com/acceptable-use-policy/).
+
+## TERM; TERMINATION.
+
+This Addendum commences on the Addendum Effective Date and will remain in effect until the Agreement expires or is terminated, or this Addendum is terminated by JFrog in accordance with this Section, whichever is the earlier (the “Term”). JFrog may terminate or suspend this Addendum, or the availability of the Service, at any time and for any reason by providing Customer with notice, without liability or other obligation to Customer. Termination of this Addendum will not impact the Agreement. Upon any termination or expiration of this Addendum, Customer will promptly cease access and use of the Service.
+
+## AI ASSISTANT CONTENT.
+
+### License to AI Assistant Content.
+
+Customer hereby grants JFrog and its Affiliates a non-exclusive, sublicensable, transferable, royalty-free, fully paid-up, worldwide right and license, to use, reproduce, distribute, perform, display, modify, create derivative works of, process, store, and disclose any Content or other:
+
+1. **Input** provided to the Service by or on behalf of Customer, which may include Customer Data (“Input”); and
+2. **Output** provided to, or generated for Customer by the Service, in response to use of the AI Assistant Service by Customer or an Input (“Output”).
+
+In each case, for the purposes of billing, capacity planning, compliance, security, integrity, availability, stability, providing the AI Assistant Service as generally available, and, in the event the Customer elects to provide any suggestions, enhancement requests, recommendations, corrections, or other feedback, improving the AI Assistant Service and the JFrog Platform. The foregoing grant includes the right and license for JFrog and its Affiliates to use the AI Assistant Content to train, retrain, tune, validate, modify, update, or otherwise improve the Service or the JFrog Platform. **“Input” and “Output” are collectively referred to as “AI Assistant Content”**. The AI Assistant Content is not the “Confidential Information” of Customer. Personal Data shall not be entered as an Input to the Service.
+
+### Ownership of AI Assistant Content.
+
+As between Customer and JFrog, and to the extent permitted by applicable law, Customer:
+
+1. Retains ownership rights in Input; and
+2. Owns the Output, except to the extent such Output was provided to, or generated for, other JFrog customers by the Service.
+
+Customer acknowledges that the Output provided may not be new or unique or protectable under applicable laws and that similar Outputs may be provided to other customers and their users in response to their Inputs into the Service.
+
+### Processing of AI Assistant Content.
+
+You authorize JFrog and its third-party providers to process your AI Assistant Content to provide the Service. You agree that JFrog may use Sub-Processors to provide the Service.
+
+## REPRESENTATIONS; WARRANTIES; DISCLAIMERS.
+
+Customer represents, warrants, and covenants that Customer owns or otherwise has and will have the necessary rights, licenses, and consents in and relating to the AI Assistant Content such that, as used by JFrog and its Affiliates in accordance with this Addendum, such AI Assistant Content does not and will not infringe, misappropriate, or otherwise violate any intellectual property rights, or other rights, of any third party or violate any applicable law.
+
+**CUSTOMER ACCEPTS AND AGREES THAT ANY USE OF OR RELIANCE ON OUTPUTS IS AT CUSTOMER’S SOLE RISK AND CUSTOMER WILL NOT RELY ON OUTPUT AS A SOLE SOURCE OF TRUTH OR FACTUAL INFORMATION, OR AS A SUBSTITUTE FOR PROFESSIONAL ADVICE. JFROG DOES NOT ACCEPT LIABILITY OR RESPONSIBILITY FOR ANY INCORRECT, OFFENSIVE, UNLAWFUL, HARMFUL, OR OTHERWISE OBJECTIONABLE OUTPUT. THE OUTPUT DOES NOT REFLECT THE VIEWS, OPINIONS, POLICIES, OR POSITION OF JFROG OR ITS AFFILIATES.**
+
+## INDEMNIFICATION.
+
+Without limiting the scope of the obligations to indemnify and defend under the Agreement, the claims, demands, suits, or proceedings (each, a “Claim”) for which Customer indemnifies and defends JFrog and its Affiliates under the Agreement include Claims arising out of or related to:
+
+1. The Service or Customer’s access and use thereof;
+2. Any acts or omissions by Customer that constitute a breach of this Addendum;
+3. Reliance, or use of, any AI Assistant Content; and
+4. Fraud, gross negligence, or willful misconduct by Customer.
+
+## MISCELLANEOUS.
+
+Any notice required or permitted by this Addendum may, if sent by JFrog, be delivered electronically, including through the Service or AI Assistant Service. The following terms will survive any termination or expiration of this Addendum: **“Application of this Addendum,”** **“AI Assistant Content,”** **“Representations; Warranties; Disclaimers,”** **“Indemnification,”** and **“Miscellaneous.”**
+
+This Addendum will be governed by, and construed under, the same law as the Agreement.

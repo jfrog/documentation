@@ -33,7 +33,7 @@ The **mvn** command triggers the maven client, while resolving dependencies and 
 
 > **Note**: Before running the **mvn** command on a project for the first time, the project should be configured with the **jf mvn-config** command.
 
-> **Note**: If the machine running JFrog CLI has no access to the internet, make sure to read the [Downloading the Maven and Gradle Extractor JARs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#downloading-the-maven-and-gradle-extractor-jars) section.
+> **Note**: If the machine running JFrog CLI has no access to the internet, make sure to read the [Downloading the Maven and Gradle Extractor JARs](#downloading-the-maven-and-gradle-extractor-jars) section.
 
 #### Commands Params
 
@@ -98,7 +98,7 @@ The **jf gradle** command triggers the gradle client, while resolving dependenci
 
 > **Note**: Before running the **jf gradle** command on a project for the first time, the project should be configured with the **jf gradle-config** command.
 
-> **Note**: If the machine running JFrog CLI has no access to the internet, make sure to read the[Downloading the Maven and Gradle Extractor JARs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#downloading-the-maven-and-gradle-extractor-jars)section.
+> **Note**: If the machine running JFrog CLI has no access to the internet, make sure to read the [Downloading the Maven and Gradle Extractor JARs](#downloading-the-maven-and-gradle-extractor-jars)section.
 
 #### Commands Params
 
@@ -693,90 +693,61 @@ jf gp v1.2.3 --build-name my-build-name --build-number 1
 
 ## Building Python Packages
 
-JFrog CLI provides full support for building Python packages using the **pip** and **pipenv** and **poetry** package installers. This allows resolving python dependencies from Artifactory, while (for **pip** and **pipenv**) recording the downloaded packages. The downloaded packages are stored as dependencies in the build-info stored in Artifactory.
+### Pip, Pipenv and Twine
+JFrog CLI provides full support for building Python packages using the **pip** and **pipenv** package managers, and deploying distributions using **twine**. This allows resolving python dependencies from Artifactory, using for **pip** and **pipenv**, while recording the downloaded packages. 
+After installing and packaging the project, the distributions and wheels can be deployed to Artifactory using **twine**, while recording the uploaded packages.
+The downloaded packages are stored as dependencies in the build-info stored in Artifactory, while the uploaded ones are stored as artifacts.
 
-Once the packages are installed, the Python project can be then built and packaged using the pip, pipenv or poetry clients. Once built, the produced artifacts can be uploaded to Artifactory using JFrog CLI's upload command and registered as artifacts in the build-info.
-
-### Example projects
+#### Example projects
 
 To help you get started, you can use [the sample projects on GitHub](https://github.com/jfrog/project-examples/tree/master/python-example).
 
-### Setting Python repository
+#### Setting Python repository
 
 Before you can use JFrog CLI to build your Python projects with Artifactory, you first need to set the repository for the project.
 
 Here's how you set the repositories.
 
 1. 'cd' into the root of the Python project.
-2. Run the **jf pip-config**, **jf pipenv-config** or **jf poetry-config** commands, depending on whether you're using the pip, pipenv or poetry clients.
+2. Run the **jf pip-config** or **jf pipenv-config** commands, depending on whether you're using the **pip** or **pipenv** clients.
 
-#### Commands Params
+##### Commands Params
 
-|                     |                                                                                                                                                                                 |
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name        | pip-config / pipenv-config / poetry-config                                                                                                                                      |
-| Abbreviation        | pipc / pipec / poc                                                                                                                                                              |
-| **Command options:**     |                                                                                                                                                                                 |
-| `--global` | <p>[Default false]<br>Set to true, if you'd like the configuration to be global (for all projects on the machine). Specific projects can override the global configuration.</p> |
+|                       |                                                                                                                                                                                 |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name          | pip-config / pipenv-config                                                                                                                                                      |
+| Abbreviation          | pipc / pipec                                                                                                                                                                    |
+| **Command options:**  |                                                                                                                                                                                 |
+| `--global`            | <p>[Default false]<br>Set to true, if you'd like the configuration to be global (for all projects on the machine). Specific projects can override the global configuration.</p> |
 | `--server-id-resolve` | <p>[Optional]<br>Artifactory server ID for resolution. The server should configured using the 'jf c add' command.</p>                                                           |
-| `--repo-resolve` | <p>[Optional]<br>Repository for dependencies resolution.</p>                                                                                                                    |
+| `--repo-resolve`      | <p>[Optional]<br>Repository for dependencies resolution.</p>                                                                                                                    |
+| `--server-id-deploy`  | <p>[Optional]<br>Artifactory server ID for deployment. The server should configured using the 'jf c add' command.</p>                                                           |
+| `--repo-deploy`       | <p>[Optional]<br>Repository for artifacts deployment.</p>                                                                                                                       |
 
-#### Examples
-##### Example 1
+##### Examples
+###### Example 1
 
-Set repositories for this Python project when using the pip client.
+Set repositories for this Python project when using the pip client (for pipenv: `jf pipec`).
 
 ```
 jf pipc
 ```
 
-##### Example 2
+###### Example 2
 
-Set repositories for all Python projects using the pip client on this machine.
+Set repositories for all Python projects using the pip client on this machine (for pipenv: `jf pipec --global`).
 
 ```
 jf pipc --global
 ```
 
-##### Example 3
+#### Installing Python packages
 
-Set repositories for this Python project when using the pipenv client.
+The **jf pip install** and **jf pipenv install** commands use the **pip** and **pipenv** clients respectively, to install the project dependencies from Artifactory. The **jf pip install** and **jf pipenv install** commands can also record these packages as build dependencies as part of the build-info published to Artifactory.
 
-```
-jf pipec
-```
+> **Note**: Before running the **pip install** and **pipenv install** commands on a project for the first time, the project should be configured using the **jf pip-config** or **jf pipenv-config** commands respectively.
 
-##### Example 4
-
-Set repositories for all Python projects using the poetry client on this machine.
-
-```
-jf poc --global
-```
-
-##### Example 5
-
-Set repositories for this Python project when using the poetry client.
-
-```
-jf poc
-```
-
-##### Example 6
-
-Set repositories for all Python projects using the pipenv client on this machine.
-
-```
-jf pipec --global
-```
-
-### Installing Python packages
-
-The **jf pip install**, **jf pipenv install** and **jf poetry install** commands use the **pip**, **pipenv** and **poetry** clients respectively, to install the project dependencies from Artifactory. The **jf pip install** and **jf pipenv install** commands can also record these packages as build dependencies as part of the build-info published to Artifactory.
-
-> **Note**: Before running the **pip install**, **pipenv install** and **poetry install** commands on a project for the first time, the project should be configured using the **jf pip-config** ,**jf pipenv-config** or **jf poetry-config** commands respectively.
-
-**Recording all dependencies** - currently available for pip and pipenv.
+**Recording all dependencies**
 
 JFrog CLI records the installed packages as build-info dependencies. The recorded dependencies are packages installed during the **jf pip install** and **jf pipenv install** command execution. When running the command inside a Python environment, which already has some of the packages installed, the installed packages will not be included as part of the build-info, because they were not originally installed by JFrog CLI. A warning message will be added to the log in this case.
 
@@ -787,21 +758,21 @@ If the Python environment had some packages installed prior to the first executi
 
 Running the `install` command with both the **no-cache-dir** and **force-reinstall** pip options, should re-download and install these packages, and they will therefore be included in the build-info and added to the cache. It is also recommended to run the command from inside a [virtual environment](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/).
 
-#### Commands Params
+##### Commands Params
 
-|                  |                                                                                                                                                                                                                         |
-|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name     | pip / pipenv / poetry                                                                                                                                                                                                   |
-| Abbreviation     |                                                                                                                                                                                                                         |
-| **Command options:**  |                                                                                                                                                                                                                         |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
-| `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
-| `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
-| Command argument | The command accepts the same arguments and options as the pip / pipenv / poetry clients.                                                                                                                                |
+|                      |                                                                                                                                                                                                                         |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name         | pip / pipenv                                                                                                                                                                                                            |
+| Abbreviation         |                                                                                                                                                                                                                         |
+| **Command options:** |                                                                                                                                                                                                                         |
+| `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--project`          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
+| `--module`           | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
+| Command argument     | The command accepts the same arguments and options as the pip / pipenv clients.                                                                                                                                         |
 
-#### Examples
-##### Example 1
+##### Examples
+###### Example 1
 
 The following command triggers pip install, while recording the build dependencies as part of build name **my-build** and build number **1** .
 
@@ -809,7 +780,7 @@ The following command triggers pip install, while recording the build dependenci
 jf pip install . --build-name my-build --build-number 1
 ```
 
-##### Example 2
+###### Example 2
 
 The following command triggers pipenv install, while recording the build dependencies as part of build name **my-build** and build number **1** .
 
@@ -817,12 +788,99 @@ The following command triggers pipenv install, while recording the build depende
 jf pipenv install . --build-name my-build --build-number 1
 ```
 
-##### Example 3
+#### Publishing Python packages using Twine
+The **jf twine upload** command uses the **twine**, to publish the project distributions to Artifactory. The **jf twine upload** command can also record these packages as build artifacts as part of the build-info published to Artifactory.
 
-The following are command triggers poetry install, while recording the build dependencies as part of build name **my-build** and build number **1** .
+> **Note**: Before running the **twine upload** command on a project for the first time, the project should be configured using the **jf pip-config** or **jf pipenv-config** commands, with deployer configuration.
+
+##### Commands Params
+
+|                      |                                                                                                                                                                                                                         |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name         | twine                                                                                                                                                                                                                   |
+| Abbreviation         |                                                                                                                                                                                                                         |
+| **Command options:** |                                                                                                                                                                                                                         |
+| `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--project`          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
+| `--module`           | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
+| Command argument     | The command accepts the arguments and options supported by twine client, except for repository configuration and authentication options.                                                                                |
+
+##### Examples
+###### Example 1
+
+The following command triggers twine upload, while recording the build artifacts as part of build name **my-build** and build number **1** .
 
 ```
-jf poetry install . --build-name my-build --build-number 1
+jf twine upload "dist/*" --build-name my-build --build-number 1
+```
+
+### Poetry
+JFrog CLI provides partial support for building Python packages using the **poetry** package manager. This allows resolving python dependencies from Artifactory, but currently does NOT record downloaded packages as dependencies in the build-info.
+
+#### Setting Python repository
+
+Before you can use JFrog CLI to build your Python projects with Artifactory, you first need to set the repository for the project.
+
+Here's how you set the repositories.
+
+1. 'cd' into the root of the Python project.
+2. Run the **jf poetry-config** command as follows.
+
+##### Commands Params
+
+|                       |                                                                                                                                                                                 |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name          | poetry-config                                                                                                                                                                   |
+| Abbreviation          | poc                                                                                                                                                                             |
+| **Command options:**  |                                                                                                                                                                                 |
+| `--global`            | <p>[Default false]<br>Set to true, if you'd like the configuration to be global (for all projects on the machine). Specific projects can override the global configuration.</p> |
+| `--server-id-resolve` | <p>[Optional]<br>Artifactory server ID for resolution. The server should configured using the 'jf c add' command.</p>                                                           |
+| `--repo-resolve`      | <p>[Optional]<br>Repository for dependencies resolution.</p>                                                                                                                    |
+
+##### Examples
+###### Example 1
+
+Set repositories for this Python project when using the poetry client.
+
+```
+jf poc
+```
+
+###### Example 2
+
+Set repositories for all Python projects using the poetry client on this machine.
+
+```
+jf poc --global
+```
+
+#### Installing Python packages
+
+The **jf poetry install** commands use the **poetry** client to install the project dependencies from Artifactory.
+
+> **Note**: Before running the **poetry install** command on a project for the first time, the project should be configured using the **jf poetry-config** command.
+
+##### Commands Params
+
+|                      |                                                                                                                                                                                                                         |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name         | poetry                                                                                                                                                                                                                  |
+| Abbreviation         |                                                                                                                                                                                                                         |
+| **Command options:** |                                                                                                                                                                                                                         |
+| `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--project`          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
+| `--module`           | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
+| Command argument     | The command accepts the same arguments and options as the poetry clients.                                                                                                                                               |
+
+##### Examples
+###### Example 1
+
+The following command triggers poetry install, while resolving dependencies from Artifactory.
+
+```
+jf poetry install .
 ```
 
 ## Building NuGet Packages
@@ -923,15 +981,15 @@ The **jf terraform-config** command will store the repository name inside the **
 
 The following table lists the command options:
 
-|                    |                                                                                                                                                                            |
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name       | terraform-config                                                                                                                                                           |
-| Abbreviation       | tfc                                                                                                                                                                        |
-| **Command options:**    |                                                                                                                                                                            |
-| `--global` | <p>[Optional]<br>Set to true, if you'd like the configuration to be global (for all projects on the machine). Specific projects can override the global configuration.</p> |
-| `--server-id-deploy` | <p>[Optional]<br>Artifactory server ID for deployment. The server should configured using the 'jf c add' command.</p>                                                      |
-| `--repo-deploy` | <p>[Optional]<br>Repository for artifacts deployment.</p>                                                                                                                  |
-| **Command arguments:**  | The command accepts no arguments                                                                                                                                           |
+|                        |                                                                                                                                                                            |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | terraform-config                                                                                                                                                           |
+| Abbreviation           | tfc                                                                                                                                                                        |
+| **Command options:**   |                                                                                                                                                                            |
+| `--global`             | <p>[Optional]<br>Set to true, if you'd like the configuration to be global (for all projects on the machine). Specific projects can override the global configuration.</p> |
+| `--server-id-deploy`   | <p>[Optional]<br>Artifactory server ID for deployment. The server should configured using the 'jf c add' command.</p>                                                      |
+| `--repo-deploy`        | <p>[Optional]<br>Repository for artifacts deployment.</p>                                                                                                                  |
+| **Command arguments:** | The command accepts no arguments                                                                                                                                           |
 
 #### Examples
 ##### Example 1

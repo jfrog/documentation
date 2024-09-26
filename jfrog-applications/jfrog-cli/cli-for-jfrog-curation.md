@@ -29,9 +29,7 @@ Audit your Project with JFrog CLI curation-audit command
 
 Prerequisites:
 
-Make sure your JFrog Artifactory admin configured the curated remote repository you are using during your build process. For more information refer your Artifactory admin to [**this page**](https://jfrog.com/help/r/jfrog-curation/configure-curation-pass-through)
-</br></br>**Note**: Some package types require 'pass-through' curation configuration on the remote repositories in Artifactory, in addition to configuring curation on them.
-
+Some package types (except npm packages) require 'pass-through' curation configuration on the remote repositories in Artifactory, in addition to configuring curation on them. For more information, see [**this page**](https://jfrog.com/help/r/jfrog-curation/configure-curation-pass-through)**.**
 
 1.  **Connect JFrog CLI to JFrog Platform**
 
@@ -48,8 +46,6 @@ Make sure your JFrog Artifactory admin configured the curated remote repository 
     ```
 
     * It should present Artifactory server just added (with default true)
-    
-
 2. **Configure JFrog CLI for Project**\
    Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Here are details for each package manager:
    * **NPM:**
@@ -59,7 +55,7 @@ Make sure your JFrog Artifactory admin configured the curated remote repository 
    * **PIP:**
      * Set the resolved repository using the [**jf pipc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-python-repository) command inside the project directory (The only package installer supported for now by Python is "pip").
    * **GO:**
-       * Set the resolved repository using the [**jf goc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#examples-4) command inside the project directory.
+     * Set the resolved repository using the [**jf goc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#examples-4) command inside the project directory.
 
 #### Commands Params
 

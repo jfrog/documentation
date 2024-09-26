@@ -89,7 +89,7 @@ As shown in the above [Including the Script](broken-reference/) and [Referencing
 Configurations can be done via Project Settings > CI/CD > Variables:
 
 | Variable                   | Usage                                                                                                                                                                                                            |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | JF\_DOCKER\_REGISTRY       | Docker registry in Artifactory. For more info, see [Getting Started with Artifactory as a Docker Registry](https://www.jfrog.com/confluence/display/JFROG/Getting+Started+with+Artifactory+as+a+Docker+Registry) |
 | JFROG\_CLI\_BUILD\_PROJECT | JFrog project key to be used by commands which expect build name and build number. Determines the project of the published build.                                                                                |
 | JFROG\_CLI\_VERSION        | Use a specific JFrog CLI version instead of the latest version. The minimal version allowed is: 2.17.0                                                                                                           |
