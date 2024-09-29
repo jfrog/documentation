@@ -1,5 +1,7 @@
 # JFrog CLI AI command assistant
 
+ONLY ACTIVE JFROG CUSTOMERS ARE AUTHORIZED TO USE THE JFROG AI ASSISTANT. ALL OTHER USES ARE PROHIBITED.
+
 ## Overview
 
 The JFrog CLI AI Command Assistant streamlines your workflow by turning natural language inputs into JFrog CLI commands.
@@ -11,7 +13,7 @@ Each query is treated individually, and while the interface allows you to refine
 This tool helps users access the full power of JFrog CLI without needing to remember specific syntax, ensuring efficiency and accuracy.
 
 {% hint style="info" %}
-Note, This is the first version of JFrog CLI AI, hence it is limited only to Artifactory and Xray commands.
+ Note, This is the first version of JFrog CLI AI, hence it is limited only to Artifactory and Xray commands.
 {% endhint %}
 
 ![](../../.gitbook/assets/cli-ai.png)
@@ -24,7 +26,7 @@ To use the JFrog CLI AI Command Assistant, follow these simple steps:
 Ensure that you are in a terminal session where JFrog CLI is installed and configured.
 
 ### 2. Supported Version Validation
-This feature is available starting from CLI version 2.68 and above. To validate your version, run:
+This feature is available starting from CLI version 2.69 and above. To validate your version, run:
 
 `jf --version`
 
@@ -78,7 +80,7 @@ The model was trained using a dataset built from two primary sources:
     <summary>Does JFrog send customer data to OpenAI’s platform to train its services?</summary>
 
 
-The data you submit and the responses you receive via JFrog CLI AI are not used to fine-tune or improve our model or services. Each data request is sent to Azure OpenAI individually, over an SSL encrypted service, to process and send back to JFrog.
+The data you submit and the responses you receive via JFrog CLI AI are not used to fine-tune or improve our model or services. Each data request is sent to Azure OpenAI individually, over an SSL-encrypted service, to process and send back to JFrog.
 </details>
 
 <details>
