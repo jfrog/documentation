@@ -80,7 +80,7 @@ The model was trained using a dataset built from two primary sources:
     <summary>Does JFrog send customer data to OpenAI’s platform to train its services?</summary>
 
 
-The data you submit and the responses you receive via JFrog CLI AI are not used to fine-tune or improve our model or services. Each data request is sent to Azure OpenAI individually, over an SSL encrypted service, to process and send back to JFrog.
+The data you submit and the responses you receive via JFrog CLI AI are not used to fine-tune or improve our model or services. Each data request is sent to Azure OpenAI individually, over an SSL-encrypted service, to process and send back to JFrog.
 </details>
 
 <details>
