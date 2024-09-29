@@ -13,7 +13,7 @@ Each query is treated individually, and while the interface allows you to refine
 This tool helps users access the full power of JFrog CLI without needing to remember specific syntax, ensuring efficiency and accuracy.
 
 {% hint style="info" %}
- Note, This is the first version of JFrog CLI AI, hence it is limited only to Artifactory and Xray commands.
+Note, This is the first version of JFrog CLI AI, hence it is limited only to Artifactory and Xray commands.
 {% endhint %}
 
 ![](../../.gitbook/assets/cli-ai.png)
