@@ -1,5 +1,7 @@
 # JFrog CLI AI command assistant
 
+ONLY ACTIVE JFROG CUSTOMERS ARE AUTHORIZED TO USE THE JFROG AI ASSISTANT. ALL OTHER USES ARE PROHIBITED.
+
 ## Overview
 
 The JFrog CLI AI Command Assistant streamlines your workflow by turning natural language inputs into JFrog CLI commands.
