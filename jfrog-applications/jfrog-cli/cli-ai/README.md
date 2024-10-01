@@ -6,7 +6,7 @@ ONLY ACTIVE JFROG CUSTOMERS ARE AUTHORIZED TO USE THE JFROG AI ASSISTANT. ALL OT
 
 The JFrog CLI AI Command Assistant streamlines your workflow by turning natural language inputs into JFrog CLI commands.
 
-Simply describe your desired actions, and the assistant generates commands with all necessary parameters, whether you're uploading artifacts, managing repositories, scanning your code or performing other actions using the JFrog CLI.
+Simply describe your desired actions, and the assistant generates commands with all necessary parameters, whether you're uploading artifacts, managing repositories, scanning your code, or performing other actions using the JFrog CLI.
 
 Each query is treated individually, and while the interface allows you to refine requests, it doesn’t maintain a chat history.
 
