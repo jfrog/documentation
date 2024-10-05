@@ -64,10 +64,23 @@ The following installers are available for JFrog CLI v2. These installers make J
 #### Debian
 
 ```bash
-wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog\_public\_gpg.key | sudo apt-key add -
-echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee -a /etc/apt/sources.list;
-apt update;
-apt install -y jfrog-cli-v2-jf;
+# Create the keyrings directory if it doesn't exist
+sudo mkdir -p /usr/share/keyrings;
+
+# Download and save the JFrog GPG key to a keyring file
+wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog_public_gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/jfrog.gpg;
+
+# Add the JFrog repository to your APT sources with the signed-by option
+echo "deb [signed-by=/usr/share/keyrings/jfrog.gpg] https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee /etc/apt/sources.list.d/jfrog.list;
+
+# Update the package list
+sudo apt update;
+
+# Install the JFrog CLI
+sudo apt install -y jfrog-cli-v2-jf;
+
+# Run the JFrog CLI intro command
+jf intro;
 ```
 
 #### RPM
