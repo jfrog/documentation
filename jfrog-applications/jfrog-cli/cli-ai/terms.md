@@ -1,6 +1,4 @@
 
-## JFROG AI ASSISTANT ADDENDUM
-
 **ONLY ACTIVE JFROG CUSTOMERS ARE AUTHORIZED TO USE THE JFROG AI ASSISTANT. ALL OTHER USES ARE PROHIBITED.**
 
 This JFrog AI Assistant Addendum (this “**Addendum**”) forms part of the JFrog Subscription Agreement or other agreement made by and between the JFrog and Customer (the “**Agreement**”). Capitalized terms not otherwise defined in the body of this Addendum shall have the respective meanings assigned to them in the Agreement. Your use of the JFrog Platform, as applicable, shall continue to be governed by the Agreement.
