@@ -12,7 +12,7 @@
     * [JFrog Platform Configuration](jfrog-cli/get-started/configurations/jfrog-platform-configuration.md)
     * [Proxy Support](jfrog-cli/get-started/configurations/proxy-support.md)
   * [CLI AI Assistant](jfrog-cli/cli-ai/README.md)
-    * [AI Terms and Conditions](jfrog-cli/cli-ai/terms.md)
+    * [AI Assistant Addendum](jfrog-cli/cli-ai/terms.md)
   * [CLI for JFrog Artifactory](jfrog-cli/cli-for-jfrog-artifactory/README.md)
     * [Environment Variables](jfrog-cli/cli-for-jfrog-artifactory/environment-variables.md)
     * [Authentication](jfrog-cli/cli-for-jfrog-artifactory/authentication.md)
