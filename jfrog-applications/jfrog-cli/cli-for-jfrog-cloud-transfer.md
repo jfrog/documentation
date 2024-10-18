@@ -489,3 +489,14 @@ Yes. The source Artifactory instance stores a checksum for every file it hosts. 
 **Can I stop the jf rt transfer-files command and then start it again? Would that cause any issues?**
 
 You can stop the command at any time by hitting CTRL+C and then run it again. JFrog CLI stores the state of the transfer process in the "transfer" directory under the JFrog CLI home directory. This directory is usually located at `~/.jfrog/transfer`. Subsequent executions of the command use the data stored in that directory to try and avoid transferring files that have already been transferred in previous command executions.
+
+### Troubleshooting
+**Error: Creating temp export directory: /export/jfrog-cli/tmp/jfrog.cli.temp.-1728658888-1442707797/20241011.110128.tmp
+500 : Failed to create backup dir: /export/jfrog-cli/tmp/jfrog.cli.temp.-1728658888-1442707797/20241011.110128.tmp**
+
+**Resolution:**
+This error is more common on RH and Centos Platforms. The CLI process, expects the tmp directory to be owned by artifactory user, even if the process is run by root. Ideal way would be to set a tmp directory on the users home directory. Like **mkdir ~/tmp** and change the ownership of this directory to be owned by artifactory user, **chown -R artifactory:artifactory ~/tmp**. Tetting the **JFROG_CLI_TEMP_DIR to point to ~/tmp**. Rerunning now should fix the problem.
+
+
+
+
