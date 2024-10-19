@@ -192,6 +192,7 @@ This command might take up to two minutes to run.
 ***
 
 **Troubleshooting**
+
 Did you encounter the following error when running the command?
 ```
 Error: Creating temp export directory: /export/jfrog-cli/tmp/jfrog.cli.temp.-1728658888-1442707797/20241011.110128.tmp
