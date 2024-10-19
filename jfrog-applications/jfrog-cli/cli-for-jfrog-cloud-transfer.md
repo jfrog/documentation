@@ -191,6 +191,28 @@ This command might take up to two minutes to run.
 
 ***
 
+**Troubleshooting**
+
+Did you encounter the following error when running the command?
+```
+Error: Creating temp export directory: /export/jfrog-cli/tmp/jfrog.cli.temp.-1728658888-1442707797/20241011.110128.tmp
+500 : Failed to create backup dir: /export/jfrog-cli/tmp/jfrog.cli.temp.-1728658888-1442707797/20241011.110128.tmp
+```
+This error commonly occurs on Red Hat Enterprise Linux (RHEL) and CentOS platforms. The issue arises because the CLI process expects the temporary directory (/tmp) to be owned by the artifactory user, even when the process is run by root. To resolve this issue, follow these steps:
+* Create a new directory named tmp in your home directory:
+```
+mkdir ~/tmp
+```
+* Assign ownership of the new tmp directory to the artifactory user and group:
+```
+sudo chown -R artifactory:artifactory ~/tmp
+```
+* Inform JFrog CLI to use the new temporary directory by setting the JFROG_CLI_TEMP_DIR environment variable:
+```
+export JFROG_CLI_TEMP_DIR=~/tmp
+```
+* Execute the transfer-config command again
+
 6. View the command output in the terminal to verify that there are no errors. The command output is divided into the following four phases:
 
     ```
