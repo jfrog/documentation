@@ -10,6 +10,14 @@ Shifting left using Contextual Analysis enables you to eliminate false positive 
 * Tests an issue in the context of the complete artifact, also within a build or Release Bundle.
 * Enables action and remediation in the context of the actual artifact, build or Release Bundle.
 
+### Supported Languages:&#x20;
+
+* Java
+* Go
+* Python
+* JavaScript
+* TypeScript
+
 [Contextual Analysis in the JFrog CLI for Xray](../../jfrog-cli/cli-for-jfrog-security/)
 
 [Contextual Analysis in your IDE](../../ide/)

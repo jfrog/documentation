@@ -36,7 +36,7 @@ Check out what our research team is up to and stay updated on newly discovered i
 
 **Advanced**
 
-_Requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with_ [_Advanced DevSecOps_](https://jfrog.com/xray/#xray-advanced)_)._
+_Requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with_ [_Advanced DevSecOps_](https://jfrog.com/xray/#xray-advanced)_._&#x20;
 
 <details>
 

@@ -4,13 +4,22 @@
 
 ### What is JFrog SAST?
 
-<table data-view="cards"><thead><tr><th align="center"></th><th></th><th></th></tr></thead><tbody><tr><td align="center"><em><strong>FAST</strong></em></td><td>Easy setup with just a few steps</td><td></td></tr><tr><td align="center"> <em><strong>FOCUSED</strong></em></td><td>Deep analysis with focus on security issues</td><td></td></tr><tr><td align="center"><em><strong>LOCAL SECURE</strong></em></td><td>Work locally in your environment </td><td></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th align="center"></th><th></th><th></th></tr></thead><tbody><tr><td align="center"><em><strong>FAST</strong></em></td><td>Easy setup with just a few steps</td><td></td></tr><tr><td align="center"><em><strong>FOCUSED</strong></em></td><td>Deep analysis with focus on security issues</td><td></td></tr><tr><td align="center"><em><strong>LOCAL SECURE</strong></em></td><td>Work locally in your environment</td><td></td></tr></tbody></table>
 
 The JFrog SAST solution aims to enable software developers to hunt, fix, and learn about security issues in their code while allowing them to deliver fast, quality code, and reduce issues.
 
 **Requirements**
 
 SAST is available for Enterprise X and Enterprise + subscriptions with Advanced Security.
+
+### Supported Languages:
+
+*   **JavaScript/TypeScript:** Supports JS up to ECMAScript 2016/ES7.  TypeScript is also supported.&#x20;
+
+    Note: JSX is not supported
+* **Python:** Supports Python versions 3.0 to 3.11
+* **Java:** Supports all Java versions up to version 19&#x20;
+* **Go**: Supports Go versions up to version 1.22
 
 ### What does JFrog SAST Scan for?
 

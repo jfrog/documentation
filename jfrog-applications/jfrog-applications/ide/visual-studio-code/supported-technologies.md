@@ -14,4 +14,22 @@ layout:
 
 # Supported Technologies
 
-<table><thead><tr><th width="257">Feature</th><th>Go</th><th width="100">Maven</th><th>npm</th><th>pnpm</th><th>Yarn</th><th>Pip</th><th>Pipenv</th><th>Poetry</th><th>.NET CLI</th><th>NuGet</th><th>Terraform</th></tr></thead><tbody><tr><td>SCA</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>Contextual Analysis</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>Secrets Detection</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>SAST</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>Exclude dev dependencies</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>Infrastructure as Code (IaC)</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Autofix for direct dep.</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr><tr><td>License Violations</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table>
+### Software Composition Analysis (SCA)
+
+JFrog supports the following Package Managers for Visual Studio Code:
+
+**Go** | **Maven** | **npm** | **pnpm** | **Yarn** | **Pip** | **Pipenv** | **Poetry** | **.Net CLI** | **NuGet**&#x20;
+
+Additional SCA capabilities supported:&#x20;
+
+* License Violations
+* Autofix for direct dep
+
+**Note**: Exclude dev dependencies is supported for npm and pnpm only.&#x20;
+
+### JFrog Advanced Security
+
+JFrog supports [Contextual Analysis](../../../jfrog-security-for-developers/features/contextual-analysis.md), [Secrets](../../../jfrog-security-for-developers/features/secrets.md), [Infrastructure as Code (IaC)](../../../jfrog-security-for-developers/features/infrastructure-as-code-iac.md), and [SAST ](../../../jfrog-security-features/sast/)for Visual Studio Code. Follow the links to learn more about each feature and its supported technologies and languages.&#x20;
+
+
+
