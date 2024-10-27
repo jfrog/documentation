@@ -146,25 +146,21 @@ You can see more advanced options in the [full scan pull request template](scan-
 
 {% code fullWidth="true" %}
 ```yaml
-name: "Frogbot Scan Repository"
+name: "Frogbot Scan Pull Request"
 on:
-  workflow_dispatch:
-  schedule:
-    # The repository will be scanned once a day at 00:00 GMT.
-    - cron: "0 0 * * *"
+  pull_request_target:
+    types: [opened, synchronize]
 permissions:
-  contents: write
   pull-requests: write
-  security-events: write
+  contents: read
   # [Mandatory If using OIDC authentication protocol instead of JF_ACCESS_TOKEN]
   # id-token: write
 jobs:
-  scan-repository:
+  scan-pull-request:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        # The repository scanning will be triggered periodically on the following branches.
-        branch: ["dev"]
+    # A pull request needs to be approved before Frogbot scans it. Any GitHub user who is associated with the
+    # "frogbot" GitHub environment can approve the pull request to be scanned.
+    environment: frogbot
     steps:
       - uses: jfrog/frogbot@v2
         env:
@@ -187,15 +183,11 @@ jobs:
           # [Mandatory]
           # The GitHub token is automatically generated for the job
           JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-          # [Mandatory]
-          # The name of the branch on which Frogbot will perform the scan
-          JF_GIT_BASE_BRANCH: ${{ matrix.branch }}
-
-      # [Mandatory if using OIDC authentication protocol instead of JF_ACCESS_TOKEN]
-      # Insert to oidc-provider-name the 'Provider Name' defined in the OIDC integration configured in the JPD
-      # with:
-      #   oidc-provider-name: ""
+          
+        # [Mandatory if using OIDC authentication protocol instead of JF_ACCESS_TOKEN]
+        # Insert to oidc-provider-name the 'Provider Name' defined in the OIDC integration configured in the JPD
+        # with:
+        #   oidc-provider-name: ""
 ```
 {% endcode %}
 
