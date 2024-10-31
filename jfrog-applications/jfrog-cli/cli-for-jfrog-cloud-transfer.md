@@ -8,7 +8,7 @@ JFrog provides you the ability to migrate from a self-hosted JFrog Platform inst
 
 JFrog Cloud provides the same cutting-edge functionalities of a self-hosted JFrog Platform Deployment (JPD), without the overhead of managing the databases and systems. If you are an existing JFrog self-hosted customer, you might want to move to JFrog Cloud to ease operations. JFrog provides a solution that allows you to replicate your self-hosted JPD to a JFrog Cloud JPD painlessly.
 
-The Artifactory Transfer solution currently transfers the config and data of JFrog Artifactory only. Other products such as JFrog Xray, Distribution, and JFrog Pipelines are currently not supported by this solution.
+The Artifactory Transfer solution currently transfers the config and data of JFrog Artifactory only. Other products such as JFrog Xray, and Distribution are currently not supported by this solution.
 
 In this page, we refer to the source self-hosted instance as the source instance, and the target JFrog Cloud instance as the target instance.
 

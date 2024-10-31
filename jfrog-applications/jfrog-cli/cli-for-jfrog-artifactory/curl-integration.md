@@ -1,7 +1,7 @@
-# cUrl Integration
+# cURL Integration
 ## Overview
 
-Execute a cUrl command, using the configured Artifactory details. The command expects the cUrl client to be included in the PATH.
+Execute a cURL command, using the configured Artifactory details. The command expects the cUrl client to be included in the PATH.
 
 > **Note** - This command supports only Artifactory REST APIs, which are accessible under https://\<JFrog base URL>/artifactory/api/
 

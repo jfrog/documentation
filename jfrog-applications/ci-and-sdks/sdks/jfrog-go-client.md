@@ -41,7 +41,6 @@ go test -v github.com/jfrog/jfrog-client-go/tests -timeout 0 -run TestGetArtifac
 | `-test.artifactory`  | Artifactory tests  | Artifactory Pro               |
 | `-test.distribution` | Distribution tests | Artifactory with Distribution |
 | `-test.xray`         | Xray tests         | Artifactory with Xray         |
-| `-test.pipelines`    | Pipelines tests    | JFrog Pipelines               |
 | `-test.access`       | Access tests       | Artifactory Pro               |
 | `-test.repositories` | Access tests       | Artifactory Pro               |
 
