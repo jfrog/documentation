@@ -375,7 +375,7 @@ The following File Spec finds all the folders which match the following criteria
 
 #### Example 12
 
-This example uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-placeholders). For each .tgz file in the source directory, create a corresponding directory with the same name in the target repository and upload it there. For example, a file named froggy.tgz should be uploaded to my-local-rep/froggy. (froggy will be created a folder in Artifactory).
+This example uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#using-placeholders). For each .tgz file in the source directory, create a corresponding directory with the same name in the target repository and upload it there. For example, a file named froggy.tgz should be uploaded to my-local-rep/froggy. (froggy will be created a folder in Artifactory).
 
 ```
 {
@@ -390,7 +390,7 @@ This example uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/
 
 #### Example 13
 
-This examples uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-placeholders). Upload all files whose name begins with "frog" to folder frogfiles in the target repository, but append its name with the text "-up". For example, a file called froggy.tgz should be renamed froggy.tgz-up.
+This examples uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#using-placeholders). Upload all files whose name begins with "frog" to folder frogfiles in the target repository, but append its name with the text "-up". For example, a file called froggy.tgz should be renamed froggy.tgz-up.
 
 ```
 {
@@ -407,7 +407,7 @@ This examples uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io
 #### Example 14
 
 The following two examples lead to the exact same outcome.\
-The first one uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#using-placeholders), while the second one does not. Both examples download all files from the generic-local repository to be under the ֿֿmy/local/path/ local file-system path, while maintaining the original Artifactory folder hierarchy. Notice the different flat values in the two examples.
+The first one uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#using-placeholders), while the second one does not. Both examples download all files from the generic-local repository to be under the ֿֿmy/local/path/ local file-system path, while maintaining the original Artifactory folder hierarchy. Notice the different flat values in the two examples.
 
 ```
 {
