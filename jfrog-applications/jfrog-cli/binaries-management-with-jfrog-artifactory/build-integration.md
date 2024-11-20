@@ -6,7 +6,7 @@ JFrog CLI integrates with any development ecosystem allowing you to collect buil
 
 Many of JFrog CLI's commands accept two optional command options: **--build-name** and **--build-number**. When these options are added, JFrog CLI collects and records the build info locally for these commands.\
 When running multiple commands using the same build and build number, JFrog CLI aggregates the collected build info into one build.\
-The recorded build-info can be later published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
+The recorded build-info can be later published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
 
 ## Collecting Build-Info
 
@@ -383,7 +383,7 @@ jf rt bc my-build-name 18
 
 ## Discarding Old Builds from Artifactory
 
-This command is used to discard builds previously published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
+This command is used to discard builds previously published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
 
 ### Usage
 

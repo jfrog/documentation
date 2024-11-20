@@ -25,18 +25,18 @@ The transfer-files command allows transferring (copying) all the files stored in
 
 To set up the source instance for files transfer, you must install the **data-transfer** user plugin in the primary node of the source instance. This section guides you through the installation steps.
 
-1. Install JFrog CLI on the primary node machine of the source instance as described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#installing-the-data-transfer-user-plugin-on-the-source-machine-manually).
+1. Install JFrog CLI on the primary node machine of the source instance as described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#installing-the-data-transfer-user-plugin-on-the-source-machine-manually).
 2.  Configure the connection details of the source Artifactory instance with your admin credentials by running the following command from the terminal.
 
     ```
     jf c add source-server
     ```
 3. Ensure that the **JFROG\_HOME** environment variable is set and holds the value of JFrog installation directory. It usually points to the **/opt/jfrog** directory. In case the variable isn't set, set its value to point to the correct directory as described in the JFrog Product Directory Structure article.
-4. If the source instance has internet access, you can install the **data-transfer** user plugin on the source machine automatically by running the following command from the terminal `jf rt transfer-plugin-install source-server`. If however the source instance has no internet access, install the plugin manually as described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#installing-the-data-transfer-user-plugin-on-the-source-machine-manually).
+4. If the source instance has internet access, you can install the **data-transfer** user plugin on the source machine automatically by running the following command from the terminal `jf rt transfer-plugin-install source-server`. If however the source instance has no internet access, install the plugin manually as described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#installing-the-data-transfer-user-plugin-on-the-source-machine-manually).
 
 ### Step 2 - Push the Files from the Source to the Target Instance
 
-Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/transferring-files-between-artifactory-servers#installing-jfrog-cli-on-a-machine-with-network-access-to-the-source-and-target-machines).
+Install JFrog CLI on any machine that has access to both the source and the target JFrog instances. To do this, follow the steps described [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/transferring-files-between-artifactory-servers#installing-jfrog-cli-on-a-machine-with-network-access-to-the-source-and-target-machines).
 
 Run the following command to start pushing the files from all the repositories in source instance to the target instance.
 
@@ -62,7 +62,7 @@ In case you do not wish to transfer the files from all repositories, or wish to 
 jf rt transfer-files -h
 ```
 
-If the traffic between the source and target instance needs to be routed through an HTTPS proxy, refer to [this](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#routing-the-traffic-from-the-source-to-the-target-through-an-https-proxy) section.
+If the traffic between the source and target instance needs to be routed through an HTTPS proxy, refer to [this](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#routing-the-traffic-from-the-source-to-the-target-through-an-https-proxy) section.
 
 You can stop the transfer process by hitting on **CTRL+C** if the process is running in the foreground, or by running the following command, if you're running the process in the background.
 
@@ -72,7 +72,7 @@ jf rt transfer-files --stop
 
 The process will continue from the point it stopped when you re-run the command.
 
-While the file transfer is running, monitor the load on your source instance, and if needed, reduce the transfer speed or increase it for better performance. For more information, see the [Controlling the File Transfer Speed](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#controlling-the-file-transfer-speed) section.
+While the file transfer is running, monitor the load on your source instance, and if needed, reduce the transfer speed or increase it for better performance. For more information, see the [Controlling the File Transfer Speed](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#controlling-the-file-transfer-speed) section.
 
 A path to an errors summary file will be printed at the end of the run, referring to a generated CSV file. Each line on the summary CSV represents an error of a file that failed to be transferred. On subsequent executions of the `jf rt transfer-files` command, JFrog CLI will attempt to transfer these files again.
 

@@ -49,13 +49,13 @@ Some package types (except npm packages) require 'pass-through' curation configu
 2. **Configure JFrog CLI for Project**\
    Ensure your project is configured in the JFrog CLI with the repository you would like to resolve dependencies from. Here are details for each package manager:
    * **NPM:**
-     * Set the resolved repository using the [**jf npmc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-npm-repositories) command inside the project directory.
+     * Set the resolved repository using the [**jf npmc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/package-managers-integration#setting-npm-repositories) command inside the project directory.
    * **MAVEN:**
-     * Set the resolved repository using the [**jf mvnc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-maven-repositories) command inside the project directory.
+     * Set the resolved repository using the [**jf mvnc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/package-managers-integration#setting-maven-repositories) command inside the project directory.
    * **PIP:**
-     * Set the resolved repository using the [**jf pipc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#setting-python-repository) command inside the project directory (The only package installer supported for now by Python is "pip").
+     * Set the resolved repository using the [**jf pipc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/package-managers-integration#setting-python-repository) command inside the project directory (The only package installer supported for now by Python is "pip").
    * **GO:**
-     * Set the resolved repository using the [**jf goc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory/package-managers-integration#examples-4) command inside the project directory.
+     * Set the resolved repository using the [**jf goc**](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/package-managers-integration#examples-4) command inside the project directory.
 
 #### Commands Params
 

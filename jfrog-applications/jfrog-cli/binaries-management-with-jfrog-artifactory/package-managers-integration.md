@@ -23,8 +23,6 @@ Before using the **jf mvn** command, the project needs to be pre-configured with
 | `--repo-deploy-snapshots` | <p>[Optional]<br>Deployment repository for snapshot artifacts.</p>                                                                                                                                                                                                |
 | `--include-patterns` | <p>[Optional]<br>Filter deployed artifacts by setting a wildcard pattern that specifies which artifacts to include. You may provide multiple comma-separated(,) patterns followed by a white-space. For example<br><br>artifact-<em>.jar, artifact-</em>.pom</p>  |
 | `--exclude-patterns` | <p>[Optional]<br>Filter deployed artifacts by setting a wildcard pattern that specifies which artifacts to exclude. You may provide multiple comma-separated(,) followed by a white-space. For example<br><br>artifact-<em>-test.jar, artifact-</em>-test.pom</p> |
-| `--scan` | <p>[Default: false]<br>Set if you'd like all files to be scanned by Xray on the local file system prior to the upload, and skip the upload if any of the files are found vulnerable.</p>                                                                          |
-| `--format` | <p>[Default: table]<br>Should be used with the --scan option. Defines the scan output format. Accepts table or json as values.</p>                                                                                                                                |
 | **Command arguments:**        | The command accepts no arguments                                                                                                                                                                                                                                  |
 
 ### Running maven
@@ -45,10 +43,12 @@ The following table lists the command arguments and flags:
 | Abbreviation      | mvn                                                                                                                                                                                                                     |
 | **Command options:**   |                                                                                                                                                                                                                         |
 | `--threads` | <p>[Default: 3]<br>Number of threads for uploading build artifacts.</p>                                                                                                                                                 |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--insecure-tls` | <p>[Default: false]<br>Set to true to skip TLS certificates verification.</p>                                                                                                                                           |
+| `--scan` | <p>[Default: false]<br>Set if you'd like all files to be scanned by Xray on the local file system prior to the upload, and skip the upload if any of the files are found vulnerable.</p>                                                                          |
+| `--format` | <p>[Default: table]<br>Should be used with the --scan option. Defines the scan output format. Accepts table or json as values.</p>                                                                                                                                |
 | **Command arguments:** | The command accepts the same arguments and options as the mvn client.                                                                                                                                                   |
 
 #### Deploying Maven Artifacts
@@ -88,8 +88,6 @@ Before using the **gradle** command, the project needs to be pre-configured with
 | `--deploy-ivy-desc` | <p>[Default: true]<br>Set to false if you do not wish to deploy Ivy descriptors.</p>                                                                                                     |
 | `--ivy-desc-pattern` | <p>[Default: '[organization]/[module]/ivy-[revision].xml'<br><br>Set the deployed Ivy descriptor pattern.</p>                                                                            |
 | `--ivy-artifacts-pattern` | <p>[Default: '[organization]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]'<br><br>Set the deployed Ivy artifacts pattern.</p>                                          |
-| `--scan` | <p>[Default: false]<br>Set if you'd like all files to be scanned by Xray on the local file system prior to the upload, and skip the upload if any of the files are found vulnerable.</p> |
-| `--format` | <p>[Default: table]<br>Should be used with the --scan option. Defines the scan output format. Accepts table or json as values.</p>                                                       |
 | **Command arguments:**       | The command accepts no arguments                                                                                                                                                         |
 
 ### Running gradle
@@ -110,9 +108,11 @@ The following table lists the command arguments and flags:
 | Abbreviation      | gradle                                                                                                                                                                                                                  |
 | **Command options:**   |                                                                                                                                                                                                                         |
 | `--threads` | <p>[Default: 3]<br>Number of threads for uploading build artifacts.</p>                                                                                                                                                 |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
+| `--scan` | <p>[Default: false]<br>Set if you'd like all files to be scanned by Xray on the local file system prior to the upload, and skip the upload if any of the files are found vulnerable.</p> |
+| `--format` | <p>[Default: table]<br>Should be used with the --scan option. Defines the scan output format. Accepts table or json as values.</p>                                                       |
 | **Command arguments:** | The command accepts the same arguments and options as the gradle client.                                                                                                                                                |
 
 #### Example
@@ -166,7 +166,7 @@ Check out our [docker project examples on GitHub](https://github.com/jfrog/proje
 
 ### Pulling Docker Images Using the Docker Client
 
-Running **jf docker pull** command allows pulling docker images from Artifactory, while collecting the build-info and storing it locally, so that it can be later published to Artifactory, using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
+Running **jf docker pull** command allows pulling docker images from Artifactory, while collecting the build-info and storing it locally, so that it can be later published to Artifactory, using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
 
 #### Commands Params
 
@@ -178,8 +178,8 @@ The following table lists the command arguments and flags:
 | Abbreviation      | dpl                                                                                                                                                                                                                     |
 | **Command options:**   |                                                                                                                                                                                                                         |
 | `--server-id` | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                           |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | `--skip-login` | <p>[Default: false]<br>Set to true if you'd like the command to skip performing docker login.</p>                                                                                                                       |
@@ -193,7 +193,7 @@ The subsequent command utilizes the docker client to pull the 'my-docker-registr
 jf docker pull my-docker-registry.io/my-docker-image:latest --build-name=my-build-name --build-number=7
 ```
 
-You can then publish the build-info collected by the **jf docker pull** command to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
+You can then publish the build-info collected by the **jf docker pull** command to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
 
 ### Pushing Docker Images Using the Docker Client
 
@@ -209,8 +209,8 @@ The following table lists the command arguments and flags:
 | Abbreviation       | dp                                                                                                                                                                                                                      |
 | **Command options:**    |                                                                                                                                                                                                                         |
 | `--server-id` | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                           |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | `--skip-login` | <p>[Default: false]<br>Set to true if you'd like the command to skip performing docker login.</p>                                                                                                                       |
@@ -226,11 +226,11 @@ The subsequent command utilizes the docker client to push the 'my-docker-registr
 jf docker push my-docker-registry.io/my-docker-image:latest --build-name=my-build-name --build-number=7
 ```
 
-You can then publish the build-info collected by the **docker-push** command to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
+You can then publish the build-info collected by the **docker-push** command to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
 
 ### Pulling Docker Images Using Podman
 
-[Podman](https://podman.io/) is a daemon-less container engine for developing, managing, and running OCI Containers. Running the **podman-pull** command allows pulling docker images from Artifactory using podman, while collecting the build-info and storing it locally, so that it can be later published to Artifactory, using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
+[Podman](https://podman.io/) is a daemon-less container engine for developing, managing, and running OCI Containers. Running the **podman-pull** command allows pulling docker images from Artifactory using podman, while collecting the build-info and storing it locally, so that it can be later published to Artifactory, using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
 
 #### Commands Params
 
@@ -242,8 +242,8 @@ The following table lists the command arguments and flags:
 | Abbreviation      | rt ppl                                                                                                                                                                                                                  |
 | **Command options:**   |                                                                                                                                                                                                                         |
 | `--server-id` | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                           |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | `--skip-login` | <p>[Default: false]<br>Set to true if you'd like the command to skip performing docker login.</p>                                                                                                                       |
@@ -259,7 +259,7 @@ In this example, podman is employed to pull the local image 'my-docker-registry.
 jf rt podman-pull my-docker-registry.io/my-docker-image:latest docker-local --build-name my-build-name --build-number 7
 ```
 
-You can then publish the build-info collected by the **podman-pull** command to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
+You can then publish the build-info collected by the **podman-pull** command to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
 
 ### Pushing Docker Images Using Podman
 
@@ -275,8 +275,8 @@ The following table lists the command arguments and flags:
 | Abbreviation       | rt pp                                                                                                                                                                                                                   |
 | **Command options:**    |                                                                                                                                                                                                                         |
 | `--server-id` | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                           |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | `--skip-login` | <p>[Default: false]<br>Set to true if you'd like the command to skip performing docker login.</p>                                                                                                                       |
@@ -294,7 +294,7 @@ In this illustration, podman is employed to push the local image 'my-docker-regi
 jf rt podman-push my-docker-registry.io/my-docker-image:latest docker-local --build-name=my-build-name --build-number=7
 ```
 
-You can then publish the build-info collected by the **podman-push** command to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
+You can then publish the build-info collected by the **podman-push** command to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
 
 ### Pushing Docker Images Using Kaniko
 
@@ -324,8 +324,8 @@ The **build-docker-create** command allows adding a docker image, which is alrea
 | **Command options:**   |                                                                                                                                                                                                                                   |
 | `--image-file` | <p>Path to a file which includes one line in the following format: IMAGE-TAG@sha256:MANIFEST-SHA256. For example:<br><br>cat image-file-details<br>superfrog-docker.jfrog.io/hello-frog@sha256:30f04e684493fb5ccc030969df6de0</p> |
 | `--server-id` | <p>[Optional]<br>Server ID configured using the 'jf config' command. If not specified, the default configured Artifactory server is used.</p>                                                                                     |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>             |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>           |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>             |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>           |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                           |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                                     |
 | `--skip-login` | <p>[Default: false]<br>Set to true if you'd like the command to skip performing docker login.</p>                                                                                                                                 |
@@ -341,7 +341,7 @@ In this example, a Docker image that has already been deployed to Artifactory is
 jf rt bdc docker-local --image-file image-file-details --build-name myBuild --build-number 1
 ```
 
-You can then publish the build-info collected by the **podman-push** command to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
+You can then publish the build-info collected by the **podman-push** command to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
 
 ### Promoting Docker Images
 
@@ -423,8 +423,8 @@ The following table lists the command arguments and flags:
 | Command-name      | npm                                                                                                                                                                                                                     |
 | Abbreviation      |                                                                                                                                                                                                                         |
 | **Command options:**   |                                                                                                                                                                                                                         |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | `--threads` | <p>[Default: 3]<br>Number of working threads for build-info collection.</p>                                                                                                                                             |
@@ -436,7 +436,7 @@ The following table lists the command arguments and flags:
 #### Examples
 ##### Example 1
 
-The following example installs the dependencies and records them locally as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command. The dependencies are resolved from the Artifactory server and repository configured by **npm-config** command.
+The following example installs the dependencies and records them locally as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command. The dependencies are resolved from the Artifactory server and repository configured by **npm-config** command.
 
 ```
 jf npm install --build-name=my-build-name --build-number=1
@@ -475,8 +475,8 @@ The following table lists the command arguments and flags:
 | Command-name       | npm publish                                                                                                                                                                                                             |
 | Abbreviation       |                                                                                                                                                                                                                         |
 | **Command options:**    |                                                                                                                                                                                                                         |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | `--detailed-summary` | <p>[Default: false]<br>Set true to include a list of the affected files as part of the command output summary.</p>                                                                                                      |
@@ -486,7 +486,7 @@ The following table lists the command arguments and flags:
 
 #### Example
 
-To pack and publish the npm package and also record it locally as part of build **my-build-name/1**, run the following command. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command. The package is published to the Artifactory server and repository configured by **npm-config** command.
+To pack and publish the npm package and also record it locally as part of build **my-build-name/1**, run the following command. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command. The package is published to the Artifactory server and repository configured by **npm-config** command.
 
 ```
 jf npm publish --build-name=my-build-name --build-number=1
@@ -526,8 +526,8 @@ The following table lists the command arguments and flags:
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command-name      | yarn                                                                                                                                                                                                                    |
 | **Command options:**   |                                                                                                                                                                                                                         |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | `--threads` | <p>[Default: 3]<br>Number of working threads for build-info collection.</p>                                                                                                                                             |
@@ -536,7 +536,7 @@ The following table lists the command arguments and flags:
 #### Examples
 ##### Example 1
 
-The following example installs the dependencies and records them locally as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command. The dependencies are resolved from the Artifactory server and repository configured by \*\*yarn-config command.
+The following example installs the dependencies and records them locally as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command. The dependencies are resolved from the Artifactory server and repository configured by \*\*yarn-config command.
 
 ```
 jf yarn install --build-name=my-build-name --build-number=1
@@ -622,8 +622,8 @@ The following table lists the command arguments and flags:
 | Command-name      | go                                                                                                                                                                                                                      |
 | Abbreviation      | go                                                                                                                                                                                                                      |
 | **Command options:**   |                                                                                                                                                                                                                         |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--no-fallback` | <p>[Default false]<br>Set to avoid downloading packages from the VCS, if they are missing in Artifactory.</p>                                                                                                           |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
@@ -643,7 +643,7 @@ jf go build
 
 ##### Example 2
 
-The following example runs Go build command, while recording the build-info locally under build name **my-build** and build number **1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info)command.
+The following example runs Go build command, while recording the build-info locally under build name **my-build** and build number **1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info)command.
 
 > **Note**: Before using this example, please make sure to set repositories for the Go project using the go-config command.
 
@@ -666,8 +666,8 @@ The following table lists the command arguments and flags:
 | Command-name       | go-publish                                                                                                                                                                                                              |
 | Abbreviation       | gp                                                                                                                                                                                                                      |
 | **Command options:**    |                                                                                                                                                                                                                         |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | `--detailed-summary` | <p>[Default: false]<br>Set true to include a list of the affected files as part of the command output summary.</p>                                                                                                      |
@@ -685,7 +685,7 @@ jf gp v1.2.3
 
 ##### Example 2
 
-To pack and publish the Go package and also record the build-info as part of build **my-build-name/1** , run the following command. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command. Before running this command on a project for the first time, the project should be configured using the **jf go-config** command.
+To pack and publish the Go package and also record the build-info as part of build **my-build-name/1** , run the following command. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command. Before running this command on a project for the first time, the project should be configured using the **jf go-config** command.
 
 ```
 jf gp v1.2.3 --build-name my-build-name --build-number 1
@@ -765,8 +765,8 @@ Running the `install` command with both the **no-cache-dir** and **force-reinsta
 | Command-name         | pip / pipenv                                                                                                                                                                                                            |
 | Abbreviation         |                                                                                                                                                                                                                         |
 | **Command options:** |                                                                                                                                                                                                                         |
-| `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project`          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module`           | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | Command argument     | The command accepts the same arguments and options as the pip / pipenv clients.                                                                                                                                         |
@@ -800,8 +800,8 @@ The **jf twine upload** command uses the **twine**, to publish the project distr
 | Command-name         | twine                                                                                                                                                                                                                   |
 | Abbreviation         |                                                                                                                                                                                                                         |
 | **Command options:** |                                                                                                                                                                                                                         |
-| `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project`          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module`           | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | Command argument     | The command accepts the arguments and options supported by twine client, except for repository configuration and authentication options.                                                                                |
@@ -868,8 +868,8 @@ The **jf poetry install** commands use the **poetry** client to install the proj
 | Command-name         | poetry                                                                                                                                                                                                                  |
 | Abbreviation         |                                                                                                                                                                                                                         |
 | **Command options:** |                                                                                                                                                                                                                         |
-| `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project`          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module`           | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | Command argument     | The command accepts the same arguments and options as the poetry clients.                                                                                                                                               |
@@ -889,7 +889,7 @@ JFrog CLI provides full support for restoring NuGet packages using the NuGet cli
 
 NuGet dependencies resolution is supported by the `jf nuget` command, which uses the NuGet client or the `jf dotnet` command, which uses the .NET Core CLI.
 
-To publish your NuGet packages to Artifactory, use the [jf rt upload](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#uploading-files) command.
+To publish your NuGet packages to Artifactory, use the [jf rt upload](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#uploading-files) command.
 
 ### Setting NuGet repositories
 
@@ -928,8 +928,8 @@ The following table lists the commands arguments and options:
 | Command-name     | nuget / dotnet                                                                                                                                                                                                          |
 | Abbreviation     |                                                                                                                                                                                                                         |
 | **Command options:**  |                                                                                                                                                                                                                         |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                 |
 | `--module` | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                           |
 | Command argument | The command accepts the same arguments and options as the NuGet client / .NET Core CLI.                                                                                                                                 |
@@ -959,7 +959,7 @@ Run dotnet restore for the solution at the current directory, while resolving th
 jf dotnet restore --build-name=my-build-name --build-number=1
 ```
 
-In addition, record the build-info as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#publishing-build-info) command.
+In addition, record the build-info as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
 
 
 ## Packaging and Publishing Terraform Modules
@@ -1025,8 +1025,8 @@ The following table lists the commands arguments and options:
 | `--provider` | <p>[Mandatory]<br>Terraform module provider</p>                                                                                                                                                                         |
 | `--tag` | <p>[Mandatory]<br>Terraform module tag</p>                                                                                                                                                                              |
 | `--exclusions` | <p>[Optional]<br>A list of semicolon-separated(;) exclude patterns wildcards. Paths inside the module matching one of the patterns are excluded from the deployed package.</p>                                          |
-| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/cli-for-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
+| `--build-name` | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
+| `--build-number` | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
 | `--project` |                                                                                                                                                                                                                         |
 | Command argument | The command accepts no arguments                                                                                                                                                                                        |
 
