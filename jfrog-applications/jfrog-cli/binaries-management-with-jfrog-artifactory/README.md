@@ -1,4 +1,4 @@
-# Binaries Management with Jfrog Artifactory
+# Binaries Management with JFrog Artifactory
 
 JFrog CLI is a compact and smart client that provides a simple interface that automates access to JFrog products simplifying your automation scripts and making them more readable and easier to maintain. JFrog CLI works with JFrog Artifactory, making your scripts more efficient and reliable in several ways:
 
