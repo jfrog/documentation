@@ -98,16 +98,18 @@ The file spec may be of one of the following creation sources:
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command-name           | release-bundle-create                                                                                                                                                                                                               |
 | Abbreviation           | rbc                                                                                                                                                                                                                                 |
-| **Command arguments:**      |                                                                                                                                                                                                                                     |
+| **Command arguments:** |                                                                                                                                                                                                                                     |
 | release bundle name    | Name of the newly created Release Bundle.                                                                                                                                                                                           |
 | release bundle version | Version of the newly created Release Bundle.                                                                                                                                                                                        |
-| **Command options:**        |                                                                                                                                                                                                                                     |
-| `--project` | <p>[Optional]<br>Project key associated with the created Release Bundle version.</p>                                                                                                                                                |
-| `--server-id` | <p>[Optional]<br>Platform Server ID configured using the 'jf config' command.</p>                                                                                                                                                   |
-| `--signing-key` | <p>[Mandatory]<br>The GPG/RSA key-pair name given in Artifactory.</p>                                                                                                                                                               |
-| `--spec` | <p>[Optional]<br>Path to a File Spec.</p>                                                                                                                                                                                           |
-| `--spec-vars` | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." (wrapped by quotes) to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p> |
-| `--sync` | <p>[Default: false]<br>Set to true to run synchronously.</p>                                                                                                                                                                        | |
+| **Command options:**   |                                                                                                                                                                                                                                     |
+| `--project`            | <p>[Optional]<br>Project key associated with the created Release Bundle version.</p>                                                                                                                                                |
+| `--server-id`          | <p>[Optional]<br>Platform Server ID configured using the 'jf config' command.</p>                                                                                                                                                   |
+| `--signing-key`        | <p>[Mandatory]<br>The GPG/RSA key-pair name given in Artifactory.</p>                                                                                                                                                               |
+| `--spec`               | <p>[Optional]<br>Path to a File Spec.</p>                                                                                                                                                                                           |
+| `--build-name`         | <p>[Optional]<br>Build name to create the bundle from./p>                                                                                                                                                                           | |
+| `--build-number`       | <p>[Optional]<br>Build number to create the bundle from.</p>                                                                                                                                                                        | |
+| `--spec-vars`          | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." (wrapped by quotes) to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p> |
+| `--sync`               | <p>[Default: false]<br>Set to true to run synchronously.</p>                                                                                                                                                                        | |
 
 ### Examples
 #### Example 1
@@ -132,6 +134,14 @@ Create a release bundle using file spec variables.
 
 ```
 jf rbc --spec=/path/to/spec.json --spec-vars="key1=value1" --signing-key=myKeyPair myApp 1.0.0
+```
+
+#### Example 3
+
+Create a release bundle using build name and number variables.
+
+```
+jf rbc --build-name=Common-builds --build-number=1.0.0 myApp 1.0.0
 ```
 
 ## Promoting a release bundle
