@@ -2,6 +2,13 @@
 
 For GitHub repositories, issues that are found during Frogbot's repository scans are also added to the [Security Alerts](https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository) view in the UI.
 
+{% hint style="info" %}
+This feature requires:
+
+* JFrog **Enterprise X** or **Enterprise+** license with the Advanced Security Add-on.
+* [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning) available.
+{% endhint %}
+
 ![](../../../../.gitbook/assets/github-code-scanning.png)
 
 The following alert types are supported:
