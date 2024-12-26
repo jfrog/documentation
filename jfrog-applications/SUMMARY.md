@@ -28,6 +28,7 @@
     * [Release Lifecycle Management](jfrog-cli/binaries-management-with-jfrog-artifactory/release-lifecycle-management.md)
     * [Transferring Files Between Artifactory Servers](jfrog-cli/binaries-management-with-jfrog-artifactory/transferring-files-between-artifactory-servers.md)
     * [Cleaning Up Unreferenced Files from a Git LFS Repository](jfrog-cli/binaries-management-with-jfrog-artifactory/git-lfs.md)
+    * [Evidence Service](jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/evidence-service.md)
   * [CLI for JFrog Security](jfrog-cli/cli-for-jfrog-security/README.md)
     * [Authentication](jfrog-cli/cli-for-jfrog-security/authentication.md)
     * [Scan your Source Code](jfrog-cli/cli-for-jfrog-security/scan-your-source-code.md)
