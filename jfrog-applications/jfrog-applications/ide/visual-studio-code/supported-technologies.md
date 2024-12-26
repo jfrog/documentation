@@ -14,7 +14,7 @@ layout:
 
 # Supported Technologies
 
-### Software Composition Analysis (SCA)
+### Software Composition Analysis&#x20;
 
 JFrog supports the following Package Managers for Visual Studio Code:
 
