@@ -13,6 +13,8 @@ The _**jf audit**_ command allows scanning your source code dependencies to find
 * Go Modules (go)
 * NuGet (nuget)
 * .NET Core CLI (dotnet)
+* CocoaPods (pod)
+* SwiftPM (swift)
 
 The command will detect the package manager used by the project automatically. It requires version 3.29.0 or above of Xray and also version 2.13.0 or above of JFrog CLI.
 
