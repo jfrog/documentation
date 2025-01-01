@@ -11,7 +11,8 @@ To install and work with the plugin:
 ### Download the JFrog Eclipse IDE Plugin
 
 | **Version** | **Download link**                                                                                                              | **Compatibility**   |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| 1.2.0       | [Download](https://github.com/jfrog/jfrog-eclipse-plugin/releases/download/1.2.0/com.jfrog.ide.eclipse.releng.update-site.zip) | Eclipse 4.13 - 4.33 |
 | 1.1.2       | [Download](https://github.com/jfrog/jfrog-eclipse-plugin/releases/download/1.1.2/com.jfrog.ide.eclipse.releng.update-site.zip) | Eclipse 4.13 - 4.20 |
 | 1.1.1       | [Download](https://github.com/jfrog/jfrog-eclipse-plugin/releases/download/1.1.1/com.jfrog.ide.eclipse.releng.update-site.zip) | Eclipse 4.10 - 4.19 |
 
@@ -34,5 +35,5 @@ This section describes how to configure the JFrog Eclipse IDE Plugin and reviews
 Once the plugin is successfully installed, connect the plugin to your instance of JFrog Xray.
 
 1. Go to **Eclipse (Preferences)**, click **JFrog Xray**.
-2. Set your JFrog Xray URL and login credentials.
+2. Set your JFrog platform URL and login credentials.
 3. Test your connection to Xray using the **Test Connection** button.
