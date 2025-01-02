@@ -349,10 +349,11 @@ jobs:
 _**NOTE:**_ To set up a pull request trigger in Azure Repos, you need to add a branch policy via 'Branch Policies'.
 
 * Go to the "Branches" section:
-* For each of the branches against which you want Frogbot to scan pull requests, click on the three dots and select "Branch policies":
-* Add new build policy:
+* For each of the target branches against which you want Frogbot to scan pull requests, click on the three dots and select "Branch Policies":
+* Under Policies > Build Validation add a new Build Policy:
 * Fill the following build policy parameters and Save:
-
+ - Under Build Pipeline Choose the <FrogBot_PR_Scan> Pipline.
+ - Make sure the policy is enabled, and the trigger is set to Automatic.
 </details>
 
 8.  For the pipeline you created, save the JFrog connection details as variables with the following names - JF\_URL, JF\_USER, and JF\_PASSWORD.
