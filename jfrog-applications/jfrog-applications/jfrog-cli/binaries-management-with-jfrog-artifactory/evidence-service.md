@@ -2,7 +2,7 @@
 
 ## Overview
 
-This page describes how to use the JFrog CLI to create external [evidence](https://jfrog.com/help/r/jfrog-artifactory-documentation/evidence-overview) files, which are then deployed to Artifactory. You can create evidence for:
+This page describes how to use the JFrog CLI to create external evidence files, which are then deployed to Artifactory. You can create evidence for:
 
 * Artifacts
 * Packages
@@ -19,7 +19,7 @@ The ability to create external evidence files and deploy them to Artifactory req
 
 In the current release, an evidence file can be signed with one key only.
 
-For more information about the API used for deploying evidence to Artifactory, see [Deploy Evidence](http://jfrog.com/help/r/jfrog-rest-apis/deploy-evidence).
+For more information about the API used for deploying evidence to Artifactory, see Deploy Evidence.
 
 ***
 
