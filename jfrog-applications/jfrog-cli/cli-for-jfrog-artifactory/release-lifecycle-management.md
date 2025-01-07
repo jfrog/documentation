@@ -427,7 +427,7 @@ jf rbi ./myExportedApp.zip
 
 
 
-## Download Release Bundle v2 Content
+## Download Release Bundle v2 content
 
 Use the following command to download the contents of a Release Bundle v2 version:
 
