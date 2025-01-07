@@ -25,7 +25,7 @@
     * [Storing Symlinks in Artifactory](jfrog-cli/binaries-management-with-jfrog-artifactory/storing-symlinks.md)
     * [cURL Integration](jfrog-cli/binaries-management-with-jfrog-artifactory/curl-integration.md)
     * [Managing Configuration Entities](jfrog-cli/binaries-management-with-jfrog-artifactory/managing-configuration-entities.md)
-    * [Release Lifecycle Management](jfrog-cli/binaries-management-with-jfrog-artifactory/release-lifecycle-management.md)
+    * [Release Lifecycle Management](jfrog-cli/cli-for-jfrog-artifactory/release-lifecycle-management.md)
     * [Transferring Files Between Artifactory Servers](jfrog-cli/binaries-management-with-jfrog-artifactory/transferring-files-between-artifactory-servers.md)
     * [Cleaning Up Unreferenced Files from a Git LFS Repository](jfrog-cli/binaries-management-with-jfrog-artifactory/git-lfs.md)
     * [Evidence Service](jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/evidence-service.md)
