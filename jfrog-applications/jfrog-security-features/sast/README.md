@@ -18,8 +18,8 @@ SAST is available for Enterprise X and Enterprise + subscriptions with Advanced 
 
     Note: JSX is not supported
 * **Python:** Supports Python versions 3.0 and above
-* **Java:** Supports all Java versions up to version 19&#x20;
-* **Go**: Supports Go versions up to version 1.22
+* **Java:** Supports all Java versions
+* **Go**: Supports all Go versions
 
 ### What does JFrog SAST Scan for?
 
