@@ -68,10 +68,11 @@ The following installers are available for JFrog CLI v2. These installers make J
 sudo mkdir -p /usr/share/keyrings;
 
 # Download and save the JFrog GPG key to a keyring file
-wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog_public_gpg.key | sudo gpg --dearmor -o /usr/share/keyrings/jfrog.gpg;
+wget -qO - https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-debs/keyPairs/primary/public | sudo gpg --dearmor -o /usr/share/keyrings/jfrog.gpg
 
 # Add the JFrog repository to your APT sources with the signed-by option
-echo "deb [signed-by=/usr/share/keyrings/jfrog.gpg] https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee /etc/apt/sources.list.d/jfrog.list;
+echo "deb [signed-by=/usr/share/keyrings/jfrog.gpg] https://releases.jfrog.io/artifactory/jfrog-debs focal contrib" | sudo tee /etc/apt/sources.list.d/jfrog.list
+
 
 # Update the package list
 sudo apt update;
@@ -86,13 +87,26 @@ jf intro;
 #### RPM
 
 ```bash
-echo "\[jfrog-cli\]" > jfrog-cli.repo;
-echo "name=jfrog-cli" >> jfrog-cli.repo;
-echo "baseurl=https://releases.jfrog.io/artifactory/jfrog-rpms" >> jfrog-cli.repo;
-echo "enabled=1" >> jfrog-cli.repo;
-rpm --import https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog\_public\_gpg.key
-sudo mv jfrog-cli.repo /etc/yum.repos.d/;
-yum install -y jfrog-cli-v2-jf;
+# Create and configure the JFrog CLI YUM repository
+echo "[jfrog-cli]" > jfrog-cli.repo &&
+echo "name=JFrog CLI" >> jfrog-cli.repo &&
+echo "baseurl=https://releases.jfrog.io/artifactory/jfrog-rpms" >> jfrog-cli.repo &&
+echo "enabled=1" >> jfrog-cli.repo &&
+echo "gpgcheck=1" >> jfrog-cli.repo && 
+
+# Import GPG keys for verifying packages
+# Note: Two keys are imported for backward compatibility with older versions
+rpm --import https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-rpms/keyPairs/primary/public &&
+rpm --import https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-rpms/keyPairs/secondary/public &&
+
+# Move the repository file to the YUM configuration directory
+sudo mv jfrog-cli.repo /etc/yum.repos.d/ &&
+
+# Install the JFrog CLI package
+yum install -y jfrog-cli-v2-jf &&
+
+# Display an introductory message for JFrog CLI
+jf intro
 ```
 
 #### Homebrew
