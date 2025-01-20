@@ -17,7 +17,7 @@ SAST is available for Enterprise X and Enterprise + subscriptions with Advanced 
 *   **JavaScript/TypeScript:** Supports JS up to ECMAScript 2016/ES7.  TypeScript is also supported.&#x20;
 
     Note: JSX is not supported
-* **Python:** Supports Python 3.0
+* **Python:** Supports all Python 3 versions
 * **Java:** Supports all Java versions
 * **Go**: Supports all Go versions
 
