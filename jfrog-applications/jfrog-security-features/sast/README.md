@@ -17,9 +17,9 @@ SAST is available for Enterprise X and Enterprise + subscriptions with Advanced 
 *   **JavaScript/TypeScript:** Supports JS up to ECMAScript 2016/ES7.  TypeScript is also supported.&#x20;
 
     Note: JSX is not supported
-* **Python:** Supports Python versions 3.0 and above
-* **Java:** Supports all Java versions up to version 19&#x20;
-* **Go**: Supports Go versions up to version 1.22
+* **Python:** Supports Python 3.0
+* **Java:** Supports all Java versions
+* **Go**: Supports all Go versions
 
 ### What does JFrog SAST Scan for?
 
