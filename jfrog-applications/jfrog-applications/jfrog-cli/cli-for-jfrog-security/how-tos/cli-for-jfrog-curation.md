@@ -8,6 +8,8 @@ For more information see [**here**](https://jfrog.com/curation/)
 
 The 'curation-audit' is a JFrog CLI command designed for developers to scan their projects and identify third-party dependencies that violate the restrictions set by the Curation service. This command provides detailed insights into the specific package policies that are being violated, leading to their blockage by the Curation service. Additionally, when feasible, 'curation-audit' may suggest alternative versions of the packages that comply with the Curation policies.
 
+Moreover, curation-audit supports waiver requests for eligible violations. If configured in the policy, developers can select the blocked package and request a waiver from the policy owner.
+
 ## Supported package managers & build systems
 
 Curation-audit command supported package managers and build systems:
@@ -91,4 +93,32 @@ Curation-Audit the project in the current directory using 5 threads to check the
 
 ```
 jf curation-audit --threads=5
+```
+
+#### Example 4
+
+Curation-Audit Waiver Request Process: The developer specifies the required row(s) from the table for the blocked policies. They then add a description and submit the request. A summary table is presented at the end of the process.
+
+```
+> jf curation-audit
+Found 4 blocked packages for project sample-node-project:1.0.0
+Curation
+┌────┬──────────────┬────────────┬──────────────┬─────────┬─────────┬──────────────┬──────────────┬──────────────┬──────────────┐
+│ ID │ DIRECT       │ DIRECT     │ BLOCKED      │ BLOCKED │ PACKAGE │ VIOLATED     │ VIOLATED CON │ EXPLANATION  │ RECOMMENDATI │
+│    │ DEPENDENCY   │ DEPENDENCY │ PACKAGE      │ PACKAGE │ TYPE    │ POLICY       │ DITION       │              │ ON           │
+│    │ PACKAGE      │ PACKAGE    │ NAME         │ VERSION │         │ NAME         │ NAME         │              │              │
+│    │ NAME         │ VERSION    │              │         │         │              │              │              │              │
+├────┼──────────────┼────────────┼──────────────┼─────────┼─────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+│ 1  │ ansi-regex   │ 3.0.0      │ ansi-regex   │ 3.0.0   │ npm     │ High CVE     │ CVE with CVS │ Package vers │ Upgrade to t │
+│    │              │            │              │         │         │              │ S score betw │ ion contains │ he following │
+│    │              │            │              │         │         │              │ een 7.0 and  │ the followin │ version(s):  │
+│    │              │            │              │         │         │              │ 8.9 (with or │ g vulnerabil │ CVE-2021-380 │
+│    │              │            │              │         │         │              │ without a fi │ ity(s):      │ 7: 6.0.1; 5. │
+│    │              │            │              │         │         │              │ x version av │ CVE-2021-380 │ 0.1; 4.1.1;  │
+│    │              │            │              │         │         │              │ ailable)     │ 7: 7.5       │ 3.0.1        │
+└────┴──────────────┴────────────┴──────────────┴─────────┴─────────┴──────────────┴──────────────┴──────────────┴──────────────┘
+
+Do you want to request a waiver for any of the listed packages? (y/n) [n]? y
+Please enter the row number(s) for which you want to request a waiver (comma-separated for multiple, range, or “all”) [all]: all
+Please enter the reason for the waiver request: Example request
 ```
