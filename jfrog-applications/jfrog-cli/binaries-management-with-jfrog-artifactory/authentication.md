@@ -76,6 +76,6 @@ In this case, you'll need to make those certificates available for JFrog CLI, by
 
 **Note**
 
-1. The supported certificate format is PEM.
+1. The supported certificate format is PEM. Make sure to have ONE file with the ending .pem. OR provide as many as you want and run the c_rehash command on the folder as follows  :`c_rehash ~/.jfrog/security/certs/`.
 2. Some commands support the **--insecure-tls** option, which skips the TLS certificates verification.
 3. Before version 1.37.0, JFrog CLI expected the certificates to be located directly under the **security** directory. JFrog CLI will automatically move the certificates to the new directory when installing version 1.37.0 or above. Downgrading back to an older version requires replacing the configuration directory manually. You'll find a backup if the old configuration under **.jfrog/backup**
