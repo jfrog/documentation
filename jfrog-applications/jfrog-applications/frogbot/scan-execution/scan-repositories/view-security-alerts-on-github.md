@@ -5,7 +5,6 @@ For GitHub repositories, issues that are found during Frogbot's repository scans
 {% hint style="info" %}
 This feature requires:
 
-* JFrog **Enterprise X** or **Enterprise+** license with the Advanced Security Add-on.
 * [GitHub code scanning](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning) available.
 {% endhint %}
 
