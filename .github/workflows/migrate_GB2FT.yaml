@@ -81,7 +81,7 @@ jobs:
       # Step 7: Run the migration utility
       - name: Run migration utility
         env:
-          GITBOOK_REPO_FOLDER: ${{ env.GITBOOK_REPO_FOLDER }}"/jfrog-applications"  # Add "/jfrog-applications" to the path
+          GITBOOK_REPO_FOLDER: ${{ env.GITBOOK_REPO_FOLDER }}/jfrog-applications  # Add "/jfrog-applications" to the path
           FLUID_TOPICS_API_KEY: ${{ env.FLUID_TOPICS_API_KEY }}
           FLUID_TOPICS_BASE_URL: ${{ env.FLUID_TOPICS_BASE_URL }}
           FLUID_TOPICS_SOURCE_ID: ${{ vars.FLUID_TOPICS_SOURCE_ID }}
