@@ -1,0 +1,98 @@
+name: SH Migrate Documentation to Fluid Topics
+
+on:
+  push: # Automatically triggers on every commit
+    branches:
+      - main # Trigger the workflow on commits to the 'main' branch
+  workflow_dispatch:
+    inputs:
+      COMMIT_HASH:
+        description: 'Optional commit hash to process'
+        required: false
+      environment:
+        description: 'Select the environment to deploy to'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  migrate-docs:
+    runs-on: self-hosted
+
+    steps:
+      # Step 1: Set up working directory and GitBook folder paths
+      - name: Set working directory
+        run: |
+          export WORK_DIR="workspace_${{ github.run_id }}_${{ github.job }}_${{ github.run_number }}"
+          export GITBOOK_REPO_FOLDER="$WORK_DIR/gitbook-content"
+          echo "WORK_DIR=$WORK_DIR" >> $GITHUB_ENV
+          echo "GITBOOK_REPO_FOLDER=$GITBOOK_REPO_FOLDER" >> $GITHUB_ENV
+
+      # Step 2: Checkout GitBook content
+      - name: Clone GitBook content
+        run: |
+          mkdir -p $GITBOOK_REPO_FOLDER
+          git clone $GITHUB_SERVER_URL/$GITHUB_REPOSITORY.git $GITBOOK_REPO_FOLDER
+          cd $GITBOOK_REPO_FOLDER
+          git checkout ${{ inputs.COMMIT_HASH || github.sha }}
+        env:
+          GITBOOK_REPO_FOLDER: ${{ env.GITBOOK_REPO_FOLDER }}
+
+      # Step 3: Clone Gitbook-to-FT Utility
+      - name: Clone Gitbook-to-FT Utility
+        run: |
+          git clone https://github.com/jfrog/Gitbook-to-FT.git $WORK_DIR/Gitbook-to-FT
+        env:
+          WORK_DIR: ${{ env.WORK_DIR }}
+
+      # Step 4: List directory contents
+      - name: List directory contents
+        run: |
+          ls -l $WORK_DIR
+        env:
+          WORK_DIR: ${{ env.WORK_DIR }}
+
+      # Step 5: Install Python and dependencies
+      - name: Install Python and required dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r $WORK_DIR/Gitbook-to-FT/requirements.txt
+        env:
+          WORK_DIR: ${{ env.WORK_DIR }}
+
+      # Step 6: Configure environment variables based on selected environment
+      - name: Set environment variables
+        run: |
+          # Default to staging if 'environment' is not set (e.g., in push events)
+          ENVIRONMENT=${{ github.event.inputs.environment || 'staging' }}
+          if [[ "$ENVIRONMENT" == "staging" ]]; then
+            echo "FLUID_TOPICS_BASE_URL=${{ vars.STAGING_FLUID_TOPICS_BASE_URL }}" >> $GITHUB_ENV
+            echo "FLUID_TOPICS_API_KEY=${{ secrets.STAGING_FLUID_TOPICS_API_KEY }}" >> $GITHUB_ENV
+          elif [[ "$ENVIRONMENT" == "production" ]]; then
+            echo "FLUID_TOPICS_BASE_URL=${{ vars.PRODUCTION_FLUID_TOPICS_BASE_URL }}" >> $GITHUB_ENV
+            echo "FLUID_TOPICS_API_KEY=${{ secrets.PRODUCTION_FLUID_TOPICS_API_KEY }}" >> $GITHUB_ENV
+          fi
+
+      # Step 7: Run the migration utility
+      - name: Run migration utility
+        env:
+          GITBOOK_REPO_FOLDER: ${{ env.GITBOOK_REPO_FOLDER }}
+          FLUID_TOPICS_API_KEY: ${{ env.FLUID_TOPICS_API_KEY }}
+          FLUID_TOPICS_BASE_URL: ${{ env.FLUID_TOPICS_BASE_URL }}
+          FLUID_TOPICS_SOURCE_ID: ${{ vars.FLUID_TOPICS_SOURCE_ID }}
+          PUBLICATION_TITLE: ${{ vars.PUBLICATION_TITLE }}
+        run: |
+          python3 $WORK_DIR/Gitbook-to-FT/main.py
+
+      # Step 8: Cleanup temporary directories
+      - name: Cleanup temporary directories
+        if: always()
+        run: |
+          rm -rf $WORK_DIR
+        env:
+          WORK_DIR: ${{ env.WORK_DIR }}
