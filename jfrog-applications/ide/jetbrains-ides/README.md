@@ -77,6 +77,8 @@ The JFrog Plugin supports the following IDEs:
 * PyCharm
 * Android Studio
 * GoLand
+* Rider
+* CLion
 
 ## Getting Started
 
