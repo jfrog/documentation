@@ -210,7 +210,7 @@ wget -qO - https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-debs/
 #### RPM
 
 ```
-echo "\[jfrog-cli\]" > jfrog-cli.repo; echo "name=jfrog-cli" >> jfrog-cli.repo; echo "baseurl=https://releases.jfrog.io/artifactory/jfrog-rpms" >> jfrog-cli.repo; echo "enabled=1" >> jfrog-cli.repo; rpm --import https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-rpms/keyPairs/primary/public sudo mv jfrog-cli.repo /etc/yum.repos.d/; yum install -y jfrog-cli;
+echo "\[jfrog-cli\]" > jfrog-cli.repo; echo "name=jfrog-cli" >> jfrog-cli.repo; echo "baseurl=https://releases.jfrog.io/artifactory/jfrog-rpms" >> jfrog-cli.repo; echo "enabled=1" >> jfrog-cli.repo; rpm --import https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-rpms/keyPairs/primary/public; rpm --import https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-rpms/keyPairs/secondary/public sudo mv jfrog-cli.repo /etc/yum.repos.d/; yum install -y jfrog-cli;
 ```
 
 #### Download with cUrl
