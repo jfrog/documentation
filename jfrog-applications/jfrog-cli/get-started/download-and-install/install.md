@@ -204,13 +204,13 @@ The following installations are available for JFrog CLI v1. These installers mak
 #### Debian
 
 ```
-wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog\_public\_gpg.key | sudo apt-key add - echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee -a /etc/apt/sources.list; apt update; apt install -y jfrog-cli;
+wget -qO - https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-debs/keyPairs/primary/public | sudo apt-key add - echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee -a /etc/apt/sources.list; apt update; apt install -y jfrog-cli;
 ```
 
 #### RPM
 
 ```
-echo "\[jfrog-cli\]" > jfrog-cli.repo; echo "name=jfrog-cli" >> jfrog-cli.repo; echo "baseurl=https://releases.jfrog.io/artifactory/jfrog-rpms" >> jfrog-cli.repo; echo "enabled=1" >> jfrog-cli.repo; rpm --import https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog\_public\_gpg.key sudo mv jfrog-cli.repo /etc/yum.repos.d/; yum install -y jfrog-cli;
+echo "\[jfrog-cli\]" > jfrog-cli.repo; echo "name=jfrog-cli" >> jfrog-cli.repo; echo "baseurl=https://releases.jfrog.io/artifactory/jfrog-rpms" >> jfrog-cli.repo; echo "enabled=1" >> jfrog-cli.repo; rpm --import https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-rpms/keyPairs/primary/public sudo mv jfrog-cli.repo /etc/yum.repos.d/; yum install -y jfrog-cli;
 ```
 
 #### Download with cUrl
