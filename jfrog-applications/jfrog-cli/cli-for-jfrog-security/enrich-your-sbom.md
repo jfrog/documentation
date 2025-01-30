@@ -2,7 +2,7 @@
 
 The sbom enrichment command takes an exported SBOM file (Only CycloneDX format) in XML/JSON format and enriches your file with package vulnerabilities found by XRAY.
 
-This _**jf sbom enrich \<file\_path>**_ command enriches a file that is found on file\_path.
+This _**jf sbom-enrich \<file\_path>**_ command enriches a file that is found on file\_path.
 
 ***
 
