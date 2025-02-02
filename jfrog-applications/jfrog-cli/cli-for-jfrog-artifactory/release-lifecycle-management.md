@@ -22,7 +22,7 @@ $ jf command-name global-options command-options arguments
 
 ## Create a Release Bundle v2
 
-The **create** command allows creating a Release Bundle v2 using [file specs](broken-reference). The file spec may be of one of the following creation sources:
+The **create** command allows creating a Release Bundle v2 using [file specs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/using-file-specs). The file spec may be of one of the following creation sources:
 
 *   Published build info:
 
