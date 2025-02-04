@@ -31,7 +31,7 @@
     * [Evidence Service](jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/evidence-service.md)
   * [CLI for JFrog Security](jfrog-cli/cli-for-jfrog-security/README.md)
     * [Authentication](jfrog-cli/cli-for-jfrog-security/authentication.md)
-    * [Scan your Source Code](jfrog-cli/cli-for-jfrog-security/scan-your-source-code.md)
+    * [Scan your code dependencies](jfrog-cli/cli-for-jfrog-security/scan-your-source-code.md)
     * [cUrl Integration](jfrog-cli/cli-for-jfrog-security/curl-integration.md)
     * [Scan Published Builds](jfrog-cli/cli-for-jfrog-security/scan-published-builds.md)
     * [Scan your Binaries](jfrog-cli/cli-for-jfrog-security/scan-your-binaries.md)
