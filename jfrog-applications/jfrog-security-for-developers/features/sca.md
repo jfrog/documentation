@@ -4,9 +4,9 @@ With JFrog's Software Composition Analysis, get enhanced CVE detection and enhan
 
 [**SCA in the JFrog CLI for Xray**](../../jfrog-cli/cli-for-jfrog-security/):
 
-* [Scan your source code](../../jfrog-cli/cli-for-jfrog-security/scan-your-source-code.md) dependencies to find security vulnerabilities and license violations
-* [Scan your binaries](../../jfrog-cli/cli-for-jfrog-security/scan-your-binaries.md) with the [on-demand binary scanning](https://jfrog-staging-external.fluidtopics.net/r/help/DevSecOps-Xray/Xray-On-Demand-Binary-Scan) that enables you to point to a binary in your local file system and receive a report that contains a list of vulnerabilities, licenses, and policy violations.
-* JFrog CLI is integrated with JFrog Xray and JFrog Artifactory, allowing you to have your [build](../../jfrog-cli/cli-for-jfrog-security/scan-published-builds.md) artifacts and dependencies scanned for vulnerabilities and license violations.
+* [Scan your source code](../../jfrog-applications/jfrog-cli/cli-for-jfrog-security/how-tos/scan-your-source-code.md) dependencies to find security vulnerabilities and license violations
+* [Scan your binaries](../../jfrog-applications/jfrog-cli/cli-for-jfrog-security/how-tos/scan-your-binaries.md) with the [on-demand binary scanning](https://jfrog-staging-external.fluidtopics.net/r/help/DevSecOps-Xray/Xray-On-Demand-Binary-Scan) that enables you to point to a binary in your local file system and receive a report that contains a list of vulnerabilities, licenses, and policy violations.
+* JFrog CLI is integrated with JFrog Xray and JFrog Artifactory, allowing you to have your [build](../../jfrog-applications/jfrog-cli/cli-for-jfrog-security/how-tos/scan-published-builds.md) artifacts and dependencies scanned for vulnerabilities and license violations.
 
 [**SCA in your IDE**](broken-reference/):
 
