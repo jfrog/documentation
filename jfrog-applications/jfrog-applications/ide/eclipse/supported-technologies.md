@@ -2,4 +2,4 @@
 
 ### Software Composition Analysis (SCA)
 
-JFrog supports **NuGet** Package Manager for Eclipse
+JFrog supports **Maven** | **Gradle** | **npm** Package Manager for Eclipse
