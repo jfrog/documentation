@@ -6,6 +6,7 @@
 
 * [JFrog CLI](jfrog-cli/README.md)
   * [Download and Install](jfrog-cli/get-started/download-and-install/install.md)
+  * [Authentication](jfrog-applications/jfrog-cli/authentication.md)
   * [Shell Auto Completion](jfrog-cli/get-started/download-and-install/shell-auto-completion.md)
   * [Usage](jfrog-cli/get-started/download-and-install/usage.md)
   * [Configurations](jfrog-cli/get-started/configurations/README.md)
@@ -43,7 +44,6 @@
   * [CLI Command Summaries](jfrog-cli/cli-command-summaries.md)
   * [JFrog CLI Plugins](jfrog-cli/cli-plugins/README.md)
     * [JFrog CLI Plugins Developer Guide](jfrog-cli/cli-plugins/developer-guide.md)
-  * [Authentication](jfrog-applications/jfrog-cli/authentication.md)
 * [IDE](ide/README.md)
   * [Visual Studio Code](ide/visual-studio-code/README.md)
     * [VS Code Prerequsites Per Language](ide/visual-studio-code/behind-the-scenes.md)
