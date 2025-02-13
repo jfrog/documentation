@@ -10,19 +10,13 @@ The plugin allows developers to find and fix security vulnerabilities in their p
 
 **Basic**
 
-<details>
-
-<summary>Software Composition Analysis (SCA)</summary>
+**Software Composition Analysis (SCA)**
 
 Scans your project dependencies for security issues and shows you which dependencies are vulnerable. If the vulnerabilities have a fix, you can upgrade to the version with the fix in a click of a button.
 
-</details>
+**CVE Research and Enrichment**
 
-<details>
-
-<summary>CVE Research and Enrichment</summary>
-
-For selected security issues, get leverage-enhanced CVE data that is provided by our JFrog Security Research team. Prioritize the CVEs based on:
+or selected security issues, get leverage-enhanced CVE data that is provided by our JFrog Security Research team. Prioritize the CVEs based on:
 
 * **JFrog Severity**: The severity given by the JFrog Security Research team after the manual analysis of the CVE by the team. CVEs with the highest JFrog security severity are the most likely to be used by real-world attackers. This means that you should put effort into fixing them as soon as possible.
 * **Research Summary**: The summary that is based on JFrog's security analysis of the security issue provides detailed technical information on the specific conditions for the CVE to be applicable.
@@ -32,35 +26,21 @@ You can learn more about enriched CVEs [here](https://jfrog.com/help/r/jfrog-sec
 
 Check out what our research team is up to and stay updated on newly discovered issues by clicking on this link: [https://research.jfrog.com](https://research.jfrog.com)
 
-</details>
-
 **Advanced**
 
 _Requires Xray version 3.66.5 or above and Enterprise X / Enterprise+ subscription with_ [_Advanced DevSecOps_](https://jfrog.com/xray/#xray-advanced)_._&#x20;
 
-<details>
-
-<summary>CVEs Contextual Analysis</summary>
+**CVEs Contextual Analysis**
 
 Uses the code context to eliminate false positive reports on vulnerable dependencies that are not applicable to the code. CVEs Contextual Analysis is currently supported for Python, Java and JavaScript code.
 
-</details>
-
-<details>
-
-<summary>Secrets Detection</summary>
+**Secrets Detection**
 
 Prevents the exposure of keys or credentials that are stored in your source code.
 
-</details>
-
-<details>
-
-<summary>Infrastructure as Code (IaC) Scan</summary>
+**Infrastructure as Code (IaC) Scan**
 
 Secures your IaC files. Critical to keeping your cloud deployment safe and secure.
-
-</details>
 
 **Additional Perks**
 
