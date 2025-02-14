@@ -222,6 +222,7 @@ For example, the following command publishes all the build-info collected for bu
 | `--env-exclude`        | <p>[Default: *password*;*secret*;*key*]<br>List of semicolon-separated(;) case insensitive patterns in the form of "value1;value2;..." environment variables match those patterns will be excluded.</p> |
 | `--dry-run`            | <p>[Default: false]<br>Set to true to disable communication with Artifactory.</p>                                                                                                                       |
 | `--insecure-tls`       | <p>[Default: false]<br>Set to true to skip TLS certificates verification.</p>                                                                                                                           | |
+| `--overwrite`       | <p>[Default: false]<br>Set to true to overwrite existing build info with build name and number .</p>                                                                                                                           | |
 
 ### Example
 
