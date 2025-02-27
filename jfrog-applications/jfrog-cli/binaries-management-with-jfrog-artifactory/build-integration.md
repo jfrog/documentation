@@ -221,8 +221,8 @@ For example, the following command publishes all the build-info collected for bu
 | `--env-include`        | <p>[Default: *]<br>List of semicolon-separated(;) patterns in the form of "value1;value2;..." Only environment variables that match those patterns will be included in the build info.</p>              |
 | `--env-exclude`        | <p>[Default: *password*;*secret*;*key*]<br>List of semicolon-separated(;) case insensitive patterns in the form of "value1;value2;..." environment variables match those patterns will be excluded.</p> |
 | `--dry-run`            | <p>[Default: false]<br>Set to true to disable communication with Artifactory.</p>                                                                                                                       |
-| `--insecure-tls`       | <p>[Default: false]<br>Set to true to skip TLS certificates verification.</p>                                                                                                                           | |
-| `--overwrite`       | <p>[Default: false]<br>Set to true to overwrite existing build info with build name and number.</p>                                                                                                                           | |
+| `--insecure-tls`       | <p>[Default: false]<br>Set to true to skip TLS certificates verification.</p>                                                                                                                           |
+| `--overwrite`       | <p>[Default: false]<br>Overwrites all existing occurrences of build infos with the provided name and number. Build artifacts will not be deleted.</p>                                                                                                                           | |
 
 ### Example
 
