@@ -145,7 +145,7 @@ This command allows promoting a Release Bundle to a target environment.
 ### Commands Params
 
 |                        |                                                                                                                                                                                                                                                                                                                      |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Command-name           | release-bundle-promote                                                                                                                                                                                                                                                                                               |
 | Abbreviation           | rbp                                                                                                                                                                                                                                                                                                                  |
 | **Command arguments:** |                                                                                                                                                                                                                                                                                                                      |
@@ -159,7 +159,8 @@ This command allows promoting a Release Bundle to a target environment.
 | `--server-id`          | <p>[Optional]<br>Platform Server ID configured using the 'jf config' command.</p>                                                                                                                                                                                                                                    |
 | `--signing-key`        | <p>[Mandatory]<br>The GPG/RSA key-pair name given in Artifactory.</p>                                                                                                                                                                                                                                                |
 | `--sync`               | <p>[Default: true]<br>Set to false to run asynchronously.</p>                                                                                                                                                                                                                                                        |
-
+| `--promootion-type`    | <p>[Default: copy]<br>Specifies the promotion type. (Valid values: move / copy) .</p>                                                                                                                                                                                                                                |
+ 
 ### Examples
 
 #### Example 1
@@ -192,6 +193,14 @@ Promote a Release Bundle while excluding certain repositories.
 
 ```
 jf rbp --signing-key=myKeyPair --exclude-repos="generic-local;my-repo" myApp 1.0.0 PROD
+```
+
+#### Example 4
+
+Promote a Release Bundle, using promotion type flag.
+
+```
+jf rbp --signing-key=myKeyPair --promotion-type="move" myApp 1.0.0 PROD
 ```
 
 ## Distribute a Release Bundle v2
