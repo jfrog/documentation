@@ -84,16 +84,6 @@ Starting from version 2.75.0, `jf c add` supports authentication using OIDC toke
 | **Command arguments:**      |                                                                                                                                                                                                                                                                                                                                                                                                    |
 | server ID              | A unique ID for the server configuration.                                                                                                                                                                                                                                                                                                                                                          |
 
-### OIDC Usage Example
-
-Configure a JFrog Platform server using GitHub OIDC in a CI pipeline (non-interactive):
-
-```bash
-jf c add setup-jfrog-cli-test \
-  --url=https://ecosysjfrog.jfrog.io \
-  --oidc-provider-name=setup-jfrog-cli-test \
-  --interactive=false
-
 ## Removing Configured Servers
 
 The _config remove_ command is used to remove JFrog Platform server configuration, stored in JFrog CLI's configuration storage.
@@ -193,6 +183,16 @@ The configuration will be encrypted the next time JFrog CLI attempts to access t
 
 The `exchange-oidc-token` (alias: `eot`) command is used to exchange an OIDC token (such as those provided by GitHub Actions or other CI systems) for a JFrog Platform access token and associated username. This is useful in automation workflows where credentials must be derived securely via an identity provider.
 
+🔒 Important Notes about OIDC Authentication:
+
+OIDC tokens are short-lived and **do not support refresh**.
+OIDC access tokens are not renewable. They are designed for one-time use during CI pipelines and do not have an automatic refresh mechanism like other types of tokens. As a result, the authentication will remain valid only for the duration of that pipeline or until the token expires.
+
+
+This flow is built specifically for CI/CD pipelines where the identity provider
+(e.g. GitHub Actions) issues a fresh OIDC tokenID for every pipeline run.
+This ensures maximum security and minimizes long-lived secrets.
+
 |                   |                                                                                  |
 |-------------------|----------------------------------------------------------------------------------|
 | Command name      | exchange-oidc-token                                                              |
@@ -219,5 +219,3 @@ jf eot --platformUrl=https://platform.jfrog.io \
 ```bash
 { AccessToken: **** Username: **** }
 ```
-
-The access token and username are returned securely and redacted by default in CI environments.
