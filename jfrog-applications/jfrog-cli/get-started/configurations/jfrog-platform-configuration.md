@@ -51,7 +51,9 @@ jf atc toad
 
 ## Adding and Editing Configured Servers
 
-The **config add** and **config edit** commands are used to add and edit JFrog Platform server configuration, stored in JFrog CLI's configuration storage. These configured servers can be used by the other commands. The configured servers' details can be overridden per command by passing in alternative values for the URL and login credentials. The values configured are saved in file under the JFrog CLI home directory.
+The **config add** and **config edit** commands are used to add and edit JFrog Platform server configuration, stored in JFrog CLI's configuration storage. These configured servers can be used by the other commands. The configured servers' details can be overridden per command by passing in alternative values for the URL and login credentials. The values configured are saved in a file under the JFrog CLI home directory.
+
+Starting from version 2.75.0, `jf c add` supports authentication using OIDC tokens. This is particularly useful for CI environments. When using OIDC, the command must be run in non-interactive mode (e.g. using `--interactive=false`).
 
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                    |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,22 +62,37 @@ The **config add** and **config edit** commands are used to add and edit JFrog P
 | **Command options:**        |                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `--access-token` | <p>[Optional]</p><p>Access token.</p>                                                                                                                                                                                                                                                                                                                                                              |
 | `--artifactory-url` | <p>[Optional]</p><p>JFrog Artifactory URL. (example: https://acme.jfrog.io/artifactory)</p>                                                                                                                                                                                                                                                                                                        |
-| `--basic-auth-only` | <p>[Default: false]</p><p>Used for Artifactory authentication. Set to true to disable replacing username and password/API key with automatically created access token that's refreshed hourly. Username and password/API key will still be used with commands which use external tools or the JFrog Distribution service. Can only be passed along with username and password/API key options.</p> |
+| `--basic-auth-only` | <p>[Default: false]</p><p>Used for Artifactory authentication. Set to true to disable replacing username and password/API key with automatically created access token that's refreshed hourly.</p> |
 | `--client-cert-key-path` | <p>[Optional]</p><p>Private key file for the client certificate in PEM format.</p>                                                                                                                                                                                                                                                                                                                 |
 | `--client-cert-path` | <p>[Optional]</p><p>Client certificate file in PEM format.</p>                                                                                                                                                                                                                                                                                                                                     |
 | `--dist-url` | <p>[Optional]</p><p>Distribution URL. (example: https://acme.jfrog.io/distribution)</p>                                                                                                                                                                                                                                                                                                            |
-| `--enc-password` | <p>[Default: true]<br>If true, the configured password will be encrypted using Artifactory's <a href="https://www.jfrog.com/confluence/display/RTF/Artifactory+REST+API#ArtifactoryRESTAPI-GetUserEncryptedPassword">encryption API</a> before being stored. If false, the configured password will not be encrypted.</p>                                                                          |
-| `--insecure-tls` | <p>[Default: false]</p><p>Set to true to skip TLS certificates verification, while encrypting the Artifactory password during the config process.</p>                                                                                                                                                                                                                                              |
+| `--enc-password` | <p>[Default: true]</p><p>If true, the configured password will be encrypted.</p> |
+| `--insecure-tls` | <p>[Default: false]</p><p>Set to true to skip TLS certificates verification.</p> |
 | `--interactive` | <p>[Default: true, unless $CI is true]</p><p>Set to false if you do not want the config command to be interactive.</p>                                                                                                                                                                                                                                                                             |
-| `--mission-control-url` | <p>[Optional]</p><p>JFrog Mission Control URL. (example: https://acme.jfrog.io/ms)</p>                                                                                                                                                                                                                                                                                                             |
+| `--mission-control-url` | <p>[Optional]</p><p>JFrog Mission Control URL.</p>                                                                                                                                                                                                                                                                                                             |
 | `--password` | <p>[Optional]</p><p>JFrog Platform password.</p>                                                                                                                                                                                                                                                                                                                                                   |
-| `--ssh-key-path` | <p>[Optional]</p><p>For authentication with Artifactory. SSH key file path.</p>                                                                                                                                                                                                                                                                                                                    |
-| `--url` | <p>[Optional]</p><p>JFrog Platform URL. (example: https://acme.jfrog.io)</p>                                                                                                                                                                                                                                                                                                                       |
+| `--ssh-key-path` | <p>[Optional]</p><p>SSH key file path for authentication.</p>                                                                                                                                                                                                                                                                                                                    |
+| `--url` | <p>[Optional]</p><p>JFrog Platform URL.</p>                                                                                                                                                                                                                                                                                                                       |
 | `--user` | <p>[Optional]</p><p>JFrog Platform username.</p>                                                                                                                                                                                                                                                                                                                                                   |
-| `--xray-url` | \[Optional] Xray URL. (example: https://acme.jfrog.io/xray)                                                                                                                                                                                                                                                                                                                                        |
-| `--overwrite` | <p>[Available for <em>config add</em> only]<br>[Default: false]<br>Overwrites the instance configuration if an instance with the same ID already exists.</p>                                                                                                                                                                                                                                       |
+| `--xray-url` | <p>[Optional]</p><p>Xray URL.</p>                                                                                                                                                                                                                                                                                                                                        |
+| `--overwrite` | <p>[Available for <em>config add</em> only]<br>[Default: false]<br>Overwrites the instance configuration if an instance with the same ID already exists.</p> |
+| `--oidc-provider-name` | <p>[Optional]</p><p>OIDC provider name for CI authentication.</p> |
+| `--oidc-provider-type` | <p>[Default: GitHub]</p><p>OIDC provider type (e.g., GitHub, Azure).</p> |
+| `--oidc-token-id` | <p>[Optional]</p><p>The OIDC token ID to use for authentication.</p> |
+| `--oidc-audience` | <p>[Optional]</p><p>Audience for the OIDC token.</p> |
+| `--application-key` | <p>[Optional]</p><p>JFrog Application Key to associate with the authentication.</p> |
 | **Command arguments:**      |                                                                                                                                                                                                                                                                                                                                                                                                    |
 | server ID              | A unique ID for the server configuration.                                                                                                                                                                                                                                                                                                                                                          |
+
+### OIDC Usage Example
+
+Configure a JFrog Platform server using GitHub OIDC in a CI pipeline (non-interactive):
+
+```bash
+jf c add setup-jfrog-cli-test \
+  --url=https://ecosysjfrog.jfrog.io \
+  --oidc-provider-name=setup-jfrog-cli-test \
+  --interactive=false
 
 ## Removing Configured Servers
 
@@ -166,3 +183,41 @@ Starting from version 2.36.0, JFrog CLI also supports encrypting sensitive data 
 2. Store the key in an environment variable named **JFROG_CLI_ENCRYPTION_KEY**.
 
 The configuration will be encrypted the next time JFrog CLI attempts to access the config. If you have configurations already stored before setting the environment variable, you'll need to reconfigure the servers stored in the config.
+
+
+---
+
+
+
+### Exchanging OIDC Token for Access Token
+
+The `exchange-oidc-token` (alias: `eot`) command is used to exchange an OIDC token (such as those provided by GitHub Actions or other CI systems) for a JFrog Platform access token and associated username. This is useful in automation workflows where credentials must be derived securely via an identity provider.
+
+|                   |                                                                                  |
+|-------------------|----------------------------------------------------------------------------------|
+| Command name      | exchange-oidc-token                                                              |
+| Abbreviation      | eot                                                                              |
+| **Command options:** |                                                                                  |
+| `--platformUrl`       | <p>[Mandatory]</p><p>The URL of the JFrog Platform instance.</p>            |
+| `--oidc-token-id`     | <p>[Mandatory]</p><p>The token ID from the OIDC provider.</p>               |
+| `--oidc-provider-name`| <p>[Mandatory]</p><p>The name of the OIDC provider.</p>                     |
+| `--oidc-audience`     | <p>[Optional]</p><p>The audience for the OIDC token.</p>                    |
+| `--oidc-provider-type`| <p>[Optional, default: GitHub]</p><p>The type of provider (e.g. GitHub).</p>|
+| `--application-key`   | <p>[Optional]</p><p>JFrog Application key for attribution.</p>              |
+| `--project`           | <p>[Optional]</p><p>Project key (if applicable).</p>                         |
+| `--repository`        | <p>[Optional]</p><p>Source code repository name.</p>                         |
+
+### Example
+
+```bash
+jf eot --platformUrl=https://platform.jfrog.io \
+       --oidc-token-id=$JFROG_CLI_OIDC_EXCHANGE_TOKEN_ID \
+       --oidc-provider-name=my-intergraion-name
+```
+
+### Sample Output
+```bash
+{ AccessToken: **** Username: **** }
+```
+
+The access token and username are returned securely and redacted by default in CI environments.
