@@ -224,20 +224,20 @@ OIDC access tokens are not renewable. They are intended for one-time use during 
 
 ✅ This command can be used independently, or indirectly through `jf c add` when the required environment variables are set.
 
-|                   |                                                                                  |
-|-------------------|----------------------------------------------------------------------------------|
-| Command name      | exchange-oidc-token                                                              |
-| Abbreviation      | eot                                                                              |
-| **Command arguments:** |                                                                                  |
-| `platformUrl`       | <p>[Mandatory]</p><p>The URL of the JFrog Platform instance.</p>            |
-| `oidc-provider-name`| <p>[Mandatory]</p><p>The name of the OIDC provider.</p>                     |
-| `oidc-token-id`   | <p>[Mandatory]</p><p>The OIDC token (JWT) issued by the CI provider. This is typically retrieved from a CI environment variable such as GitHub’s `ACTIONS_ID_TOKEN`.</p>               |
-| **Command options:** |                                                                                  |
-| `--oidc-audience`   | <p>[Optional]</p><p>The audience for the OIDC token.</p>                    |
-| `--oidc-provider-type`| <p>[Optional, default: GitHub]</p><p>The type of provider (e.g. GitHub).</p>|
-| `--application-key` | <p>[Optional]</p><p>JFrog Application key for attribution.</p>              |
-| `--project`         | <p>[Optional]</p><p>Project key (if applicable).</p>                         |
-| `--repository`      | <p>[Optional]</p><p>Source code repository name.</p>                         |
+|                        |                                                                                                                                                                          |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command name           | exchange-oidc-token                                                                                                                                                      |
+| Abbreviation           | eot                                                                                                                                                                      |
+| **Command arguments:** |                                                                                                                                                                          |
+| `oidc-provider-name`   | <p>[Mandatory]</p><p>The name of the OIDC provider.</p>                                                                                                                  |
+| `oidc-token-id`        | <p>[Mandatory]</p><p>The OIDC token (JWT) issued by the CI provider. This is typically retrieved from a CI environment variable such as GitHub’s `ACTIONS_ID_TOKEN`.</p> |
+| **Command options:**   |                                                                                                                                                                          |
+| `--platformUrl`        | <p>[Mandatory]</p><p>The URL of the JFrog Platform instance. Mandatory if no config is already present</p>                                                               |
+| `--oidc-audience`      | <p>[Optional]</p><p>The audience for the OIDC token.</p>                                                                                                                 |
+| `--oidc-provider-type` | <p>[Optional, default: GitHub]</p><p>The type of provider (e.g. GitHub).</p>                                                                                             |
+| `--application-key`    | <p>[Optional]</p><p>JFrog Application key for attribution.</p>                                                                                                           |
+| `--project`            | <p>[Optional]</p><p>Project key (if applicable).</p>                                                                                                                     |
+| `--repository`         | <p>[Optional]</p><p>Source code repository name.</p>                                                                                                                     |
 
 ### Example
 
