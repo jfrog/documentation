@@ -53,7 +53,6 @@ jf atc toad
 
 The **config add** and **config edit** commands are used to add and edit JFrog Platform server configuration, stored in JFrog CLI's configuration storage. These configured servers can be used by the other commands. The configured servers' details can be overridden per command by passing in alternative values for the URL and login credentials. The values configured are saved in a file under the JFrog CLI home directory.
 
-Starting from version 2.75.0, `jf c add` supports authentication using OIDC tokens. This is particularly useful for CI environments. When using OIDC, the command must be run in non-interactive mode (e.g. using `--interactive=false`).
 
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                    |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -86,7 +85,7 @@ Starting from version 2.75.0, `jf c add` supports authentication using OIDC toke
 
 ### Adding a Server with OIDC Authentication
 
-You can now configure a JFrog CLI server using an OIDC authentication.
+Starting from version 2.75.0, jf c add supports authentication using OIDC.
 
 This is used internally when using the CLI inside a CI/CD pipeline, where the OIDC token is provided by the CI/CD system (e.g., GitHub Actions).
 
@@ -102,7 +101,7 @@ OIDC access tokens are not renewable. They are intended for one-time use during 
 This functionality is primarily designed for CI/CD pipelines use.
 
 ##### Example (non-interactive-only):
-```sh
+```
 jf c add \
   --url=https://platform.jfrog.io \
   --oidc-provider-name=setup-jfrog-cli-test \
@@ -110,7 +109,7 @@ jf c add \
 ```
 
 Make sure the following environment variable is injected:
-```sh
+```
 export JFROG_CLI_OIDC_EXCHANGE_TOKEN_ID=<your_oidc_token>
 ```
 
