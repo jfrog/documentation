@@ -100,7 +100,8 @@ OIDC access tokens are not renewable. They are intended for one-time use during 
 
 This functionality is primarily designed for CI/CD pipelines use.
 
-##### Example (non-interactive-only):
+##### Example :
+⚠️ **OIDC authentication must be used in non-interactive mode. Ensure --interactive=false is set.**
 ```
 jf c add \
   --url=https://platform.jfrog.io \
@@ -221,7 +222,7 @@ refer to the [JFrog OIDC Integration](https://jfrog.com/help/r/jfrog-platform-ad
 OIDC tokens are short-lived and ⚠️**do not support refresh**⚠️.
 OIDC access tokens are not renewable. They are intended for one-time use during CI pipelines and do not have an automatic refresh mechanism like other tokens. Consequently, the authentication will only be valid for the duration of the pipeline or until the token expires.
 
-The command is primarily designed for internal use, but it is available to allow users the flexibility to generate new OIDC tokens on demand.
+✅ This command can be used independently, or indirectly through `jf c add` when the required environment variables are set.
 
 |                   |                                                                                  |
 |-------------------|----------------------------------------------------------------------------------|
@@ -230,7 +231,7 @@ The command is primarily designed for internal use, but it is available to allow
 | **Command arguments:** |                                                                                  |
 | `platformUrl`       | <p>[Mandatory]</p><p>The URL of the JFrog Platform instance.</p>            |
 | `oidc-provider-name`| <p>[Mandatory]</p><p>The name of the OIDC provider.</p>                     |
-| `oidc-token-id`   | <p>[Mandatory]</p><p>The token ID from the OIDC provider.</p>               |
+| `oidc-token-id`   | <p>[Mandatory]</p><p>The OIDC token (JWT) issued by the CI provider. This is typically retrieved from a CI environment variable such as GitHub’s `ACTIONS_ID_TOKEN`.</p>               |
 | **Command options:** |                                                                                  |
 | `--oidc-audience`   | <p>[Optional]</p><p>The audience for the OIDC token.</p>                    |
 | `--oidc-provider-type`| <p>[Optional, default: GitHub]</p><p>The type of provider (e.g. GitHub).</p>|
@@ -241,14 +242,15 @@ The command is primarily designed for internal use, but it is available to allow
 ### Example
 
 ```
-jf eot https://platform.jfrog.io \
-       $JFROG_CLI_OIDC_EXCHANGE_TOKEN_ID \
-       my-intergraion-name \
-       --oidc-audience=my-audience \
-       --oidc-provider-type=GitHub \
-       --application-key=my-app-key \
-       --project=my-project \
-       --repository=my-repo
+jf eot \
+     https://platform.jfrog.io \
+     $JFROG_CLI_OIDC_EXCHANGE_TOKEN_ID \
+     my-integration-name \
+     --oidc-audience=my-audience \
+     --oidc-provider-type=GitHub \
+     --application-key=my-app-key \
+     --project=my-project \
+     --repository=my-repo
 ```
 
 ### Sample Output
