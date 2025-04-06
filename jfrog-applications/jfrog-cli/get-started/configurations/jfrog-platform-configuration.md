@@ -241,13 +241,18 @@ The command is primarily designed for internal use, but it is available to allow
 
 ### Example
 
-```bash
-jf eot --platformUrl=https://platform.jfrog.io \
-       --oidc-token-id=$JFROG_CLI_OIDC_EXCHANGE_TOKEN_ID \
-       --oidc-provider-name=my-intergraion-name
+```
+jf eot https://platform.jfrog.io \
+       $JFROG_CLI_OIDC_EXCHANGE_TOKEN_ID \
+       my-intergraion-name \
+       --oidc-audience=my-audience \
+       --oidc-provider-type=GitHub \
+       --application-key=my-app-key \
+       --project=my-project \
+       --repository=my-repo
 ```
 
 ### Sample Output
-```bash
+```
 { AccessToken: **** Username: **** }
 ```
