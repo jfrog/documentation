@@ -228,15 +228,16 @@ The command is primarily designed for internal use, but it is available to allow
 |-------------------|----------------------------------------------------------------------------------|
 | Command name      | exchange-oidc-token                                                              |
 | Abbreviation      | eot                                                                              |
+| **Command arguments:** |                                                                                  |
+| `platformUrl`       | <p>[Mandatory]</p><p>The URL of the JFrog Platform instance.</p>            |
+| `oidc-provider-name`| <p>[Mandatory]</p><p>The name of the OIDC provider.</p>                     |
+| `oidc-token-id`   | <p>[Mandatory]</p><p>The token ID from the OIDC provider.</p>               |
 | **Command options:** |                                                                                  |
-| `--platformUrl`       | <p>[Mandatory]</p><p>The URL of the JFrog Platform instance.</p>            |
-| `--oidc-token-id`     | <p>[Mandatory]</p><p>The token ID from the OIDC provider.</p>               |
-| `--oidc-provider-name`| <p>[Mandatory]</p><p>The name of the OIDC provider.</p>                     |
-| `--oidc-audience`     | <p>[Optional]</p><p>The audience for the OIDC token.</p>                    |
+| `--oidc-audience`   | <p>[Optional]</p><p>The audience for the OIDC token.</p>                    |
 | `--oidc-provider-type`| <p>[Optional, default: GitHub]</p><p>The type of provider (e.g. GitHub).</p>|
-| `--application-key`   | <p>[Optional]</p><p>JFrog Application key for attribution.</p>              |
-| `--project`           | <p>[Optional]</p><p>Project key (if applicable).</p>                         |
-| `--repository`        | <p>[Optional]</p><p>Source code repository name.</p>                         |
+| `--application-key` | <p>[Optional]</p><p>JFrog Application key for attribution.</p>              |
+| `--project`         | <p>[Optional]</p><p>Project key (if applicable).</p>                         |
+| `--repository`      | <p>[Optional]</p><p>Source code repository name.</p>                         |
 
 ### Example
 
