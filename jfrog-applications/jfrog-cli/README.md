@@ -1,6 +1,6 @@
 # JFrog CLI
 
-![](../.gitbook/assets/jfrog-cli-header.png)
+![](../../.gitbook/assets/jfrog-cli-header.png)
 
 JFrog CLI is a compact and smart client that provides a simple interface that automates access to JFrog products simplifying your automation scripts and making them more readable and easier to maintain. JFrog CLI works with JFrog Artifactory, Xray, Distribution and Pipelines (through their respective REST APIs) making your scripts more efficient and reliable in several ways:
 
@@ -35,5 +35,3 @@ We value your input in making the JFrog CLI documentation better. You can help u
 Go to the documentation project on GitHub: [https://github.com/jfrog/documentation](https://github.com/jfrog/documentation) and create a pull request with your proposed changes and additions.
 
 Your contributions will be reviewed, and if accepted, they will be merged into the documentation to benefit the entire JFrog CLI community.
-
-

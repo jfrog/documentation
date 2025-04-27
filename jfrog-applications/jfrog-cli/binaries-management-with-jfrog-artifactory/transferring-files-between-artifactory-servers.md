@@ -1,4 +1,3 @@
-
 # Transferring Files Between Artifactory Servers
 
 ## Overview
@@ -46,7 +45,7 @@ jf rt transfer-files source-server target-server
 
 This command may take a few days to push all the files, depending on your system size and your network speed. While the command is running, It displays the transfer progress visually inside the terminal.
 
-![transfer-files-progress](../../.gitbook/assets/transfer-4.png)
+![transfer-files-progress](../../../.gitbook/assets/transfer-4.png)
 
 If you're running the command in the background, you use the following command to view the transfer progress.
 
@@ -54,7 +53,7 @@ If you're running the command in the background, you use the following command t
 jf rt transfer-files --status
 ```
 
-![transfer-files-progress](../../.gitbook/assets/transfer-5.png)
+![transfer-files-progress](../../../.gitbook/assets/transfer-5.png)
 
 In case you do not wish to transfer the files from all repositories, or wish to run the transfer in phases, you can use the `--include-repos` and `--exclude-repos` command options. Run the following command to see the usage of these options.
 
@@ -157,7 +156,6 @@ Follows these steps to installing JFrog CLI on that machine.
     ```sh
     curl -fL https://install-cli.jfrog.io | sh
     ```
-
 2. If your source instance is accessible only through an HTTP/HTTPS proxy, set the proxy environment variable as described \[#here].
 3.  Configure the connection details of the source Artifactory instance with your admin credentials. Run the following command and follow the instructions.
 
