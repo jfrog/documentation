@@ -1,11 +1,8 @@
 # Frogbot Badge
 
-You can show people that your repository is scanned by Frogbot by adding a badge to the README of your Git repository.
+**The JFrog Security documentation has a new home!**\
+You can now find it [here](https://jfrog.com/help/p/security-home), including sections on:
 
-![](../.gitbook/assets/frogbot-badge.svg)
-
-You can add this badge by copying the following markdown snippet and pasting it into your repository's README.md file.
-
-```
-[![Scanned by Frogbot](https://raw.github.com/jfrog/frogbot/master/images/frogbot-badge.svg)](https://docs.jfrog-applications.jfrog.io/jfrog-applications/frogbot)
-```
+* [CLI](https://jfrog.com/help/r/jfrog-security-user-guide/developers/cli)
+* [Frogbot](https://jfrog.com/help/r/jfrog-security-user-guide/developers/frogbot)
+* [IDEs](https://jfrog.com/help/r/jfrog-security-user-guide/developers/ides)

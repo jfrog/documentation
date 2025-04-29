@@ -58,7 +58,7 @@ You can do both steps while the source instance is in use. No downtime on the so
 2. Ensure that you can log in to the UI of both the source and target instances with users that have admin permissions.
 3. Ensure that the target instance license does not support fewer features than the source instance license.
 4. Run the file transfer pre-checks as described [here](cli-for-jfrog-cloud-transfer.md#running-pre-checks-before-initiating-the-file-transfer-process).
-5. Ensure that all the remote repositories on the source Artifactory instance have network access to their destination URL once they are created in the target instance. Even if one remote or federated repository does not have access, the configuration transfer operation will be cancelled. You have the option of including or excluding specific repositories from being transferred.
+5. Ensure that all the remote repositories on the source Artifactory instance have network access to their destination URL once they are created in the target instance. Even if one remote or federated repository does not have access, the configuration transfer operation will be cancelled. You do have the option of excluding specific repositories from being transferred.
 6. Ensure that all the replications configured on the source Artifactory instance have network access to their destination URL once they are created in the target instance.
 7. Ensure that you have a user who can log in to [MyJFrog](https://my.jfrog.com/login/).
 8. Ensure that you can log in to the primary node of your source instance through a terminal.
@@ -85,10 +85,10 @@ Follow the below steps to enable the configuration transfer.
 1. Log in to [MyJFrog](https://my.jfrog.com/login/).
 2. Click on **Settings**.
 3. Under the **Transfer Artifactory Configuration from Self-Hosted to Cloud** section, click on the **acknowledgment** checkbox. You cannot enable configuration transfer until you select the checkbox.\
-   ![](../.gitbook/assets/transfer-1.png)
+   ![](../../.gitbook/assets/transfer-1.png)
 4. If you have an Enterprise+ subscription with more than one Artifactory instance, select the target instance from the drop-down menu.
 5. Toggle **Enable Configuration Transfer** to enable the transfer. The process may take a few minutes to complete.\
-   ![](../.gitbook/assets/transfer-2.png)
+   ![](../../.gitbook/assets/transfer-2.png)
 6. The configuration transfer is now enabled, and you can continue with the transfer process.
 
 #### Step 2: Set up the source instance for pushing files to the target instance
@@ -227,7 +227,7 @@ export JFROG_CLI_TEMP_DIR=~/tmp
     ========== Phase 4/4 - Import configuration to the target Artifactory ==========
     ```
 7. View the log to verify there are no errors.\
-   ![](../.gitbook/assets/transfer-3.png)
+   ![](../../.gitbook/assets/transfer-3.png)
 
 The target instance should now be accessible with the admin credentials of the source instance. Log into the target instance UI. The target instance must have the same repositories as the source.
 
@@ -268,7 +268,7 @@ jf rt transfer-files source-server target-server
 ````
 
 This command may take a few days to push all the files, depending on your system size and your network speed. While the command is running, It displays the transfer progress visually inside the terminal.\
-![](../.gitbook/assets/transfer-4.png)
+![](../../.gitbook/assets/transfer-4.png)
 
 If you're running the command in the background, you use the following command to view the transfer progress.
 
@@ -276,7 +276,7 @@ If you're running the command in the background, you use the following command t
 jf rt transfer-files --status
 ```
 
-![](../.gitbook/assets/transfer-5.png)
+![](../../.gitbook/assets/transfer-5.png)
 
 ***
 

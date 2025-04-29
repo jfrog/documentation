@@ -51,7 +51,8 @@ jf atc toad
 
 ## Adding and Editing Configured Servers
 
-The **config add** and **config edit** commands are used to add and edit JFrog Platform server configuration, stored in JFrog CLI's configuration storage. These configured servers can be used by the other commands. The configured servers' details can be overridden per command by passing in alternative values for the URL and login credentials. The values configured are saved in file under the JFrog CLI home directory.
+The **config add** and **config edit** commands are used to add and edit JFrog Platform server configuration, stored in JFrog CLI's configuration storage. These configured servers can be used by the other commands. The configured servers' details can be overridden per command by passing in alternative values for the URL and login credentials. The values configured are saved in a file under the JFrog CLI home directory.
+
 
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                    |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -74,8 +75,44 @@ The **config add** and **config edit** commands are used to add and edit JFrog P
 | `--user` | <p>[Optional]</p><p>JFrog Platform username.</p>                                                                                                                                                                                                                                                                                                                                                   |
 | `--xray-url` | \[Optional] Xray URL. (example: https://acme.jfrog.io/xray)                                                                                                                                                                                                                                                                                                                                        |
 | `--overwrite` | <p>[Available for <em>config add</em> only]<br>[Default: false]<br>Overwrites the instance configuration if an instance with the same ID already exists.</p>                                                                                                                                                                                                                                       |
+| `--oidc-provider-name` | <p>[Optional]</p><p>OIDC provider name for CI authentication.</p> |
+| `--oidc-provider-type` | <p>[Default: GitHub]</p><p>OIDC provider type (e.g., GitHub, Azure).</p> |
+| `--oidc-token-id` | <p>[Optional]</p><p>The OIDC token ID to use for authentication.</p> |
+| `--oidc-audience` | <p>[Optional]</p><p>Audience for the OIDC token.</p> |
+| `--application-key` | <p>[Optional]</p><p>JFrog Application Key to associate with the authentication.</p> |
 | **Command arguments:**      |                                                                                                                                                                                                                                                                                                                                                                                                    |
 | server ID              | A unique ID for the server configuration.                                                                                                                                                                                                                                                                                                                                                          |
+
+### Adding a Server with OIDC Authentication
+
+Starting from version 2.75.0, jf c add supports authentication using OIDC.
+
+This is used internally when using the CLI inside a CI/CD pipeline, where the OIDC token is provided by the CI/CD system (e.g., GitHub Actions).
+
+Also note that the integration needs to be defined in the platform before running the command.
+
+#### 🔒 Important Notes about OIDC Authentication:
+
+Before executing the command, ensure that an OIDC integration has been set up on the platform. For more details, refer to the [OIDC Integration](https://www.jfrog.com/confluence/display/JFROG/OIDC+Integration) documentation.
+
+OIDC tokens are short-lived and ⚠️**do not support refresh**⚠️.
+OIDC access tokens are not renewable. They are intended for one-time use during CI pipelines and do not have an automatic refresh mechanism like other tokens. Consequently, the authentication will only be valid for the duration of the pipeline or until the token expires.
+
+This functionality is primarily designed for CI/CD pipelines use.
+
+##### Example :
+⚠️ **OIDC authentication must be used in non-interactive mode. Ensure --interactive=false is set.**
+```
+jf c add \
+  --url=https://platform.jfrog.io \
+  --oidc-provider-name=setup-jfrog-cli-test \
+  --interactive=false
+```
+
+Make sure the following environment variable is injected:
+```
+export JFROG_CLI_OIDC_EXCHANGE_TOKEN_ID=<your_oidc_token>
+```
 
 ## Removing Configured Servers
 
@@ -166,3 +203,57 @@ Starting from version 2.36.0, JFrog CLI also supports encrypting sensitive data 
 2. Store the key in an environment variable named **JFROG_CLI_ENCRYPTION_KEY**.
 
 The configuration will be encrypted the next time JFrog CLI attempts to access the config. If you have configurations already stored before setting the environment variable, you'll need to reconfigure the servers stored in the config.
+
+
+---
+
+
+
+### Exchanging OIDC Token for Access Token
+
+The `exchange-oidc-token` (alias: `eot`) command is used to exchange an OIDC token (such as those provided by GitHub Actions or other CI systems) for a JFrog Platform access token and associated username. This is useful in automation workflows where credentials must be derived securely via an identity provider.
+
+#### 🔒 Important Notes about OIDC Authentication:
+
+Before executing the command, ensure that an OIDC integration has been set up on the platform.
+For more details,
+refer to the [JFrog OIDC Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration) documentation.
+
+OIDC tokens are short-lived and ⚠️**do not support refresh**⚠️.
+OIDC access tokens are not renewable. They are intended for one-time use during CI pipelines and do not have an automatic refresh mechanism like other tokens. Consequently, the authentication will only be valid for the duration of the pipeline or until the token expires.
+
+✅ This command can be used independently, or indirectly through `jf c add` when the required environment variables are set.
+
+|                        |                                                                                                                                                                          |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command name           | exchange-oidc-token                                                                                                                                                      |
+| Abbreviation           | eot                                                                                                                                                                      |
+| **Command arguments:** |                                                                                                                                                                          |
+| `oidc-provider-name`   | <p>[Mandatory]</p><p>The name of the OIDC provider.</p>                                                                                                                  |
+| `oidc-token-id`        | <p>[Mandatory]</p><p>The OIDC token (JWT) issued by the CI provider. This is typically retrieved from a CI environment variable such as GitHub’s `ACTIONS_ID_TOKEN`.</p> |
+| **Command options:**   |                                                                                                                                                                          |
+| `--platformUrl`        | <p>[Mandatory]</p><p>The URL of the JFrog Platform instance. Mandatory if no config is already present</p>                                                               |
+| `--oidc-audience`      | <p>[Optional]</p><p>The audience for the OIDC token.</p>                                                                                                                 |
+| `--oidc-provider-type` | <p>[Optional, default: GitHub]</p><p>The type of provider (e.g. GitHub).</p>                                                                                             |
+| `--application-key`    | <p>[Optional]</p><p>JFrog Application key for attribution.</p>                                                                                                           |
+| `--project`            | <p>[Optional]</p><p>Project key (if applicable).</p>                                                                                                                     |
+| `--repository`         | <p>[Optional]</p><p>Source code repository name.</p>                                                                                                                     |
+
+### Example
+
+```
+jf eot \
+     https://platform.jfrog.io \
+     $JFROG_CLI_OIDC_EXCHANGE_TOKEN_ID \
+     my-integration-name \
+     --oidc-audience=my-audience \
+     --oidc-provider-type=GitHub \
+     --application-key=my-app-key \
+     --project=my-project \
+     --repository=my-repo
+```
+
+### Sample Output
+```
+{ AccessToken: **** Username: **** }
+```
