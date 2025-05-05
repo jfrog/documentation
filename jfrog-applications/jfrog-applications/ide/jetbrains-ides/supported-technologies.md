@@ -14,17 +14,9 @@ layout:
 
 # Supported Technologies
 
-### Software Composition Analysis (SCA)
+**The JFrog Security documentation has a new home!**\
+You can now find it [here](https://jfrog.com/help/p/security-home), including sections on:
 
-JFrog supports the following Package Managers for JetBrains IDEs:
-
-**Go** | **Maven** | **Gradle** | **npm**  | **Yarn v1** |  **Yarn v2** | **Pip** | **Pipenv** | **Poetry** |
-
-Additional SCA capabilities supported:&#x20;
-
-* License Violations
-* Autofix for direct dep
-
-### JFrog Advanced Security
-
-JFrog supports [Contextual Analysis](../../../jfrog-security-for-developers/features/contextual-analysis.md), [Secrets](../../../jfrog-security-for-developers/features/secrets.md), [Infrastructure as Code (IaC)](../../../jfrog-security-for-developers/features/infrastructure-as-code-iac.md), and [SAST ](../../../jfrog-security-features/sast/)for JetBrains IDEs. Follow the links to learn more about each feature and its supported technologies and languages.&#x20;
+* [CLI](https://jfrog.com/help/r/jfrog-security-user-guide/developers/cli)
+* [Frogbot](https://jfrog.com/help/r/jfrog-security-user-guide/developers/frogbot)
+* [IDEs](https://jfrog.com/help/r/jfrog-security-user-guide/developers/ides)
