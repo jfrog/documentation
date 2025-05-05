@@ -1,61 +1,8 @@
 # Authentication
 
-When used with Xray, JFrog CLI offers several means of authentication: JFrog CLI does not support accessing Xray without
-authentication.
+**The JFrog Security documentation has a new home!**\
+You can now find it [here](https://jfrog.com/help/p/security-home), including sections on:
 
-#### Authenticating with Username and Password
-
-To authenticate yourself using your Xray login credentials, either configure your credentials once using the
-_**jf c add**_ command or provide the following option to each command.
-
-<table>
-   <thead>
-      <tr>
-         <th width="424.5">Command Option</th>
-         <th>Description</th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td>--url</td>
-         <td>JFrog Xray API endpoint URL. It usually ends with /xray</td>
-      </tr>
-      <tr>
-         <td>--user</td>
-         <td>JFrog username</td>
-      </tr>
-      <tr>
-         <td>--password</td>
-         <td>JFrog password</td>
-      </tr>
-   </tbody>
-</table>
-
-#### Authenticating with an Access Token
-
-To authenticate yourself using an Xray Access Token, either configure your Access Token once using the _**jf c add**_
-command or provide the following option to each command.
-
-<table>
-   <thead>
-      <tr>
-         <th width="218.5">Command Option</th>
-         <th>Description</th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td>--url</td>
-         <td>JFrog Xray API endpoint URL. It usually ends with /xray</td>
-      </tr>
-      <tr>
-         <td>--access-token</td>
-         <td>JFrog access token</td>
-      </tr>
-   </tbody>
-</table>
-
-***
-
-
-
+* [CLI](https://jfrog.com/help/r/jfrog-security-user-guide/developers/cli)
+* [Frogbot](https://jfrog.com/help/r/jfrog-security-user-guide/developers/frogbot)
+* [IDEs](https://jfrog.com/help/r/jfrog-security-user-guide/developers/ides)
