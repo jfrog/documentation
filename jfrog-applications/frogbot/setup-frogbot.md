@@ -1,22 +1,8 @@
 # Setup
 
-#### What's needed for the setup?
+**The JFrog Security documentation has a new home!**\
+You can now find it [here](https://jfrog.com/help/p/security-home), including sections on:
 
-* **JFrog Platform** server. (If you don't have a JFrog Platform, you can set up one for free)
-* **CI server** to run the scan tasks.
-
-#### Select your preferred CI server:
-
-* [GitHub Actions](../jfrog-applications/frogbot/setup-frogbot/setup-frogbot-using-github-actions/)
-* [Jenkins](setup-frogbot-using-jenkins.md)
-* [JFrog Pipelines](setup-frogbot-using-jfrog-pipelines.md)
-* [GitLab CI](../jfrog-applications/frogbot/setup-frogbot/setup-frogbot-using-gitlab-ci/)
-* [Azure Pipelines](setup-frogbot-using-azure-pipelines.md)
-
-<details>
-
-<summary>Advanced - Customize advanced settings with frogbot-config.yml</summary>
-
-* [Creating the frogbot-config.yml file](frogbot-configuration.md)
-
-</details>
+* [CLI](https://jfrog.com/help/r/jfrog-security-user-guide/developers/cli)
+* [Frogbot](https://jfrog.com/help/r/jfrog-security-user-guide/developers/frogbot)
+* [IDEs](https://jfrog.com/help/r/jfrog-security-user-guide/developers/ides)
