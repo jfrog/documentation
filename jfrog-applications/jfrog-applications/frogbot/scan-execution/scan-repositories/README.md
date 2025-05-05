@@ -1,7 +1,8 @@
 # Scan Git Repositories
 
-Frogbot scans your Git repositories periodically and automatically creates pull requests for upgrading vulnerable dependencies to a version with a fix.
+**The JFrog Security documentation has a new home!**\
+You can now find it [here](https://jfrog.com/help/p/security-home), including sections on:
 
-![](../../../../.gitbook/assets/fix-pr.png)
-
-_**NOTE:**_ The pull request fix is presently unavailable for older NuGet projects that use the package.config file instead of the PackageReference syntax.
+* [CLI](https://jfrog.com/help/r/jfrog-security-user-guide/developers/cli)
+* [Frogbot](https://jfrog.com/help/r/jfrog-security-user-guide/developers/frogbot)
+* [IDEs](https://jfrog.com/help/r/jfrog-security-user-guide/developers/ides)
