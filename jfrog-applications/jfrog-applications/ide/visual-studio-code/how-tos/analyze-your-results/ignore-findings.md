@@ -1,5 +1,8 @@
 # Ignore Findings
 
-If Xray watches are used, on an icon vulnerability line a closed eye icon will appear by clicking on it you can create an [Ignore Rule](https://www.jfrog.com/confluence/display/JFROG/Ignore+Rules) in Xray.
+**The JFrog Security documentation has a new home!**\
+You can now find it [here](https://jfrog.com/help/p/security-home), including sections on:
 
-<figure><img src="../../../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+* [CLI](https://jfrog.com/help/r/jfrog-security-user-guide/developers/cli)
+* [Frogbot](https://jfrog.com/help/r/jfrog-security-user-guide/developers/frogbot)
+* [IDEs](https://jfrog.com/help/r/jfrog-security-user-guide/developers/ides)
