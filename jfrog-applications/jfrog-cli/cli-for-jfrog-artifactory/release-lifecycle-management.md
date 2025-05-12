@@ -205,24 +205,20 @@ jf rbp --signing-key=myKeyPair --promotion-type="move" myApp 1.0.0 PROD
 
 # Annotate a Release Bundle v2
 
-This command allows to add a single tag to a Release Bundle v2 version and/or define one or more properties or delete 
-one or more properties.
+This command allows you to add a single tag to a Release Bundle v2 version, and/or set or delete one or more properties.
 
 ### Commands Params
 
-|                        |                                                                                                                                                                                                                          |
-|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name           | release-bundle-annotate                                                                                                                                                                                                  |
-| Abbreviation           | rba                                                                                                                                                                                                                      |
-| **Command arguments:** |                                                                                                                                                                                                                          |
-| release bundle name    | Name of the Release Bundle to annotate.                                                                                                                                                                                  |
-| release bundle version | Version of the Release Bundle to annotate.                                                                                                                                                                               | |
-| **Command options:**   |                                                                                                                                                                                                                          |
-| `--tag`                | <p>[Optional]<br>The tag is a single free-text value limited to 128 characters, beginning and ending with an alphanumeric character ([a-z0-9A-Z]), with dashes (-), underscores (_), dots (.),and alphanumerics between. |
-| .</p>                  |                                                                                                                                                                                                                          |
-| `--properties`         | <p>[Optional]<br>Key-value pairs separated by a semicolon (;). Keys are limited to 255 characters. Values are limited to 2400 characters.</p>                                                                            |
-| `--del-prop`           | <p>[Optional]<br>Removes a key and all its associated values.</p>                                                                                                                                                        |
-| `--recursive`          | <p>[Default: true]<br>Set to false(0) to don't run recursively.</p>                                                                                                                                                      |
+|                        |                                                                                                                                                                                                                             |
+|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | release-bundle-annotate                                                                                                                                                                                                     |
+| Abbreviation           | rba                                                                                                                                                                                                                         |
+| **Command arguments:** |                                                                                                                                                                                                                             |
+| release bundle name    | Name of the Release Bundle to annotate.                                                                                                                                                                                     |
+| `--tag`                | <p>[Optional]<br>The tag is a single free-text value limited to 128 characters, beginning and ending with an alphanumeric character ([a-z0-9A-Z]), with dashes (-), underscores (_), dots (.),and alphanumerics between.<p> |
+| `--properties`         | <p>[Optional]<br>Key-value pairs separated by a semicolon (;). Keys are limited to 255 characters. Values are limited to 2400 characters.</p>                                                                               |
+| `--del-prop`           | <p>[Optional]<br>Removes a key and all its associated values.</p>                                                                                                                                                           |
+| `--recursive`          | <p>[Default: true]<br>Set to false(0) to don't run recursively.</p>                                                                                                                                                         |
                                                                                                                       
 
 ### Examples
