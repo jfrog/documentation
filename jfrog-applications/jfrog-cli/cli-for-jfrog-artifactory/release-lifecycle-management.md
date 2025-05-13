@@ -203,6 +203,81 @@ Promote a Release Bundle, using promotion type flag.
 jf rbp --signing-key=myKeyPair --promotion-type="move" myApp 1.0.0 PROD
 ```
 
+# Annotate a Release Bundle v2
+
+This command allows you to add a single tag to a Release Bundle v2 version, and/or set or delete one or more properties.
+
+### Commands Params
+
+|                        |                                                                                                                                                                                                                             |
+|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Command-name           | release-bundle-annotate                                                                                                                                                                                                     |
+| Abbreviation           | rba                                                                                                                                                                                                                         |
+| **Command arguments:** |                                                                                                                                                                                                                             |
+| release bundle name    | Name of the Release Bundle to annotate.                                                                                                                                                                                     |
+| `--tag`                | <p>[Optional]<br>The tag is a single free-text value limited to 128 characters, beginning and ending with an alphanumeric character ([a-z0-9A-Z]), with dashes (-), underscores (_), dots (.),and alphanumerics between.<p> |
+| `--properties`         | <p>[Optional]<br>Key-value pairs separated by a semicolon (;). Keys are limited to 255 characters. Values are limited to 2400 characters.</p>                                                                               |
+| `--del-prop`           | <p>[Optional]<br>Removes a key and all its associated values.</p>                                                                                                                                                           |
+| `--recursive`          | <p>[Default: true]<br>Set to false(0) to don't run recursively.</p>                                                                                                                                                         |
+                                                                                                                      
+
+### Examples
+
+#### Example 1
+
+Add or modify a tag or property.
+
+```
+jf rba mybundle 1.0.0 --tag=release --properties "environment=production;buildNumber=1234"
+```
+
+#### Example 2
+
+Whenever you use the --tag command option, the value you define replaces the current value.
+
+```
+jf rba mybundle 1.0.0 --tag=rejected
+```
+In the example above, the tag that was defined previously (release) is replaced with the new tag rejected.
+
+#### Example 3
+
+Whenever you use the --properties command option with an existing key, the values that you define replace the current values.
+
+```
+jf rba mybundle 1.0.0 --properties "environment=DEV,PROD,QA"
+```
+In the example above, the value for environment that was defined previously (production) is replaced by the values DEV, PROD, and QA.
+
+#### Remove Tags and Properties
+
+#### Example 1
+
+To remove the tag, set it to empty.
+
+```
+jf rba mybundle 1.0.0 --tag=""
+```
+
+#### Example 2
+
+To remove the values from an existing key without removing the key, leave the value empty.
+
+```
+jf rba mybundle 1.0.0 --properties "build=''"
+```
+In the example above, all values defined for the build key are removed but the key is retained.
+
+#### Example 3
+
+To remove a key and its associated values, use the --del-prop command option.
+
+```
+jf rba mybundle 1.0.0 --del-prop "environment"
+```
+In the example above, the environment key and all its associated values are removed.
+
+
 ## Distribute a Release Bundle v2
 
 This command distributes a Release Bundle to an Edge node.
