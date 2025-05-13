@@ -332,6 +332,10 @@ The **build-docker-create** command allows adding a docker image, which is alrea
 | Command argument     |                                                                                                                                                                                                                                          |
 | Target repository    | The name of the repository to which the image was pushed.                                                                                                                                                                                |
 
+> **Note:**  
+> If your Docker image has **multiple tags** pointing to the same digest, you can provide them in a **comma-separated format** in the `--image-file`. 
+> All listed tags will be processed and added to the build-info individually.
+
 #### Example
 
 In this example, a Docker image that has already been deployed to Artifactory is incorporated into a locally created, unpublished build-info identified by the build name `myBuild` and build number '1'. This local build-info can subsequently be published to Artifactory using the command 'jf rt bp myBuild 1'.
