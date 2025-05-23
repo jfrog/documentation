@@ -216,6 +216,7 @@ The following table lists the command arguments and flags:
 | `--skip-login`         | <p>[Default: false]<br>Set to true if you'd like the command to skip performing docker login.</p>                                                                                                                                        |
 | `--threads`            | <p>[Default: 3]<br>Number of working threads.</p>                                                                                                                                                                                        |
 | `--detailed-summary`   | <p>[Default: false]<br>Set true to include a list of the affected files as part of the command output summary.</p>                                                                                                                       |
+| `--validate-sha`       | <p>[Default: false]<br>Set to true to enable SHA-based validation during Docker push. When enabled, manifest validation will use the image's SHA digest instead of name:tag. This is useful when pushing to virtual repositories where the tag might exist with different content in higher priority repositories.</p> |
 | **Command arguments:** | The same arguments and options supported by the docker client/                                                                                                                                                                           |
 
 #### Example
