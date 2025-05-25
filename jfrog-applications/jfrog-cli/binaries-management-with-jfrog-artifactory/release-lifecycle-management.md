@@ -2,7 +2,17 @@
 
 ## Overview
 
-This page describes how to use JFrog CLI with [Release Lifecycle Management](https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-release-lifecycle-management-solution).
+This page describes how to use JFrog CLI with [Release Lifecycle Management](https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-release-lifecycle-management-solution). It includes the following sections:
+
+* [#create-a-release-bundle-v2](release-lifecycle-management.md#create-a-release-bundle-v2 "mention")
+* [#promote-a-release-bundle-v2](release-lifecycle-management.md#promote-a-release-bundle-v2 "mention")
+* [#annotate-a-release-bundle-v2](release-lifecycle-management.md#annotate-a-release-bundle-v2 "mention")
+* [#distribute-a-release-bundle-v2](release-lifecycle-management.md#distribute-a-release-bundle-v2 "mention")
+* [#delete-a-release-bundle-v2-locally](release-lifecycle-management.md#delete-a-release-bundle-v2-locally "mention")
+* [#delete-a-release-bundle-v2-remotely](release-lifecycle-management.md#delete-a-release-bundle-v2-remotely "mention")
+* [#export-a-release-bundle-v2-archive](release-lifecycle-management.md#export-a-release-bundle-v2-archive "mention")
+* [#import-a-release-bundle-v2-archive](release-lifecycle-management.md#import-a-release-bundle-v2-archive "mention")
+* [#download-release-bundle-v2-content](release-lifecycle-management.md#download-release-bundle-v2-content "mention")
 
 ***
 
