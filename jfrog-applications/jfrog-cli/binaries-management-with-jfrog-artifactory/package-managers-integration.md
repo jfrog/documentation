@@ -332,8 +332,8 @@ The **build-docker-create** command allows adding a docker image, which is alrea
 | Command argument     |                                                                                                                                                                                                                                          |
 | Target repository    | The name of the repository to which the image was pushed.                                                                                                                                                                                |
 
-> **Note:**  
-> If your Docker image has **multiple tags** pointing to the same digest, you can provide them in a **comma-separated format** in the `--image-file`. 
+> **Note:**\
+> If your Docker image has **multiple tags** pointing to the same digest, you can provide them in a **comma-separated format** in the `--image-file`.\
 > All listed tags will be processed and added to the build-info individually.
 
 #### Example
@@ -500,7 +500,7 @@ jf npm publish --build-name=my-build-name --build-number=1
 
 JFrog CLI provides full support for building npm packages using the yarn client. This allows you to resolve npm dependencies, while collecting build-info and storing it in Artifactory. You can download npm packages from any npm repository type - local, remote or virtual. Publishing the packages to a local npm repository is supported through the **jf rt upload** command.
 
-Yarn version 2.4.0 and above is supported.
+**Note:** "Yarn versions from 2.4.0 up to, but not including, Yarn 4.x are supported. Yarn 4.x is currently not supported by JFrog CLI."
 
 ### Setting npm repositories
 
