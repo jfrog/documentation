@@ -380,6 +380,8 @@ Promote the **hello-world** docker image from the **docker-dev-local** repositor
 jf rt docker-promote hello-world docker-dev-local docker-staging-local
 ```
 
+**Note:** The `jf rt docker-promote` command currently requires the source and target repositories to be different. It does not support promoting a Docker image to the same repository while assigning it a different target image name. If you need to perform this type of promotion, consider using the Artifactory REST API directly.
+
 ## Building Npm Packages Using the Npm Client
 
 JFrog CLI provides full support for building npm packages using the npm client. This allows you to resolve npm dependencies, and publish your npm packages from and to Artifactory, while collecting build-info and storing it in Artifactory.
