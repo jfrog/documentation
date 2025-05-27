@@ -26,6 +26,38 @@ Before using the **jf mvn** command, the project needs to be pre-configured with
 | `--snapshots-update-policy` | <p>[Optional]<br>Set snapshot update policy. Defaults to daily.</p>                                                                                                                                                                                               |
 | **Command arguments:**      | The command accepts no arguments                                                                                                                                                                                                                                  |
 
+#### Examples
+
+Before using `jf mvn-config`, you must first configure your Artifactory server with JFrog CLI using the `jf c add` command. For instance:
+
+```bash
+jf c add my-artifactory-server --url=[https://your-artifactory-url.jfrog.io](https://your-artifactory-url.jfrog.io) --user=your-user --password=your-password
+```
+
+Replace `my-artifactory-server` with your desired server ID, and `https://your-artifactory-url.jfrog.io`, `your-user`, and `your-password` with your actual Artifactory instance details.
+
+Once your Artifactory server is configured, you can set your Maven repositories within your project's root directory:
+
+**Example 1: Setting resolution and deployment repositories for the current project**
+
+This is the most common use case, where you define the repositories directly for the project you are currently working in.
+
+```bash
+jf mvn-config \
+    --server-id-resolve=my-artifactory-server \
+    --repo-resolve-releases=maven-virtual-releases \
+    --repo-resolve-snapshots=maven-virtual-snapshots \
+    --server-id-deploy=my-artifactory-server \
+    --repo-deploy-releases=maven-releases-local \
+    --repo-deploy-snapshots=maven-snapshots-local
+```
+
+* `my-artifactory-server`: This should be the server ID you configured using `jf c add`.
+* `maven-virtual-releases`: Replace with the actual name of your Artifactory repository (e.g., `libs-release`, a virtual repository aggregating release repos) for resolving release dependencies.
+* `maven-virtual-snapshots`: Replace with the actual name of your Artifactory repository (e.g., `libs-snapshot`, a virtual repository aggregating snapshot repos) for resolving snapshot dependencies.
+* `maven-releases-local`: Replace with the actual name of your _local_ Artifactory repository for deploying release artifacts.
+* `maven-snapshots-local`: Replace with the actual name of your _local_ Artifactory repository for deploying snapshot artifacts.
+
 ### Running maven
 
 The **mvn** command triggers the maven client, while resolving dependencies and deploying artifacts from and to Artifactory.
