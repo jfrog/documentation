@@ -1,4 +1,3 @@
-
 # Managing Configuration Entities
 
 JFrog CLI offers a set of commands for managing Artifactory configuration entities.
@@ -19,15 +18,15 @@ The CSV can include additional columns, with different headers, which will be ig
 
 ### Commands Params
 
-|                   |                                                                                                                                             |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | rt users-create                                                                                                                             |
-| Abbreviation      | rt uc                                                                                                                                       |
+|                        |                                                                                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Command-name           | rt users-create                                                                                                                             |
+| Abbreviation           | rt uc                                                                                                                                       |
 | **Command options:**   |                                                                                                                                             |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                        |
-| `--csv` | <p>[Mandatory]<br>Path to a CSV file with the users' details. The first row of the file should include the name,password,email headers.</p> |
-| `--replace` | <p>[Optional]<br>Set to true if you'd like existing users or groups to be replaced.</p>                                                     |
-| `--users-groups` | <p>[Optional]<br>A list of comma-separated(,) groups for the new users to be associated to.</p>                                             |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                        |
+| `--csv`                | <p>[Mandatory]<br>Path to a CSV file with the users' details. The first row of the file should include the name,password,email headers.</p> |
+| `--replace`            | <p>[Optional]<br>Set to true if you'd like existing users or groups to be replaced.</p>                                                     |
+| `--users-groups`       | <p>[Optional]<br>A list of comma-separated(,) groups for the new users to be associated to.</p>                                             |
 | **Command arguments:** | The command accepts no arguments                                                                                                            |
 
 ### Example
@@ -55,17 +54,18 @@ The CSV can include additional columns, with different headers, which will be ig
 
 ### Commands Params
 
-|                   |                                                                                                                                                                                |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | rt users-delete                                                                                                                                                                |
-| Abbreviation      | rt udel                                                                                                                                                                        |
+|                        |                                                                                                                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Command-name           | rt users-delete                                                                                                                                                                |
+| Abbreviation           | rt udel                                                                                                                                                                        |
 | **Command options:**   |                                                                                                                                                                                |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                                                           |
-| `--csv` | <p>[Optional]<br>Path to a csv file with the usernames to delete. The first row of the file is the reserved for the cells' headers. It must include the "username" header.</p> |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                                                           |
+| `--csv`                | <p>[Optional]<br>Path to a csv file with the usernames to delete. The first row of the file is the reserved for the cells' headers. It must include the "username" header.</p> |
 | **Command arguments:** |                                                                                                                                                                                |
-| users list        | comma-separated(,) list of usernames to delete. If the --csv command option is used, then this argument becomes optional.                                                      |
+| users list             | comma-separated(,) list of usernames to delete. If the --csv command option is used, then this argument becomes optional.                                                      |
 
 ### Examples
+
 #### Example 1
 
 Delete the users according to the usernames defined in the path/to/users.csv file.
@@ -88,14 +88,14 @@ This command creates a new users group.
 
 ### Commands Params
 
-|                   |                                                                                      |
-|-------------------|--------------------------------------------------------------------------------------|
-| Command-name      | rt group-create                                                                      |
-| Abbreviation      | rt gc                                                                                |
+|                        |                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| Command-name           | rt group-create                                                                      |
+| Abbreviation           | rt gc                                                                                |
 | **Command options:**   |                                                                                      |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p> |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p> |
 | **Command arguments:** |                                                                                      |
-| group name        | The name of the group to create.                                                     |
+| group name             | The name of the group to create.                                                     |
 
 ### Example
 
@@ -111,15 +111,15 @@ This command adds a list fo existing users to a group.
 
 ### Commands Params
 
-|                   |                                                                                      |
-|-------------------|--------------------------------------------------------------------------------------|
-| Command-name      | rt group-add-users                                                                   |
-| Abbreviation      | rt gau                                                                               |
+|                        |                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| Command-name           | rt group-add-users                                                                   |
+| Abbreviation           | rt gau                                                                               |
 | **Command options:**   |                                                                                      |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p> |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p> |
 | **Command arguments:** |                                                                                      |
-| group name        | The name of the group to add users to.                                               |
-| users list        | Comma-seperated list of usernames to add to the specified group.                     |
+| group name             | The name of the group to add users to.                                               |
+| users list             | Comma-seperated list of usernames to add to the specified group.                     |
 
 ### Example
 
@@ -135,14 +135,14 @@ This command deletes a group.
 
 ### Commands Params
 
-|                   |                                                                                      |
-|-------------------|--------------------------------------------------------------------------------------|
-| Command-name      | rt group-delete                                                                      |
-| Abbreviation      | rt gdel                                                                              |
+|                        |                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| Command-name           | rt group-delete                                                                      |
+| Abbreviation           | rt gdel                                                                              |
 | **Command options:**   |                                                                                      |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p> |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p> |
 | **Command arguments:** |                                                                                      |
-| group name        | The name of the group to delete.                                                     |
+| group name             | The name of the group to delete.                                                     |
 
 ### Example
 
@@ -156,41 +156,168 @@ jf rt group-delete "reviewers"
 
 JFrog CLI offers a set of commands for managing Artifactory repositories. You can create, update and delete repositories. To make it easier to manage repositories, the commands which create and update the repositories accept a pre-defined configuration template file. This template file can also include variables, which can be later replaced with values, when creating or updating the repositories. The configuration template file is created using the **jf rt repo-template** command.
 
-### Creating or Configuration Template
 
-This is an interactive command, which creates a configuration template file. This file should be used as an argument for the **jf rt repo-create** or the **jf rt repo-update** commands.
 
-When using this command to create the template, you can also provide replaceable variable, instead of fixes values. Then, when the template is used to create or update repositories, values can be provided to replace the variables in the template.
 
-#### Commands Params
 
-|                   |                                                                                                               |
-|-------------------|---------------------------------------------------------------------------------------------------------------|
-| Command-name      | rt repo-template                                                                                              |
-| Abbreviation      | rt rpt                                                                                                        |
-| **Command options:**   | The command has no options.                                                                                   |
-| **Command arguments:** |                                                                                                               |
-| template path     | Specifies the local file system path for the template file created by the command. The file should not exist. |
+Creating repository Configuration Template\
 
-#### Example
 
-Create a configuration template, with a variable for the repository name. Then, create a repository using this template, and provide repository name to replace the variable.
+
+The **jf rt repo-template** (or jf rt rpt) command provides interactive prompts for building a JSON configuration template.&#x20;
+
+On running jf rt repo-template \<filename>.json, the CLI prompts as follows:
+
+## Template Type&#x20;
+
+Select the template type. Following are the possible options:
+
+* **create:** Template for creating a new repository
+* **update:** Template for updating an existing repository
 
 ```
-$ jf rt repo-template template.json
-
-Select the template type (press Tab for options): create
-Insert the repository key > ${repo-name}
-Select the repository class (press Tab for options): local
-Select the repository's package type (press Tab for options): generic
-You can type ":x" at any time to save and exit.
-Select the next configuration key (press Tab for options): :x
-[Info] Repository configuration template successfully created at template.json.
-$
-$ jf rt repo-create template.json --vars "repo-name=my-repo"
-[Info] Creating local repository...
-[Info] Done creating repository.
+// Select the template type (press Tab for options):
 ```
+
+
+
+For example
+
+```
+// Select the template type (press Tab for options): create
+```
+
+\
+
+
+## Repository Key&#x20;
+
+Enter a unique identifier for the repository key. This is the key field in the final JSON.
+
+```
+// Insert the repository key >
+```
+
+For example
+
+```
+// Insert the repository key > npm-local
+```
+
+\
+
+
+**Note:** If you want to reuse the template for creating multiple repositories, use a variable as follows:
+
+```
+// Insert the repository key >  ${repo-key-var}
+```
+
+## Repository Class
+
+Select the repository class. Following are the possible options:
+
+* **local:** A physical, locally-managed repository into which you can deploy artifacts
+* **remote:** A caching proxy for a repository managed at a remote URL
+  * **Note:** For remote repositories, you need to enter a remote repository url
+* **virtual:** An Aggregation of several repositories with the same package type under a common URL.
+* **federated:** A Federation is a collection of repositories of Federated type in different JPDs that are automatically configured for full bi-directional mirroring
+
+```
+// Select the repository class (press Tab for options): 
+```
+
+For example
+
+```
+// Select the repository class (press Tab for options): local
+```
+
+## Repository Package Type
+
+Select the repository package type. Following are the possible options:
+
+* alpine
+* bower
+* chef
+* cocoapods
+* composer
+* conan
+* cran
+* debian
+* docker
+* gems
+* generic
+* gitlfs
+* go
+* gradle
+* helm
+* ivy
+* maven
+* npm
+* nuget
+* opkg
+* pypi
+* puppet
+* rpm
+* sbt
+* vagrant
+* Yum
+
+**Note:** After selecting the repository package type, you can exit by entering :x or proceed to make advanced configurations.
+
+## Optional Configurations
+
+\
+For additional optional configurations to fine-tune the repository's behavior, configure the following:
+
+This table explains the optional keys available for configuring your desired repository in JFrog Artifactory.
+
+
+
+<table data-header-hidden><thead><tr><th width="310.23828125">Configuration Key</th><th width="114.62890625"></th><th width="76.375"></th><th width="85.9296875"></th><th width="77.48828125"></th><th></th></tr></thead><tbody><tr><td><strong>Configuration Key</strong></td><td><strong>Description</strong></td><td><strong>Local</strong></td><td><strong>Remote</strong></td><td><strong>Virtual</strong></td><td><strong>Federated</strong></td></tr><tr><td>allowAnyHostAuth</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>archiveBrowseEnabled</td><td><br></td><td>✔️</td><td><br></td><td><br></td><td>✔️</td></tr><tr><td>artifactoryRequestsCanRetrieveRemoteArtifacts</td><td><br></td><td><br></td><td><br></td><td>✔️</td><td><br></td></tr><tr><td>assumedOfflinePeriodSecs</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>blackedOut</td><td><br></td><td>✔️</td><td>✔️</td><td><br></td><td>✔️</td></tr><tr><td>blockMismatchingMimeTypes</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>blockPushingSchema1</td><td><br></td><td>✔️</td><td>✔️</td><td><br></td><td>✔️</td></tr><tr><td>bypassHeadRequests</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>cdnRedirect</td><td><br></td><td>✔️</td><td>✔️</td><td><br></td><td>✔️</td></tr><tr><td>checksumPolicyType</td><td><br></td><td>✔️</td><td><br></td><td><br></td><td>✔️</td></tr><tr><td>clientTlsCertificate</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>contentSynchronisation</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>defaultDeploymentRepo</td><td><br></td><td><br></td><td><br></td><td>✔️</td><td><br></td></tr><tr><td>description</td><td><br></td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td></tr><tr><td>downloadRedirect</td><td><br></td><td>✔️</td><td>✔️</td><td><br></td><td>✔️</td></tr><tr><td>enableCookieManagement</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>environment</td><td><br></td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td></tr><tr><td>excludesPattern</td><td><br></td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td></tr><tr><td>failedRetrievalCachePeriodSecs</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>fetchJarsEagerly</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>fetchSourcesEagerly</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>forceMavenAuthentication</td><td><br></td><td><br></td><td><br></td><td>✔️</td><td><br></td></tr><tr><td>handleReleases</td><td><br></td><td>✔️</td><td>✔️</td><td><br></td><td>✔️</td></tr><tr><td>handleSnapshots</td><td><br></td><td>✔️</td><td>✔️</td><td><br></td><td>✔️</td></tr><tr><td>hardFail</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>includesPattern</td><td><br></td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td></tr><tr><td>keyPair</td><td><br></td><td><br></td><td><br></td><td>✔️</td><td><br></td></tr><tr><td>localAddress</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>maxUniqueSnapshots</td><td><br></td><td>✔️</td><td><br></td><td><br></td><td>✔️</td></tr><tr><td>missedRetrievalCachePeriodSecs</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>notes</td><td><br></td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td></tr><tr><td>offline</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>optionalIndexCompressionFormats</td><td><br></td><td>✔️</td><td><br></td><td>✔️</td><td>✔️</td></tr><tr><td>password</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>pomRepositoryReferencesCleanupPolicy</td><td><br></td><td><br></td><td><br></td><td>✔️</td><td><br></td></tr><tr><td>primaryKeyPairRef</td><td><br></td><td><br></td><td><br></td><td>✔️</td><td><br></td></tr><tr><td>priorityResolution</td><td><br></td><td>✔️</td><td>✔️</td><td><br></td><td>✔️</td></tr><tr><td>projectKey</td><td><br></td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td></tr><tr><td>propertySets</td><td><br></td><td>✔️</td><td>✔️</td><td><br></td><td>✔️</td></tr><tr><td>proxy</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>rejectInvalidJars</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>remoteRepoChecksumPolicyType</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>repoLayoutRef</td><td><br></td><td>✔️</td><td>✔️</td><td>✔️</td><td>✔️</td></tr><tr><td>repositories</td><td><br></td><td><br></td><td><br></td><td>✔️</td><td><br></td></tr><tr><td>retrievalCachePeriodSecs</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>shareConfiguration</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>snapshotVersionBehavior</td><td><br></td><td>✔️</td><td><br></td><td><br></td><td>✔️</td></tr><tr><td>socketTimeoutMillis</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>storeArtifactsLocally</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>suppressPomConsistencyChecks</td><td><br></td><td>✔️</td><td>✔️</td><td><br></td><td>✔️</td></tr><tr><td>synchronizeProperties</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>unusedArtifactsCleanupEnabled</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr><tr><td>unusedArtifactsCleanupPeriodHours</td><td><br></td><td><br></td><td>✔️</td><td><br></td><td><br></td></tr></tbody></table>
+
+\
+
+
+After adding your desired configurations, enter :x to save the template file. Creates and saves a json template and exits the interactive terminal.
+
+<figure><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcLs0RweTxrHgnLRgWVYfDcQv8yrWziUQjVMNFXfvpoRKhKAmLaTl6AmNzuce5wJXsSQkjN-UifLBXiT3E-8t3SPHBw8dWEs4NsMf7At_mMZjjqBbmuAc-ylWHsCgb3rHdeRSX-pw?key=2SCcR_Q1GYlbACRhGX5p2A" alt=""><figcaption></figcaption></figure>
+
+\
+The sample json template is as follows:\
+
+
+```json
+// {
+  "description": "my npm local repository",
+  "key": "my-npm-local", # example variable, ${repo-name}
+  "packageType": "npm",
+  "rclass": "local"
+}
+```
+
+Reuse Template with Variables
+
+\
+Reuse the template by adding variables to the keys and provide value explicitly while executing the **jf rt repo-create command.**
+
+
+
+For example
+
+```
+// jf rt repo-create repotemplate.json --vars "repo-name=my-npm-local"
+
+```
+
+If you want to pass multiple vars, enter the list of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." (wrapped by quotes) to be replaced in the template. In the template, the variables should be used as follows: ${key1}.
+
+```
+// jf rt repo-create repotemplate.json --vars "repo-name=my-npm-local;package-type=npm;repo-type=local"
+```
+
+&#x20;&#x20;
 
 ### Creating / Updating Repositories
 
@@ -198,18 +325,19 @@ These two commands create a new repository and updates an existing a repository.
 
 #### Commands Params
 
-|                   |                                                                                                                                                                                                               |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | rt repo-create / rt repo-update                                                                                                                                                                               |
-| Abbreviation      | rt rc / rt ru                                                                                                                                                                                                 |
+|                        |                                                                                                                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Command-name           | rt repo-create / rt repo-update                                                                                                                                                                               |
+| Abbreviation           | rt rc / rt ru                                                                                                                                                                                                 |
 | **Command options:**   |                                                                                                                                                                                                               |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                                                                                          |
-| `--vars` | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                                                                                          |
+| `--vars`               | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
 | **Command arguments:** |                                                                                                                                                                                                               |
-| template path     | Specifies the local file system path for the template file to be used for the repository creation. The template can be created using the "jf rt rpt" command.                                                 |
+| template path          | Specifies the local file system path for the template file to be used for the repository creation. The template can be created using the "jf rt rpt" command.                                                 |
 
 #### Examples
-##### Example 1
+
+**Example 1**
 
 Create a repository, using the **template.json** file previously generated by the **repo-template** command.
 
@@ -217,7 +345,7 @@ Create a repository, using the **template.json** file previously generated by th
 jf rt repo-create template.json
 ```
 
-##### Example 2
+**Example 2**
 
 Update a repository, using the **template.json** file previously generated by the **repo-template** command.
 
@@ -225,7 +353,7 @@ Update a repository, using the **template.json** file previously generated by th
 jf rt repo-update template.json
 ```
 
-##### Example 3
+**Example 3**
 
 Update a repository, using the **template.json** file previously generated by the **repo-template** command. Replace the repo-name variable inside the template with a name for the updated repository.
 
@@ -239,15 +367,15 @@ This command permanently deletes a repository, including all of its content.
 
 #### Commands Params
 
-|                   |                                                                                                            |
-|-------------------|------------------------------------------------------------------------------------------------------------|
-| Command name      | rt repo-delete                                                                                             |
-| Abbreviation      | rt rdel                                                                                                    |
+|                        |                                                                                                            |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Command name           | rt repo-delete                                                                                             |
+| Abbreviation           | rt rdel                                                                                                    |
 | **Command options:**   |                                                                                                            |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                       |
-| `--quiet` | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>                              |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                       |
+| `--quiet`              | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>                              |
 | **Command arguments:** |                                                                                                            |
-| repository key    | Specifies the repositories that should be removed. You can use wildcards to specify multiple repositories. |
+| repository key         | Specifies the repositories that should be removed. You can use wildcards to specify multiple repositories. |
 
 #### Example
 
@@ -269,13 +397,13 @@ When using this command to create the template, you can also provide replaceable
 
 #### Commands Params
 
-|                   |                                                                                                               |
-|-------------------|---------------------------------------------------------------------------------------------------------------|
-| Command-name      | rt replication-template                                                                                       |
-| Abbreviation      | rt rplt                                                                                                       |
+|                        |                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Command-name           | rt replication-template                                                                                       |
+| Abbreviation           | rt rplt                                                                                                       |
 | **Command options:**   | The command has no options.                                                                                   |
 | **Command arguments:** |                                                                                                               |
-| template path     | Specifies the local file system path for the template file created by the command. The file should not exist. |
+| template path          | Specifies the local file system path for the template file created by the command. The file should not exist. |
 
 #### Example
 
@@ -302,18 +430,19 @@ This command creates a new replication job for a repository. The command accepts
 
 #### Commands Params
 
-|                   |                                                                                                                                                                                                               |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | replication-create                                                                                                                                                                                            |
-| Abbreviation      | rt rplc                                                                                                                                                                                                       |
+|                        |                                                                                                                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Command-name           | replication-create                                                                                                                                                                                            |
+| Abbreviation           | rt rplc                                                                                                                                                                                                       |
 | **Command options:**   |                                                                                                                                                                                                               |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                                                                                          |
-| `--vars` | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                                                                                          |
+| `--vars`               | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
 | **Command arguments:** |                                                                                                                                                                                                               |
-| template path     | Specifies the local file system path for the template file to be used for the replication job creation. The template can be created using the "jf rt rplt" command.                                           |
+| template path          | Specifies the local file system path for the template file to be used for the replication job creation. The template can be created using the "jf rt rplt" command.                                           |
 
 #### Examples
-##### Example 1
+
+**Example 1**
 
 Create a replication job, using the **template.json** file previously generated by the **replication-template** command.
 
@@ -321,7 +450,7 @@ Create a replication job, using the **template.json** file previously generated 
 jf rt rplc template.json
 ```
 
-##### Example 2
+**Example 2**
 
 Update a replication job, using the **template.json** file previously generated by the **replication-template** command. Replace the source and target variables inside the template with the names of the replication source and target repositories.
 
@@ -335,15 +464,15 @@ This command permanently deletes a replication jobs from a repository.
 
 #### Commands Params
 
-|                   |                                                                                      |
-|-------------------|--------------------------------------------------------------------------------------|
-| Command name      | rt replication-delete                                                                |
-| Abbreviation      | rt rpldel                                                                            |
+|                        |                                                                                      |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| Command name           | rt replication-delete                                                                |
+| Abbreviation           | rt rpldel                                                                            |
 | **Command options:**   |                                                                                      |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p> |
-| `--quiet` | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>        |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p> |
+| `--quiet`              | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>        |
 | **Command arguments:** |                                                                                      |
-| repository key    | The repository from which the replications will be deleted.                          |
+| repository key         | The repository from which the replications will be deleted.                          |
 
 #### Example
 
@@ -361,40 +490,40 @@ JFrog CLI offers commands creating, updating and deleting permission targets in 
 
 This command creates a configuration template file, which will be used as an argument for the **jf rt permission-target-create** and **jf rt permission-target-update** commands.
 
-|                   |                                                                                                               |
-|-------------------|---------------------------------------------------------------------------------------------------------------|
-| Command-name      | rt permission-target-template                                                                                 |
-| Abbreviation      | rt ptt                                                                                                        |
+|                        |                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Command-name           | rt permission-target-template                                                                                 |
+| Abbreviation           | rt ptt                                                                                                        |
 | **Command options:**   | The command has no options.                                                                                   |
 | **Command arguments:** |                                                                                                               |
-| template path     | Specifies the local file system path for the template file created by the command. The file should not exist. |
+| template path          | Specifies the local file system path for the template file created by the command. The file should not exist. |
 
 ### Creating / Updating Permission Targets
 
-These commands create/update a permission target. The commands accept as an argument a configuration template, which should be created by the **jf rt permission-target-template** command beforehand. The template also supports variables, which can be replaced with values, provided when it is used. 
+These commands create/update a permission target. The commands accept as an argument a configuration template, which should be created by the **jf rt permission-target-template** command beforehand. The template also supports variables, which can be replaced with values, provided when it is used.
 
-|                   |                                                                                                                                                                                                               |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Command-name      | permission-target-create / permission-target-update                                                                                                                                                           |
-| Abbreviation      | rt ptc / rt ptu                                                                                                                                                                                               |
+|                        |                                                                                                                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Command-name           | permission-target-create / permission-target-update                                                                                                                                                           |
+| Abbreviation           | rt ptc / rt ptu                                                                                                                                                                                               |
 | **Command arguments:** |                                                                                                                                                                                                               |
-| template path     | Specifies the local file system path for the template file to be used for the permission target creation or update. The template should be created using the "jf rt ptt" command.                             |
-| Command-name      | permission-target-create / permission-target-update                                                                                                                                                           |
-| Abbreviation      | rt ptc / rt ptu                                                                                                                                                                                               |
+| template path          | Specifies the local file system path for the template file to be used for the permission target creation or update. The template should be created using the "jf rt ptt" command.                             |
+| Command-name           | permission-target-create / permission-target-update                                                                                                                                                           |
+| Abbreviation           | rt ptc / rt ptu                                                                                                                                                                                               |
 | **Command options:**   |                                                                                                                                                                                                               |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                                                                                          |
-| `--vars` | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                                                                                          |
+| `--vars`               | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." to be replaced in the template. In the template, the variables should be used as follows: ${key1}.</p> |
 
 ### Deleting Permission Targets
 
 This command permanently deletes a permission target.
 
 |                        |                                                                                      |
-|------------------------|--------------------------------------------------------------------------------------|
+| ---------------------- | ------------------------------------------------------------------------------------ |
 | Command name           | rt permission-target-delete                                                          |
 | Abbreviation           | rt ptdel                                                                             |
-| **Command options:**        |                                                                                      |
-| `--server-id` | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p> |
-| `--quiet` | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>        |
-| **Command arguments:**      |                                                                                      |
+| **Command options:**   |                                                                                      |
+| `--server-id`          | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p> |
+| `--quiet`              | <p>[Default: $CI]<br>Set to true to skip the delete confirmation message.</p>        |
+| **Command arguments:** |                                                                                      |
 | permission target name | The permission target that should be removed.                                        |
