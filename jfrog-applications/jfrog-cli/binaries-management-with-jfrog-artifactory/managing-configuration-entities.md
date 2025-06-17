@@ -176,7 +176,7 @@ Select the template type. Following are the possible options:
 * **update:** Template for updating an existing repository
 
 ```
-// Select the template type (press Tab for options):
+ Select the template type (press Tab for options):
 ```
 
 
@@ -184,7 +184,7 @@ Select the template type. Following are the possible options:
 For example
 
 ```
-// Select the template type (press Tab for options): create
+ Select the template type (press Tab for options): create
 ```
 
 \
@@ -195,13 +195,13 @@ For example
 Enter a unique identifier for the repository key. This is the key field in the final JSON.
 
 ```
-// Insert the repository key >
+ Insert the repository key >
 ```
 
 For example
 
 ```
-// Insert the repository key > npm-local
+ Insert the repository key > npm-local
 ```
 
 \
@@ -210,7 +210,7 @@ For example
 **Note:** If you want to reuse the template for creating multiple repositories, use a variable as follows:
 
 ```
-// Insert the repository key >  ${repo-key-var}
+ Insert the repository key >  ${repo-key-var}
 ```
 
 ## Repository Class
@@ -224,13 +224,13 @@ Select the repository class. Following are the possible options:
 * **federated:** A Federation is a collection of repositories of Federated type in different JPDs that are automatically configured for full bi-directional mirroring
 
 ```
-// Select the repository class (press Tab for options): 
+ Select the repository class (press Tab for options): 
 ```
 
 For example
 
 ```
-// Select the repository class (press Tab for options): local
+ Select the repository class (press Tab for options): local
 ```
 
 ## Repository Package Type
@@ -289,7 +289,7 @@ The sample json template is as follows:\
 
 
 ```json
-// {
+ {
   "description": "my npm local repository",
   "key": "my-npm-local", # example variable, ${repo-name}
   "packageType": "npm",
@@ -307,14 +307,14 @@ Reuse the template by adding variables to the keys and provide value explicitly 
 For example
 
 ```
-// jf rt repo-create repotemplate.json --vars "repo-name=my-npm-local"
+ jf rt repo-create repotemplate.json --vars "repo-name=my-npm-local"
 
 ```
 
 If you want to pass multiple vars, enter the list of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." (wrapped by quotes) to be replaced in the template. In the template, the variables should be used as follows: ${key1}.
 
 ```
-// jf rt repo-create repotemplate.json --vars "repo-name=my-npm-local;package-type=npm;repo-type=local"
+ jf rt repo-create repotemplate.json --vars "repo-name=my-npm-local;package-type=npm;repo-type=local"
 ```
 
 &#x20;&#x20;
