@@ -43,7 +43,7 @@ jf evd create --predicate file-path --predicate-type predicate-type-uri --subjec
 
 {% code overflow="wrap" %}
 ```
-jf evd create --predicate file-path --predicate-type predicate-type-uri --package-name <name> --package-version <version-number> --package-repo-key <repo-name> --key <local-private-key-path> --key-alias <public-key-name>
+jf evd create --predicate file-path --predicate-type predicate-type-uri --package-name <name> --package-version <version-number> --package-repo-name <repo-name> --key <local-private-key-path> --key-alias <public-key-name>
 ```
 {% endcode %}
 
@@ -153,7 +153,7 @@ jf evd create --predicate file-path --predicate-type predicate-type-uri --releas
    Mandatory field.
 2. `--package-version` version-number\
    Mandatory field.
-3. `--package-repo-key` repo-name\
+3. `--package-repo-name` repo-name\
    Mandatory field.
 
 ### Build command parameters
@@ -220,7 +220,7 @@ evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type
 
 {% code overflow="wrap" %}
 ```
-evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type https://in-toto.io/attestation/vulns --build-name Commons-Build --build-number 1.0.0 --key /Users/jsmith/Documents/keys/private.pem --key-alias xyzey
+evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type https://in-toto.io/attestation/vulns --package-name DockerPackage --package-version 1.0.0 --package-repo-name local-docker --key /Users/jsmith/Documents/keys/private.pem --key-alias xyzey
 ```
 {% endcode %}
 
