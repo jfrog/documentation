@@ -492,11 +492,21 @@ Abbreviation
 | `--module`             | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                                            |
 | **Command arguments:** | The command accepts the same arguments and options as the npm client.                                                                                                                                                                    |
 
+**Command options:**
+
+* \--run-native \[Optional] \[Default: false] Set to true to use the native npm client and the user's existing .npmrc configuration file. When this flag is active, JFrog CLI will not create its own temporary .npmrc file. All configurations, including authentication, must be handled by the user's .npmrc file.
+
+**Note**
+
+The "deployment view" and "details summary" features are not supported by the jf npm install and jf npm ci commands. This limitation applies regardless of whether the --run-native flag is used.
+
+####
+
 #### Examples
 
 **Example 1**
 
-The following example installs the dependencies and records them locally as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command. The dependencies are resolved from the Artifactory server and repository configured by **npm-config** command.
+The following example installs the dependencies and records them locally as part of build my-build-name/1. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command. The dependencies are resolved from the Artifactory server and repository configured by npm-config command.
 
 ```
 jf npm install --build-name=my-build-name --build-number=1
@@ -512,27 +522,50 @@ jf npm install
 
 **Example 3**
 
-The following example installs the dependencies using the npm-ci command. The dependencies are resolved from the Artifactory server and repository configured by **npm-config** command.
+The following example installs the dependencies using the npm-ci command. The dependencies are resolved from the Artifactory server and repository configured by npm-config command.
 
 ```
 jf npm ci
 ```
 
+**Example 4**
+
+The following example installs dependencies using the native npm client, based on the .npmrc configuration.
+
+```
+jf npm install --run-native
+
+
+
+
+Eg: jf npm install --run-native --build-name=my-native-build --build-number=1
+
+```
+
+
+
 ### Publishing the Npm Packages into Artifactory
 
-The **npm-publish** command packs and deploys the npm package to the designated npm repository.
+The npm-publish command packs and deploys the npm package to the designated npm repository.
 
-Before running the **npm-publish** command on a project for the first time, the project should be configured using the **jf npm-config** command. This configuration includes the Artifactory server and repository to which the package should deploy.
+Before running the npm-publish command on a project for the first time, the project should be configured using the jf npm-config command. This configuration includes the Artifactory server and repository to which the package should deploy.
 
-> **Warning**: If your npm package includes the prepublish or postpublish scripts, please refer to the guidelines above.
+When using the --run-native flag, the jf npm-config command and the resulting .jfrog directory configuration are bypassed. Instead, JFrog CLI uses the native npm client , which relies exclusively on the user's .npmrc file for all configurations. Therefore, you must ensure your .npmrc file is correctly configured for publishing to the desired Artifactory repository, including all necessary repository URLs and authentication details.
+
+> **Warning**:&#x20;
+>
+> If your npm package includes the prepublish or postpublish scripts and you are not using the --run-native flag, please refer to the guidelines above (rename to prepack and postpack).
+>
+> When using --run-native, standard npm script names are respected by the npm client.
 
 #### Commands Params
 
-The following table lists the command arguments and flags:
+The following table lists the command arguments and flags:\
+
 
 |                      |                                                                                                                                                                                                                                          |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Command-name         | npm publish                                                                                                                                                                                                                              |
+| Command-name         | `npm publish`                                                                                                                                                                                                                            |
 | Abbreviation         |                                                                                                                                                                                                                                          |
 | **Command options:** |                                                                                                                                                                                                                                          |
 | `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
@@ -543,14 +576,38 @@ The following table lists the command arguments and flags:
 | `--scan`             | <p>[Default: false]<br>Set if you'd like all files to be scanned by Xray on the local file system prior to the upload, and skip the upload if any of the files are found vulnerable.</p>                                                 |
 | `--format`           | <p>[Default: table]<br>Should be used with the --scan option. Defines the scan output format. Accepts table or JSON as values.</p>                                                                                                       |
 | Command argument     | The command accepts the same arguments and options that the **npm pack** command expects.                                                                                                                                                |
+| `--run-native`       | \[Optional] \[Default: false] Set to true to use the native npm client for publishing. This allows leveraging all features and configurations specified in the user's .npmrc file.                                                       |
 
-#### Example
+**Note:**&#x20;
 
-To pack and publish the npm package and also record it locally as part of build **my-build-name/1**, run the following command. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command. The package is published to the Artifactory server and repository configured by **npm-config** command.
+* Require a valid .npmrc file with appropriate configurations and authentication tokens.
+* Performance: Using this flag may result in performance degradation compared to the default JFrog CLI publish mechanism (which uses multi-threading).
+* Unsupported Features with this flag: "Deployment view" and "details summary" are not supported when this flag is used.
+
+Command argument
+
+The command accepts the same arguments and options that the npm pack command expects (when not using --run-native) or npm publish command expects (when using --run-native).
+
+\
+
+
+#### Example 1
+
+To pack and publish the npm package and also record it locally as part of build my-build-name/1, run the following command. The build-info can later be published to Artifactory using the build-publish command. The package is published to the Artifactory server and repository configured by npm-config command.
 
 ```
 jf npm publish --build-name=my-build-name --build-number=1
 ```
+
+#### Example 2
+
+Publishing an npm package using the native npm client and user's .npmrc.
+
+```
+jf npm publish --run-native
+```
+
+(Ensure your package.json and .npmrc are configured for publishing)
 
 ## Building Npm Packages Using the Yarn Client
 
