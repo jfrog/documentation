@@ -420,40 +420,62 @@ JFrog CLI provides full support for building npm packages using the npm client. 
 
 Follow these guidelines when building npm packages:
 
-* You can download npm packages from any npm repository type - local, remote or virtual, but you can only publish to a local or virtual Artifactory repository, containing local repositories. To publish to a virtual repository, you first need to set a default local repository. For more details, please refer to [Deploying to a Virtual Repository](https://jfrog.com/help/r/jfrog-artifactory-documentation/virtual-repositories).
-* When the **npm-publish** command runs, JFrog CLI runs the **pack** command in the background. The pack action is followed by an upload, which is not based on the npm client's publish command. Therefore, If your npm package includes the **prepublish** or **postpublish** scripts, rename them to **prepack** and **postpack** respectively.
+* You can download npm packages from any npm repository type - local, remote or virtual, but you can only publish to a local or virtual Artifactory repository, containing local repositories. To publish to a virtual repository, you first need to set a default local repository. For more details, please refer to [Deploying to a Virtual Repository.](https://jfrog.com/help/r/jfrog-artifactory-documentation/deploy-to-a-virtual-repository)
 
-**Requirements**
+When building npm packages, it is important to understand how the jf npm publish command handles publishing scripts. The behavior differs based on whether the --run-native flag is used:
 
-Npm client version 5.4.0 and above.
+* **Default Behavior (Without the --run-native flag):** JFrog CLI runs the pack command in the background, which is followed by an upload action not based on the npm client's native publish command. Therefore, if your npm package includes prepublish or postpublish scripts, you must rename them to prepack and postpack respectively to ensure they are executed.
+* **Behavior with the --run-native flag:** When this flag is used, the command utilizes the native npm client's own publish lifecycle. In this mode, standard npm script names such as prepublish, publish, and postpublish are handled directly by npm itself, and no renaming is necessary.
 
-Artifactory version 5.5.2 and above.
 
-### Setting npm repositories
 
-Before using the **jf npm install**, **jf npm ci** and **jf npm publish** commands, the project needs to be pre-configured with the Artifactory server and repositories, to be used for building and publishing the project. The **jf npm-config** command should be used once to add the configuration to the project. The command should run while inside the root directory of the project. The configuration is stored by the command in the **.jfrog** directory at the root directory of the project.
+**Prerequisites**
 
-|                        |                                                                                                                                                                            |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Command-name           | npm-config                                                                                                                                                                 |
-| Abbreviation           | npmc                                                                                                                                                                       |
-| **Command options:**   |                                                                                                                                                                            |
-| `--global`             | <p>[Optional]<br>Set to true, if you'd like the configuration to be global (for all projects on the machine). Specific projects can override the global configuration.</p> |
-| `--server-id-resolve`  | <p>[Optional]<br>Artifactory server ID for resolution. The server should configured using the 'jf c add' command.</p>                                                      |
-| `--server-id-deploy`   | <p>[Optional]<br>Artifactory server ID for deployment. The server should be configured using the 'jf c add' command.</p>                                                   |
-| `--repo-resolve`       | <p>[Optional]<br>Repository for dependencies resolution.</p>                                                                                                               |
-| `--repo-deploy`        | <p>[Optional]<br>Repository for artifacts deployment.</p>                                                                                                                  |
-| **Command arguments:** | The command accepts no arguments                                                                                                                                           |
+* Npm client version 5.4.0 and above.
+* Artifactory version 5.5.2 and above.
+
+## Setting npm repositories
+
+Before using the jf npm install, jf npm ci, and jf npm publish commands, the project needs to be pre-configured with the Artifactory server and repositories for building and publishing. The configuration method depends on your workflow:
+
+* **Standard JFrog CLI Configuration:** The jf npm-config command should be used once to add the configuration to the project. This command should be run from the project's root directory and stores the configuration in the .jfrog directory.
+* **Native Client Configuration (--run-native):** When the --run-native flag is used, JFrog CLI bypasses the configuration in the .jfrog directory. Instead, it uses the user's own .npmrc file for all configurations, including authentication tokens and other settings.
+
+
+
+| **Command-name**                                            | **Abbreviation** | **Description**                                                                              |
+| ----------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------- |
+| <p><code>npm-config</code><br><br>Short form</p><p>npmc</p> | \`npmc\`         | Configures Artifactory server and repository details for npm builds within a project.        |
+| `--server-id-resolve`                                       | <p><br></p>      | \[Optional] Artifactory server ID for dependency resolution (configured using \`jf c add\`). |
+| `--server-id-deploy`                                        | <p><br></p>      | \[Optional] Artifactory server ID for artifact deployment (configured using \`jf c add\`).   |
+| `--repo-resolve`                                            | <p><br></p>      | \[Optional] Repository for resolving dependencies.                                           |
+| `--repo-deploy`                                             | <p><br></p>      | \[Optional] Repository for deploying artifacts.                                              |
+| **Command arguments**                                       | <p><br></p>      | Accepts no arguments.                                                                        |
+
+\
+
+
+\
+
 
 ### Installing Npm Packages
 
-The **jf npm install** and **jf npm ci** commands execute npm's **install** and **ci** commands respectively, to fetches the npm dependencies from the npm repositories.
+The jf npm install and jf npm ci commands execute npm's install and ci commands respectively, to fetch the npm dependencies from the npm repositories.
 
-Before running the **jf npm install** or **jf npm ci** command on a project for the first time, the project should be configured using the **jf npm-config** command.
-
-#### Commands Params
+Commands Params
 
 The following table lists the command arguments and flags:
+
+Command-name
+
+npm (covers install and ci subcommands typically, for example jf npm install, jf npm ci)
+
+Abbreviation
+
+(No specific abbreviation listed for jf npm, but for the underlying commands like npm i)
+
+\
+
 
 |                        |                                                                                                                                                                                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
