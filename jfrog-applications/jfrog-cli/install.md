@@ -131,6 +131,8 @@ curl -fL https://getcli.jfrog.io/v2-jf | sh
 
 #### NPM
 
+**Note:** If you are using any shim-based version managers (like Volta, nvm, etc.) for a package, it is advised to avoid using `npm`-based installation; instead, please use other installation options JFrog provides.
+
 ```
 npm install -g jfrog-cli-v2-jf
 ```
@@ -183,6 +185,8 @@ curl -fL https://getcli.jfrog.io/v2 | sh
 
 #### NPM
 
+**Note:** If you are using any shim-based version managers (like Volta, nvm, etc.) for a package, it is advised to avoid using `npm`-based installation; instead, please use other installation options JFrog provides.
+
 ```
 npm install -g jfrog-cli-v2
 ```
@@ -222,6 +226,8 @@ curl -fL https://getcli.jfrog.io | sh
 ```
 
 #### NPM
+
+**Note:** If you are using any shim-based version managers (like Volta, nvm, etc.) for a package, it is advised to avoid using `npm`-based installation; instead, please use other installation options JFrog provides.
 
 ```
 npm install -g jfrog-cli-go
