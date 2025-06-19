@@ -8,7 +8,7 @@
   * [Download and Install](jfrog-applications/jfrog-cli/install.md)
   * [Authentication](jfrog-applications/jfrog-cli/authentication.md)
   * [Shell Auto Completion](jfrog-applications/jfrog-cli/shell-auto-completion.md)
-  * [Usage](jfrog-applications/jfrog-cli/usage.md)
+  * [JFrog CLI Environment Variables](jfrog-applications/jfrog-cli/usage.md)
   * [Configurations](jfrog-applications/jfrog-cli/configurations/README.md)
     * [JFrog Platform Configuration](jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration.md)
     * [Proxy Support](jfrog-applications/jfrog-cli/configurations/proxy-support.md)
