@@ -41,6 +41,7 @@
       * [Count Contributing Developers](jfrog-applications/jfrog-cli/cli-for-jfrog-security/how-tos/count-contributing-developers.md)
   * [CLI for JFrog Distribution](jfrog-applications/jfrog-cli/cli-for-jfrog-distribution.md)
   * [CLI for JFrog Cloud Transfer](jfrog-applications/jfrog-cli/cli-for-jfrog-cloud-transfer.md)
+  * [Model Context Protocol (MCP)](jfrog-applications/jfrog-cli/model-context-protocol.md)
   * [CLI Command Summaries](jfrog-applications/jfrog-cli/cli-command-summaries.md)
   * [JFrog CLI Plugins](jfrog-applications/jfrog-cli/cli-plugins/README.md)
     * [JFrog CLI Plugins Developer Guide](jfrog-applications/jfrog-cli/cli-plugins/developer-guide.md)
