@@ -2,7 +2,7 @@
 
 This page is about the integration of JFrog Platform Services with JFrog CLI.
 
-Read more about JFrog CLI [here](https://jfrog-external.fluidtopics.net/r/help/JFrog-CLI/JFrog-CLI).
+Read more about JFrog CLI [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli).
 
 **Managing JFrog Workers**
 
