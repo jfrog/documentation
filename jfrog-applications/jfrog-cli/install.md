@@ -12,17 +12,18 @@ New enhancements to JFrog CLI are planned to be introduced as part of V2 only. V
 
 ### List of changes in JFrog CLI v2
 
-1.  The default value of the _**--flat**_ option is now set to false for the _**jfrog rt upload**_ command.
-2.  The deprecated syntax of the _**jfrog rt mvn**_ command is no longer supported. To use the new syntax, the project needs to be first configured using the **jfrog rt mvnc** command.
-3.  The deprecated syntax of the _**jfrog rt gradle**_ command is no longer supported. To use the new syntax, the project needs to be first configured using the _**jfrog rt gradlec**_ command.
-4.  The deprecated syntax of the **jfrog rt npm** and _**jfrog rt npm-ci**_ commands is no longer supported. To use the new syntax, the project needs to be first configured using the _**jfrog rt npmc**_ command.
-5.  The deprecated syntax of the _**jfrog rt go**_ command is no longer supported. To use the new syntax, the project needs to be first configured using the _**jfrog rt go-config**_ command.
-6.  The deprecated syntax of the _**jfrog rt nuget**_ command is no longer supported. To use the new syntax, the project needs to be first configured using the _**jfrog rt nugetc**_ command.
-7.  All Bintray commands are removed.
-8.  The _**jfrog rt config**_ command is removed and replaced by the _**jfrog config add**_ command.
-9.  The _**jfrog rt use**_ command is removed and replaced with the _**jfrog config use**_.
+1. The default value of the _**--flat**_ option is now set to false for the _**jfrog rt upload**_ command.
+2. The deprecated syntax of the _**jfrog rt mvn**_ command is no longer supported. To use the new syntax, the project needs to be first configured using the **jfrog rt mvnc** command.
+3. The deprecated syntax of the _**jfrog rt gradle**_ command is no longer supported. To use the new syntax, the project needs to be first configured using the _**jfrog rt gradlec**_ command.
+4. The deprecated syntax of the **jfrog rt npm** and _**jfrog rt npm-ci**_ commands is no longer supported. To use the new syntax, the project needs to be first configured using the _**jfrog rt npmc**_ command.
+5. The deprecated syntax of the _**jfrog rt go**_ command is no longer supported. To use the new syntax, the project needs to be first configured using the _**jfrog rt go-config**_ command.
+6. The deprecated syntax of the _**jfrog rt nuget**_ command is no longer supported. To use the new syntax, the project needs to be first configured using the _**jfrog rt nugetc**_ command.
+7. All Bintray commands are removed.
+8. The _**jfrog rt config**_ command is removed and replaced by the _**jfrog config add**_ command.
+9. The _**jfrog rt use**_ command is removed and replaced with the _**jfrog config use**_.
 10. The _**--props**_ command option and _**props**_ file spec property for the _**jfrog rt upload**_ command are removed, and replaced with the _**--target-props**_ command option and _**targetProps**_ file spec property respectively.
-11. The following commands are removed 
+11. The following commands are removed
+
     ```
     jfrog rt release-bundle-create
     jfrog rt release-bundle-delete
@@ -30,7 +31,9 @@ New enhancements to JFrog CLI are planned to be introduced as part of V2 only. V
     jfrog rt release-bundle-sign
     jfrog rt release-bundle-update
     ```
-    and replaced with the following commands respectively 
+
+    and replaced with the following commands respectively
+
     ```
     jfrog ds release-bundle-create
     jfrog ds release-bundle-delete
@@ -43,9 +46,9 @@ New enhancements to JFrog CLI are planned to be introduced as part of V2 only. V
 14. The _**--deps**_, _**--publish-deps**_, _**--no-registry**_ and _**--self**_ options of the _**jfrog rt go-publish**_ command are now removed.
 15. The _**--apiKey**_ option is now removed. The API key should now be passed as the value of the _**--password**_ option.
 16. The _**--exclude-patterns**_ option is now removed, and replaced with the _**--exclusions**_ option. The same is true for the _**excludePatterns**_ file spec property, which is replaced with the _**exclusions**_ property.
-17. The _**JFROG_CLI_JCENTER\_REMOTE\_SERVER**_ and _**JFROG_CLI_JCENTER\_REMOTE\_REPO**_ environment variables are now removed and replaced with the _**JFROG_CLI_EXTRACTORS_REMOTE**_ environment variable.
-18. The _**JFROG_CLI_HOME**_ environment variable is now removed and replaced with the _**JFROG_CLI_HOME_DIR**_ environment variable.
-19. The _**JFROG_CLI_OFFER_CONFIG**_ environment variable is now removed and replaced with the _**CI**_ environment variable. Setting CI to true disables all prompts.
+17. The _**JFROG\_CLI\_JCENTER\_REMOTE\_SERVER**_ and _**JFROG\_CLI\_JCENTER\_REMOTE\_REPO**_ environment variables are now removed and replaced with the _**JFROG\_CLI\_EXTRACTORS\_REMOTE**_ environment variable.
+18. The _**JFROG\_CLI\_HOME**_ environment variable is now removed and replaced with the _**JFROG\_CLI\_HOME\_DIR**_ environment variable.
+19. The _**JFROG\_CLI\_OFFER\_CONFIG**_ environment variable is now removed and replaced with the _**CI**_ environment variable. Setting CI to true disables all prompts.
 20. The directory structure is now changed when the _**jfrog rt download**_ command is used with placeholders and -_**-flat=false**_ (--flat=false is now the default). When placeholders are used, the value of the _**--flat**_ option is ignored.
 21. When the **jfrog rt upload** command now uploads symlinks to Artifactory, the target file referenced by the symlink is uploaded to Artifactory with the symlink name. If the **--symlink** options is used, the symlink itself (not the referenced file) is uploaded, with the referenced file as a property attached to the file.
 
@@ -68,11 +71,10 @@ The following installers are available for JFrog CLI v2. These installers make J
 sudo mkdir -p /usr/share/keyrings;
 
 # Download and save the JFrog GPG key to a keyring file
-wget -qO - https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-debs/keyPairs/primary/public | sudo gpg --dearmor -o /usr/share/keyrings/jfrog.gpg
+curl -fsSL https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-debs/keyPairs/primary/public | sudo gpg --dearmor -o /usr/share/keyrings/jfrog.gpg
 
 # Add the JFrog repository to your APT sources with the signed-by option
 echo "deb [signed-by=/usr/share/keyrings/jfrog.gpg] https://releases.jfrog.io/artifactory/jfrog-debs focal contrib" | sudo tee /etc/apt/sources.list.d/jfrog.list
-
 
 # Update the package list
 sudo apt update;
@@ -129,6 +131,8 @@ curl -fL https://getcli.jfrog.io/v2-jf | sh
 
 #### NPM
 
+**Note:** If you are using any shim-based version managers (like Volta, nvm, etc.) for a package, it is advised to avoid using `npm`-based installation; instead, please use other installation options JFrog provides.
+
 ```
 npm install -g jfrog-cli-v2-jf
 ```
@@ -181,6 +185,8 @@ curl -fL https://getcli.jfrog.io/v2 | sh
 
 #### NPM
 
+**Note:** If you are using any shim-based version managers (like Volta, nvm, etc.) for a package, it is advised to avoid using `npm`-based installation; instead, please use other installation options JFrog provides.
+
 ```
 npm install -g jfrog-cli-v2
 ```
@@ -220,6 +226,8 @@ curl -fL https://getcli.jfrog.io | sh
 ```
 
 #### NPM
+
+**Note:** If you are using any shim-based version managers (like Volta, nvm, etc.) for a package, it is advised to avoid using `npm`-based installation; instead, please use other installation options JFrog provides.
 
 ```
 npm install -g jfrog-cli-go

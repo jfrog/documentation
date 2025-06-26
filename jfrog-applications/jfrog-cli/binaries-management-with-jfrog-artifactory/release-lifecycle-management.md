@@ -2,7 +2,17 @@
 
 ## Overview
 
-This page describes how to use JFrog CLI with [Release Lifecycle Management](https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-release-lifecycle-management-solution).
+This page describes how to use JFrog CLI with [Release Lifecycle Management](https://jfrog.com/help/r/jfrog-artifactory-documentation/jfrog-release-lifecycle-management-solution). It includes the following sections:
+
+* [#create-a-release-bundle-v2](release-lifecycle-management.md#create-a-release-bundle-v2 "mention")
+* [#promote-a-release-bundle-v2](release-lifecycle-management.md#promote-a-release-bundle-v2 "mention")
+* [#annotate-a-release-bundle-v2](release-lifecycle-management.md#annotate-a-release-bundle-v2 "mention")
+* [#distribute-a-release-bundle-v2](release-lifecycle-management.md#distribute-a-release-bundle-v2 "mention")
+* [#delete-a-release-bundle-v2-locally](release-lifecycle-management.md#delete-a-release-bundle-v2-locally "mention")
+* [#delete-a-release-bundle-v2-remotely](release-lifecycle-management.md#delete-a-release-bundle-v2-remotely "mention")
+* [#export-a-release-bundle-v2-archive](release-lifecycle-management.md#export-a-release-bundle-v2-archive "mention")
+* [#import-a-release-bundle-v2-archive](release-lifecycle-management.md#import-a-release-bundle-v2-archive "mention")
+* [#download-release-bundle-v2-content](release-lifecycle-management.md#download-release-bundle-v2-content "mention")
 
 ***
 
@@ -95,22 +105,22 @@ The **create** command allows creating a Release Bundle v2 using [file specs](ht
 
 ### Command Params
 
-|                        |                                                                                                                                                                                                                                                        |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Command-name           | release-bundle-create                                                                                                                                                                                                                                  |
-| Abbreviation           | rbc                                                                                                                                                                                                                                                    |
-| **Command arguments:** |                                                                                                                                                                                                                                                        |
-| release bundle name    | Name of the newly created Release Bundle.                                                                                                                                                                                                              |
-| release bundle version | Version of the newly created Release Bundle.                                                                                                                                                                                                           |
-| **Command options:**   |                                                                                                                                                                                                                                                        |
-| `--project`            | <p>[Optional]<br>Project key associated with the created Release Bundle version.</p>                                                                                                                                                                   |
-| `--server-id`          | <p>[Optional]<br>Platform Server ID configured using the 'jf config' command.</p>                                                                                                                                                                      |
-| `--signing-key`        | <p>[Optional]<br>The GPG/RSA key-pair name defined in Artifactory. The <code>signing-key</code> can also be configured as an environment variable. If no key is specified, Artifactory uses a default key.</p>                                         |
-| `--spec`               | <p>[Optional]<br>Path to a File Spec. If you do not define the spec, you must include the <code>build-name</code> and <code>build-number</code> as environment variables,  flags, or a combination of both (flags override environment variables).</p> |
-| `--spec-vars`          | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." (wrapped by quotes) to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                    |
-| `--build-name`         | <p>[Optional]<br>The name of the build from which to create the Release Bundle.</p>                                                                                                                                                                    |
-| `--build-number`       | <p>[Optional]<br>The number of the build from which to create the Release Bundle.</p>                                                                                                                                                                  |
-| `--sync`               | <p>[Default: true]<br>Set to false to run asynchronously.</p>                                                                                                                                                                                          |
+|                        |                                                                                                                                                                                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Command-name           | release-bundle-create                                                                                                                                                                                                                                 |
+| Abbreviation           | rbc                                                                                                                                                                                                                                                   |
+| **Command arguments:** |                                                                                                                                                                                                                                                       |
+| release bundle name    | Name of the newly created Release Bundle.                                                                                                                                                                                                             |
+| release bundle version | Version of the newly created Release Bundle.                                                                                                                                                                                                          |
+| **Command options:**   |                                                                                                                                                                                                                                                       |
+| `--project`            | <p>[Optional]<br>Project key associated with the created Release Bundle version.</p>                                                                                                                                                                  |
+| `--server-id`          | <p>[Optional]<br>Platform Server ID configured using the 'jf config' command.</p>                                                                                                                                                                     |
+| `--signing-key`        | <p>[Optional]<br>The GPG/RSA key-pair name defined in Artifactory. The <code>signing-key</code> can also be configured as an environment variable. If no key is specified, Artifactory uses a default key.</p>                                        |
+| `--spec`               | <p>[Optional]<br>Path to a File Spec. If you do not define the spec, you must include the <code>build-name</code> and <code>build-number</code> as environment variables, flags, or a combination of both (flags override environment variables).</p> |
+| `--spec-vars`          | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." (wrapped by quotes) to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                   |
+| `--build-name`         | <p>[Optional]<br>The name of the build from which to create the Release Bundle.</p>                                                                                                                                                                   |
+| `--build-number`       | <p>[Optional]<br>The number of the build from which to create the Release Bundle.</p>                                                                                                                                                                 |
+| `--sync`               | <p>[Default: true]<br>Set to false to run asynchronously.</p>                                                                                                                                                                                         |
 
 ### Examples
 
@@ -142,10 +152,10 @@ jf rbc --build-name=Common-builds --build-number=1.0.0 myApp 1.0.0
 
 This command allows promoting a Release Bundle to a target environment.
 
-### Commands Params
+### Command Params
 
 |                        |                                                                                                                                                                                                                                                                                                                      |
-|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name           | release-bundle-promote                                                                                                                                                                                                                                                                                               |
 | Abbreviation           | rbp                                                                                                                                                                                                                                                                                                                  |
 | **Command arguments:** |                                                                                                                                                                                                                                                                                                                      |
@@ -159,8 +169,8 @@ This command allows promoting a Release Bundle to a target environment.
 | `--server-id`          | <p>[Optional]<br>Platform Server ID configured using the 'jf config' command.</p>                                                                                                                                                                                                                                    |
 | `--signing-key`        | <p>[Mandatory]<br>The GPG/RSA key-pair name given in Artifactory.</p>                                                                                                                                                                                                                                                |
 | `--sync`               | <p>[Default: true]<br>Set to false to run asynchronously.</p>                                                                                                                                                                                                                                                        |
-| `--promotion-type`    | <p>[Default: copy]<br>Specifies the promotion type. (Valid values: move / copy) .</p>                                                                                                                                                                                                                                |
- 
+| `--promotion-type`     | <p>[Default: copy]<br>Specifies the promotion type. (Valid values: move / copy) .</p>                                                                                                                                                                                                                                |
+
 ### Examples
 
 #### Example 1
@@ -202,6 +212,72 @@ Promote a Release Bundle, using promotion type flag.
 ```
 jf rbp --signing-key=myKeyPair --promotion-type="move" myApp 1.0.0 PROD
 ```
+
+## Annotate a Release Bundle v2
+
+This command enables you to add a single tag to a Release Bundle v2 version and/or define one or more properties. The tag will appear in the Release Lifecycle [kanban board](https://jfrog.com/help/r/jfrog-artifactory-documentation/use-the-release-bundle-v2-promotions-kanban-board). For example, if you tag all your release candidates as `release-candidate`, you can filter the kanban board to display only those Release Bundle versions. Properties are user-customizable fields that can contain any string and have any value.
+
+### Command Params
+
+<table><thead><tr><th width="374"></th><th></th></tr></thead><tbody><tr><td>Command-name</td><td>release-bundle-annotate</td></tr><tr><td>Abbreviation</td><td>rba</td></tr><tr><td><strong>Command arguments:</strong></td><td></td></tr><tr><td>release bundle name</td><td>Name of the Release Bundle to annotate.</td></tr><tr><td>release bundle version</td><td>Version of the Release Bundle to annotate.</td></tr><tr><td><strong>Command options:</strong></td><td></td></tr><tr><td><code>--tag</code></td><td>[Optional]<br>The tag is a single free-text value limited to 128 characters, beginning and ending with an alphanumeric character ([a-z0-9A-Z]), with dashes (-), underscores (_), dots (.), and alphanumerics between. </td></tr><tr><td><code>--properties</code></td><td>[Optional]<br>Key-value pairs separated by a semicolon (;). Keys are limited to 255 characters. Values are limited to 2400 characters.</td></tr><tr><td><code>--del-prop</code></td><td>[Optional]<br>Removes a key and all its associated values. See <a href="release-lifecycle-management.md#remove-tags-and-properties">Remove Tags and Properties</a> below.</td></tr></tbody></table>
+
+#### Example 1
+
+Add or modify a tag or property.
+
+```
+jf rba mybundle 1.0.0 --tag=release --properties "environment=production;buildNumber=1234"
+```
+
+#### Example 2
+
+Whenever you use the `--tag` command option, the value you define replaces the current value.
+
+```
+jf rba mybundle 1.0.0 --tag=rejected
+```
+
+In the example above, the tag that was defined previously (`release`) is replaced with the new tag `rejected`.
+
+#### Example 3
+
+Whenever you use the `--properties` command option with an existing key, the values that you define replace the current values.&#x20;
+
+```
+jf rba mybundle 1.0.0 --properties "environment=DEV,PROD,QA"
+```
+
+In the example above, the value for `environment` that was defined previously (`production`) is replaced by the values `DEV`, `PROD`, and `QA`.
+
+### Remove Tags and Properties
+
+#### Example 1
+
+To remove the tag, set it to `null` or leave empty.
+
+```
+jf rba mybundle 1.0.0 --tag=""
+```
+
+#### Example 2
+
+To remove the values from an existing key _without_ removing the key, leave the value empty.
+
+```
+jf rba mybundle 1.0.0 --properties "build=''"
+```
+
+In the example above, all values defined for the `build` key are removed but the key is retained.
+
+#### Example 3
+
+To remove a key _and_ its associated values, use the `--del-prop` command option.&#x20;
+
+```
+jf rba mybundle 1.0.0 --del-prop "environment"
+```
+
+In the example above, the `environment` key and all its associated values are removed.
 
 ## Distribute a Release Bundle v2
 
@@ -378,21 +454,21 @@ Release Lifecycle Management supports distributing your Release Bundles to remot
 
 The following command allows exporting a Release Bundle as an archive to the filesystem that can be transferred to a different instance in an air-gapped environment.
 
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Command-name           | release-bundle-export                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Abbreviation           | rbe                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **Command arguments:** |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| release bundle name    | Name of the Release Bundle to export.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| release bundle version | Version of the Release Bundle to export.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| target pattern         | <p>The argument is optional and specifies the local file system target path.</p><p></p><p>If the target path ends with a slash, the path is assumed to be a directory. For example, if you specify the target as "repo-name/a/b/", then "b" is assumed to be a directory into which files should be downloaded.</p><p></p><p>If there is no terminal slash, the target path is assumed to be a file to which the downloaded file should be renamed. For example, if you specify the target as "a/b", the downloaded file is renamed to "b".</p> |
-| **Command options:**   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `--project`            | <p>[Optional]<br>Project key associated with the Release Bundle version.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `--server-id`          | <p>[Optional]<br>Platform Server ID configured using the 'jf config' command.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| mapping-pattern        | <p>[Optional]<br>Specify a list of input regex mapping pairs that define where the queried artifact is located and where it should be placed after it is imported. Use this option if the path on the target is different than the source path.</p>                                                                                                                                                                                                                                                                                             |
-| mapping-target         | <p>[Optional]<br>Specify a list of output regex mapping pairs that define where the queried artifact is located and where it should be placed after it is imported. Use this option if the path on the target is different than the source path.</p>                                                                                                                                                                                                                                                                                            |
-| split-count            | <p>[Optional]<br>The maximum number of parts that can be concurrently uploaded per file during a multi-part upload. Set to 0 to disable multi-part upload.</p>                                                                                                                                                                                                                                                                                                                                                                                  |
-| min-split              | <p>[Optional]<br>Minimum file size in KB to split into ranges when downloading. Set to -1 for no splits</p>                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Command-name           | release-bundle-export                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Abbreviation           | rbe                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| **Command arguments:** |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| release bundle name    | Name of the Release Bundle to export.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| release bundle version | Version of the Release Bundle to export.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| target pattern         | <p>The argument is optional and specifies the local file system target path.</p><p>If the target path ends with a slash, the path is assumed to be a directory. For example, if you specify the target as "repo-name/a/b/", then "b" is assumed to be a directory into which files should be downloaded.</p><p>If there is no terminal slash, the target path is assumed to be a file to which the downloaded file should be renamed. For example, if you specify the target as "a/b", the downloaded file is renamed to "b".</p> |
+| **Command options:**   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `--project`            | <p>[Optional]<br>Project key associated with the Release Bundle version.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `--server-id`          | <p>[Optional]<br>Platform Server ID configured using the 'jf config' command.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| mapping-pattern        | <p>[Optional]<br>Specify a list of input regex mapping pairs that define where the queried artifact is located and where it should be placed after it is imported. Use this option if the path on the target is different than the source path.</p>                                                                                                                                                                                                                                                                               |
+| mapping-target         | <p>[Optional]<br>Specify a list of output regex mapping pairs that define where the queried artifact is located and where it should be placed after it is imported. Use this option if the path on the target is different than the source path.</p>                                                                                                                                                                                                                                                                              |
+| split-count            | <p>[Optional]<br>The maximum number of parts that can be concurrently uploaded per file during a multi-part upload. Set to 0 to disable multi-part upload.</p>                                                                                                                                                                                                                                                                                                                                                                    |
+| min-split              | <p>[Optional]<br>Minimum file size in KB to split into ranges when downloading. Set to -1 for no splits</p>                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 #### Example
 
@@ -434,8 +510,6 @@ Import version 1.0.0 of a Release Bundle named "myExportedApp":
 jf rbi ./myExportedApp.zip
 ```
 
-
-
 ## Download Release Bundle v2 content
 
 Use the following command to download the contents of a Release Bundle v2 version:
@@ -444,4 +518,4 @@ Use the following command to download the contents of a Release Bundle v2 versio
 jf rt dl --bundle [release-bundle-name]/[release-bundle-version]
 ```
 
-For more information, see [Downloading Files](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/generic-files#downloading-files).&#x20;
+For more information, see [Downloading Files](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/generic-files#downloading-files).

@@ -20,11 +20,26 @@ With the Bamboo JFrog Plugin, you can easily deploy artifacts, resolve dependenc
 
 ### Installation and Configuration
 
-1. Download the latest release of the plugin from the [Bamboo Marketplace](https://marketplace.atlassian.com/).
+1. Download the plugin from the [Bamboo Marketplace](https://marketplace.atlassian.com/).&#x20;
 2. Install the plugin on your Bamboo server.
 3. In the _Bamboo Administration_ section, go to _Manage Apps_ and select _JFrog Configuration_.
 4. Click on _New JFrog Platform Configuration_.
 5. Configure your credentials details and run a _Test Connection_, then click _Save_.
+
+***
+
+#### Important Upgrade Instructions
+
+**For Bamboo 10.0.0 and Above**
+
+* **Upgrade to Version 1.0.6 or Higher**: If you are using Bamboo version **10.0.0** or later, please upgrade your JFrog Bamboo Plugin to version **1.0.6** or above.
+*   **Post-Upgrade Configuration**: After upgrading to version **1.0.6**, any additions or modifications to your configurations will require a **restart of Bamboo** to take effect.
+
+    **We will resolve this issue in future releases**.
+
+**For Bamboo 9.x.x and Below**
+
+* **Do Not Upgrade to Version 1.0.6**: If your Bamboo version is **9.x.x** or lower, please do not upgrade to version **1.0.6**, as it is not compatible with these versions.
 
 ### JFrog CLI Settings
 

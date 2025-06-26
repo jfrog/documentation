@@ -26,6 +26,38 @@ Before using the **jf mvn** command, the project needs to be pre-configured with
 | `--snapshots-update-policy` | <p>[Optional]<br>Set snapshot update policy. Defaults to daily.</p>                                                                                                                                                                                               |
 | **Command arguments:**      | The command accepts no arguments                                                                                                                                                                                                                                  |
 
+#### Examples
+
+Before using `jf mvn-config`, you must first configure your Artifactory server with JFrog CLI using the `jf c add` command. For instance:
+
+```bash
+jf c add my-artifactory-server --url=[https://your-artifactory-url.jfrog.io](https://your-artifactory-url.jfrog.io) --user=your-user --password=your-password
+```
+
+Replace `my-artifactory-server` with your desired server ID, and `https://your-artifactory-url.jfrog.io`, `your-user`, and `your-password` with your actual Artifactory instance details.
+
+Once your Artifactory server is configured, you can set your Maven repositories within your project's root directory:
+
+**Example 1: Setting resolution and deployment repositories for the current project**
+
+This is the most common use case, where you define the repositories directly for the project you are currently working in.
+
+```bash
+jf mvn-config \
+    --server-id-resolve=my-artifactory-server \
+    --repo-resolve-releases=maven-virtual-releases \
+    --repo-resolve-snapshots=maven-virtual-snapshots \
+    --server-id-deploy=my-artifactory-server \
+    --repo-deploy-releases=maven-releases-local \
+    --repo-deploy-snapshots=maven-snapshots-local
+```
+
+* `my-artifactory-server`: This should be the server ID you configured using `jf c add`.
+* `maven-virtual-releases`: Replace with the actual name of your Artifactory repository (e.g., `libs-release`, a virtual repository aggregating release repos) for resolving release dependencies.
+* `maven-virtual-snapshots`: Replace with the actual name of your Artifactory repository (e.g., `libs-snapshot`, a virtual repository aggregating snapshot repos) for resolving snapshot dependencies.
+* `maven-releases-local`: Replace with the actual name of your _local_ Artifactory repository for deploying release artifacts.
+* `maven-snapshots-local`: Replace with the actual name of your _local_ Artifactory repository for deploying snapshot artifacts.
+
 ### Running maven
 
 The **mvn** command triggers the maven client, while resolving dependencies and deploying artifacts from and to Artifactory.
@@ -332,6 +364,10 @@ The **build-docker-create** command allows adding a docker image, which is alrea
 | Command argument     |                                                                                                                                                                                                                                          |
 | Target repository    | The name of the repository to which the image was pushed.                                                                                                                                                                                |
 
+> **Note:**\
+> If your Docker image has **multiple tags** pointing to the same digest, you can provide them in a **comma-separated format** in the `--image-file`.\
+> All listed tags will be processed and added to the build-info individually.
+
 #### Example
 
 In this example, a Docker image that has already been deployed to Artifactory is incorporated into a locally created, unpublished build-info identified by the build name `myBuild` and build number '1'. This local build-info can subsequently be published to Artifactory using the command 'jf rt bp myBuild 1'.
@@ -376,46 +412,70 @@ Promote the **hello-world** docker image from the **docker-dev-local** repositor
 jf rt docker-promote hello-world docker-dev-local docker-staging-local
 ```
 
+**Note:** The `jf rt docker-promote` command currently requires the source and target repositories to be different. It does not support promoting a Docker image to the same repository while assigning it a different target image name. If you need to perform this type of promotion, consider using the Artifactory REST API directly.
+
 ## Building Npm Packages Using the Npm Client
 
 JFrog CLI provides full support for building npm packages using the npm client. This allows you to resolve npm dependencies, and publish your npm packages from and to Artifactory, while collecting build-info and storing it in Artifactory.
 
 Follow these guidelines when building npm packages:
 
-* You can download npm packages from any npm repository type - local, remote or virtual, but you can only publish to a local or virtual Artifactory repository, containing local repositories. To publish to a virtual repository, you first need to set a default local repository. For more details, please refer to [Deploying to a Virtual Repository](https://jfrog.com/help/r/jfrog-artifactory-documentation/virtual-repositories).
-* When the **npm-publish** command runs, JFrog CLI runs the **pack** command in the background. The pack action is followed by an upload, which is not based on the npm client's publish command. Therefore, If your npm package includes the **prepublish** or **postpublish** scripts, rename them to **prepack** and **postpack** respectively.
+* You can download npm packages from any npm repository type - local, remote or virtual, but you can only publish to a local or virtual Artifactory repository, containing local repositories. To publish to a virtual repository, you first need to set a default local repository. For more details, please refer to [Deploying to a Virtual Repository.](https://jfrog.com/help/r/jfrog-artifactory-documentation/deploy-to-a-virtual-repository)
 
-**Requirements**
+When building npm packages, it is important to understand how the jf npm publish command handles publishing scripts. The behavior differs based on whether the --run-native flag is used:
 
-Npm client version 5.4.0 and above.
+* **Default Behavior (Without the --run-native flag):** JFrog CLI runs the pack command in the background, which is followed by an upload action not based on the npm client's native publish command. Therefore, if your npm package includes prepublish or postpublish scripts, you must rename them to prepack and postpack respectively to ensure they are executed.
+* **Behavior with the --run-native flag:** When this flag is used, the command utilizes the native npm client's own publish lifecycle. In this mode, standard npm script names such as prepublish, publish, and postpublish are handled directly by npm itself, and no renaming is necessary.
 
-Artifactory version 5.5.2 and above.
 
-### Setting npm repositories
 
-Before using the **jf npm install**, **jf npm ci** and **jf npm publish** commands, the project needs to be pre-configured with the Artifactory server and repositories, to be used for building and publishing the project. The **jf npm-config** command should be used once to add the configuration to the project. The command should run while inside the root directory of the project. The configuration is stored by the command in the **.jfrog** directory at the root directory of the project.
+**Prerequisites**
 
-|                        |                                                                                                                                                                            |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Command-name           | npm-config                                                                                                                                                                 |
-| Abbreviation           | npmc                                                                                                                                                                       |
-| **Command options:**   |                                                                                                                                                                            |
-| `--global`             | <p>[Optional]<br>Set to true, if you'd like the configuration to be global (for all projects on the machine). Specific projects can override the global configuration.</p> |
-| `--server-id-resolve`  | <p>[Optional]<br>Artifactory server ID for resolution. The server should configured using the 'jf c add' command.</p>                                                      |
-| `--server-id-deploy`   | <p>[Optional]<br>Artifactory server ID for deployment. The server should be configured using the 'jf c add' command.</p>                                                   |
-| `--repo-resolve`       | <p>[Optional]<br>Repository for dependencies resolution.</p>                                                                                                               |
-| `--repo-deploy`        | <p>[Optional]<br>Repository for artifacts deployment.</p>                                                                                                                  |
-| **Command arguments:** | The command accepts no arguments                                                                                                                                           |
+* Npm client version 5.4.0 and above.
+* Artifactory version 5.5.2 and above.
+
+## Setting npm repositories
+
+Before using the jf npm install, jf npm ci, and jf npm publish commands, the project needs to be pre-configured with the Artifactory server and repositories for building and publishing. The configuration method depends on your workflow:
+
+* **Standard JFrog CLI Configuration:** The jf npm-config command should be used once to add the configuration to the project. This command should be run from the project's root directory and stores the configuration in the .jfrog directory.
+* **Native Client Configuration (--run-native):** When the --run-native flag is used, JFrog CLI bypasses the configuration in the .jfrog directory. Instead, it uses the user's own .npmrc file for all configurations, including authentication tokens and other settings.
+
+
+
+| **Command-name**                                            | **Abbreviation** | **Description**                                                                              |
+| ----------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------- |
+| <p><code>npm-config</code><br><br>Short form</p><p>npmc</p> | \`npmc\`         | Configures Artifactory server and repository details for npm builds within a project.        |
+| `--server-id-resolve`                                       | <p><br></p>      | \[Optional] Artifactory server ID for dependency resolution (configured using \`jf c add\`). |
+| `--server-id-deploy`                                        | <p><br></p>      | \[Optional] Artifactory server ID for artifact deployment (configured using \`jf c add\`).   |
+| `--repo-resolve`                                            | <p><br></p>      | \[Optional] Repository for resolving dependencies.                                           |
+| `--repo-deploy`                                             | <p><br></p>      | \[Optional] Repository for deploying artifacts.                                              |
+| **Command arguments**                                       | <p><br></p>      | Accepts no arguments.                                                                        |
+
+\
+
+
+\
+
 
 ### Installing Npm Packages
 
-The **jf npm install** and **jf npm ci** commands execute npm's **install** and **ci** commands respectively, to fetches the npm dependencies from the npm repositories.
+The jf npm install and jf npm ci commands execute npm's install and ci commands respectively, to fetch the npm dependencies from the npm repositories.
 
-Before running the **jf npm install** or **jf npm ci** command on a project for the first time, the project should be configured using the **jf npm-config** command.
-
-#### Commands Params
+Commands Params
 
 The following table lists the command arguments and flags:
+
+Command-name
+
+npm (covers install and ci subcommands typically, for example jf npm install, jf npm ci)
+
+Abbreviation
+
+(No specific abbreviation listed for jf npm, but for the underlying commands like npm i)
+
+\
+
 
 |                        |                                                                                                                                                                                                                                          |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -432,11 +492,21 @@ The following table lists the command arguments and flags:
 | `--module`             | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                                            |
 | **Command arguments:** | The command accepts the same arguments and options as the npm client.                                                                                                                                                                    |
 
+**Command options:**
+
+* \--run-native \[Optional] \[Default: false] Set to true to use the native npm client and the user's existing .npmrc configuration file. When this flag is active, JFrog CLI will not create its own temporary .npmrc file. All configurations, including authentication, must be handled by the user's .npmrc file.
+
+**Note**
+
+The "deployment view" and "details summary" features are not supported by the jf npm install and jf npm ci commands. This limitation applies regardless of whether the --run-native flag is used.
+
+####
+
 #### Examples
 
 **Example 1**
 
-The following example installs the dependencies and records them locally as part of build **my-build-name/1**. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command. The dependencies are resolved from the Artifactory server and repository configured by **npm-config** command.
+The following example installs the dependencies and records them locally as part of build my-build-name/1. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command. The dependencies are resolved from the Artifactory server and repository configured by npm-config command.
 
 ```
 jf npm install --build-name=my-build-name --build-number=1
@@ -452,27 +522,50 @@ jf npm install
 
 **Example 3**
 
-The following example installs the dependencies using the npm-ci command. The dependencies are resolved from the Artifactory server and repository configured by **npm-config** command.
+The following example installs the dependencies using the npm-ci command. The dependencies are resolved from the Artifactory server and repository configured by npm-config command.
 
 ```
 jf npm ci
 ```
 
+**Example 4**
+
+The following example installs dependencies using the native npm client, based on the .npmrc configuration.
+
+```
+jf npm install --run-native
+
+
+
+
+Eg: jf npm install --run-native --build-name=my-native-build --build-number=1
+
+```
+
+
+
 ### Publishing the Npm Packages into Artifactory
 
-The **npm-publish** command packs and deploys the npm package to the designated npm repository.
+The npm-publish command packs and deploys the npm package to the designated npm repository.
 
-Before running the **npm-publish** command on a project for the first time, the project should be configured using the **jf npm-config** command. This configuration includes the Artifactory server and repository to which the package should deploy.
+Before running the npm-publish command on a project for the first time, the project should be configured using the jf npm-config command. This configuration includes the Artifactory server and repository to which the package should deploy.
 
-> **Warning**: If your npm package includes the prepublish or postpublish scripts, please refer to the guidelines above.
+When using the --run-native flag, the jf npm-config command and the resulting .jfrog directory configuration are bypassed. Instead, JFrog CLI uses the native npm client , which relies exclusively on the user's .npmrc file for all configurations. Therefore, you must ensure your .npmrc file is correctly configured for publishing to the desired Artifactory repository, including all necessary repository URLs and authentication details.
+
+> **Warning**:&#x20;
+>
+> If your npm package includes the prepublish or postpublish scripts and you are not using the --run-native flag, please refer to the guidelines above (rename to prepack and postpack).
+>
+> When using --run-native, standard npm script names are respected by the npm client.
 
 #### Commands Params
 
-The following table lists the command arguments and flags:
+The following table lists the command arguments and flags:\
+
 
 |                      |                                                                                                                                                                                                                                          |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Command-name         | npm publish                                                                                                                                                                                                                              |
+| Command-name         | `npm publish`                                                                                                                                                                                                                            |
 | Abbreviation         |                                                                                                                                                                                                                                          |
 | **Command options:** |                                                                                                                                                                                                                                          |
 | `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
@@ -483,20 +576,44 @@ The following table lists the command arguments and flags:
 | `--scan`             | <p>[Default: false]<br>Set if you'd like all files to be scanned by Xray on the local file system prior to the upload, and skip the upload if any of the files are found vulnerable.</p>                                                 |
 | `--format`           | <p>[Default: table]<br>Should be used with the --scan option. Defines the scan output format. Accepts table or JSON as values.</p>                                                                                                       |
 | Command argument     | The command accepts the same arguments and options that the **npm pack** command expects.                                                                                                                                                |
+| `--run-native`       | \[Optional] \[Default: false] Set to true to use the native npm client for publishing. This allows leveraging all features and configurations specified in the user's .npmrc file.                                                       |
 
-#### Example
+**Note:**&#x20;
 
-To pack and publish the npm package and also record it locally as part of build **my-build-name/1**, run the following command. The build-info can later be published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command. The package is published to the Artifactory server and repository configured by **npm-config** command.
+* Require a valid .npmrc file with appropriate configurations and authentication tokens.
+* Performance: Using this flag may result in performance degradation compared to the default JFrog CLI publish mechanism (which uses multi-threading).
+* Unsupported Features with this flag: "Deployment view" and "details summary" are not supported when this flag is used.
+
+Command argument
+
+The command accepts the same arguments and options that the npm pack command expects (when not using --run-native) or npm publish command expects (when using --run-native).
+
+\
+
+
+#### Example 1
+
+To pack and publish the npm package and also record it locally as part of build my-build-name/1, run the following command. The build-info can later be published to Artifactory using the build-publish command. The package is published to the Artifactory server and repository configured by npm-config command.
 
 ```
 jf npm publish --build-name=my-build-name --build-number=1
 ```
 
+#### Example 2
+
+Publishing an npm package using the native npm client and user's .npmrc.
+
+```
+jf npm publish --run-native
+```
+
+(Ensure your package.json and .npmrc are configured for publishing)
+
 ## Building Npm Packages Using the Yarn Client
 
 JFrog CLI provides full support for building npm packages using the yarn client. This allows you to resolve npm dependencies, while collecting build-info and storing it in Artifactory. You can download npm packages from any npm repository type - local, remote or virtual. Publishing the packages to a local npm repository is supported through the **jf rt upload** command.
 
-Yarn version 2.4.0 and above is supported.
+**Note:** "Yarn versions from 2.4.0 up to, but not including, Yarn 4.x are supported. Yarn 4.x is currently not supported by JFrog CLI."
 
 ### Setting npm repositories
 
