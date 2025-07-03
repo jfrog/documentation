@@ -32,7 +32,7 @@ $ jf command-name global-options command-options arguments
 
 ## Create a Release Bundle v2
 
-The **create** command allows creating a Release Bundle v2 using [file specs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/using-file-specs). The file spec may be of one of the following creation sources:
+The **create** command allows creating a Release Bundle v2 using [file specs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/using-file-specs). The file spec may be based on one or more of the following sources:
 
 *   Published build info:
 
@@ -82,7 +82,7 @@ The **create** command allows creating a Release Bundle v2 using [file specs](ht
     }
     ```
 
-    Only `pattern` is mandatory. `recursive` is true by default.
+    Only `pattern` is mandatory. `recursive` is true by default. The path can include local, Federated, and remote repositories.&#x20;
 *   AQL query:
 
     ```
@@ -102,25 +102,90 @@ The **create** command allows creating a Release Bundle v2 using [file specs](ht
     ```
 
     Only a single AQL query may be provided.
+* Specified package:\
+  The Release Bundle can contain packages of multiple types (for example, Docker, Maven, PyPI, and so on).
+
+```
+{
+    "files": [
+            {
+               "package": "catalina",
+               "version":"1.0.0",
+               "type": "maven",
+               "repoKey": "catalina-dev-maven-local"
+           },
+   ]
+}
+```
+
+* A Release Bundle created from multiple sources:\
+  The Release Bundle can include any number of builds, artifacts (using a pattern), packages, and Release Bundles. However, it can include only one AQL query.
+
+```
+{
+    "files": [
+          {
+            "build": "Commons-Build/1.0.0",
+            "includeDeps":"true",
+            "project": "default"
+          },
+           {
+            "bundle": "rb1/1.0.0",
+            "project": "default"
+          },
+          {
+            "bundle": "rb4/1.0.0",
+            "project": "default"
+          },
+           {
+            "pattern": "catalina-dev-maven-local/*.jar"
+          },
+           {
+            "package": "commons",
+            "version":"1.0.1",
+            "type": "maven",
+            "repoKey": "commons-dev-maven-local"
+          },
+          {
+            "package": "catalina",
+            "version":"1.0.0",
+            "type": "maven",
+            "repoKey": "catalina-dev-maven-local"
+          },
+          {
+            "aql": {
+             "items.find": {
+              "repo":{"$eq":"catalina-dev-maven-local"},
+              "$and":[
+                {"name": {"$match":"*1.0.0.pom"}}
+              ]
+        }
+      }
+          }
+    ]
+}
+```
 
 ### Command Params
 
-|                        |                                                                                                                                                                                                                                                       |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Command-name           | release-bundle-create                                                                                                                                                                                                                                 |
-| Abbreviation           | rbc                                                                                                                                                                                                                                                   |
-| **Command arguments:** |                                                                                                                                                                                                                                                       |
-| release bundle name    | Name of the newly created Release Bundle.                                                                                                                                                                                                             |
-| release bundle version | Version of the newly created Release Bundle.                                                                                                                                                                                                          |
-| **Command options:**   |                                                                                                                                                                                                                                                       |
-| `--project`            | <p>[Optional]<br>Project key associated with the created Release Bundle version.</p>                                                                                                                                                                  |
-| `--server-id`          | <p>[Optional]<br>Platform Server ID configured using the 'jf config' command.</p>                                                                                                                                                                     |
-| `--signing-key`        | <p>[Optional]<br>The GPG/RSA key-pair name defined in Artifactory. The <code>signing-key</code> can also be configured as an environment variable. If no key is specified, Artifactory uses a default key.</p>                                        |
-| `--spec`               | <p>[Optional]<br>Path to a File Spec. If you do not define the spec, you must include the <code>build-name</code> and <code>build-number</code> as environment variables, flags, or a combination of both (flags override environment variables).</p> |
-| `--spec-vars`          | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." (wrapped by quotes) to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                   |
-| `--build-name`         | <p>[Optional]<br>The name of the build from which to create the Release Bundle.</p>                                                                                                                                                                   |
-| `--build-number`       | <p>[Optional]<br>The number of the build from which to create the Release Bundle.</p>                                                                                                                                                                 |
-| `--sync`               | <p>[Default: true]<br>Set to false to run asynchronously.</p>                                                                                                                                                                                         |
+|                                 |                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Command-name                    | release-bundle-create                                                                                                                                                                                                                                                                                                                                                      |
+| Abbreviation                    | rbc                                                                                                                                                                                                                                                                                                                                                                        |
+| **Command arguments:**          |                                                                                                                                                                                                                                                                                                                                                                            |
+| release bundle name             | Name of the newly created Release Bundle.                                                                                                                                                                                                                                                                                                                                  |
+| release bundle version          | Version of the newly created Release Bundle.                                                                                                                                                                                                                                                                                                                               |
+| **Command options:**            |                                                                                                                                                                                                                                                                                                                                                                            |
+| `--project`                     | <p>[Optional]<br>Project key associated with the created Release Bundle version.</p>                                                                                                                                                                                                                                                                                       |
+| `--server-id`                   | <p>[Optional]<br>Platform Server ID configured using the 'jf config' command.</p>                                                                                                                                                                                                                                                                                          |
+| `--signing-key`                 | <p>[Optional]<br>The GPG/RSA key-pair name defined in Artifactory. The <code>signing-key</code> can also be configured as an environment variable. If no key is specified, Artifactory uses a default key.</p>                                                                                                                                                             |
+| `--spec`                        | <p>[Optional]<br>Path to a File Spec. If you do not define the spec, you must include the <code>build-name</code> and <code>build-number</code> as environment variables, flags, or a combination of both (flags override environment variables).</p>                                                                                                                      |
+| `--spec-vars`                   | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." (wrapped by quotes) to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                                                                                                                                        |
+| `--build-name`                  | <p>[Optional]<br>The name of the build from which to create the Release Bundle.</p>                                                                                                                                                                                                                                                                                        |
+| `--build-number`                | <p>[Optional]<br>The number of the build from which to create the Release Bundle.</p>                                                                                                                                                                                                                                                                                      |
+| `--sync`                        | <p>[Default: true]<br>Set to false to run asynchronously.</p>                                                                                                                                                                                                                                                                                                              |
+| `--source-type-release-bundles` | <p>[Optional]<br>One or more Release Bundles to include in the new Release Bundle in the form of "name=[rb-name], version=[rb-version];..." (wrapped by quotes). </p><p>Use a semicolon [;] to separate multiple entries.</p><p></p><p>Note: The <code>--spec</code> flag cannot be used in conjunction with the <code>--source-type-release-bundles</code> flag.</p>      |
+| `--source-type-builds`          | <p>[Optional]<br>One or more builds to include in the new Release Bundle in the form of "name=[build-name], id=[build-id], include-deps=[true/false];..." (wrapped by quotes). </p><p>Use a semicolon [;] to separate multiple entries.</p><p></p><p>Note: The <code>--spec</code> flag cannot be used in conjunction with the <code>--source-type-builds</code> flag.</p> |
 
 ### Examples
 
@@ -142,10 +207,41 @@ jf rbc --spec=/path/to/spec.json --signing-key=myKeyPair --sync=true --project=p
 
 #### Example 3
 
-Create a Release Bundle using build name and build number variables.
+Create a Release Bundle from a single build using the build name and build number variables.
 
 ```
 jf rbc --build-name=Common-builds --build-number=1.0.0 myApp 1.0.0
+```
+
+**Example 4**
+
+Create a Release Bundle from multiple builds.
+
+{% code overflow="wrap" %}
+```
+jf rbc rb3 1.0.0 --source-type-builds "name=Commons-Build, id=1.0.0, include-deps=true; name=Commons-Build, id=1.0.1"
+```
+{% endcode %}
+
+**Example 5**
+
+Create a Release Bundle from multiple existing Release Bundles.
+
+{% code overflow="wrap" %}
+```
+jf rbc rb3 1.0.0 --project catalina --source-type-release-bundles "name=rb1, version=1.0.0; name=rb2, version=1.0.0"
+```
+{% endcode %}
+
+**Example 6**
+
+Create a Release Bundle from existing Release Bundles and builds.
+
+```
+jf rbc rb3 1.0.0 --source-type-builds
+"name=Commons-Build, id=1.0.0, include-deps=true; name=Commons-Build, id=1.0.1"
+--source-type-release-bundles
+"name=rb1, version=1.0.0; name=rb2, version=1.0.0"
 ```
 
 ## Promote a Release Bundle v2
