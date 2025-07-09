@@ -19,6 +19,8 @@ This page describes how to use the JFrog CLI to create external [evidence](https
 * In the current release, an evidence file can be signed with one key only.
 * The maximum size evidence file supported by Artifactory is 16MB.
 
+Click this [link](https://github.com/jfrog/Evidence-Examples/tree/main/examples) for a collection of code snippets that describe how to create evidence workflows in various tools using the JFrog CLI. &#x20;
+
 For more information about the API used for deploying evidence to Artifactory, see [Deploy Evidence](https://jfrog.com/help/r/jfrog-rest-apis/deploy-evidence).
 
 ***
