@@ -2,7 +2,7 @@
 
 ## Overview
 
-This page describes how to use JFrog CLI with [JFrog Distribution](https://jfrog-staging-external.fluidtopics.net/r/help/Software-Distribution-Distribution).
+This page describes how to use JFrog CLI with [JFrog Distribution](https://jfrog.com/help/r/jfrog-distribution-documentation/jfrog-distribution).
 
 Read more about JFrog CLI [here](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli).
 
@@ -28,19 +28,19 @@ This commands creates and updates an unsigned Release Bundle on JFrog Distributi
 
 **Note**
 
-> This commands require version 2.0 or higher of[JFrog Distribution](https://jfrog-staging-external.fluidtopics.net/r/help/Software-Distribution-Distribution).
+> This commands require version 2.0 or higher of [JFrog Distribution](https://jfrog.com/help/r/jfrog-distribution-documentation/jfrog-distribution).
 
 ***
 
 #### Commands Params
 
 |                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name             | release-bundle-create / release-bundle-update                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Abbreviation             | rbc / rbu                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | **Command options:**     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `--server-id`            | <p>[Optional]<br>Artifactory Server ID configured using the 'jf config' command.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `--spec`                 | <p>[Optional]<br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                                      |
+| `--spec`                 | <p>[Optional]<br>Path to a file spec. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#using-file-specs">Using File Specs</a>.</p>                                                                                                                                                                                                                                                                                                     |
 | `--spec-vars`            | <p>[Optional]<br>List of semicolon-separated(;) variables in the form of "key1=value1;key2=value2;..." to be replaced in the File Spec. In the File Spec, the variables should be used as follows: ${key1}.</p>                                                                                                                                                                                                                                                                                                                                   |
 | `--target-props`         | <p>[Optional]<br>The list of properties, in the form of key1=value1;key2=value2,..., to be added to the artifacts after distribution of the release bundle.</p>                                                                                                                                                                                                                                                                                                                                                                                   |
 | `--target`               | <p>[Optional]<br>The target path for distributed artifacts on the edge node. If not specified, the artifacts will have the same path and name on the edge node, as on the source Artifactory server. For flexibility in specifying the distribution path, you can include <a href="https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-UsingPlaceholders">placeholders</a> in the form of {1}, {2} which are replaced by corresponding tokens in the pattern path that are enclosed in parenthesis.</p> |
@@ -120,13 +120,16 @@ The "pathMapping" option is provided, allowing users to control the destination 
 
 To learn more, visit the [Create Release Bundle v1 Version documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v1-version).
 
-*Note*: The "target" option is designed to work for most use cases. The "pathMapping" option is intended for specific use cases, such as including a list.manifest.json file inside the release bundle.
+_Note_: The "target" option is designed to work for most use cases. The "pathMapping" option is intended for specific use cases, such as including a list.manifest.json file inside the release bundle.
 
 In that scenario, the distribution server dynamically includes all the manifest.json and their layers and assigns the given path mapping, whereas "target" doesn't achieve this.
+
 ```
 jf ds rbc --spec=/path/to/rb-spec.json myApp 1.0.0
 ```
+
 Spec file content:
+
 ```json
 {
   "files": [
@@ -181,7 +184,7 @@ This command GPG signs an existing Release Bundle on JFrog Distribution.
 #### Commands Params
 
 |                        |                                                                                                                                                           |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name           | release-bundle-sign                                                                                                                                       |
 | Abbreviation           | rbs                                                                                                                                                       |
 | **Command options:**   |                                                                                                                                                           |
@@ -217,7 +220,7 @@ This command distributes a release bundle to the Edge Nodes.
 #### Commands Params
 
 |                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Command-name           | release-bundle-distribute                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Abbreviation           | rbd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | **Command options:**   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -234,7 +237,6 @@ This command distributes a release bundle to the Edge Nodes.
 | **Command arguments:** |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | release bundle name    | The name of the release bundle.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | release bundle version | The release bundle version.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-
 
 #### Example 1
 
@@ -259,7 +261,7 @@ This command deletes a Release Bundle from the Edge Nodes and optionally from Di
 #### Commands Params
 
 |                        |                                                                                                                                                              |
-|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Command-name           | release-bundle-delete                                                                                                                                        |
 | Abbreviation           | rbdel                                                                                                                                                        |
 | **Command options:**   |                                                                                                                                                              |
@@ -277,7 +279,6 @@ This command deletes a Release Bundle from the Edge Nodes and optionally from Di
 | **Command arguments:** |                                                                                                                                                              |
 | release bundle name    | The name of the release bundle.                                                                                                                              |
 | release bundle version | The release bundle version.                                                                                                                                  |
-
 
 #### Example 1
 
