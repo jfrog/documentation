@@ -90,7 +90,7 @@ jf evd create --predicate file-path --predicate-type predicate-type-uri --releas
 ```
 
 3. `--key` local-private-key-path\
-   Optional path for a private key (see Tip below). Supported key types include:
+   Path to a private key (see Tip below). Supported key types include:
 
 ```
  `rsa`
@@ -102,7 +102,7 @@ jf evd create --predicate file-path --predicate-type predicate-type-uri --releas
 
 **Tip**
 
-> You can define the key using the `JFROG_CLI_SIGNING_KEY` environment variable as an alternative to using the `--key` command parameter. If the environment variable is not defined, the `--key` command is mandatory.
+> As an alternative to using the `--key` command parameter, you can define the key using the `JFROG_CLI_SIGNING_KEY` environment variable. If the environment variable is **not** defined, the `--key` command is mandatory.
 
 ***
 
