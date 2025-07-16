@@ -137,6 +137,8 @@ jf evd create --predicate file-path --predicate-type predicate-type-uri --releas
 
 5. `--markdown`  md file\
    Optional path to a file that contains evidence formatted in markdown.
+6. `--project` project-name\
+   Optional name of the project associated with the evidence subject. This argument can be used with build, package, and Release Bundle evidence.
 
 ### Artifact command parameters
 
