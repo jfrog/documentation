@@ -9,7 +9,23 @@ The plugin adds the `artifactoryPublish` task for each project, in the `publishi
 1. Extracting the [build-info](https://www.buildinfo.org/) file located in the root project. This file contains comprehensive information about the build, such as its configuration, dependencies, and other relevant details.
 2. Deploying both the generated artifacts and the build-info file to your Artifactory repository. This ensures that the artifacts, which are the output of the build process, and the accompanying build-info file are stored and organized in your Artifactory repository for easy access and management.
 
-> _**NOTE:**_ The minimum supported Gradle version to use this plugin is v6.9
+> _**NOTE:**_ The minimum supported Gradle version to use version 6 of this plugin is v8
+
+<details>
+
+<summary>🚚 Migrating from Version 5 to Version 6 of the Plugin</summary>
+
+***
+
+**Version 6 of the Gradle Artifactory Plugin includes the following breaking changes compared to version 5**
+
+* Introduced support for Gradle 9.
+* The minimum version of Java required to use this plugin has been upgraded to version 17.
+* The minimum version of Gradle required to use this plugin has been upgraded to version 8.
+
+</details>
+
+> _**NOTE:**_ The minimum supported Gradle version to use version 5 of this plugin is v6.9
 
 <details>
 
