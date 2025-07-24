@@ -2,16 +2,19 @@
 
 ## Overview
 
-This page describes how to use the JFrog CLI to create external [evidence](https://jfrog.com/help/r/jfrog-artifactory-documentation/evidence-management) files, which are then deployed to Artifactory. You can create evidence for:
+Artifactory enables you to attach evidence (signed metadata) to a designated subject, such as an artifact, build, package, or Release Bundle v2. These evidence files act as attestations, providing a signed and verified record of an external process performed on the subject, for example, test results, vulnerability scans, and official approvals.
 
-* Artifacts
-* Packages
-* Builds
-* Release Bundles v2
+JFrog's Evidence service generates an audit trail that documents all the security, quality, and operational steps performed to produce a production-ready software release. It provides a seamless way to consolidate information from the tools and platforms used in software development into a single source of truth that you can track and verify for governance and compliance.
+
+This page describes how to:
+
+* [#create-evidence](evidence-service.md#create-evidence "mention")
+* [#get-evidence](evidence-service.md#get-evidence "mention")&#x20;
+* [#verify-evidence](evidence-service.md#verify-evidence "mention")
 
 ***
 
-**Note**
+**Notes**
 
 * The Evidence service requires Artifactory 7.104.2 or above.
 * The ability for users to attach external evidence to Artifactory, as described here, requires an **Enterprise+** subscription.
@@ -21,13 +24,24 @@ This page describes how to use the JFrog CLI to create external [evidence](https
 
 Click this [link](https://github.com/jfrog/Evidence-Examples/tree/main/examples) for a collection of code snippets that describe how to create evidence workflows in various tools using the JFrog CLI. &#x20;
 
+Click this [link](https://github.com/jfrog/Evidence-Examples/tree/main/examples) for a collection of code snippets that describe how to create evidence workflows in various tools using the JFrog CLI.  &#x20;
+
 For more information about the API used for deploying evidence to Artifactory, see [Deploy Evidence](https://jfrog.com/help/r/jfrog-rest-apis/deploy-evidence).
 
 ***
 
+## Create Evidence
+
+The Create Evidence command creates external [evidence](https://jfrog.com/help/r/jfrog-artifactory-documentation/evidence-management) files, which are then deployed to Artifactory. You can create evidence for:
+
+* [Artifacts](evidence-service.md#artifact-command-parameters)
+* [Packages](evidence-service.md#package-command-parameters)
+* [Builds](evidence-service.md#build-command-parameters)
+* [Release Bundles v2](evidence-service.md#release-bundle-v2-command-parameters)
+
 ### Authentication
 
-To deploy external evidence, use an access token or the web login mechanism for authentication. Basic authentication (username/password) is not supported.
+To create and deploy external evidence, use an access token or the web login mechanism for authentication. Basic authentication (username/password) is not supported.
 
 ### Syntax
 
@@ -37,7 +51,7 @@ JFrog CLI uses the following syntax for creating evidence:
 
 {% code overflow="wrap" %}
 ```
-jf evd create --predicate file-path --predicate-type predicate-type-uri --subject-repo-path <target-path> --subject-sha256 <digest> --key <local-private-key-path> --key-alias <public-key-name>
+jf evd create --predicate file-path --predicate-type predicate-type-uri --subject-repo-path <target-path> --subject-sha256 <digest> --key <local-private-key-path> --key-alias <public-key-name> --provider-id <provider-id>
 ```
 {% endcode %}
 
@@ -45,7 +59,7 @@ jf evd create --predicate file-path --predicate-type predicate-type-uri --subjec
 
 {% code overflow="wrap" %}
 ```
-jf evd create --predicate file-path --predicate-type predicate-type-uri --package-name <name> --package-version <version-number> --package-repo-name <repo-name> --key <local-private-key-path> --key-alias <public-key-name>
+jf evd create --predicate file-path --predicate-type predicate-type-uri --package-name <name> --package-version <version-number> --package-repo-name <repo-name> --key <local-private-key-path> --key-alias <public-key-name> --provider-id <provider-id>
 ```
 {% endcode %}
 
@@ -53,7 +67,7 @@ jf evd create --predicate file-path --predicate-type predicate-type-uri --packag
 
 {% code overflow="wrap" %}
 ```
-jf evd create --predicate file-path --predicate-type predicate-type-uri --build-name <name> --build-number <version-number> --key <local-private-key-path> --key-alias <public-key-name>
+jf evd create --predicate file-path --predicate-type predicate-type-uri --build-name <name> --build-number <version-number> --key <local-private-key-path> --key-alias <public-key-name> --provider-id <provider-id>
 ```
 {% endcode %}
 
@@ -61,63 +75,26 @@ jf evd create --predicate file-path --predicate-type predicate-type-uri --build-
 
 {% code overflow="wrap" %}
 ```
-jf evd create --predicate file-path --predicate-type predicate-type-uri --release-bundle <name> --release-bundle-version <version-number> --key <local-private-key-path> --key-alias <public-key-name>
+jf evd create --predicate file-path --predicate-type predicate-type-uri --release-bundle <name> --release-bundle-version <version-number> --key <local-private-key-path> --key-alias <public-key-name> --provider-id <provider-id>
 ```
 {% endcode %}
 
-## **Command parameters**
+### Command parameters
 
-1. `--predicate` file-path\
-   Mandatory field.\
-   Defines the path to a locally-stored, arbitrary json file that contains the predicates.
-
-```
-{
-// any kind of valid json
-}
-```
-
-2. `--predicate-type` predicate-type-uri\
-   Mandatory field.\
-   The type of predicate defined by the json file. Sample predicate type uris include:
-
-```
- https://in-toto.io/attestation/link/v0.3
- https://in-toto.io/attestation/scai/attribute-report
- https://in-toto.io/attestation/runtime-trace/v0.1
- https://in-toto.io/attestation/test-result/v0.1
- https://in-toto.io/attestation/vulns
-```
-
-3. `--key` local-private-key-path\
-   Path to a private key (see Tip below). Supported key types include:
-
-```
- `rsa`
- `ed25519`
- `ecdsa`
-```
+<table><thead><tr><th width="200.25">Parameter</th><th width="183.4921875">Required/Optional</th><th>Description</th></tr></thead><tbody><tr><td><code>--predicate</code><br>file-path</td><td>required</td><td>Defines the path to a locally-stored, arbitrary JSON file that contains the predicate (the content of the evidence).</td></tr><tr><td><code>--predicate-type</code><br>predicate-type-uri</td><td>required</td><td><p>The type of predicate defined by the JSON file. Sample predicate type URIs:</p><pre><code>https://in-toto.io/attestation/link/v0.3
+https://in-toto.io/attestation/scai/attribute-report
+https://in-toto.io/attestation/runtime-trace/v0.1
+https://in-toto.io/attestation/test-result/v0.1
+https://in-toto.io/attestation/vulns
+</code></pre></td></tr><tr><td><code>--key</code><br>local-private-key-path</td><td>optional</td><td>Path to a private key (see Tip below). Supported key types: 'rsa', 'ed25519', 'ecdsa'<br><br>Supported key formats: PEM and SSH</td></tr><tr><td><code>--key-alias</code> <br>RSA-1024</td><td>optional</td><td><p>Case-sensitive name for the public key created from the private key (see Tip below). The public key is used to verify the DSSE envelope that contains the evidence.<br></p><ul><li>If the <code>key-alias</code> is included, DSSE verification will fail if the same <code>key-name</code> is not found in Artifactory.</li></ul><ul><li>If the <code>key-alias</code> is not included, DSSE verification with the public key is not performed during creation.</li></ul></td></tr><tr><td><code>--markdown</code><br>md-file</td><td>optional</td><td>Path to a file that contains evidence in Markdown format.</td></tr><tr><td><code>--project</code><br>project-name</td><td>optional</td><td>Name of the project associated with the evidence subject. This argument can be used with build, package, and Release Bundle evidence.</td></tr><tr><td><code>--provider-id</code></td><td>optional</td><td>Name of the provider that created the evidence.</td></tr><tr><td><code>--sigstore-bundle</code></td><td>optional</td><td>Path to a Sigstore bundle file containing a pre-signed DSSE envelope. If the evidence subject is not provided (using <code>--subject-repo-path</code>), Artifactory attempts to resolve the subject automatically from the DSSE envelope. Any subject resolution errors have exit code 2.<br><br><code>--sigstore-bundle</code> is incompatible with <code>--key</code>, <code>--key-alias</code>, <code>--predicate</code>, <code>--predicate-type</code>, and <code>--subject-sha256</code>.</td></tr></tbody></table>
 
 ***
 
 **Tip**
 
-> As an alternative to using the `--key` command parameter, you can define the key using the `JFROG_CLI_SIGNING_KEY` environment variable. If the environment variable is **not** defined, the `--key` command is mandatory.
+> You can define the key using the `JFROG_CLI_SIGNING_KEY` environment variable as an alternative to using the `--key` command parameter. If the environment variable is **not** defined, the `--key` command is mandatory.
 
 ***
-
-***
-
-**Note**
-
-> Two key formats are supported: PEM and SSH
-
-***
-
-4. `--key-alias` RSA-1024\
-   Optional case-sensitive name for the public key created from the private key. The public key is used to verify the DSSE envelope that contains the evidence.
-   * If the `key-alias` is included, DSSE verification will fail if the same `key-name` is not found in Artifactory.
-   * If the `key-alias` is not included, DSSE verification with the public key is not performed during creation.
 
 ***
 
@@ -135,37 +112,27 @@ jf evd create --predicate file-path --predicate-type predicate-type-uri --releas
 
 ***
 
-5. `--markdown`  md file\
-   Optional path to a file that contains evidence formatted in markdown.
-6. `--project` project-name\
-   Optional name of the project associated with the evidence subject. This argument can be used with build, package, and Release Bundle evidence.
+#### Artifact command parameters
 
-### Artifact command parameters
+| Parameter             | Required/Optional | Description                                                                                                                                                                                                                                                              |
+| --------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `--subject-repo-path` | required          | <p>The target path of the artifact. Each evidence file must contain a single subject and include the path. </p><p></p><p>Artifacts located in local repositories aggregated inside virtual repositories are supported (evidence is added to the local path).</p>         |
+| `--subject-sha256`    | optional          | <p>Optional digest (sha256) of the artifact.<br></p><ul><li>If a digest is provided, it is verified against the subject's sha256 as it appears in Artifactory.</li></ul><ul><li>If a digest is not provided, the sha256 is taken from the path in Artifactory.</li></ul> |
 
-1. `--subject-repo-path` target-path\
-   Mandatory field. \
-   Each evidence file must have a single subject only and must include the path. Artifacts located in local repositories aggregated inside virtual repositories are supported (evidence is added to the local path).
-2. `--subject-sha256` digest\
-   Optional digest (sha256) of the artifact.
+#### Package command parameters
 
-* If a digest is provided, it is verified against the subject's sha256 as it appears in Artifactory.
-* If a digest is not provided, the sha256 is taken from the path in Artifactory.
+| Parameter              | Required/Optional | Description                  |
+| ---------------------- | ----------------- | ---------------------------- |
+| `--package-name`       | required          | The package name.            |
+| `--package-version`    | required          | The package version.         |
+| `--package-repo-name`  | required          | The package repository name. |
 
-### Package command parameters
+#### Build command parameters
 
-1. `--package-name` name\
-   Mandatory field.
-2. `--package-version` version-number\
-   Mandatory field.
-3. `--package-repo-name` repo-name\
-   Mandatory field.
-
-### Build command parameters
-
-1. `--build-name` name\
-   Mandatory field unless environment variables are used (see tip below).
-2. `--build-number` version-number\
-   Mandatory field unless environment variables are used (see tip below).
+| Parameter         | Required/Optional                                                | Description       |
+| ----------------- | ---------------------------------------------------------------- | ----------------- |
+| `--build-name`    | required (unless environment variables are used - see tip below) | The build name.   |
+| `--build-number`  | required (unless environment variables are used - see tip below) | The build number. |
 
 ***
 
@@ -175,12 +142,12 @@ jf evd create --predicate file-path --predicate-type predicate-type-uri --releas
 
 ***
 
-### Release Bundle v2 command parameters
+#### Release Bundle v2 command parameters
 
-1. `--release-bundle` name\
-   Mandatory field.
-2. `--release-bundle-version` version-number\
-   Mandatory field.
+| Parameter                   | Required/Optional | Description             |
+| --------------------------- | ----------------- | ----------------------- |
+| `--release-bundle`          | required          | Release Bundle name.    |
+| `--release-bundle-version`  | required          | Release Bundle version. |
 
 ***
 
@@ -202,36 +169,338 @@ Evidence successfully created but not verified due to missing/invalid public key
 
 ### Sample commands
 
-**Artifact Evidence Sample**
+**Artifact Evidence sample**
 
 {% code overflow="wrap" %}
 ```
-evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type https://in-toto.io/attestation/vulns --subject-repo-path commons-dev-generic-local/commons/file.txt --subject-sha256 69d29925ba75eca8e67e0ad99d1132b47d599c206382049bc230f2edd2d3af30 --key /Users/jsmith/Documents/keys/private.pem --key-alias xyzey
+jf evd create --subject-repo-path example-generic/file.txt --subject-sha256 7afd53a30794391969dd598dcae4daecd123ec7059b801c62a53c51b1ff17c21 --key private.pem --key-alias my-key-alias --predicate predicate.json --predicate-type https://jfrog.com/evidence/approval/v1 --provider-id gradle
 ```
 {% endcode %}
 
-In the sample above, the command creates a signed evidence file with a predicate type of SLSA provenance for an artifact named **file.txt**.
+In the sample above, the command creates a signed evidence file with a predicate type of SLSA provenance for an artifact named **file.txt**. The evidence was provided by gradle.
 
-**Package Evidence Sample**
+**Package Evidence sample**
 
 {% code overflow="wrap" %}
 ```
-evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type https://in-toto.io/attestation/vulns --package-name DockerPackage --package-version 1.0.0 --package-repo-key local-docker --key /Users/jsmith/Documents/keys/private.pem --key-alias xyzey
+jf evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type https://in-toto.io/attestation/vulns --package-name DockerPackage --package-version 1.0.0 --package-repo-name local-docker --key /Users/jsmith/Documents/keys/private.pem --key-alias xyzey
 ```
 {% endcode %}
 
-**Build Evidence Sample**
+**Build Evidence sample**
 
 {% code overflow="wrap" %}
 ```
-evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type https://in-toto.io/attestation/vulns --package-name DockerPackage --package-version 1.0.0 --package-repo-name local-docker --key /Users/jsmith/Documents/keys/private.pem --key-alias xyzey
+jf evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type https://in-toto.io/attestation/vulns --build-name DockerBuild --build-number 1.0.0 --key /Users/jsmith/Documents/keys/private.pem --key-alias xyzey
 ```
 {% endcode %}
 
-**Release Bundle v2 Evidence Sample**
+**Release Bundle v2 Evidence sample**
+
+<pre data-overflow="wrap"><code><strong>jf evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type https://in-toto.io/attestation/vulns --release-bundle bundledemo --release-bundle-version 1.0.0 --key /Users/jsmith/Documents/keys/private.pem --key-alias xyzey
+</strong></code></pre>
+
+**Sigstore Bundle Evidence sample**
+
+```
+jf evd create --sigstore-bundle bundle.json
+```
+
+## Get Evidence
+
+The Get Evidence command exports a list of all evidence associated with an artifact or a Release Bundle v2.
+
+***
+
+**Note**
+
+You can also get evidence using a GraphQL API command. For more information, see [Get Evidence](https://jfrog.com/help/r/jfrog-rest-apis/get-evidence).
+
+***
+
+### Syntax
+
+JFrog CLI uses the following syntax for getting evidence:
+
+#### Artifact Evidence
+
+```
+jf evd get --subject-repo-path <target-path> --output <file-name>
+```
+
+#### Release Bundle v2 Evidence
 
 {% code overflow="wrap" %}
 ```
-evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type https://in-toto.io/attestation/vulns --release-bundle bundledemo --release-bundle-version (mandatory) 1.0.0 --key /Users/jsmith/Documents/keys/private.pem --key-alias xyzey
+jf evd get --release-bundle <name> --release-bundle-version <version-number> --output <file-name>
+```
+{% endcode %}
+
+### Command parameters
+
+| Parameter             | Required/Optional | Description                                                                                                                                                                                            |
+| --------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `--output`            | required          | Name of the file to which evidence is exported.                                                                                                                                                        |
+| `--include-predicate` | optional          | Flag that determines whether the [predicate](https://jfrog.com/help/r/jfrog-artifactory-documentation/evidence-predicate) is included in the exported file. By default, the predicate is not included. |
+| `--format`            | optional          | Enables extended output. Supported formats: 'json', 'jsonl'                                                                                                                                            |
+
+***
+
+**Tip**
+
+We recommend not to include the predicate if the evidence list is large, as the predicate will have a significant impact on file size.
+
+***
+
+#### Artifact command parameters
+
+| Parameter             | Required/Optional | Description                                                                                                                                                                                                                        |
+| --------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--subject-repo-path` | required          | <p>The path of the evidence target. <br><br>Each evidence file must contain a single subject and must include the path. Artifacts located in local repositories that are aggregated inside virtual repositories are supported.</p> |
+
+#### Release Bundle v2 command parameters
+
+| Parameter                   | Required/Optional | Description                                                                                                           |
+| --------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `--release-bundle`          | required          | The Release Bundle name.                                                                                              |
+| `--release-bundle-version`  | required          | The Release Bundle version.                                                                                           |
+| `--artifacts-limit`         | optional          | The maximum number of artifacts in the Release Bundle to include in the evidence list. The default is 1000 artifacts. |
+
+### Sample commands
+
+#### Artifact Get Evidence sample
+
+{% code overflow="wrap" %}
+```
+jf evd get --subject-repo-path commons-dev-generic-local/commons/file.txt --output my-evidences.json
+```
+{% endcode %}
+
+In the sample above, the command exports the evidence list for an artifact named **file.txt**.
+
+#### Release Bundle v2 Evidence sample
+
+{% code overflow="wrap" %}
+```
+jf evd get --release-bundle bundledemo --release-bundle-version 1.0.0 --artifacts-limit 100 --output /Users/dort/evidence-verifyers/bundle-demo/evidence-list.json
+```
+{% endcode %}
+
+In the sample above, the command exports the evidence list for the 100 artifacts in the Release Bundle, including builds if relevant.
+
+## Verify Evidence
+
+The Verify Evidence command provides client-side verification that the evidence related to a given subject has not been altered. Verification of artifact integrity is performed using a checksum (digest), and attestation signatures are validated using public keys.&#x20;
+
+This command can be run on a variety of evidence subjects, including artifacts, packages, builds, and Release Bundles. It requires you to define the evidence subject and the keys to use for verification.&#x20;
+
+### Syntax
+
+JFrog CLI uses the following syntax for verifying evidence:
+
+#### Artifact Evidence
+
+```
+jf evd verify --subject-repo-path <target-path> --public-keys <key-array> 
+```
+
+**Package Evidence**
+
+{% code overflow="wrap" %}
+```
+jf evd verify --package-name <package-name> --package-version <package-version> --public-keys <key-array>
+```
+{% endcode %}
+
+**Build Evidence**
+
+{% code overflow="wrap" %}
+```
+jf evd verify --build-name <build-name> --build-number <build-number> --public-keys <key-array>
+```
+{% endcode %}
+
+#### Release Bundle v2 Evidence
+
+{% code overflow="wrap" %}
+```
+jf evd verify --release-bundle <name> --release-bundle-version <version-number> --public-keys <key-array>
+```
+{% endcode %}
+
+### Command parameters
+
+| Parameter                | Required/Optional                                                                      | Description                                                                                                                  |
+| ------------------------ | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `--public-keys`          | <p>required <br>(unless the <code>--use-artifactory-keys</code> parameter is used)</p> | An array of public keys to use for signature verification with ";" separator. Supported key types: 'ecdsa', 'rsa', 'ed25519' |
+| `--project`              | optional                                                                               | The project key associated with the created evidence.                                                                        |
+| `--format`               | optional                                                                               | Enables extended output. Supported formats: 'json', 'jsonl'                                                                  |
+| `--use-artifactory-keys` | optional                                                                               | <p>Default: <strong>false</strong><br>When enabled, the command retrieves keys from Artifactory to perform verification.</p> |
+
+#### Artifact parameters
+
+| Parameter             | Required/Optional | Description                            |
+| --------------------- | ----------------- | -------------------------------------- |
+| `--subject-repo-path` | optional          | The full path to the evidence subject. |
+
+#### Package parameters
+
+| Parameter             | Required/Optional | Description                  |
+| --------------------- | ----------------- | ---------------------------- |
+| `--package-name`      | optional          | The package name.            |
+| `--package-repo-name` | optional          | The package repository name. |
+| `--package-version`   | optional          | The package version.         |
+
+#### Build parameters
+
+| Parameter        | Required/Optional | Description       |
+| ---------------- | ----------------- | ----------------- |
+| `--build-name`   | optional          | The build name.   |
+| `--build-number` | optional          | The build number. |
+
+#### Release Bundle parameters
+
+| Parameter                  | Required/Optional | Description                 |
+| -------------------------- | ----------------- | --------------------------- |
+| `--release-bundle`         | optional          | The Release Bundle name.    |
+| `--release-bundle-version` | optional          | The Release Bundle version. |
+
+### Sample commands
+
+#### Artifact evidence verification
+
+<pre data-overflow="wrap" data-full-width="true"><code><strong>jf evd verify --subject-repo-path mvn-repo/distribution.jar --public-keys public.pem
+</strong>
+Subject digest sha256: 05192c25b9ac7cc319c13a119db54dc71355dc7455d47e85e032dc5ec502aeaa
+Subject:               mvn-repo/distribution.jar
+Loaded 3 evidences
+
+Verification passed for 3 out of 3 evidences
+
+- Evidence: 1
+    - Payload type:                   application/vnd.in-toto+json
+    - Predicate type:                 code-analysis
+    - Evidence digest sha256:         05192c25b9ac7cc319c13a119db54dc71355dc7455d47e85e032dc5ec502aeaa
+    - Key source:                     Local Key
+    - Key fingerprint:                /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
+    - Digest verification status:     success
+    - Signatures verification status: success
+- Evidence: 2
+    - Payload type:                   application/vnd.in-toto+json
+    - Predicate type:                 provenance
+    - Evidence digest sha256:         05192c25b9ac7cc319c13a119db54dc71355dc7455d47e85e032dc5ec502aeaa
+    - Key source:                     Local Key
+    - Key fingerprint:                /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
+    - Digest verification status:     success
+    - Signatures verification status: success
+- Evidence: 3
+    - Payload type:                   application/vnd.in-toto+json
+    - Predicate type:                 code_rewview
+    - Evidence digest sha256:         05192c25b9ac7cc319c13a119db54dc71355dc7455d47e85e032dc5ec502aeaa
+    - Key source:                     Local Key
+    - Key fingerprint:                uz1SAgymeLMkH+lJ5ROCvbTCCnbwgUgy3zeDAR4J47k=
+    - Digest verification status:     success
+    - Signatures verification status: success
+</code></pre>
+
+#### Package evidence verification
+
+{% code overflow="wrap" %}
+```
+jf evd verify --package-name artifactory-pro --package-repo-name local  --package-version 7.111.3 --public-keys public.pem
+```
+{% endcode %}
+
+#### Build evidence verification
+
+{% code overflow="wrap" fullWidth="true" %}
+```
+jf evd verify --build-name hello-world --build-number 1.0.0 --public-keys public.pem
+```
+{% endcode %}
+
+#### Release Bundle evidence verification
+
+{% code overflow="wrap" fullWidth="true" %}
+```
+jf evd verify --release-bundle r --release-bundle-version 1 --public-keys public.pem
+```
+{% endcode %}
+
+#### JSON format output
+
+{% code overflow="wrap" %}
+```
+jf evd verify --release-bundle r --release-bundle-version 1 --public-keys public.pem --format json
+
+{
+  "subjectPath": "release-bundles-v2/r/1/release-bundle.json.evd",
+  "subjectDigest": "8172885134a879a36829011cd66ba76304fd580f960546fc65847aa808984a08",
+  "evidenceVerifications": [
+    {
+      "dsseEnvelope": {
+        "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJzdWJqZWN0IjpbeyJkaWdlc3QiOnsic2hhMjU2IjoiODE3Mjg4NTEzNGE4NzlhMzY4MjkwMTFjZDY2YmE3NjMwNGZkNTgwZjk2MDU0NmZjNjU4NDdhYTgwODk4NGEwOCJ9fV0sInByZWRpY2F0ZVR5cGUiOiJodHRwczovL2pmcm9nLmNvbS9ldmlkZW5jZS9wcm9tb3Rpb24vdjEiLCJwcmVkaWNhdGUiOnsidGltZXN0YW1wIjoiMjAyNS0wNi0wOFQxMTozNDozMS41OTFaIiwiY3JlYXRlZEJ5IjoiYWRtaW4iLCJzZXJ2aWNlSWQiOiJqZnJ0QDAxanc4YWRkbnFjbTd3MGEwa3ZxdGoxd3Z3IiwiYmFzZVVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MiIsInRhcmdldCI6eyJlbnZpcm9ubWVudCI6IkRFViIsImluY2x1ZGVkUmVwb3NpdG9yeUtleXMiOlsibXZuLXJlcG8iXSwiZXhjbHVkZWRSZXBvc2l0b3J5S2V5cyI6W119LCJtdXRhYmxlIjpmYWxzZX0sImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDhUMTE6MzQ6MzEuNTkxWiIsImNyZWF0ZWRCeSI6ImFkbWluIn0=",
+        "payloadType": "application/vnd.in-toto+json",
+        "signatures": [
+          {
+            "keyid": "rsa-public",
+            "sig": "uaqb5ap+QLUkIS4PWGirxlaAVG8JWtXgZD7Qz11oMdoQ438GIwl6XeFXHgMu9nQ9bs1RdNJVFVBA4Sl7KNlmnq9nKjQBSxHVi/8uME6jaxGpDN5e377frwK276OdD5sc/62ljF/rlASYWhmGyMFJzFcnjcm3ViMfuzZncfGet9V6iOqRxNYRy03rfVVzafW9aKCKmgBiFklzim3z8OCy6NwLnGXnWUItYFEyZHTgdERfC3oaBbBelfMhs539FBudrM8J5ixD2KW220e5Hc7SVAiXGyPBH5FB1KsF4VR2gK7u85WpOxVvqKqPBgkzBVBfG5kKhS4IpsPhsdWjQ9Q3cw=="
+          }
+        ]
+      },
+      "evidencePath": "release-bundles-v2/.evidence/ab3ea6078b724148978e59364ab4e1773acb1609f0c6b4f9f472667a4a8ce671/8172885134a879a36829011cd66ba76304fd580f960546fc65847aa808984a08/promotion-1749382471591.json",
+      "evidenceDigest": "8172885134a879a36829011cd66ba76304fd580f960546fc65847aa808984a08",
+      "predicateType": "https://jfrog.com/evidence/promotion/v1",
+      "createdBy": "admin",
+      "time": "2025-06-08T11:34:31.591Z",
+      "verificationResult": {
+        "digestVerificationStatus": "success",
+        "signaturesVerified": "success",
+        "keySource": "Local Key",
+        "keyFingerprint": "/IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4="
+      }
+    }
+  ],
+  "overallVerificationStatus": "success"
+}
+```
+{% endcode %}
+
+#### Verification using Artifactory keys
+
+{% code overflow="wrap" %}
+```
+jf evd verify --subject-repo-path catalina-dev-generic-local/catalina-1.0.0.txt --use-artifactory-keys
+
+Subject digest sha256: e06f59f5a976c7f4a5406907790bb8cad6148406282f07cd143fd1de64ca169d
+Subject:               catalina-dev-generic-local/catalina-1.0.0.txt
+Loaded 3 evidences
+
+Verification passed for 3 out of 3 evidences
+
+- Evidence: 1
+    - Payload type:                   application/vnd.in-toto+json
+    - Predicate type:                 predicate-type-uri
+    - Evidence digest sha256:         e06f59f5a976c7f4a5406907790bb8cad6148406282f07cd143fd1de64ca169d
+    - Key source:                     Artifactory Key
+    - Key fingerprint:                /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
+    - Digest verification status:     success
+    - Signatures verification status: success
+- Evidence: 2
+    - Payload type:                   application/vnd.in-toto+json
+    - Predicate type:                 predicate-type-uri
+    - Evidence digest sha256:         e06f59f5a976c7f4a5406907790bb8cad6148406282f07cd143fd1de64ca169d
+    - Key source:                     Artifactory Key
+    - Key fingerprint:                /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
+    - Digest verification status:     success
+    - Signatures verification status: success
+- Evidence: 3
+    - Payload type:                   application/vnd.in-toto+json
+    - Predicate type:                 predicate-type-uri
+    - Evidence digest sha256:         e06f59f5a976c7f4a5406907790bb8cad6148406282f07cd143fd1de64ca169d
+    - Key source:                     Artifactory Key
+    - Key fingerprint:                /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
+    - Digest verification status:     success
+    - Signatures verification status: success
 ```
 {% endcode %}
