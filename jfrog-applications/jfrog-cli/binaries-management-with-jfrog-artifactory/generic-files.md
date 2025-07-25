@@ -477,6 +477,21 @@ This command is used for setting properties on existing files in Artifactory.
 
 `jf rt sp [command options] <Files pattern> <Files properties>` `jf rt sp <artifact properties> --spec=<File Spec path> [command options]`
 
+#### **Command Options**
+
+```
+`--repo-only`
+[Optional] Set to true to limit the operation to the specified repository only.
+```
+
+#### **Examples**
+
+Set the properties on all the zip files in the generic-local repository. The command will set the property "a" with "1" value and the property "b" with two values: "2" and "3", and restrict the operation to `generic-local` repository only.
+
+```
+jf rt sp "generic-local/*.zip" "a=1;b=2,3" --repo-only=true
+```
+
 ### Commands Params
 
 |                        |                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -557,6 +572,21 @@ This command is used for deleting properties from existing files in Artifactory.
 ### Usage
 
 `jf rt delp [command options] <Files pattern> <Properties list>` `jf rt delp <artifact properties> --spec=<File Spec path> [command options]`
+
+#### **Command Options**
+
+```
+`--repo-only`
+[Optional] Set to true to limit the operation to the specified repository only.
+```
+
+#### **Examples**
+
+Remove the properties `version` and `release` from all the jar files in the maven-local repository, limiting the operation to `maven-local` repository only.
+
+```
+jf rt delp "maven-local/*.jar" "version,release" --repo-only=true
+```
 
 ### Commands Params
 
