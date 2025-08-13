@@ -367,140 +367,43 @@ jf evd verify --release-bundle <name> --release-bundle-version <version-number> 
 
 ### Sample commands
 
-#### Artifact evidence verification
-
-<pre data-overflow="wrap" data-full-width="true"><code><strong>jf evd verify --subject-repo-path mvn-repo/distribution.jar --public-keys public.pem
-</strong>
-Subject digest sha256: 05192c25b9ac7cc319c13a119db54dc71355dc7455d47e85e032dc5ec502aeaa
-Subject:               mvn-repo/distribution.jar
-Loaded 3 evidences
-
-Verification passed for 3 out of 3 evidences
-
-- Evidence: 1
-    - Payload type:                   application/vnd.in-toto+json
-    - Predicate type:                 code-analysis
-    - Evidence digest sha256:         05192c25b9ac7cc319c13a119db54dc71355dc7455d47e85e032dc5ec502aeaa
-    - Key source:                     Local Key
-    - Key fingerprint:                /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
-    - Digest verification status:     success
-    - Signatures verification status: success
-- Evidence: 2
-    - Payload type:                   application/vnd.in-toto+json
-    - Predicate type:                 provenance
-    - Evidence digest sha256:         05192c25b9ac7cc319c13a119db54dc71355dc7455d47e85e032dc5ec502aeaa
-    - Key source:                     Local Key
-    - Key fingerprint:                /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
-    - Digest verification status:     success
-    - Signatures verification status: success
-- Evidence: 3
-    - Payload type:                   application/vnd.in-toto+json
-    - Predicate type:                 code_rewview
-    - Evidence digest sha256:         05192c25b9ac7cc319c13a119db54dc71355dc7455d47e85e032dc5ec502aeaa
-    - Key source:                     Local Key
-    - Key fingerprint:                uz1SAgymeLMkH+lJ5ROCvbTCCnbwgUgy3zeDAR4J47k=
-    - Digest verification status:     success
-    - Signatures verification status: success
-</code></pre>
-
-#### Package evidence verification
+The following command verifies Sigstore bundle evidence on an artifact using keys retrieved from Artifactory.
 
 {% code overflow="wrap" %}
 ```
-jf evd verify --package-name artifactory-pro --package-repo-name local  --package-version 7.111.3 --public-keys public.pem
-```
-{% endcode %}
+jf evd verify --subject-repo-path cli-sigstore-test/readme.txt --use-artifactory-keys --public-keys public.pem
 
-#### Build evidence verification
-
-{% code overflow="wrap" fullWidth="true" %}
-```
-jf evd verify --build-name hello-world --build-number 1.0.0 --public-keys public.pem
-```
-{% endcode %}
-
-#### Release Bundle evidence verification
-
-{% code overflow="wrap" fullWidth="true" %}
-```
-jf evd verify --release-bundle r --release-bundle-version 1 --public-keys public.pem
+Subject sha256:        4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
+Subject:               cli-sigstore-test/readme.txt
+Loaded 3 evidence
+Verification passed for 3 out of 3 evidence
+- Evidence 1:
+    - Media type:                               sigstore.bundle
+    - Predicate type:                          in-toto
+    - Evidence subject sha256:        4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
+    - Key source:                               Sigstore Bundle Key
+    - Sigstore verification status:     success
+- Evidence 2:
+    - Media type:                               evidence.dsse
+    - Predicate type:                          application/vnd.in-toto+json
+    - Evidence subject sha256:        4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
+    - Key source:                                User Provided Key
+    - Key fingerprint:                         /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
+    - Sha256 verification status:      success
+    - Signatures verification status: success
+- Evidence 3:
+    - Media type:                               evidence.dsse
+    - Predicate type:                          vulnerability-scan
+    - Evidence subject sha256:        4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
+    - Key source:                                Artifactory Key
+    - Key fingerprint:                         uz1SAgymeLMkH+lJ5ROCvbTCCnbwgUgy3zeDAR4J47k=
+    - Sha256 verification status:      success
+    - Signatures verification status: success
 ```
 {% endcode %}
 
 #### JSON format output
 
-{% code overflow="wrap" %}
-```
-jf evd verify --release-bundle r --release-bundle-version 1 --public-keys public.pem --format json
+The attached file contains sample JSON format output.
 
-{
-  "subjectPath": "release-bundles-v2/r/1/release-bundle.json.evd",
-  "subjectDigest": "8172885134a879a36829011cd66ba76304fd580f960546fc65847aa808984a08",
-  "evidenceVerifications": [
-    {
-      "dsseEnvelope": {
-        "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJzdWJqZWN0IjpbeyJkaWdlc3QiOnsic2hhMjU2IjoiODE3Mjg4NTEzNGE4NzlhMzY4MjkwMTFjZDY2YmE3NjMwNGZkNTgwZjk2MDU0NmZjNjU4NDdhYTgwODk4NGEwOCJ9fV0sInByZWRpY2F0ZVR5cGUiOiJodHRwczovL2pmcm9nLmNvbS9ldmlkZW5jZS9wcm9tb3Rpb24vdjEiLCJwcmVkaWNhdGUiOnsidGltZXN0YW1wIjoiMjAyNS0wNi0wOFQxMTozNDozMS41OTFaIiwiY3JlYXRlZEJ5IjoiYWRtaW4iLCJzZXJ2aWNlSWQiOiJqZnJ0QDAxanc4YWRkbnFjbTd3MGEwa3ZxdGoxd3Z3IiwiYmFzZVVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MiIsInRhcmdldCI6eyJlbnZpcm9ubWVudCI6IkRFViIsImluY2x1ZGVkUmVwb3NpdG9yeUtleXMiOlsibXZuLXJlcG8iXSwiZXhjbHVkZWRSZXBvc2l0b3J5S2V5cyI6W119LCJtdXRhYmxlIjpmYWxzZX0sImNyZWF0ZWRBdCI6IjIwMjUtMDYtMDhUMTE6MzQ6MzEuNTkxWiIsImNyZWF0ZWRCeSI6ImFkbWluIn0=",
-        "payloadType": "application/vnd.in-toto+json",
-        "signatures": [
-          {
-            "keyid": "rsa-public",
-            "sig": "uaqb5ap+QLUkIS4PWGirxlaAVG8JWtXgZD7Qz11oMdoQ438GIwl6XeFXHgMu9nQ9bs1RdNJVFVBA4Sl7KNlmnq9nKjQBSxHVi/8uME6jaxGpDN5e377frwK276OdD5sc/62ljF/rlASYWhmGyMFJzFcnjcm3ViMfuzZncfGet9V6iOqRxNYRy03rfVVzafW9aKCKmgBiFklzim3z8OCy6NwLnGXnWUItYFEyZHTgdERfC3oaBbBelfMhs539FBudrM8J5ixD2KW220e5Hc7SVAiXGyPBH5FB1KsF4VR2gK7u85WpOxVvqKqPBgkzBVBfG5kKhS4IpsPhsdWjQ9Q3cw=="
-          }
-        ]
-      },
-      "evidencePath": "release-bundles-v2/.evidence/ab3ea6078b724148978e59364ab4e1773acb1609f0c6b4f9f472667a4a8ce671/8172885134a879a36829011cd66ba76304fd580f960546fc65847aa808984a08/promotion-1749382471591.json",
-      "evidenceDigest": "8172885134a879a36829011cd66ba76304fd580f960546fc65847aa808984a08",
-      "predicateType": "https://jfrog.com/evidence/promotion/v1",
-      "createdBy": "admin",
-      "time": "2025-06-08T11:34:31.591Z",
-      "verificationResult": {
-        "digestVerificationStatus": "success",
-        "signaturesVerified": "success",
-        "keySource": "Local Key",
-        "keyFingerprint": "/IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4="
-      }
-    }
-  ],
-  "overallVerificationStatus": "success"
-}
-```
-{% endcode %}
-
-#### Verification using Artifactory keys
-
-{% code overflow="wrap" %}
-```
-jf evd verify --subject-repo-path catalina-dev-generic-local/catalina-1.0.0.txt --use-artifactory-keys
-
-Subject digest sha256: e06f59f5a976c7f4a5406907790bb8cad6148406282f07cd143fd1de64ca169d
-Subject:               catalina-dev-generic-local/catalina-1.0.0.txt
-Loaded 3 evidences
-
-Verification passed for 3 out of 3 evidences
-
-- Evidence: 1
-    - Payload type:                   application/vnd.in-toto+json
-    - Predicate type:                 predicate-type-uri
-    - Evidence digest sha256:         e06f59f5a976c7f4a5406907790bb8cad6148406282f07cd143fd1de64ca169d
-    - Key source:                     Artifactory Key
-    - Key fingerprint:                /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
-    - Digest verification status:     success
-    - Signatures verification status: success
-- Evidence: 2
-    - Payload type:                   application/vnd.in-toto+json
-    - Predicate type:                 predicate-type-uri
-    - Evidence digest sha256:         e06f59f5a976c7f4a5406907790bb8cad6148406282f07cd143fd1de64ca169d
-    - Key source:                     Artifactory Key
-    - Key fingerprint:                /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
-    - Digest verification status:     success
-    - Signatures verification status: success
-- Evidence: 3
-    - Payload type:                   application/vnd.in-toto+json
-    - Predicate type:                 predicate-type-uri
-    - Evidence digest sha256:         e06f59f5a976c7f4a5406907790bb8cad6148406282f07cd143fd1de64ca169d
-    - Key source:                     Artifactory Key
-    - Key fingerprint:                /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
-    - Digest verification status:     success
-    - Signatures verification status: success
-```
-{% endcode %}
+{% file src="../../../.gitbook/assets/verification_result.json" %}
