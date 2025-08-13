@@ -369,38 +369,37 @@ jf evd verify --release-bundle <name> --release-bundle-version <version-number> 
 
 The following command verifies Sigstore bundle evidence on an artifact using keys retrieved from Artifactory.
 
-{% code overflow="wrap" %}
 ```
-jf evd verify --subject-repo-path cli-sigstore-test/readme.txt --use-artifactory-keys --public-keys public.pem
-
-Subject sha256:        4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
-Subject:               cli-sigstore-test/readme.txt
+Subject sha256:        4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
+Subject:               cli-sigstore-test/readme.txt
 Loaded 3 evidence
+
 Verification passed for 3 out of 3 evidence
+
 - Evidence 1:
-    - Media type:                               sigstore.bundle
-    - Predicate type:                          in-toto
-    - Evidence subject sha256:        4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
-    - Key source:                               Sigstore Bundle Key
-    - Sigstore verification status:     success
+    - Media type:                            sigstore.bundle
+    - Predicate type:                        in-toto
+    - Evidence subject sha256:               4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
+    - Key source:                            Sigstore Bundle Key
+    - Sigstore verification status:          success
 - Evidence 2:
-    - Media type:                               evidence.dsse
-    - Predicate type:                          application/vnd.in-toto+json
-    - Evidence subject sha256:        4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
-    - Key source:                                User Provided Key
-    - Key fingerprint:                         /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
-    - Sha256 verification status:      success
-    - Signatures verification status: success
+    - Media type:                            evidence.dsse
+    - Predicate type:                        application/vnd.in-toto+json
+    - Evidence subject sha256:               4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
+    - Key source:                            User Provided Key
+    - Key fingerprint:                       /IyvutGSsuTPykv+mGtG4sph4TGh3Cl4HRNxbEZo1z4=
+    - Sha256 verification status:            success
+    - Signatures verification status:        success
 - Evidence 3:
-    - Media type:                               evidence.dsse
-    - Predicate type:                          vulnerability-scan
-    - Evidence subject sha256:        4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
-    - Key source:                                Artifactory Key
-    - Key fingerprint:                         uz1SAgymeLMkH+lJ5ROCvbTCCnbwgUgy3zeDAR4J47k=
-    - Sha256 verification status:      success
-    - Signatures verification status: success
+    - Media type:                            evidence.dsse
+    - Predicate type:                        vulnerability-scan
+    - Evidence subject sha256:               4bf2da010af20d8ed0364caf14f90bcab22b312520c68b9a01bb3479ba9a742c
+    - Key source:                            Artifactory Key
+    - Key fingerprint:                       uz1SAgymeLMkH+lJ5ROCvbTCCnbwgUgy3zeDAR4J47k=
+    - Sha256 verification status:            success
+    - Signatures verification status:        success
+
 ```
-{% endcode %}
 
 #### JSON format output
 
