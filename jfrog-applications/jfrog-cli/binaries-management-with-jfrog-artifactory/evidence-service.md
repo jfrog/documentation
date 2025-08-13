@@ -365,7 +365,7 @@ jf evd verify --release-bundle <name> --release-bundle-version <version-number> 
 | `--release-bundle`         | optional          | The Release Bundle name.    |
 | `--release-bundle-version` | optional          | The Release Bundle version. |
 
-### Sample commands
+### Sample command
 
 The following command verifies Sigstore bundle evidence on an artifact using keys retrieved from Artifactory.
 
