@@ -482,6 +482,12 @@ When your self-hosted Artifactory hosts hundreds of terabytes of binaries, you m
 
 The `jf rt transfer-files` command transfers the metadata of the binaries to the database (file paths, file names, properties, and statistics). The command also transfers the binaries that have been created and modified after you copy the filestore.
 
+**Note**
+
+> Make sure to first enable the [checksum replication](https://jfrog.com/help/r/jfrog-rest-apis/configure-checksum-replication)
+
+***
+
 To run the file transfer after you copy the filestore, add the `--filestore` command option to the `jf rt transfer-files` command.
 
 #### Using Replication
