@@ -6,7 +6,9 @@ This command is used to upload files to Artifactory.
 
 ### Usage
 
-`jf rt u [command options] <Source path> <Target path>` `jf rt u --spec=<File Spec path> [command options]`
+`jf rt u [command options] <Source path> <Target path>`&#x20;
+
+`jf rt u --spec=<File Spec path> [command options]`
 
 ### Commands Params
 
