@@ -294,6 +294,14 @@ The Verify Evidence command provides client-side verification that the evidence 
 
 This command can be run on a variety of evidence subjects, including artifacts, packages, builds, and Release Bundles. It requires you to define the evidence subject and the keys to use for verification.&#x20;
 
+***
+
+**Note**
+
+When working in a Federated environment, evidence can be verified only on those members that contain the public key. You must upload the public key manually to each Federation member.
+
+***
+
 ### Syntax
 
 JFrog CLI uses the following syntax for verifying evidence:
