@@ -1,67 +1,47 @@
 # CLI AI Assistant
 
-ONLY ACTIVE JFROG CUSTOMERS ARE AUTHORIZED TO USE THE JFROG AI ASSISTANT. ALL OTHER USES ARE PROHIBITED.
+**ONLY ACTIVE JFROG CUSTOMERS ARE AUTHORIZED TO USE THE JFROG AI ASSISTANT. ALL OTHER USES ARE PROHIBITED.**
 
 ## Overview
 
-The JFrog CLI AI Command Assistant streamlines your workflow by turning natural language inputs into JFrog CLI commands.
+The JFrog CLI AI Command Assistant streamlines your workflow by turning natural language inputs into JFrog CLI commands. Describe your desired actions, and the assistant generates commands with all necessary parameters, whether you are uploading artifacts, managing repositories, scanning your code, or performing other actions using the JFrog CLI.
 
-Simply describe your desired actions, and the assistant generates commands with all necessary parameters, whether you're uploading artifacts, managing repositories, scanning your code, or performing other actions using the JFrog CLI.
-
-Each query is treated individually, and while the interface allows you to refine requests, it doesn’t maintain a chat history.
-
-This tool helps users access the full power of JFrog CLI without needing to remember specific syntax, ensuring efficiency and accuracy.
+Each query is treated individually, and while the interface allows you to refine requests, it does not maintain a chat history. This tool helps you access the full power of JFrog CLI without needing to remember specific syntax, ensuring efficiency and accuracy.
 
 {% hint style="info" %}
-Note, This is the first version of JFrog CLI AI, hence it is limited only to Artifactory and Xray commands.
+**Note:** This is the first version of JFrog CLI AI; therefore, it is limited only to Artifactory and Xray commands.
 {% endhint %}
 
 ![](../../../.gitbook/assets/cli-ai.png)
 
 ## How to Use the JFrog CLI AI Command Assistant
 
-To use the JFrog CLI AI Command Assistant, follow these simple steps:
+To use the JFrog CLI AI Command Assistant:
 
-### 1. Open your terminal
+1. Open your terminal. Your command prompt is displayed.
+2.  Verify that your CLI version is 2.69 or higher by running the following command:
 
-Ensure that you are in a terminal session where JFrog CLI is installed and configured.
+    ```
+    jf --version
+    ```
+3.  Type the following command to initiate the AI assistant:
 
-### 2. Supported Version Validation
+    ```
+    jf how
+    ```
+4.  Provide your request when you see the prompt. Describe in natural language what you would like the JFrog CLI to do. For example:
 
-This feature is available starting from CLI version 2.69 and above. To validate your version, run:
+    ```
+    Your request: How to upload all files in the 'build' directory to the 'my-repo' repository?
+    ```
+5.  Receive the generated command. The AI assistant processes your request and outputs the corresponding JFrog CLI command. For the example above, it generates:
 
-`jf --version`
+    ```
+    jf rt u build/ my-repo/
+    ```
+6. Execute or modify the command. Copy the generated command and run it in your terminal. If needed, you can refine your request and try again.
 
-### 3. Enter the command
 
-Type the following command to initiate the AI assistant:
-
-`jf how`
-
-### 4. Provide your request
-
-After entering the command, you will see a prompt:
-
-**Your request:**
-
-Describe in natural language what you would like the JFrog CLI to do. The AI assistant will generate the exact CLI command needed.
-
-For example, you might type:
-
-`Your request: How to upload all files in the 'build' directory to the 'my-repo' repository?`
-
-### 5. Receive the generated command
-
-The AI assistant will process your request and output the corresponding JFrog CLI command, including all necessary parameters.\
-For the example above, it will generate:
-
-`jf rt u build/ my-repo/`
-
-### 6. Execute or modify
-
-You can now copy the generated command and run it in your terminal.
-
-If needed, you can refine your request and try again.
 
 ## FAQ
 
@@ -69,7 +49,7 @@ If needed, you can refine your request and try again.
 
 <summary>How does JFrog CLI AI Command Assistant work?</summary>
 
-When you make a request using the JFrog CLI AI Command Assistant, your input is sent to a model that generates the appropriate JFrog CLI command. This model has been fine-tuned to produce accurate responses based on various inputs. The fine-tuned model is hosted on Azure OpenAI.
+When you make a request, your input is sent to a fine-tuned model hosted on Azure OpenAI, which generates the appropriate JFrog CLI command.
 
 </details>
 
@@ -79,8 +59,8 @@ When you make a request using the JFrog CLI AI Command Assistant, your input is 
 
 The model was trained using a dataset built from two primary sources:
 
-* **JFrog CLI Public Documentation**: This includes detailed information and examples from JFrog’s publicly available resources.
-* **Internal Questions and Answers dataset**: The dataset also incorporates internally created questions and answers, which help to refine the model’s ability to provide precise and relevant commands.
+* JFrog CLI Public Documentation: Includes detailed information and examples from JFrog’s publicly available resources.
+* Internal Dataset: Incorporates internally created questions and answers to refine the model’s ability to provide precise commands.
 
 </details>
 
@@ -88,7 +68,7 @@ The model was trained using a dataset built from two primary sources:
 
 <summary>Does JFrog send customer data to OpenAI’s platform to train its services?</summary>
 
-The data you submit and the responses you receive via JFrog CLI AI are not used to fine-tune or improve our model or services. Each data request is sent to Azure OpenAI individually, over an SSL-encrypted service, to process and send back to JFrog.
+No. The data you submit and the responses you receive are not used to fine-tune or improve our model or services. Each request is sent to Azure OpenAI individually over an SSL-encrypted service to be processed.
 
 </details>
 
@@ -96,7 +76,7 @@ The data you submit and the responses you receive via JFrog CLI AI are not used 
 
 <summary>Are you saving my inputs and outputs?</summary>
 
-No, JFrog does not save users' input and output data.
+No, JFrog does not save your input and output data.
 
 </details>
 
