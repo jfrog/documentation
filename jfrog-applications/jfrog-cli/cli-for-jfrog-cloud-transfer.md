@@ -4,42 +4,41 @@
 
 ### General
 
-JFrog provides you the ability to migrate from a self-hosted JFrog Platform installation to JFrog Cloud so that you can seamlessly transition into JFrog Cloud. You can use the JFrog CLI to transfer the Artifactory configuration settings and binaries to JFrog Cloud.
+JFrog helps you migrate from a self-hosted JFrog Platform installation to JFrog Cloud. You can use JFrog CLI to transfer Artifactory configuration settings and binaries to JFrog Cloud, allowing you to transition seamlessly.
 
-JFrog Cloud provides the same cutting-edge functionalities of a self-hosted JFrog Platform Deployment (JPD), without the overhead of managing the databases and systems. If you are an existing JFrog self-hosted customer, you might want to move to JFrog Cloud to ease operations. JFrog provides a solution that allows you to replicate your self-hosted JPD to a JFrog Cloud JPD painlessly.
+JFrog Cloud provides the same functionalities as a self-hosted JFrog Platform Deployment (JPD) without the overhead of managing databases and systems. If you are an existing JFrog self-hosted customer, you might want to move to JFrog Cloud to simplify operations. This solution allows you to replicate your self-hosted JPD to a JFrog Cloud JPD.
 
-The Artifactory Transfer solution currently transfers the config and data of JFrog Artifactory only. Other products such as JFrog Xray, and Distribution are currently not supported by this solution.
+The Artifactory Transfer solution currently transfers the configuration and data of JFrog Artifactory only. Other products such as JFrog Xray and Distribution are not supported by this solution.
 
 In this page, we refer to the source self-hosted instance as the source instance, and the target JFrog Cloud instance as the target instance.
 
 ### Noteworthy Details
 
-* **Artifactory Version Support:** The Artifactory Transfer solution is supported for any version of Artifactory 7.x and Artifactory version 6.23.21 and above. If your current Artifactory version is not of compatible version, please consider upgrading the Artifactory instance.
-* **Supported OS Platforms:** The transfer tool can help transfer the files and configuration from operating systems of all types, including Windows and Container environments.
+* Artifactory Version Support: The Artifactory Transfer solution is supported for Artifactory 7.x and Artifactory 6.23.21 and above. If your current version is not compatible, please consider upgrading your instance.
+* Supported OS Platforms: The transfer tool can transfer files and configuration from all types of operating systems, including Windows and container environments.
 
 ### Limitations
 
-The following limitations need to be kept in mind before you start the migration process
+Keep the following limitations in mind before you start the migration process:
 
-1. The Archive Search Enabled feature is not supported on JFrog Cloud.
-2. Artifactory System Properties are not transferred and JFrog Cloud defaults are applied after the transfer.
-3. User plugins are not supported on JFrog Cloud.
-4. Artifact Cold Storage is not supported in JFrog Cloud.
-5. Artifacts in remote repositories caches are not transferred.
-6. Federated repositories are transferred without their federation members. After the transfer, you'll need to reconfigure the federation as described in the Federated Repositories documentation. Federated Repositories
-7. Docker repositories with names that include dots or underscores aren't allowed in JFrog Cloud.
-8. Artifact properties with a value longer than 2.4K characters are not supported in JFrog Cloud. Such properties are generally seen in Conan artifacts. The artifacts will be transferred without the properties in this case. A report with these artifacts will become available to you at the end of the transfer.
-9. The files transfer process allows transferring files that were created or modified on the source instance after the process started. However:
-   * Files that were deleted on the source instance after the process started, are not deleted on the target instance by the process.
-   * The custom properties of those files are also updated on the target instance. However, if only the custom properties of those files were modified on the source, but not the files' content, the properties are not modified on the target instance by the process.
-10. When transferring files in build-info repositories, JFrog CLI limits the total of working threads to 8. This is done to limit the load on the target instance while transferring build-info.
+* The Archive Search Enabled feature is not supported on JFrog Cloud.
+* Artifactory System Properties are not transferred; JFrog Cloud defaults are applied after the transfer.
+* User plugins are not supported on JFrog Cloud.
+* Artifact Cold Storage is not supported in JFrog Cloud.
+* Artifacts in remote repository caches are not transferred.
+* Federated repositories are transferred without their members. After the transfer, you will need to reconfigure the federation. For more information, see the Federated Repositories documentation.
+* JFrog Cloud does not allow Docker repository names that include dots or underscores.
+* Artifact properties with a value longer than 2.4K characters are not supported in JFrog Cloud. These are typically seen in Conan artifacts. The artifacts will be transferred without the properties, and a report will be available at the end of the transfer.
+* Files deleted on the source instance after the process starts are not deleted on the target.
+* If only the custom properties of files are modified on the source (but not the content), the properties are not updated on the target.
+* When transferring files in build-info repositories, JFrog CLI limits the total working threads to 8 to limit the load on the target instance.
 
 ### Transfer phases
 
-The transfer process includes two phases, that you must perform in the following order:
+The transfer process includes two phases, which you must perform in the following order:
 
-1. **Configuration Transfer:** Transfers the configuration entities like users, permissions, and repositories from the source instance to the target instance.
-2. **File Transfer:** Transfers the files (binaries) stored in the source instance repositories to the target instance repositories.
+1. Configuration Transfer: Transfers configuration entities like users, permissions, and repositories from the source to the target instance.
+2. File Transfer: Transfers the files (binaries) stored in the source instance repositories to the target instance repositories.
 
 ***
 
@@ -50,22 +49,22 @@ The transfer process includes two phases, that you must perform in the following
 
 ***
 
-You can do both steps while the source instance is in use. No downtime on the source instance is required while the transfer is in progress.
+You can perform both steps while the source instance is in use. No downtime on the source instance is required while the transfer is in progress.
 
-### Before you begin
+### Prerequisites
 
-1. If your source instance hosts files that are larger than 25 GB, they will be blocked during the transfer. To learn how to check whether large files are hosted by your source instance, and what to do in that case, read [this section](cli-for-jfrog-cloud-transfer.md#running-the-transfer-process-exceptional-cases).
-2. Ensure that you can log in to the UI of both the source and target instances with users that have admin permissions.
-3. Ensure that the target instance license does not support fewer features than the source instance license.
-4. Run the file transfer pre-checks as described [here](cli-for-jfrog-cloud-transfer.md#running-pre-checks-before-initiating-the-file-transfer-process).
-5. Ensure that all the remote repositories on the source Artifactory instance have network access to their destination URL once they are created in the target instance. Even if one remote or federated repository does not have access, the configuration transfer operation will be cancelled. You do have the option of excluding specific repositories from being transferred.
-6. Ensure that all the replications configured on the source Artifactory instance have network access to their destination URL once they are created in the target instance.
-7. Ensure that you have a user who can log in to [MyJFrog](https://my.jfrog.com/login/).
-8. Ensure that you can log in to the primary node of your source instance through a terminal.
+* If your source instance hosts files larger than 25 GB, they will be blocked. For information on how to check for and handle these files, see the Exceptional Cases section.
+* Ensure that you can log in to the UI of both the source and target instances with a user that has admin permissions.
+* Ensure that the target instance license supports at least the same features as the source instance license.
+* Run the file transfer pre-checks.
+* Ensure that all remote and federated repositories on the source instance will have network access to their destination URLs once they are created on the target.
+* Ensure that all replications configured on the source instance will have network access to their destination URLs.
+* Ensure that you have a user who can log in to MyJFrog.
+* Ensure that you can log in to the primary node of your source instance through a terminal.
 
 ### Running the transfer process
 
-Perform the following steps to transfer configuration and artifacts from the source to the target instance. You must run the steps in the exact sequence and do not run any of the commands in parallel.
+Perform the following steps in the exact sequence provided. Do not run any of the commands in parallel.
 
 #### Step 1: Enabling configuration transfer on the target instance
 
