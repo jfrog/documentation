@@ -32,7 +32,7 @@ $ jf command-name global-options command-options arguments
 
 ## Create a Release Bundle v2
 
-The **create** command allows creating a Release Bundle v2 using [file specs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/using-file-specs). The file spec may be based on one or more of the following sources:
+Use the create command to create a Release Bundle v2 using [File Specs](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/using-file-specs). The File Spec can be based on one or more of the following sources:
 
 *   Published build info:
 
