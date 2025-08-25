@@ -2,21 +2,19 @@
 
 ## Overview
 
-JFrog CLI integrates with any development ecosystem allowing you to collect build-info and then publish it to Artifactory. By publishing build-info to Artifactory, JFrog CLI empowers Artifactory to provide visibility into artifacts deployed, dependencies used and extensive information on the build environment to allow fully traceable builds. Read more about build-info and build integration with Artifactory [here](https://jfrog.com/help/r/jfrog-integrations-documentation/Build-Integration).
+JFrog CLI integrates with any development ecosystem, allowing you to collect build-info and then publish it to Artifactory. By publishing build-info to Artifactory, JFrog CLI empowers Artifactory to provide visibility into deployed artifacts, used dependencies, and extensive information on the build environment to allow fully traceable builds. For more information about build-info and build integration with Artifactory, see the [JFrog Integrations Documentation](https://jfrog.com/help/r/jfrog-integrations-documentation/build-integration).
 
-Many of JFrog CLI's commands accept two optional command options: **--build-name** and **--build-number**. When these options are added, JFrog CLI collects and records the build info locally for these commands.\
-When running multiple commands using the same build and build number, JFrog CLI aggregates the collected build info into one build.\
-The recorded build-info can be later published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
+Many JFrog CLI commands accept the optional `--build-name` and `--build-number` options. When you add these options, JFrog CLI collects and records the build info locally for these commands. When running multiple commands with the same build name and build number, JFrog CLI aggregates the collected build info into one build. The recorded build-info can be published to Artifactory later using the `build-publish` command.
 
 ## Collecting Build-Info
 
-Build-info is collected by adding the `--build-name` and `--build-number` options to different CLI commands. The CLI commands can be run several times and cumulatively collect build-info for the specified build name and number until it is published to Artifactory. For example, running the `jf rt download` command several times with the same build name and number will accumulate each downloaded file in the corresponding build-info.
+Build-info is collected by adding the `--build-name` and `--build-number` options to different CLI commands. The CLI commands can be run multiple times to cumulatively collect build-info for the specified build name and number until it is published to Artifactory. For example, running the `jf rt download` command several times with the same build name and number will accumulate each downloaded file in the corresponding build-info.
 
 ### Collecting Dependencies
 
 Dependencies are collected by adding the `--build-name` and `--build-number` options to the `jf rt download` command.
 
-For example, the following command downloads the `cool-froggy.zip` file found in repository `my-local-repo`, but it also specifies this file as a dependency in build `my-build-name` with build number 18:
+For example, the following command downloads the `cool-froggy.zip` file from the `my-local-repo` repository and also specifies this file as a dependency in build `my-build-name` with build number `18`:
 
 ```
 jf rt dl my-local-repo/cool-froggy.zip --build-name=my-build-name --build-number=18
@@ -26,7 +24,7 @@ jf rt dl my-local-repo/cool-froggy.zip --build-name=my-build-name --build-number
 
 Build artifacts are collected by adding the `--build-name` and `--build-number` options to the `jf rt upload` command.
 
-For example, the following command specifies that file `froggy.tgz` uploaded to repository `my-local-repo` is a build artifact of build `my-build-name` with build number 18:
+For example, the following command specifies that the file `froggy.tgz` uploaded to the `my-local-repo` repository is a build artifact of build `my-build-name` with build number `18`:
 
 ```
 jf rt u froggy.tgz my-local-repo --build-name=my-build-name --build-number=18
@@ -34,9 +32,7 @@ jf rt u froggy.tgz my-local-repo --build-name=my-build-name --build-number=18
 
 ### Collecting Environment Variables
 
-This command is used to collect environment variables and attach them to a build.
-
-Environment variables are collected using the `build-collect-env` (`bce`) command.
+Use this command to collect environment variables and attach them to a build. Environment variables are collected using the `build-collect-env` (`bce`) command.
 
 #### Usage
 
@@ -56,27 +52,22 @@ The following table lists the command arguments and flags:
 | **Command options:**   |                                         |
 | `--project`            | <p>[Optional]<br>JFrog project key.</p> |
 
-#### Examples
+**Examples**
 
-**Example 1**
+*   Example 1: The following command collects all currently known environment variables and attaches them to the build-info for build `my-build-name` with build number `18`:
 
-The following command collects all currently known environment variables, and attaches them to the build-info for build `my-build-name` with build number 18:
+    ```
+    jf rt bce my-build-name 18
+    ```
+*   Example 2: Collect environment variables for build name `frogger-build` and build number `17`:
 
-```
-jf rt bce my-build-name 18
-```
-
-**Example 2**
-
-Collect environment variables for build name: frogger-build and build number: 17
-
-```
-jf rt bce frogger-build 17
-```
+    ```
+    jf rt bce frogger-build 17
+    ```
 
 ### Collecting Information from Git
 
-The `build-add-git` (bag) command collects the Git revision and URL from the local .git directory and adds it to the build-info. It can also collect the list of tracked project issues (for example, issues stored in JIRA or other bug tracking systems) and add them to the build-info. The issues are collected by reading the git commit messages from the local git log. Each commit message is matched against a pre-configured regular expression, which retrieves the issue ID and issue summary. The information required for collecting the issues is retrieved from a yaml configuration file provided to the command.
+The `build-add-git` (`bag`) command collects the Git revision and URL from the local `.git` directory and adds it to the build-info. The command also collects the list of tracked project issues (for example, issues stored in JIRA or other bug tracking systems) and adds them to the build-info. The issues are collected by reading the git commit messages from the local git log. Each commit message is matched against a pre-configured regular expression, which retrieves the issue ID and issue summary. The information required for collecting the issues is retrieved from a YAML configuration file provided to the command.
 
 #### Usage
 
@@ -141,9 +132,9 @@ issues:
 
 ### Adding Files as Build Dependencies
 
-The download command, as well as other commands which download dependencies from Artifactory accept the **--build-name** and **--build-number** command options. Adding these options records the downloaded files as build dependencies. In some cases however, it is necessary to add a file, which has been downloaded by another tool, to a build. Use the **build-add-dependencies** command to this.
+The `download` command and other commands that download dependencies from Artifactory accept the `--build-name` and `--build-number` options to record the downloaded files as build dependencies. In cases where it is necessary to add a file downloaded by another tool as a dependency, use the `build-add-dependencies` (`bad`) command.
 
-By default, the command collects the files from the local file system. If you'd like the files to be collected from Artifactory however, add the **--from-rt** option to the command.
+By default, the command collects files from the local file system. To collect files from Artifactory instead, add the `--from-rt` option.
 
 #### Usage
 
@@ -198,7 +189,7 @@ jf rt bad my-build-name 7 "path/to/build/dependencies/dir/" --module m1
 
 ## Publishing Build-Info
 
-This command is used to publish build info to Artifactory. To publish the accumulated build-info for a build to Artifactory, use the **build-publish** command. For example, the following command publishes all the build-info collected for build **my-build-name** with build number 18:
+Use the `build-publish` (`bp`) command to publish the accumulated build-info to Artifactory.
 
 ### Usage
 
@@ -233,7 +224,7 @@ jf rt bp my-build-name 18
 
 ## Aggregating Published Builds
 
-The build-info, which is collected and published to Artifactory by the **jf rt build-publish** command, can include multiple modules. Each module in the build-info represents a package, which is the result of a single build step, or in other words, a JFrog CLI command execution. For example, the following command adds a module named **m1** to a build named **my-build** with **1** as the build number:
+In complex builds where steps run across multiple machines, you can publish separate build-info instances and then aggregate them into a "master" build-info record. The `build-append` (`ba`) command adds a reference from a new build-info to a previously published one.
 
 ```
 jf rt upload "a/*.zip" generic-local --build-name my-build --build-number 1 --module m1
@@ -314,7 +305,7 @@ jf rt download --build aggregating-build/10
 
 ## Promoting a Build
 
-This command is used to [promote build](https://jfrog.com/knowledge-base/how-does-build-promotion-work/) in Artifactory.
+This command is used to [promote build](https://jfrog.com/knowledge-base/how-does-build-promotion-work/) in Artifactory. Use the `build-promote` (`bpr`) command to promote a build in Artifactory, which typically involves moving or copying build artifacts to a target repository.
 
 ### Usage
 
@@ -352,7 +343,7 @@ jf rt bpr my-build-name 18 target-repository
 
 ## Cleaning up the Build
 
-Build-info is accumulated by the CLI according to the commands you apply until you publish the build-info to Artifactory. If, for any reason, you wish to "reset" the build-info and cleanup (i.e. delete) any information accumulated so far, you can use the `build-clean` (`bc`) command.
+To reset the locally accumulated build-info and delete any information collected so far, use the `build-clean` (`bc`) command.
 
 ### Usage
 
@@ -381,7 +372,7 @@ jf rt bc my-build-name 18
 
 ## Discarding Old Builds from Artifactory
 
-This command is used to discard builds previously published to Artifactory using the [build-publish](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#publishing-build-info) command.
+Use the `build-discard` (`bdi`) command to remove old builds previously published to Artifactory.
 
 ### Usage
 
