@@ -14,15 +14,13 @@ When used with JFrog Distribution, JFrog CLI uses the following syntax:
 $ jf ds command-name global-options command-options arguments
 ```
 
-### Managing Access Keys
 
-### Commands
 
-The following sections describe the commands available in the JFrog CLI for use with JFrog Distribution.
+The following sections describe the commands available in JFrog CLI for use with JFrog Distribution.
 
 ### Creating or updating an unsigned Release Bundle
 
-This commands creates and updates an unsigned Release Bundle on JFrog Distribution.
+These commands create and update an unsigned Release Bundle in JFrog Distribution.
 
 ***
 
