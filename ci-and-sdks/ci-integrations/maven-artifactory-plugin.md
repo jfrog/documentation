@@ -2,19 +2,19 @@
 
 ### Overview
 
-The Maven Artifactory integrates in your build to allow you to do the following:
+Use the Maven Artifactory Plugin to integrate with your build to perform the following actions:
 
-1. Resolve artifacts from Artifactory.
-2. Capture the full build information and publish it to Artifactory.
-3. Deploy all build Artifacts to Artifactory.
+* Resolve artifacts from Artifactory.
+* Capture the full build information and publish it to Artifactory.
+* Deploy all build artifacts to Artifactory.
 
 ### Using Maven Artifactory plugin
 
-The Maven Artifactory Plugin coordinates are org.jfrog.buildinfo:artifactory-maven-plugin:x.x.x. It can be viewed on [releases.jfrog.io](https://releases.jfrog.io/artifactory/oss-release-local/org/jfrog/buildinfo/artifactory-maven-plugin).
+The Maven Artifactory Plugin coordinates are `org.jfrog.buildinfo:artifactory-maven-plugin:x.x.x`. You can view the plugin at [`releases.jfrog.io`](https://releases.jfrog.io/artifactory/oss-release-local/org/jfrog/buildinfo/artifactory-maven-plugin/).
 
 #### Basic Configuration
 
-A typical build plugin configuration would be as follows:
+The following example shows a typical build plugin configuration:
 
 ```xml
 
@@ -50,13 +50,11 @@ A typical build plugin configuration would be as follows:
 </build>
 ```
 
-The plugin's invocation phase is validate by default, and we recommend you don't change it so the plugin is called as early as possible in the lifecycle of your Maven build.
+The plugin's invocation phase is `validate` by default. We recommend that you do not change it so the plugin is called as early as possible in the lifecycle of your Maven build.
 
 #### Full Configuration
 
-The example above configures the Artifactory publisher, to deploy build artifacts either to the releases or the snapshots repository of Artifactory when `mvn deploy` is executed.
-
-However, the Maven Artifactory Plugin provides many other configurations:
+The example above configures the Artifactory publisher to deploy build artifacts to either the releases or the snapshots repository in Artifactory when `mvn deploy` is executed. However, the Maven Artifactory Plugin provides many other configurations:
 
 ```xml
 
@@ -114,17 +112,17 @@ However, the Maven Artifactory Plugin provides many other configurations:
 
 #### Configuration Details
 
-|    Configuration     | Description                                                                                                                                                                                                                                              |
-|:--------------------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|     Configuration    | Description                                                                                                                                                                                                                                              |
+| :------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<deployProperties>` | Specifies properties you can attach to published artifacts. For example: prop-value.                                                                                                                                                                     |
-|   `<artifactory>`    | Specifies whether environment variables are published as part of BuildInfo metadata and which include or exclude patterns are applied when variables are collected                                                                                       |
-|    `<publisher>`     | Defines an Artifactory repository where build artifacts should be published using a combination of a `<contextUrl>` and `<repoKey>/<snapshotRepoKey>`. Build artifacts are deployed if the deploy goal is executed and only after all modules are built. |
-|    `<buildInfo>`     | Updates BuildInfo metadata published together with build artifacts. You can configure whether or not BuildInfo metadata is published using the configuration.                                                                                            |
-|      `<proxy>`       | Specifies HTTP/S proxy.                                                                                                                                                                                                                                  |
+|    `<artifactory>`   | Specifies whether environment variables are published as part of BuildInfo metadata and which include or exclude patterns are applied when variables are collected                                                                                       |
+|     `<publisher>`    | Defines an Artifactory repository where build artifacts should be published using a combination of a `<contextUrl>` and `<repoKey>/<snapshotRepoKey>`. Build artifacts are deployed if the deploy goal is executed and only after all modules are built. |
+|     `<buildInfo>`    | Updates BuildInfo metadata published together with build artifacts. You can configure whether or not BuildInfo metadata is published using the configuration.                                                                                            |
+|       `<proxy>`      | Specifies HTTP/S proxy.                                                                                                                                                                                                                                  |
 
 #### Reading Environment Variables and System Properties
 
-Every build server provides its own set of environment variables. You can utilize these variables when configuring the plugin as shown in the following example:
+Every build server provides its own set of environment variables. You can use these variables when configuring the plugin, as shown in the following example:
 
 ```xml
 
@@ -139,10 +137,11 @@ Every build server provides its own set of environment variables. You can utiliz
 </configuration>
 ```
 
-Any plugin configuration value can contain several \{{ .. \}} expressions. Each expression can contain a single or multiple environment variables or system properties to be used. The expression syntax allows you to provide enough variables to accommodate any build server requirements according to the following rules:
+Any plugin configuration value can contain one or more `{{ ... }}` expressions. The syntax follows these rules:
 
-* Each expression can contain several variables, separated by a ' | ' character to be used with a configuration value.
-* The last value in a list is the default that will be used if none of the previous variables is available as an environment variable or a system property.
+* Each expression can contain several variables, separated by a `|` character.
+* The plugin attempts to resolve each variable in order, first as an environment variable and then as a system property.
+* The last value in a list can be a default string (in quotes) that will be used if none of the preceding variables are available.
 
 For example, for the expression \{{V1|V2|"defaultValue"\}} the plugin will attempt to locate environment variable V1 , then system property V1, then environment variable or system property V2 , and if none of these is available, "defaultValue" will be used.
 
