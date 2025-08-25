@@ -2,11 +2,11 @@
 
 ## Running Maven Builds
 
-JFrog CLI includes integration with Maven, allowing you to resolve dependencies and deploy build artifacts from and to Artifactory, while collecting build-info and storing it in Artifactory.
+JFrog CLI integrates with Maven, which you can use to resolve dependencies and deploy build artifacts from and to Artifactory, while collecting build-info and storing it in Artifactory.
 
 ### Setting maven repositories
 
-Before using the **jf mvn** command, the project needs to be pre-configured with the Artifactory server and repositories, to be used for building and publishing the project. The **jf mvn-config** command should be used once to add the configuration to the project. The command should run while inside the root directory of the project. The configuration is stored by the command in the **.jfrog** directory at the root directory of the project.
+Before you use the `jf mvn` command, you must first configure the project with the Artifactory server and repositories to be used for building and publishing. Use the `jf mvn-config` command once to add this configuration to the project. You should run the command from inside the root directory of the project. The command stores the configuration in the `.jfrog` directory at the project's root.
 
 |                             |                                                                                                                                                                                                                                                                   |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,19 +30,17 @@ Before using the **jf mvn** command, the project needs to be pre-configured with
 
 Before using `jf mvn-config`, you must first configure your Artifactory server with JFrog CLI using the `jf c add` command. For instance:
 
-```bash
-jf c add my-artifactory-server --url=[https://your-artifactory-url.jfrog.io](https://your-artifactory-url.jfrog.io) --user=your-user --password=your-password
+```
+jf c add my-artifactory-server --url=your-artifactory-url.jfrog.io --user=your-user --password=your-password
 ```
 
-Replace `my-artifactory-server` with your desired server ID, and `https://your-artifactory-url.jfrog.io`, `your-user`, and `your-password` with your actual Artifactory instance details.
+Replace `my-artifactory-server`, `your-artifactory-url.jfrog.io`, `your-user`, and `your-password` with your actual Artifactory instance details.
 
-Once your Artifactory server is configured, you can set your Maven repositories within your project's root directory:
+Once your Artifactory server is configured, you can set your Maven repositories from your project's root directory.
 
-**Example 1: Setting resolution and deployment repositories for the current project**
+Example 1: Setting Project-Specific Repositories This example defines the resolution and deployment repositories for the current project.
 
-This is the most common use case, where you define the repositories directly for the project you are currently working in.
-
-```bash
+```
 jf mvn-config \
     --server-id-resolve=my-artifactory-server \
     --repo-resolve-releases=maven-virtual-releases \
@@ -52,11 +50,11 @@ jf mvn-config \
     --repo-deploy-snapshots=maven-snapshots-local
 ```
 
-* `my-artifactory-server`: This should be the server ID you configured using `jf c add`.
-* `maven-virtual-releases`: Replace with the actual name of your Artifactory repository (e.g., `libs-release`, a virtual repository aggregating release repos) for resolving release dependencies.
-* `maven-virtual-snapshots`: Replace with the actual name of your Artifactory repository (e.g., `libs-snapshot`, a virtual repository aggregating snapshot repos) for resolving snapshot dependencies.
-* `maven-releases-local`: Replace with the actual name of your _local_ Artifactory repository for deploying release artifacts.
-* `maven-snapshots-local`: Replace with the actual name of your _local_ Artifactory repository for deploying snapshot artifacts.
+* my-artifactory-server: The server ID you configured using `jf c add`.
+* maven-virtual-releases: Your Artifactory repository for resolving release dependencies.
+* maven-virtual-snapshots: Your Artifactory repository for resolving snapshot dependencies.
+* maven-releases-local: Your local Artifactory repository for deploying release artifacts.
+* maven-snapshots-local: Your local Artifactory repository for deploying snapshot artifacts.
 
 ### Running maven
 
@@ -98,11 +96,11 @@ jf mvn clean install -f /path/to/pom.xml
 
 ## Running Gradle Builds
 
-JFrog CLI includes integration with Gradle, allowing you to resolve dependencies and deploy build artifacts from and to Artifactory, while collecting build-info and storing it in Artifactory.
+JFrog CLI integrates with Gradle, which you can use to resolve dependencies and deploy build artifacts from and to Artifactory, while collecting build-info and storing it in Artifactory.
 
-### Setting gradle repositories
+### Setting Gradle Repositories
 
-Before using the **gradle** command, the project needs to be pre-configured with the Artifactory server and repositories, to be used for building and publishing the project. The **gradle-config** command should be used once to add the configuration to the project. The command should run while inside the root directory of the project. The configuration is stored by the command in the\*\*.jfrog\*\* directory at the root directory of the project.
+Before using the `jf gradle` command, you must configure the project with the Artifactory server and repositories for building and publishing. The `jf gradle-config` command is used once per project to add this configuration. Run the command from the root directory of the project. The configuration is stored by the command in the `.jfrog` directory at the project's root.
 
 |                           |                                                                                                                                                                            |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -124,11 +122,11 @@ Before using the **gradle** command, the project needs to be pre-configured with
 
 ### Running gradle
 
-The **jf gradle** command triggers the gradle client, while resolving dependencies and deploying artifacts from and to Artifactory.
+The `jf gradle` command runs the Gradle client, resolving dependencies and deploying artifacts from and to Artifactory using the settings defined by `gradle-config`.
 
-> **Note**: Before running the **jf gradle** command on a project for the first time, the project should be configured with the **jf gradle-config** command.
+**Note:** Before running the `jf gradle` command on a project for the first time, you must configure the project with the `jf gradle-config` command.
 
-> **Note**: If the machine running JFrog CLI has no access to the internet, make sure to read the [Downloading the Maven and Gradle Extractor JARs](package-managers-integration.md#downloading-the-maven-and-gradle-extractor-jars)section.
+**Note:** If the machine running JFrog CLI does not have internet access, be sure to read the Downloading the Maven and Gradle Extractor JARs section.
 
 #### Commands Params
 
@@ -149,7 +147,7 @@ The following table lists the command arguments and flags:
 
 #### Example
 
-Build the project using the **artifactoryPublish** task, while resolving and deploying artifacts from and to Artifactory.
+Build the project using the `artifactoryPublish` task, while resolving dependencies from and deploying artifacts to Artifactory.
 
 ```
 jf gradle clean artifactoryPublish -b path/to/build.gradle
@@ -157,13 +155,15 @@ jf gradle clean artifactoryPublish -b path/to/build.gradle
 
 ## Downloading the Maven and Gradle Extractor JARs
 
-For integrating with Maven and Gradle, JFrog CLI uses the build-info-extractor jars files. These jar files are downloaded by JFrog CLI from jcenter the first time they are needed.
+For integration with Maven and Gradle, JFrog CLI uses the `build-info-extractor` JAR files. These JAR files are downloaded by JFrog CLI from jcenter the first time they are needed.
 
-If you're using JFrog CLI on a machine which has no access to the internet, you can configure JFrog CLI to download these jar files from an Artifactory instance. Here's how to configure Artifactory and JFrog CLI to download the jars files.
+If you are using JFrog CLI on a machine that has no access to the internet, you can configure it to download these JAR files from an Artifactory instance instead.
 
-1. Create a remote Maven repository in Artifactory and name it **extractors**. When creating the repository, configure it to proxy [https://releases.jfrog.io/artifactory/oss-release-local](https://releases.jfrog.io/artifactory/oss-release-local)
-2. Make sure that this Artifactory server is known to JFrog CLI, using the [jf c show](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration#showing-the-configured-servers) command. If not, configure it using the [jf c add](https://jfrog.com/help/r/jfrog-cli/Adding-and-Editing-Configured-Servers) command.
-3. Set the **JFROG\_CLI\_EXTRACTORS\_REMOTE** environment variable with the server ID of the Artifactory server you configured, followed by a slash, and then the name of the repository you created. For example _**my-rt-server/extractors**_
+To configure JFrog CLI to download the extractor JARs from Artifactory:
+
+1. Create a remote Maven repository in Artifactory and name it `extractors`. When creating the repository, configure it to proxy the following URL: `https://releases.jfrog.io/artifactory/oss-release-local`
+2. Verify that this Artifactory server is configured in JFrog CLI by using the `jf c show` command. If it is not, configure it using the `jf c add` command.
+3. Set the `JFROG_CLI_EXTRACTORS_REMOTE` environment variable. The value should be the Server ID of the configured Artifactory server, followed by a slash, and then the name of the repository you created. For example: `my-rt-server/extractors`.
 
 ## Running Builds with MSBuild
 
