@@ -1,6 +1,6 @@
 # GitLab Templates for JFrog
 
-This repository includes pipeline templates for GitLab CI, for a quick and easy integration with the [JFrog Platform](https://jfrog.com/platform/).
+This repository includes pipeline templates for GitLab CI for a quick and easy integration with the JFrog Platform.
 
 The templates use the [.setup-jfrog.yml](https://github.com/jfrog/jfrog-cli/blob/v2/build/gitlab/v2/) pipeline scripts. The script is included by each of the templates, and sets up the integration between the pipeline and the JFrog Platform.
 
@@ -20,11 +20,11 @@ The script does the following:
 
 #### Storing the JFrog Platform Connection Details
 
-Store the connection details of your JFrog Platform as [GitLab CI/CD variables](https://docs.gitlab.com/ee/ci/variables/) by using one of the following variables combinations:
+Store the connection details of your JFrog Platform as GitLab CI/CD variables using one of the following combinations:
 
-1. **JF\_URL** - Anonymous access (no authentication)
-2. **JF\_URL** + **JF\_USER** + **JF\_PASSWORD** - Basic authentication
-3. **JF\_URL** + **JF\_ACCESS\_TOKEN** - Authentication with JFrog Access Token. NOTE: When pulling and pushing docker images from/to Artifactory, the **JF\_USER** variable is also required, in addition to the **JF\_ACCESS\_TOKEN** variables
+* `JF_URL`: For anonymous access (no authentication).
+* `JF_URL` + `JF_USER` + `JF_PASSWORD`: For basic authentication.
+* `JF_URL` + `JF_ACCESS_TOKEN`: For authentication with a JFrog Access Token.
 
 #### Adding the setup-jfrog Script in Your Pipeline
 
@@ -88,11 +88,11 @@ As shown in the above [Including the Script](../../jfrog-applications/ci-and-sdk
 
 Configurations can be done via Project Settings > CI/CD > Variables:
 
-| Variable                   | Usage                                                                                                                                                                                                            |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| JF\_DOCKER\_REGISTRY       | Docker registry in Artifactory. For more info, see [Getting Started with Artifactory as a Docker Registry](https://www.jfrog.com/confluence/display/JFROG/Getting+Started+with+Artifactory+as+a+Docker+Registry) |
-| JFROG\_CLI\_BUILD\_PROJECT | JFrog project key to be used by commands which expect build name and build number. Determines the project of the published build.                                                                                |
-| JFROG\_CLI\_VERSION        | Use a specific JFrog CLI version instead of the latest version. The minimal version allowed is: 2.17.0                                                                                                           |
+| Variable                  | Usage                                                                                                                                                                                                            |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `JF_DOCKER_REGISTRY`      | Docker registry in Artifactory. For more info, see [Getting Started with Artifactory as a Docker Registry](https://www.jfrog.com/confluence/display/JFROG/Getting+Started+with+Artifactory+as+a+Docker+Registry) |
+| `JFROG_CLI_BUILD_PROJECT` | JFrog project key to be used by commands which expect build name and build number. Determines the project of the published build.                                                                                |
+| `JFROG_CLI_VERSION`       | Use a specific JFrog CLI version instead of the latest version. The minimal version allowed is: 2.17.0                                                                                                           |
 
 See more environment variables in the JFrog CLI [documentation](https://www.jfrog.com/confluence/display/CLI/CLI+for+JFrog+Artifactory#CLIforJFrogArtifactory-EnvironmentVariables).
 
