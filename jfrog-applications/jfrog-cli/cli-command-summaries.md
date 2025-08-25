@@ -2,9 +2,9 @@
 
 ## Overview
 
-The **Command Summaries** feature enables the recording of JFrog CLI command outputs into the local file system. This functionality can be used to generate a summary in the context of an entire workflow (a sequence of JFrog CLI commands) and not only in the scope of a specific command.
+The Command Summaries feature records JFrog CLI command outputs into the local file system. This functionality can be used to generate a summary in the context of an entire workflow (a sequence of JFrog CLI commands) and not only in the scope of a specific command.
 
-An instance of how **Command Summaries** are utilized can be observed in the [setup-cli GitHub action](https://github.com/jfrog/setup-jfrog-cli/blob/master/README.md#JFrog-Job-Summary). This action employs the compiled markdown to generate a comprehensive summary of the entire workflow.
+For example, the `setup-cli` [GitHub](https://github.com/jfrog/setup-jfrog-cli/blob/master/README.md#JFrog-Job-Summary) action uses the compiled markdown to generate a comprehensive summary of the entire workflow.
 
 ### Currently supported commands:
 
@@ -24,11 +24,15 @@ An instance of how **Command Summaries** are utilized can be observed in the [se
 
 ![jf-scan-example](../../.gitbook/assets/jf-build-scan-summary.png)
 
-## Notes for Developers
+### Notes for Developers
 
-Each command execution that incorporates this feature can save data files into the file system. These files are then used to create an aggregated summary in Markdown format.
+Each command execution that incorporates this feature can save data files to the file system. These files are then used to create an aggregated summary in Markdown format.
 
-Saving data to the filesystem is essential because CLI command executes in separate contexts. Consequently, each command that records new data should also incorporate any existing data into the aggregated markdown. This is required because the CLI cannot determine when a command will be the last one executed in a sequence of commands.
+Saving data to the file system is essential because each CLI command executes in a separate context. Consequently, each command that records new data should also incorporate any existing data into the aggregated markdown. This is required because the CLI cannot determine when a command will be the last one executed in a sequence.
+
+Warning: Files Remain After CLI Execution The CLI does not automatically remove the files, as they are designed to remain beyond a single execution. It is your responsibility to manage your pipelines and delete files as necessary. You can clear the entire directory of the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` that you have configured to activate this feature.
+
+To use Command Summaries, you will need to set the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR` environment variable. This variable designates the directory where the data files and markdown files will be stored.
 
 ### ⚠️ Attention: Files Remain After CLI Execution
 
@@ -38,7 +42,7 @@ To use the **Command Summaries**, you'll need to set the `JFROG_CLI_COMMAND_SUMM
 
 ### How to Implement?
 
-If you wish to contribute a new CLI command summary to the existing ones, you can submit a pull request once you've followed these implementation guidelines:
+To contribute a new CLI command summary, follow these implementation guidelines and then submit a pull request.
 
 1. Implement the CommandSummaryInterface
 2. Record data during runtime
@@ -111,7 +115,7 @@ func recordCommandSummary(data any) (err error) {
 
 Each command that implements the `CommandSummaryInterface` will have its own subdirectory inside the `JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR/JFROG_COMMAND_SUMMARY` directory.
 
-Every subdirectory will house data files, each one corresponding to a command recording, along with a markdown file that has been created from all the data files. The function implemented by the user is responsible for processing all the data files within its respective subdirectory and generating a markdown string.
+Every subdirectory will house data files, each one corresponding to a command recording, along with a markdown file that has been created from all the data files. The function you implement is responsible for processing all the data files within its subdirectory and generating a markdown string.
 
 ```
 JFROG_CLI_COMMAND_SUMMARY_OUTPUT_DIR/JFROG_COMMAND_SUMMARY  
