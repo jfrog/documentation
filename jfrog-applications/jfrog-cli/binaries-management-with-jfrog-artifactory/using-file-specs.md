@@ -1,9 +1,14 @@
 # Using File Specs
+
 ## Overview
 
-To achieve complex file manipulations you may require several CLI commands. For example, you may need to upload several different sets of files to different repositories. To simplify the implementation of these complex manipulations, you can apply JFrog CLI **download**, **upload**, **move**, **copy** and **delete** commands with JFrog Artifactory using **--spec** option to replace the inline command arguments and options. Similarly, you can **create and update release bundles** by providing the `--spec` command option. Each command uses an array of file specifications in JSON format with a corresponding schema as described in the sections below. Note that if any of these commands are issued using both inline options and the file specs, then the inline options override their counterparts specified in the file specs.
+To perform complex file operations, you may need to use several CLI commands. For example, you might need to upload different sets of files to different repositories. To simplify these complex operations, use the JFrog CLI download, upload, move, copy, and delete commands with the `--spec` option. This option uses a File Spec to replace inline command arguments and options. Similarly, you can create and update release bundles by providing the `--spec` command option.
+
+Each command uses a file specification array in JSON format. The schema for each command is described in the following sections. Note that if a command is issued with both inline options and a File Spec, the inline options override the corresponding settings in the File Spec.
 
 ## File Spec Schemas
+
+The following sections show the JSON schema for the different commands that support File Specs.
 
 ### Copy and Move Commands Spec Schema
 
@@ -133,11 +138,11 @@ The file spec schema for the search and delete commands are as follows:
 
 ### Examples
 
-The following examples can help you get started using File Specs.
+The following examples can help you get started with File Specs.
 
 #### Example 1
 
-Download all files located under the **all-my-frogs** directory in the **my-local-repo** repository to the **froggy** directory.
+Download all files from the `all-my-frogs/` directory in the `my-local-repo` repository to the local `froggy/` directory.
 
 ```
 {
@@ -151,7 +156,7 @@ Download all files located under the **all-my-frogs** directory in the **my-loca
 
 #### Example 2
 
-Download all files located under the **all-my-frogs** directory in the **my-local-repo** repository to the **froggy** directory. Download only files which are artifacts of build number 5 of build **my-build** .
+Download all files from `all-my-frogs/` in `my-local-repo`, but only include files that are artifacts of build number 5 of the `my-build` build.
 
 ```
 {
@@ -212,10 +217,7 @@ Download all files retrieved by the AQL query to the **froggy** directory.
 
 #### Example 4
 
-1. All zip files located under the **resources** directory to the **zip** folder, under the **all-my-frogs** repository. AND
-2. All TGZ files located under the **resources** directory to the \*\*tgz folder, under the **all-my-frogs** repository.
-3. Tag all zip files with type = zip and status = ready.
-4. Tag all tgz files with type = tgz and status = ready.
+Upload all `.zip` files from the `resources` directory to the `zip/` folder and all `.tgz` files to the `tgz/` folder within the `all-my-frogs` repository. Tag `.zip` files with `type=zip;status=ready` and `.tgz` files with `type=tgz;status=ready`.
 
 ```
 {
@@ -284,7 +286,7 @@ Notice that the exclude patterns do not include the repository.
 
 #### Example 8
 
-Download The latest file uploaded to the **all-my-frogs** directory in the **my-local-repo** repository.
+Download the most recently uploaded file from the `all-my-frogs/` directory in the `my-local-repo` repository.
 
 ```
 {
@@ -377,6 +379,8 @@ The following File Spec finds all the folders which match the following criteria
 
 This example uses [Using Placeholders](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#using-placeholders). For each .tgz file in the source directory, create a corresponding directory with the same name in the target repository and upload it there. For example, a file named froggy.tgz should be uploaded to my-local-rep/froggy. (froggy will be created a folder in Artifactory).
 
+For each `.tgz` file in the source directory, create a corresponding folder in the target repository and upload the file there. For example, `froggy.tgz` is uploaded to `my-local-repo/froggy/`.
+
 ```
 {
     "files": [
@@ -443,6 +447,7 @@ All occurrences of the "a1.in" file are fetched and mapped to the "froggy" repos
 The "pathMapping" option is provided, allowing users to control the destination of the release bundle artifacts at the edges.
 
 To learn more, visit the [Create Release Bundle v1 Version documentation](https://jfrog.com/help/r/jfrog-rest-apis/create-release-bundle-v1-version).
+
 ```json
 {
   "files": [
@@ -484,23 +489,15 @@ To learn more, visit the [Create Release Bundle v1 Version documentation](https:
 
 ### Schema Validation
 
-[JSON schemas](https://json-schema.org/) allow you to annotate and validate JSON files. The JFrog File Spec schema is available in the [JSON Schema Store](https://www.schemastore.org/json/) catalog and in the following link: [https://github.com/jfrog/jfrog-cli/blob/v2/schema/filespec-schema.json](https://github.com/jfrog/jfrog-cli/blob/v2/schema/filespec-schema.json).
+[JSON schemas](https://json-schema.org/) allow you to annotate and validate JSON files. The JFrog File Spec schema is available in the [JSON Schema Store](https://www.schemastore.org/json/) catalog and at this link: `https://github.com/jfrog/jfrog-cli/blob/v2/schema/filespec-schema.json`.
 
-#### Using Jetbrains IDEs (Intellij IDEA, Webstorm, Goland, etc...)?
+#### Using JetBrains IDEs
 
-The File Spec schema is automatically applied to the following file patterns:
-
-\*\*/filespecs/\*.json
-
-\*filespec\*.json
-
-\*.filespec
+JetBrains IDEs (IntelliJ IDEA, WebStorm, etc.) automatically apply the File Spec schema to files matching these patterns: `**/filespecs/*.json`, `*filespec*.json`, and `*.filespec`.
 
 #### Using Visual Studio Code?
 
-To apply the File Spec schema validation, install the [JFrog VS-Code extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-vscode-extension).
-
-Alternatively, copy the following to your settings.json file:
+To apply File Spec schema validation in VS Code, install the [JFrog VS Code extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-vscode-extension). Alternatively, add the following configuration to your `settings.json` file:
 
 **settings.json**
 
