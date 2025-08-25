@@ -1,11 +1,12 @@
 # Storing Symlinks in Artifactory
 
-JFrog CLI lets you upload and download artifacts from your local file system to Artifactory, this also includes uploading symlinks (soft links).
+JFrog CLI supports uploading and downloading symlinks (soft links) between your local file system and Artifactory.
 
-Symlinks are stored in Artifactory as files with a zero size, with the following properties:\
-**symlink.dest** - The actual path on the original filesystem to which the symlink points\
-**symlink.destsha1** - the SHA1 checksum of the value in the **symlink.dest** property
+Symlinks are stored in Artifactory as zero-byte files with the following properties:
 
-To upload symlinks, the `jf rt upload` command should be executed with the `--symlinks` option set to true.
+* `symlink.dest`: The path on the original file system to which the symlink points.
+* `symlink.destsha1`: The SHA1 checksum of the value in the `symlink.dest` property.
 
-When downloading symlinks stored in Artifactory, the CLI can verify that the file to which the symlink points actually exists and that it has the correct SHA1 checksum. To add this validation, you should use the `--validate-symlinks` option with the `jf rt download` command.
+To upload symlinks, run the `jf rt upload` command with the `--symlinks` option set to `true`.
+
+When downloading symlinks stored in Artifactory, the CLI can verify that the file to which the symlink points exists and has the correct SHA1 checksum. To add this validation, use the `--validate-symlinks` option with the `jf rt download` command.
