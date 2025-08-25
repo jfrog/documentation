@@ -16,11 +16,11 @@ The Jenkins JFrog Plugin allows for easy integration between Jenkins and the [JF
 
 #### General
 
-To use JFrog CLI in your pipelines jobs, you should configure it as a tool in Jenkins by going to **Manage Jenkins | Global Tool Configuration**. You can use one of the following installation options:
+To use JFrog CLI in your pipeline jobs, configure it as a tool in `Manage Jenkins | Global Tool Configuration`. You can use one of the following installation options.
 
 #### Automatic installation from release.jfrog.io
 
-If your agent has access to the internet, you can set the installer to automatically download JFrog CLI from https://releases.jfrog.io as shown in the below screenshot.
+If your agent has internet access, you can set the installer to automatically download JFrog CLI from `https://releases.jfrog.io`.
 
 
 
@@ -28,15 +28,13 @@ If your agent has access to the internet, you can set the installer to automatic
 
 If your agent cannot access the internet, you can set the installer to automatically download JFrog CLI from the JFrog instance you configured in Manage Jenkins | Configure System as shown in the below screenshot. To set this up, follow these steps:
 
-1. Create a generic remote repository in Artifactory for downloading JFrog CLI. You can name the repository **jfrog-cli-remote**. This is the name we'll be using here, but you can also choose a different name for the repository. Set the repository URL to https://releases.jfrog.io/artifactory/jfrog-cli/
-2. In **Manage Jenkins | Global Tool Configuration** select the Install from Artifactory option as shown in the screenshot below.\
-
-3. Set the Server ID of your JFrog instanced, which you configured in **Manage Jenkins | Configure System**. Also set **jfrog-cli-remote** as the name of the remote repository you created to download JFrog CLI from. If you used a different name for repository, set this name here.\
-
+* Create a generic remote repository in Artifactory for downloading JFrog CLI. You can name the repository `jfrog-cli-remote`. Set its URL to `https://releases.jfrog.io/artifactory/jfrog-cli/`.
+* In `Manage Jenkins | Global Tool Configuration`, select the Install from Artifactory option.
+* Set the Server ID of your JFrog instance and set `jfrog-cli-remote` as the name of the remote repository you created.
 
 #### Manual installation
 
-Install JFrog CLI manually on your build agent, and then set the path to the directory which includes the jf executable, as shown in the below screenshot.
+Install JFrog CLI manually on your build agent, and then set the path to the directory that includes the `jf` executable.
 
 
 
@@ -85,7 +83,7 @@ The list syntax also helps avoiding space and escaping problems, when some of th
 
 #### Setting the build name and the build number
 
-The plugin automatically sets the following environment variables: _JFROG\_CLI\_BUILD\_NAME_ and _JFROG\_CLI\_BUILD\_NUMBER_ with Jenkins's job name and build number respectively. You therefore don't need to specify the build name and build number on any of the build related JFrog CLI commands. If you wish to change the default values, add the following code to your pipeline script:
+The plugin automatically sets the `JFROG_CLI_BUILD_NAME` and `JFROG_CLI_BUILD_NUMBER` environment variables with the Jenkins job name and build number, respectively. You therefore do not need to specify the build name and build number on any of the build-related JFrog CLI commands. To change the default values, add the following code to your pipeline script:
 
 ```groovy
 environment {
