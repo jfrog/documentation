@@ -19,18 +19,18 @@ This command is used to initialize a new JFrog worker.
 | action                 | The name of the action to init (eg: BEFORE\_DOWNLOAD). To have the list of all available actions use `jf worker list-event`.                    |
 | worker-name            | The name of the worker.                                                                                                                         |
 
-This command will generate the following files:
+This command generates the following files:
 
-* `manifest.json` – The worker specification which includes its name, the code location, the secrets and all the data that is useful to the worker.
-* `package.json` – The file describing the development dependencies of the worker, this will not be used when executing your worker in our runtime.
-* `worker.ts` – The worker code source, here it will be our sample code for the event.
-* `worker.spec.ts` - The source code of the worker unit tests.
-* `tsconfig.json` - The Typescript configuration file.
-* `types.ts` - A file containing the event's specific types that can be used in the worker code.
+* `manifest.json` – Contains the Worker specification, including its name, code location, secrets, and other data useful to the Worker.
+* `package.json` – Describes the development dependencies of the Worker. This file is not used when executing your Worker in the runtime.
+* `worker.ts` – The Worker source code, populated with sample code for the event.
+* `worker.spec.ts` - The source code for the Worker's unit tests.
+* `tsconfig.json` - The TypeScript configuration file.
+* `types.ts` - A file containing the event's specific types that can be used in the Worker code.
 
-### Example
+#### Example: Initialize a `BEFORE_DOWNLOAD` Worker
 
-Initialize a new BEFORE\_DOWNLOAD worker named `my-worker`.
+This example initializes a new `BEFORE_DOWNLOAD` Worker named `my-worker`.
 
 ```
 jf worker init BEFORE_DOWNLOAD my-worker
