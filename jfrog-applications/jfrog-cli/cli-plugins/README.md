@@ -18,19 +18,21 @@ This command will install the plugin from the official public registry by defaul
 
 ## Private Plugins Registries
 
-In addition to the public official JFrog CLI Plugins Registry, JFrog CLI supports publishing and installing plugins to and from private JFrog CLI Plugins Registries. A private registry can be hosted on any Artifactory server. It uses a local generic Artifactory repository for storing the plugins.
+In addition to the public official JFrog CLI Plugins Registry, JFrog CLI supports publishing and installing plugins to and from private registries. A private registry can be hosted on any Artifactory server and uses a local generic Artifactory repository for storing the plugins.
 
-To create your own private plugins registry, follow these steps.
+To create your own private plugins registry:
 
-* On your Artifactory server, create a local generic repository named _jfrog-cli-plugins_.
-* Make sure your Artifactory server is included in JFrog CLI's configuration, by running the _jf c show_ command.
-* If needed, configure your Artifactory instance using the _jf c add_ command.
-* Set the ID of the configured server as the value of the JFROG\_CLI\_PLUGINS\_SERVER environment variable.
-* If you wish the name of the plugins repository to be different from jfrog-cli-plugins, set this name as the value of the JFROG\_CLI\_PLUGINS\_REPO environment variable.
+1. On your Artifactory server, create a local generic repository named `jfrog-cli-plugins`.
+2. Verify that your Artifactory server is configured in JFrog CLI by running the `jf c show` command.
+3. If needed, configure your Artifactory instance using the `jf c add` command.
+4. Set the ID of the configured server as the value of the `JFROG_CLI_PLUGINS_SERVER` environment variable.
+5. To use a repository name other than `jfrog-cli-plugins`, set the custom name as the value of the `JFROG_CLI_PLUGINS_REPO` environment variable.
 
-The **jf plugin install** command will now install plugins stored in your private registry.
+The `jf plugin install` command will now install plugins stored in your private registry.
 
-To publish a plugin to the private registry, run the following command, while inside the root of the plugin's sources directory. This command will build the sources of the plugin for all the supported operating systems. All binaries will be uploaded to the configured registry.
+
+
+To publish a plugin to your private registry, run the following command from the root directory of the plugin's source code. This command builds the plugin's source for all supported operating systems, and all binaries will be uploaded to the configured private registry.
 
 ```
 jf plugin publish the-plugin-name the-plugin-version
