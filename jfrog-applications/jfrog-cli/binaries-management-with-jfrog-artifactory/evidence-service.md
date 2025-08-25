@@ -2,7 +2,7 @@
 
 ## Overview
 
-Artifactory enables you to attach evidence (signed metadata) to a designated subject, such as an artifact, build, package, or Release Bundle v2. These evidence files act as attestations, providing a signed and verified record of an external process performed on the subject, for example, test results, vulnerability scans, and official approvals.
+With Artifactory, you can attach evidence (signed metadata) to a designated subject, such as an artifact, build, package, or Release Bundle v2. These evidence files act as attestations, providing a signed and verified record of an external process performed on the subject, for example, test results, vulnerability scans, and official approvals.
 
 JFrog's Evidence service generates an audit trail that documents all the security, quality, and operational steps performed to produce a production-ready software release. It provides a seamless way to consolidate information from the tools and platforms used in software development into a single source of truth that you can track and verify for governance and compliance.
 
@@ -32,6 +32,8 @@ For more information about the API used for deploying evidence to Artifactory, s
 
 ## Create Evidence
 
+Use the `create` command to create external evidence files, which are then deployed to Artifactory. You can create evidence for artifacts, packages, builds, and Release Bundles v2.
+
 The Create Evidence command creates external [evidence](https://jfrog.com/help/r/jfrog-artifactory-documentation/evidence-management) files, which are then deployed to Artifactory. You can create evidence for:
 
 * [Artifacts](evidence-service.md#artifact-command-parameters)
@@ -41,7 +43,7 @@ The Create Evidence command creates external [evidence](https://jfrog.com/help/r
 
 ### Authentication
 
-To create and deploy external evidence, use an access token or the web login mechanism for authentication. Basic authentication (username/password) is not supported.
+To create and deploy external evidence, use an access token or the web login mechanism for authentication. Basic authentication (username or password) is not supported.
 
 ### Syntax
 
