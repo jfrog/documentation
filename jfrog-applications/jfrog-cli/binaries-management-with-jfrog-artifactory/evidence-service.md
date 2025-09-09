@@ -88,7 +88,7 @@ https://in-toto.io/attestation/scai/attribute-report
 https://in-toto.io/attestation/runtime-trace/v0.1
 https://in-toto.io/attestation/test-result/v0.1
 https://in-toto.io/attestation/vulns
-</code></pre></td></tr><tr><td><code>--key</code><br>local-private-key-path</td><td>optional</td><td>Path to a private key (see Tip below). Supported key types: 'rsa', 'ed25519', 'ecdsa'<br><br>Supported key formats: PEM and SSH</td></tr><tr><td><code>--key-alias</code> <br>RSA-1024</td><td>optional</td><td><p>Case-sensitive name for the public key created from the private key (see Tip below). The public key is used to verify the DSSE envelope that contains the evidence.<br></p><ul><li>If the <code>key-alias</code> is included, DSSE verification will fail if the same <code>key-name</code> is not found in Artifactory.</li></ul><ul><li>If the <code>key-alias</code> is not included, DSSE verification with the public key is not performed during creation.</li></ul></td></tr><tr><td><code>--markdown</code><br>md-file</td><td>optional</td><td>Path to a file that contains evidence in Markdown format.</td></tr><tr><td><code>--project</code><br>project-name</td><td>optional</td><td>Name of the project associated with the evidence subject. This argument can be used with build, package, and Release Bundle evidence.</td></tr><tr><td><code>--provider-id</code></td><td>optional</td><td>Name of the provider that created the evidence.</td></tr><tr><td><code>--sigstore-bundle</code></td><td>optional</td><td>Path to a Sigstore bundle file containing a pre-signed DSSE envelope. If the evidence subject is not provided (using <code>--subject-repo-path</code>), Artifactory attempts to resolve the subject automatically from the DSSE envelope. Any subject resolution errors have exit code 2.<br><br><code>--sigstore-bundle</code> is incompatible with <code>--key</code>, <code>--key-alias</code>, <code>--predicate</code>, <code>--predicate-type</code>, and <code>--subject-sha256</code>.</td></tr></tbody></table>
+</code></pre></td></tr><tr><td><code>--key</code><br>local-private-key-path</td><td>optional</td><td>Path to a private key (see Tip below). Supported key types: 'rsa', 'ed25519', 'ecdsa'<br><br>Supported key formats: PEM and SSH</td></tr><tr><td><code>--key-alias</code> <br>RSA-1024</td><td>optional</td><td><p>Case-sensitive name for the public key created from the private key (see Tip below). The public key is used to verify the DSSE envelope that contains the evidence.<br></p><ul><li>If the <code>key-alias</code> is included, DSSE verification will fail if the same <code>key-name</code> is not found in Artifactory.</li></ul><ul><li>If the <code>key-alias</code> is not included, DSSE verification with the public key is not performed during creation.</li></ul></td></tr><tr><td><code>--markdown</code><br>md-file</td><td>optional</td><td>Path to a file that contains evidence in Markdown format.</td></tr><tr><td><code>--project</code><br>project-name</td><td>optional</td><td>Name of the project associated with the evidence subject. This argument can be used with build, package, and Release Bundle evidence.</td></tr><tr><td><code>--provider-id</code></td><td>optional</td><td>Name of the provider that created the evidence.</td></tr><tr><td><code>--sigstore-bundle</code></td><td>optional</td><td>Path to a Sigstore bundle file containing a pre-signed DSSE envelope. If the evidence subject is not provided (using <code>--subject-repo-path</code>), Artifactory attempts to resolve the subject automatically from the DSSE envelope. Any subject resolution errors have exit code 2.<br><br><code>--sigstore-bundle</code> is incompatible with <code>--key</code>, <code>--key-alias</code>, <code>--predicate</code>, <code>--predicate-type</code>, and <code>--subject-sha256</code>.</td></tr><tr><td><code>--integration</code></td><td>optional</td><td><p>Indicates an attestation created by a 3rd-party tool that can be converted by the JFrog platform into evidence.<br><br>Available values:</p><ul><li><code>sonar</code> : When enabled, the Evidence service automatically generates the predicate from SonarQube analysis data. Requires the <code>SONAR_TOKEN</code> or <code>SONARQUBE_TOKEN</code> environment variable to fetch the data from the SonarQube server.  For more information, see <a data-mention href="evidence-service.md#sonar-evidence-integration">#sonar-evidence-integration</a>.</li></ul></td></tr></tbody></table>
 
 ***
 
@@ -171,7 +171,7 @@ Evidence successfully created but not verified due to missing/invalid public key
 
 ### Sample commands
 
-**Artifact Evidence sample**
+**Artifact evidence sample**
 
 {% code overflow="wrap" %}
 ```
@@ -181,7 +181,7 @@ jf evd create --subject-repo-path example-generic/file.txt --subject-sha256 7afd
 
 In the sample above, the command creates a signed evidence file with a predicate type of SLSA provenance for an artifact named **file.txt**. The evidence was provided by gradle.
 
-**Package Evidence sample**
+**Package evidence sample**
 
 {% code overflow="wrap" %}
 ```
@@ -189,7 +189,7 @@ jf evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-t
 ```
 {% endcode %}
 
-**Build Evidence sample**
+**Build evidence sample**
 
 {% code overflow="wrap" %}
 ```
@@ -197,16 +197,69 @@ jf evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-t
 ```
 {% endcode %}
 
-**Release Bundle v2 Evidence sample**
+**Release Bundle v2 evidence sample**
 
 <pre data-overflow="wrap"><code><strong>jf evd create --predicate /Users/jsmith/Downloads/code-review.json --predicate-type https://in-toto.io/attestation/vulns --release-bundle bundledemo --release-bundle-version 1.0.0 --key /Users/jsmith/Documents/keys/private.pem --key-alias xyzey
 </strong></code></pre>
 
-**Sigstore Bundle Evidence sample**
+**Sigstore Bundle evidence sample**
 
 ```
 jf evd create --sigstore-bundle bundle.json
 ```
+
+### Sonar evidence integration
+
+The Evidence Collection service can convert Sonar attestations generated by SonarQube into JFrog evidence. All forms of evidence subjects are supported, including artifacts, packages, builds, and Release Bundles. A sample command is shown below:
+
+{% code overflow="wrap" %}
+```
+jf evd create --build-name build_name --build-number build_number --integration sonar --key path-to-key --key-alias key_alias
+```
+{% endcode %}
+
+#### Prerequisites
+
+* `SONAR_TOKEN` or `SONARQUBE_TOKEN` environment variable for fetching the data from Sonar
+* `report-task.txt` which contains the output of the Sonar code scan. These are the default locations for this file:
+
+| Type    | Default Location                        |
+| ------- | --------------------------------------- |
+| maven   | `target/sonar/report-task.txt`          |
+| gradle  | `build/sonar/report-task.txt`           |
+| cli     | `.scannerwork/report-task.txt`          |
+| msbuild | `.sonarqube/out/.sonar/report-task.txt` |
+
+#### Configuration options
+
+You can use either environment variables or a YAML file to set configuration options for Sonar evidence. The YAML file, which is called **evidence.yaml**, should be placed in the following folder: **.jfrog/evidence/evidence.yaml**
+
+| Environment variable              | YAML parameter           | Description                                                                                                          |
+| --------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| `SONAR_URL`                       | `url`                    | The Sonar URL. When the URL cannot be resolved from report-task.txt, the default value is **https://sonarcloud.io**. |
+| `SONAR_REPORT_TASK_FILE`          | `reportTaskFile`         | The location of the output produced by Sonar. Default locations are described in the table above.                    |
+| `SONAR_POLLING_MAX_RETRIES`       | `pollingMaxRetries`      | The maximum number of calls to the Sonar server to retrieve the report-task.txt file.                                |
+| `SONAR_POLLING_RETRY_INTERVAL_MS` | `pollingRetryIntervalMs` | The interval in milliseconds between polling attempts.                                                               |
+
+**Sample evidence.yaml file**
+
+```
+sonar:
+  url: https://sonarcloud.io
+  reportTaskFile: /path/to/report-task.txt
+  pollingMaxRetries: 30
+  pollingRetryIntervalMs: 5000
+```
+
+***
+
+**Note**
+
+Environment variables override the values defined in evidence.yaml.
+
+***
+
+To see a sample GitHub pipeline for creating Sonar evidence, go to [https://github.com/jfrog/Evidence-Examples/blob/main/.github/workflows/sonar-evidence-example.yml](https://github.com/jfrog/Evidence-Examples/blob/main/.github/workflows/sonar-evidence-example.yml). Additional information about Sonar evidence can be found [here](https://github.com/jfrog/Evidence-Examples/blob/main/examples/sonar-scan/README.md).&#x20;
 
 ## Get Evidence
 
