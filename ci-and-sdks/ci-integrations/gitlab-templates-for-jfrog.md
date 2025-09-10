@@ -47,12 +47,14 @@ include:
 You also have the option of downloading the matching script from [releases.jfrog.io](https://releases.jfrog.io/artifactory/jfrog-cli/gitlab/v2/), adding it to your project, and including it in your pipeline as follows:
 
 ```yaml
+include:
   - local: '.setup-jfrog-unix.yml'
 ```
 
 You can also include it from one of your projects as follows:
 
 ```yaml
+include:
   - project: 'my-group/my-project'
     file: '/script/.setup-jfrog-unix.yml'
 ```
