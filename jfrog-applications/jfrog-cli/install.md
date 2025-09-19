@@ -162,7 +162,7 @@ The following installers are available for JFrog CLI v2. These installers make J
 #### Debian
 
 ```
-wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog\_public\_gpg.key | sudo apt-key add - echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee -a /etc/apt/sources.list; apt update; apt install -y jfrog-cli-v2;
+wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog\_public\_gpg.key | sudo apt-key add - ; echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee -a /etc/apt/sources.list; apt update; apt install -y jfrog-cli-v2;
 ```
 
 #### RPM
@@ -210,7 +210,7 @@ The following installations are available for JFrog CLI v1. These installers mak
 #### Debian
 
 ```
-wget -qO - https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-debs/keyPairs/primary/public | sudo apt-key add - echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee -a /etc/apt/sources.list; apt update; apt install -y jfrog-cli;
+wget -qO - https://releases.jfrog.io/artifactory/api/v2/repositories/jfrog-debs/keyPairs/primary/public | sudo apt-key add - ; echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee -a /etc/apt/sources.list; apt update; apt install -y jfrog-cli;
 ```
 
 #### RPM
