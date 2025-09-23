@@ -939,76 +939,152 @@ The following command triggers twine upload, while recording the build artifacts
 jf twine upload "dist/*" --build-name my-build --build-number 1
 ```
 
-### Poetry
+## Configure Poetry Resolution for Artifactory (JFrog CLI)
 
-JFrog CLI provides partial support for building Python packages using the **poetry** package manager. This allows resolving python dependencies from Artifactory, but currently does NOT record downloaded packages as dependencies in the build-info.
+### Introduction
 
-#### Setting Python repository
+Use this procedure to configure which Artifactory PyPI repository Poetry resolves dependencies from when you use the JFrog-wrapped Poetry commands (`jf poetry` …). This setup is not used by native Poetry execution; for native workflows, configure credentials in Poetry via your repository’s Set Me Up instructions.
 
-Before you can use JFrog CLI to build your Python projects with Artifactory, you first need to set the repository for the project.
-
-Here's how you set the repositories.
-
-1. 'cd' into the root of the Python project.
-2. Run the **jf poetry-config** command as follows.
-
-**Commands Params**
-
-|                       |                                                                                                                                                                                 |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Command-name          | poetry-config                                                                                                                                                                   |
-| Abbreviation          | poc                                                                                                                                                                             |
-| **Command options:**  |                                                                                                                                                                                 |
-| `--global`            | <p>[Default false]<br>Set to true, if you'd like the configuration to be global (for all projects on the machine). Specific projects can override the global configuration.</p> |
-| `--server-id-resolve` | <p>[Optional]<br>Artifactory server ID for resolution. The server should configured using the 'jf c add' command.</p>                                                           |
-| `--repo-resolve`      | <p>[Optional]<br>Repository for dependencies resolution.</p>                                                                                                                    |
-
-**Examples**
-
-**Example 1**
-
-Set repositories for this Python project when using the poetry client.
+### CLI Structure
 
 ```
-jf poc
+jf poetry-config --server-id-resolve <SERVER_ID> --repo-resolve <PYPI_VIRTUAL_OR_REMOTE> [--global]
+# shorthand:
+jf poc --server-id-resolve <SERVER_ID> --repo-resolve <PYPI_VIRTUAL_OR_REMOTE> [--global]
 ```
 
-**Example 2**
+* `<SERVER_ID>`: The configured JFrog CLI server ID (create with jf c add).
+* `<PYPI_VIRTUAL_OR_REMOTE>`: The Artifactory PyPI virtual/remote repository used for dependency resolution.
+* `--global`: Apply on this machine for all projects (project config can override).\
 
-Set repositories for all Python projects using the poetry client on this machine.
+
+**Example**
+
+`# Project-scoped configuration`
+
+`jf poc --server-id-resolve art --repo-resolve pypi-virtual`
+
+\
+
+
+`# Global configuration`
+
+`jf poc --global --server-id-resolve art --repo-resolve pypi-virtual`
+
+### Additional information
+
+* Native Poetry execution ignores this configuration; use Set Me Up to configure Poetry credentials and repo there.\
+  \
+
+
+***
+
+## Install Python Dependencies with Poetry (JFrog CLI)
+
+### Introduction
+
+Use this procedure to install project dependencies from Artifactory using Poetry. You can run:
+
+* **Wrapped mode** (jf poetry install): uses the `jf poetry-config` resolution settings from the previous procedure.\
+
+* **Native mode** (poetry install with JFrog CLI pass-through): does not use `jf poetry-config`; configure Poetry via Set Me Up.\
+  \
+  \
+
+
+**Tip**: You can capture build-info during install by adding `--build-name` and `--build-number` flags to the wrapped command.\
+
+
+**CLI command**&#x20;
 
 ```
-jf poc --global
+jf poetry install [--build-name <BUILD_NAME>] [--build-number <BUILD_NUMBER>] [--project <PROJECT_KEY>] [--module <MODULE_ID>] [<NATIVE_POETRY_ARGS>...
 ```
 
-#### Installing Python packages
+* `<BUILD_NAME> / <BUILD_NUMBER>`: Identifiers used to collect and later publish build-info.
+* `<PROJECT_KEY>`: JFrog Project key (optional).
+* `<MODULE_ID>`: Optional module name override in build-info.
+* `<NATIVE_POETRY_ARGS>`: Any arguments supported by Poetry; JFrog CLI passes them through in native execution mode.\
+  \
 
-The **jf poetry install** commands use the **poetry** client to install the project dependencies from Artifactory.
 
-> **Note**: Before running the **poetry install** command on a project for the first time, the project should be configured using the **jf poetry-config** command.
+**Full example**
 
-**Commands Params**
+`# Wrapped install using configured resolution; collect build-info`
 
-|                      |                                                                                                                                                                                                                                          |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Command-name         | poetry                                                                                                                                                                                                                                   |
-| Abbreviation         |                                                                                                                                                                                                                                          |
-| **Command options:** |                                                                                                                                                                                                                                          |
-| `--build-name`       | <p>[Optional]<br>Build name. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p>   |
-| `--build-number`     | <p>[Optional]<br>Build number. For more details, please refer to <a href="https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory#build-integration">Build Integration</a>.</p> |
-| `--project`          | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                                  |
-| `--module`           | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                                            |
-| Command argument     | The command accepts the same arguments and options as the poetry clients.                                                                                                                                                                |
+`jf poetry install --build-name my-python-app --build-number 1.2.0`
 
-**Examples**
+\
 
-**Example 1**
 
-The following command triggers poetry install, while resolving dependencies from Artifactory.
+`# Native Poetry (credentials/repo set via Set Me Up)`
+
+`poetry install`
+
+### Additional information
+
+* Wrapped vs. native: users already on wrapped can continue, but we encourage moving to native over time.\
+
+* After install, continue to Publish Python Package with Poetry (JFrog CLI) if you need to deploy artifacts.\
+  \
+
+
+***
+
+## Publish Python Package with Poetry (JFrog CLI)
+
+### Introduction
+
+Use this procedure to build and deploy your Poetry package to an Artifactory PyPI local repository, while collecting build-info.
+
+
+
+**CLI command**
 
 ```
-jf poetry install .
+jf poetry publish --repo <PYPI_LOCAL> [--build-name <BUILD_NAME>] [--build-number <BUILD_NUMBER>] [--project <PROJECT_KEY>] [--module <MODULE_ID>] [<NATIVE_POETRY_ARGS>...]
 ```
+
+
+
+* `<PYPI_LOCAL>`: Target local PyPI repository in Artifactory for deployment.\
+
+* `<BUILD_NAME> / <BUILD_NUMBER>`: Build-info identifiers used to associate published artifacts to the build.\
+
+* `<PROJECT_KEY> / <MODULE_ID>`: Optional metadata for build-info organization.\
+
+* `<NATIVE_POETRY_ARGS>`: Any Poetry flags passed through by the CLI.\
+  \
+
+
+**Full example**
+
+```
+# Build and publish with build-info
+
+jf poetry publish --repo pypi-local \
+  --build-name my-python-app --build-number 1.2.0
+```
+
+### Additional information
+
+* If you prefer a fully native flow: `poetry build` then `poetry publish -r <REPO_ALIAS>` (credentials configured via Set Me Up), and publish build-info separately from your pipeline as needed.\
+
+
+**Next step**: finalize the record in Artifactory:\
+\
+`jf build-publish --build-name my-python-app --build-number 1.2.0`
+
+\
+
+
+***
+
+### Universal package note (applies to all Poetry procedures)
+
+JFrog CLI is a pass-through to Poetry for execution and output. Output format/behavior belongs to Poetry; if Poetry changes its output in a newer version, JFrog CLI would simply honor that without any custom adjustment.
+
+
 
 ## Building NuGet Packages
 
