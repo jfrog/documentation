@@ -222,6 +222,81 @@ JFrog CLI includes integration with MSBuild and Artifactory, allowing you to res
 
 For detailed instructions, please refer to our [MSBuild Project Example](https://github.com/eyalbe4/project-examples/tree/master/msbuild-example) on GitHub.
 
+
+
+
+
+## Jf Docker Login
+
+**Name**\
+`jf docker login` — Log in to an Artifactory Docker registry
+
+**Synopsis**
+
+`jf docker login [registry] [--server-id <id>] [--username <name>] [--password <pwd>]`
+
+\
+
+
+**Description**\
+Logs your local Docker client into an Artifactory Docker registry using credentials managed by JFrog CLI. After a successful login, you can run native Docker commands (e.g., docker pull, docker push, docker build) that interact with Artifactory without re-authenticating each time.
+
+**Arguments**
+
+* `registry` (optional) — The Docker registry to log into (e.g., my-docker.jfrog.io).\
+  If omitted, JFrog CLI uses the platform URL from the configured server (via jf config).\
+
+
+**Options**
+
+* `--server-id` (optional) — Use a specific configured server.
+* `--username` (optional) — Docker registry username.
+* `--password` (optional) — Docker registry password.\
+  \
+
+
+**Important notes**
+
+* When using -`-username/--password`, the registry argument is mandatory (Docker needs the exact registry for basic-auth).
+* If you omit `--server-id`, the command uses the default configured server.
+* If registry is omitted then platform url from default configured server will be used.
+* The registry argument can be useful in proxy/forward-proxy scenarios where the registry hostname differs from the platform base URL.\
+  \
+
+
+**Examples**
+
+1. Log in using the default server configured with `jf c add`:
+
+`jf docker login`\
+
+
+2. Log in to a specific configured server:
+
+`jf docker login --server-id my-jfrog`
+
+
+
+3. Log in to an explicit registry using a configured server:
+
+`jf docker login my-docker-registry.jfrog.io --server-id my-jfrog`
+
+
+
+4. Log in with username/password (requires registry):
+
+```
+jf docker login my-docker-registry.jfrog.io \
+  --username <USERNAME> \
+  --password <PASSWORD>
+```
+
+
+
+\
+\
+
+
 ## Managing Docker Images
 
 JFrog CLI provides full support for pulling and publishing docker images from and to Artifactory using the docker client running on the same machine. This allows you to collect build-info for your docker build and then publish it to Artifactory. You can also promote the pushed docker images from one repository to another in Artifactory.
