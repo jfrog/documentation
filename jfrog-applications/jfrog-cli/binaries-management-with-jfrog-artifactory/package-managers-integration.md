@@ -120,6 +120,57 @@ Before using the `jf gradle` command, you must configure the project with the Ar
 | `--ivy-artifacts-pattern` | <p>[Default: '[organization]/[module]/[revision]/[artifact]-<a href="-[classifier]/">revision</a>.[ext]'<br><br>Set the deployed Ivy artifacts pattern.</p>                |
 | **Command arguments:**    | The command accepts no arguments                                                                                                                                           |
 
+#### Selecting publications for Gradle (when no artifacts get deployed)
+
+If you run:
+
+`jf gradle clean artifactoryPublish ...`
+
+and the build succeeds but no artifacts are deployed, the Artifactory Gradle plugin likely doesn’t know which publication(s) to publish. You can specify them in any of the following ways:
+
+**Option 1 — gradle.properties**
+
+```
+# Gradle project property
+artifactory.publish.publications=release
+# Or multiple:
+# artifactory.publish.publications=release,debug
+```
+
+**Option 2 — Command line project property**
+
+```
+jf gradle clean artifactoryPublish \
+  -Partifactory.publish.publications=release \
+  --build-name="MyApplicationAndroidBuild" \
+  --build-number="1" \
+  --project="test"
+```
+
+**Option 3 — In your build script**
+
+```
+// build.gradle.kts
+extra["artifactory.publish.publications"] = "release"
+
+
+// build.gradle
+ext["artifactory.publish.publications"] = "release"
+```
+
+These options work because `jf gradle` passes all Gradle flags/properties through to the Gradle client, and the Artifactory Gradle plugin’s `artifactoryPublish` task publishes the specified publication(s). You can also hard-wire them via the plugin DSL:
+
+```
+// Kotlin DSL
+tasks.named<org.jfrog.gradle.plugin.artifactory.task.ArtifactoryTask>("artifactoryPublish") {
+    publications("release") // or multiple publications
+}
+```
+
+(Equivalent Groovy DSL uses artifactoryPublish { publications 'release' }.)[ JFrog Applications](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/package-managers-integration)[JFrog](https://jfrog.com/help/r/jfrog-integrations-documentation/the-artifactory-project-publish-task?contentId=O8yQXQzpftVUa_BR3LT79A)
+
+Tip: Verify that the publication (e.g., release) actually exists in your Gradle publishing block and that your Android/Gradle setup creates a MavenPublication for it.
+
 ### Running gradle
 
 The `jf gradle` command runs the Gradle client, resolving dependencies and deploying artifacts from and to Artifactory using the settings defined by `gradle-config`.
@@ -1259,3 +1310,12 @@ The command creates a package for the Terraform module in the current directory,
 jf tf p --namespace example --provider aws --tag v0.0.1 --build-name my-build --build-number 1
 jf rt bp my-build 1
 ```
+
+#### Troubleshooting: Build succeeded but nothing was deployed
+
+JFrog CLI invokes your package manager and passes native flags through unchanged. If your build finishes successfully but no artifacts appear in Artifactory (or only build-info is recorded), check whether your native tool requires you to select a target to publish:
+
+* **Gradle (Artifactory Gradle plugin):** you must tell the plugin which publication(s) to deploy (see “Selecting publications for Gradle” below).[ JFrog](https://jfrog.com/help/r/jfrog-integrations-documentation/the-artifactory-project-publish-task?contentId=O8yQXQzpftVUa_BR3LT79A)
+* **Maven:** make sure you run a phase/goal that actually deploys (e.g., deploy, or install if your setup deploys during install). The CLI accepts Maven args as-is.[ JFrog Applications](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/package-managers-integration)
+
+npm / yarn: install only resolves. Use jf npm publish (or jf rt upload) to push a package; CLI accepts native args as-is.[ JFrog Applications](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/package-managers-integration)
