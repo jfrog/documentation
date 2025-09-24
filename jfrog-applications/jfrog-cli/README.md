@@ -1,4 +1,4 @@
-# JFrog CLI
+# JFrog BO*Bs CLIck ;-p
 
 ![](../../.gitbook/assets/jfrog-cli-header.png)
 
