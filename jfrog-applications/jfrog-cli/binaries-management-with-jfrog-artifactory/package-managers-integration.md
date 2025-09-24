@@ -14,8 +14,8 @@ Before you use the `jf mvn` command, you must first configure the project with t
 | Abbreviation                | mvnc                                                                                                                                                                                                                                                              |
 | **Command options:**        |                                                                                                                                                                                                                                                                   |
 | `--global`                  | <p>[Optional]<br>Set to true, if you'd like the configuration to be global (for all projects on the machine). Specific projects can override the global configuration.</p>                                                                                        |
-| `--server-id-resolve`       | <p>[Optional]<br>Server ID for resolution. The server should configured using the 'jf rt c' command.</p>                                                                                                                                                          |
-| `--server-id-deploy`        | <p>[Optional]<br>Server ID for deployment. The server should be configured using the 'jf rt c' command.</p>                                                                                                                                                       |
+| `--server-id-resolve`       | <p>[Optional]<br>Server ID for resolution. The server should configured using the 'jf c add' command.</p>                                                                                                                                                         |
+| `--server-id-deploy`        | <p>[Optional]<br>Server ID for deployment. The server should be configured using the 'jf c add' command.</p>                                                                                                                                                      |
 | `--repo-resolve-releases`   | <p>[Optional]<br>Resolution repository for release dependencies.</p>                                                                                                                                                                                              |
 | `--repo-resolve-snapshots`  | <p>[Optional]<br>Resolution repository for snapshot dependencies.</p>                                                                                                                                                                                             |
 | `--repo-deploy-releases`    | <p>[Optional]<br>Deployment repository for release artifacts.</p>                                                                                                                                                                                                 |
@@ -84,7 +84,8 @@ The following table lists the command arguments and flags:
 
 #### Deploying Maven Artifacts
 
-The deployment to Artifacts is triggered both by the deployment and install phases. To disable artifacts deployment, add **-Dartifactory.publish.artifacts=false** to the list of goals and options. For example: "**jf mvn clean install -Dartifactory.publish.artifacts=false**"
+The deployment to Artifactory is triggered in the deploy phase (and in some setups during install). To disable deployment, add -Dartifactory.publish.artifacts=false to your goals/options, for example:\
+`"jf mvn clean install -Dartifactory.publish.artifacts=false"`
 
 #### Example
 
@@ -158,13 +159,16 @@ extra["artifactory.publish.publications"] = "release"
 ext["artifactory.publish.publications"] = "release"
 ```
 
-These options work because `jf gradle` passes all Gradle flags/properties through to the Gradle client, and the Artifactory Gradle plugin’s `artifactoryPublish` task publishes the specified publication(s). You can also hard-wire them via the plugin DSL:
+These options work because '`jf gradle`' passes flags/properties through to the Gradle client, and the Artifactory Gradle plugin’s '`artifactoryPublish`' task publishes the specified publication(s). You can also hard-wire them via the plugin DSL:
 
 ```
+
 // Kotlin DSL
 tasks.named<org.jfrog.gradle.plugin.artifactory.task.ArtifactoryTask>("artifactoryPublish") {
     publications("release") // or multiple publications
 }
+// Groovy DSL: artifactoryPublish { publications 'release' }
+
 ```
 
 (Equivalent Groovy DSL uses artifactoryPublish { publications 'release' }.)[ JFrog Applications](https://docs.jfrog-applications.jfrog.io/jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/package-managers-integration)[JFrog](https://jfrog.com/help/r/jfrog-integrations-documentation/the-artifactory-project-publish-task?contentId=O8yQXQzpftVUa_BR3LT79A)
@@ -206,7 +210,7 @@ jf gradle clean artifactoryPublish -b path/to/build.gradle
 
 ## Downloading the Maven and Gradle Extractor JARs
 
-For integration with Maven and Gradle, JFrog CLI uses the `build-info-extractor` JAR files. These JAR files are downloaded by JFrog CLI from jcenter the first time they are needed.
+For integration with Maven and Gradle, JFrog CLI uses build-info-extractor JAR files. These JARs are downloaded by JFrog CLI from JFrog’s distribution (releases.jfrog.io) the first time they are needed.
 
 If you are using JFrog CLI on a machine that has no access to the internet, you can configure it to download these JAR files from an Artifactory instance instead.
 
@@ -304,7 +308,7 @@ JFrog CLI provides full support for pulling and publishing docker images from an
 To build and push your docker images to Artifactory, follow these steps:
 
 1. Make sure Artifactory can be used as docker registry. Please refer to [Getting Started with Docker and Artifactory](https://jfrog.com/help/r/jfrog-artifactory-documentation/Getting-Started-With-Artifactory-As-A-docker-Registry) in the JFrog Artifactory User Guide.
-2. Make sure that the installed docker client has version **17.07.0-ce (2017-08-29)** or above. To verify this, run **docker -v**\*\*
+2. Make sure the installed Docker client is version 17.07.0-ce (2017-08-29) or newer. To verify, run: `docker -v`
 3. To ensure that the docker client and your Artifactory docker registry are correctly configured to work together, run the following code snippet.
 
 ```
@@ -341,7 +345,7 @@ The following table lists the command arguments and flags:
 | `--project`            | <p>[Optional]<br>JFrog project key.</p>                                                                                                                                                                                                  |
 | `--module`             | <p>[Optional]<br>Optional module name for the build-info.</p>                                                                                                                                                                            |
 | `--skip-login`         | <p>[Default: false]<br>Set to true if you'd like the command to skip performing docker login.</p>                                                                                                                                        |
-| **Command arguments:** | The same arguments and options supported by the docker client/                                                                                                                                                                           |
+| **Command arguments:** | Accepts the same arguments and options as the Docker client.                                                                                                                                                                             |
 
 #### Example
 
@@ -894,7 +898,7 @@ The following example runs Go build command, while recording the build-info loca
 > **Note**: Before using this example, please make sure to set repositories for the Go project using the go-config command.
 
 ```
-jf rt go build --build-name=my-build --build-number=1
+jf go build --build-name=my-build --build-number=1
 ```
 
 ### Publishing Go Packages to Artifactory
@@ -1199,7 +1203,7 @@ jf poetry publish --repo pypi-local \
 
 **Next step**: finalize the record in Artifactory:\
 \
-`jf build-publish --build-name my-python-app --build-number 1.2.0`
+`jf rt build-publish my-python-app 1.2.0`
 
 \
 
@@ -1222,9 +1226,12 @@ To publish your NuGet packages to Artifactory, use the [jf rt upload](https://do
 
 ### Setting NuGet repositories
 
-Before using the**nuget** or **dotnet** commands, the project needs to be pre-configured with the Artifactory server and repository, to be used for building the project.
+Before using the nuget or dotnet commands, the project needs to be pre-configured...\
+The nuget command runs the NuGet client and the dotnet command runs the .NET Core CLI.
 
 Before using the nuget or dotnet commands, the **nuget-config** or **dotnet-config** commands should be used respectively. These commands configure the project with the details of the Artifactory server and repository, to be used for the build. The **nuget-config** or **dotnet-config** commands should be executed while inside the root directory of the project. The configuration is stored by the command in the **.jfrog** directory at the root directory of the project. You then have the option of storing the .jfrog directory with the project sources, or creating this configuration after the sources are checked out.
+
+
 
 The following table lists the commands' options:
 
