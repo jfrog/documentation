@@ -743,7 +743,7 @@ jf npm publish --run-native
 
 JFrog CLI provides full support for building npm packages using the yarn client. This allows you to resolve npm dependencies, while collecting build-info and storing it in Artifactory. You can download npm packages from any npm repository type - local, remote or virtual. Publishing the packages to a local npm repository is supported through the **jf rt upload** command.
 
-**Note:** "Yarn versions from 2.4.0 up to, but not including, Yarn 4.x are supported. Yarn 4.x is currently not supported by JFrog CLI."
+**Note:** JFrog CLI supports Yarn versions 2.4.0 through 3.x. Yarn 4.x is currently not supported.
 
 ### Setting npm repositories
 
@@ -781,6 +781,8 @@ The following table lists the command arguments and flags:
 | **Command arguments:** | The command accepts the same arguments and options as the yarn client.                                                                                                                                                                   |
 
 #### Examples
+
+> Using the `jf yarn install` command with Yarn version 4.x will result in an `Error] Yarn version 4 is not supported` message, and the operation will fail. This support is currently being tracked as an improvement request.
 
 **Example 1**
 
