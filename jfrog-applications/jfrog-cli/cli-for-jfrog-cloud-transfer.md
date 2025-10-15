@@ -32,6 +32,7 @@ Keep the following limitations in mind before you start the migration process:
 * Files deleted on the source instance after the process starts are not deleted on the target.
 * If only the custom properties of files are modified on the source (but not the content), the properties are not updated on the target.
 * When transferring files in build-info repositories, JFrog CLI limits the total working threads to 8 to limit the load on the target instance.
+* If you are using [Terraform Backend Repository](https://jfrog.com/help/r/jfrog-artifactory-documentation/terraform-backend-repository), the state files will be encrypted by default. You must disable the encryptStates flag (i.e. set it to false) in the [Local Repository Configuration](https://jfrog.com/help/access?ft:originId=UUID-8a8767a7-15cc-2298-47af-1db3c9e24513\&ft:sourceId=pal\&ft:section=UUID-8a8767a7-15cc-2298-47af-1db3c9e24513_id_RepositoryConfigurationJSON-LocalRepository) JSON (the default value for this flag is true) to make sure all state files are decrypted at source before migration starts.
 
 ### Transfer phases
 
