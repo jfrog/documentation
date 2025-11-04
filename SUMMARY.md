@@ -12,8 +12,6 @@
   * [Configurations](jfrog-applications/jfrog-cli/configurations/README.md)
     * [JFrog Platform Configuration](jfrog-applications/jfrog-cli/configurations/jfrog-platform-configuration.md)
     * [Proxy Support](jfrog-applications/jfrog-cli/configurations/proxy-support.md)
-  * [CLI AI Assistant](jfrog-applications/jfrog-cli/cli-ai/README.md)
-    * [AI Assistant Addendum](jfrog-applications/jfrog-cli/cli-ai/terms.md)
   * [Binaries Management with JFrog Artifactory](jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/README.md)
     * [Environment Variables](jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/environment-variables.md)
     * [Authentication](jfrog-applications/jfrog-cli/binaries-management-with-jfrog-artifactory/authentication.md)
