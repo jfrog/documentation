@@ -1,27 +1,3 @@
 # Edit Worker Schedule
 
-### Overview
-
-
-
-Edit the manifest of a SCHEDULED\_EVENT worker to udpate the schedule criteria.
-
-The worker should be deploy afterward with `jf worker deploy` for the change to be applied to the server.
-
-|                      |                                                                                                                         |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Command name         | worker edit-schedule                                                                                                    |
-| Abbreviation         | worker es                                                                                                               |
-| **Command options:** |                                                                                                                         |
-| `--cron`             | \[Mandatory] A standard cron expression with minutes resolution. Seconds resolution is not supported by Worker service. |
-| `--timezone`         | \[Default: UTC] The timezone to use for scheduling.                                                                     |
-
-### Example
-
-
-
-Edit a worker manifest so that it is executed every minute.
-
-```
-jf worker edit-schedule --cron "* * * * *"
-```
+Documentation on how to edit the Worker schedule via the JFrog CLI has moved. You can view it at its new location [here](https://jfrog.com/help/r/jfrog-applications-and-cli-documentation/edit-worker-schedule).&#x20;

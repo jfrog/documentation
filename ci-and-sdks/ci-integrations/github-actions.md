@@ -1,3 +1,3 @@
 # GitHub Actions
 
-The **Setup JFrog CLI** GitHub Action automates the process of downloading, installing, and configuring the JFrog CLI, enabling its use within your GitHub workflow. For comprehensive documentation, visit the [GitHub Actions Marketplace](https://github.com/marketplace/actions/setup-jfrog-cli).
+Documentation for setting up a GitHub Action for **JFrog CLI** has moved. You can view it at its new location [here](https://jfrog.com/help/r/jfrog-applications-and-cli-documentation/github-actions).&#x20;

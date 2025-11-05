@@ -1,11 +1,3 @@
 # Proxy Support
 
-JFrog CLI supports using an HTTP or HTTPS proxy. To configure proxy support, you must set the `HTTP_PROXY` or `HTTPS_PROXY` environment variable with the proxy URL.
-
-The `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` environment variables are industry standards for proxy configuration.
-
-| Variable Name | Description                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `HTTP_PROXY`  | Determines a URL to an HTTP proxy.                                                                                                                                                                                                                                                                                                                                                    |
-| `HTTPS_PROXY` | Determines a URL to an HTTPS proxy.                                                                                                                                                                                                                                                                                                                                                   |
-| `NO_PROXY`    | Use this variable to specify a comma-separated list of IP addresses, subnets, or domains that should bypass the proxy. The list should not contain protocols or ports. For syntax details, see the standard Go `NO_PROXY` [documentation](https://about.gitlab.com/blog/we-need-to-talk-no-proxy/). For example, a typical use is to set this variable to the Artifactory IP address. |
+Documentation on proxy support for the JFrog CLI has moved. You can view it in its new location [here](https://jfrog.com/help/r/jfrog-applications-and-cli-documentation/proxy-support).
